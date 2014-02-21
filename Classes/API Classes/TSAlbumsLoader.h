@@ -6,15 +6,9 @@
 //  Copyright (c) 2014 Tomasz Szulc. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "TSBaseLoader.h"
 
-@class ALAssetsLibrary, ALAssetsFilter;
-
-@interface TSAlbumsLoader : NSObject
-@property (nonatomic, readonly) ALAssetsLibrary *library;
-@property (nonatomic, readonly) ALAssetsFilter *filter;
-
-- (instancetype)initWithLibrary:(ALAssetsLibrary *)library filter:(ALAssetsFilter *)filter;
+@interface TSAlbumsLoader : TSBaseLoader
 
 - (void)fetchAlbumNames:(void (^)(NSString *albumName))block;
 

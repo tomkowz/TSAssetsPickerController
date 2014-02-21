@@ -12,24 +12,12 @@
 
 @implementation TSAlbumsLoader
 
-- (instancetype)initWithLibrary:(ALAssetsLibrary *)library filter:(ALAssetsFilter *)filter {
-    NSParameterAssert(library);
-    NSParameterAssert(filter);
-    
-    self = [super init];
-    if (self) {
-        _library = library;
-        _filter = filter;
-    }
-    return self;
-}
-
 - (void)fetchAlbumNames:(void (^)(NSString *albumName))block {
-    [_library enumerateGroupsWithTypes:ALAssetsGroupAll
+    [self.library enumerateGroupsWithTypes:ALAssetsGroupAll
                             usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
                                 if (group) {
                                     __block NSString *groupName = @"";
-                                    [group setAssetsFilter:_filter];
+                                    [group setAssetsFilter:self.filter];
                                     [group enumerateAssetsUsingBlock:^(ALAsset *result, NSUInteger index, BOOL *stop) {
                                         if (result) {
                                             groupName = [group valueForProperty:ALAssetsGroupPropertyName];

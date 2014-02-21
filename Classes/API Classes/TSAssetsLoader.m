@@ -13,18 +13,7 @@
 @implementation TSAssetsLoader
 
 - (instancetype)initWithLibrary:(ALAssetsLibrary *)library filter:(ALAssetsFilter *)filter {
-    NSParameterAssert(library);
-    NSParameterAssert(filter);
-    self = [self init];
-    if (self) {
-        _library = library;
-        _filter = filter;
-    }
-    return self;
-}
-
-- (id)init {
-    self = [super init];
+    self = [super initWithLibrary:library filter:filter];
     if (self) {
         _fetchedAssets = [NSArray array];
     }
@@ -34,10 +23,10 @@
 - (void)fetchAssetsFromAlbum:(NSString *)album block:(void (^)(NSArray *loadedAssets))block {
     [self removeFetchedAssets];
     NSMutableArray *mutableAssets = [NSMutableArray new];
-    [_library enumerateGroupsWithTypes:ALAssetsGroupAll
+    [self.library enumerateGroupsWithTypes:ALAssetsGroupAll
                            usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
                                if (group && [[group valueForProperty:ALAssetsGroupPropertyName] isEqualToString:album]) {
-                                   [group setAssetsFilter:_filter];
+                                   [group setAssetsFilter:self.filter];
                                    [group enumerateAssetsUsingBlock:^(ALAsset *result, NSUInteger index, BOOL *stop) {
                                        if (result) {
                                            [mutableAssets addObject:result];

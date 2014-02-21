@@ -31,6 +31,7 @@
 		6D970A6918B7F8BE00D1D34B /* AssetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D970A5C18B7F8BE00D1D34B /* AssetCell.m */; };
 		6D970A6A18B7F8BE00D1D34B /* TSAssetsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D970A5E18B7F8BE00D1D34B /* TSAssetsViewController.m */; };
 		6D970A6B18B7F8BE00D1D34B /* DummyAssetsImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D970A6118B7F8BE00D1D34B /* DummyAssetsImporter.m */; };
+		6D970A6E18B7FC8600D1D34B /* TSBaseLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D970A6D18B7FC8600D1D34B /* TSBaseLoader.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,8 @@
 		6D970A5E18B7F8BE00D1D34B /* TSAssetsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSAssetsViewController.m; sourceTree = "<group>"; };
 		6D970A6018B7F8BE00D1D34B /* DummyAssetsImporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DummyAssetsImporter.h; sourceTree = "<group>"; };
 		6D970A6118B7F8BE00D1D34B /* DummyAssetsImporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DummyAssetsImporter.m; sourceTree = "<group>"; };
+		6D970A6C18B7FC8600D1D34B /* TSBaseLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSBaseLoader.h; sourceTree = "<group>"; };
+		6D970A6D18B7FC8600D1D34B /* TSBaseLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSBaseLoader.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,12 +200,14 @@
 		6D970A4918B7F8BE00D1D34B /* API Classes */ = {
 			isa = PBXGroup;
 			children = (
+				6D970A6C18B7FC8600D1D34B /* TSBaseLoader.h */,
+				6D970A6D18B7FC8600D1D34B /* TSBaseLoader.m */,
 				6D970A4A18B7F8BE00D1D34B /* TSAlbumsLoader.h */,
 				6D970A4B18B7F8BE00D1D34B /* TSAlbumsLoader.m */,
-				6D970A4C18B7F8BE00D1D34B /* TSAssetsContainer.h */,
-				6D970A4D18B7F8BE00D1D34B /* TSAssetsContainer.m */,
 				6D970A4E18B7F8BE00D1D34B /* TSAssetsLoader.h */,
 				6D970A4F18B7F8BE00D1D34B /* TSAssetsLoader.m */,
+				6D970A4C18B7F8BE00D1D34B /* TSAssetsContainer.h */,
+				6D970A4D18B7F8BE00D1D34B /* TSAssetsContainer.m */,
 				6D970A5018B7F8BE00D1D34B /* TSAssetsManager.h */,
 				6D970A5118B7F8BE00D1D34B /* TSAssetsManager.m */,
 			);
@@ -355,6 +360,7 @@
 				6D970A6218B7F8BE00D1D34B /* TSAlbumsLoader.m in Sources */,
 				6D9709FE18B7F41E00D1D34B /* TSAppDelegate.m in Sources */,
 				6D970A6518B7F8BE00D1D34B /* TSAssetsManager.m in Sources */,
+				6D970A6E18B7FC8600D1D34B /* TSBaseLoader.m in Sources */,
 				6D970A0418B7F41E00D1D34B /* TSViewController.m in Sources */,
 				6D970A6718B7F8BE00D1D34B /* CenterLabeledCell.m in Sources */,
 				6D970A6418B7F8BE00D1D34B /* TSAssetsLoader.m in Sources */,
