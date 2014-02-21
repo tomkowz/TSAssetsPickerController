@@ -10,25 +10,36 @@
 
 #import <AssetsLibrary/AssetsLibrary.h>
 
-@implementation TSAlbumsLoader
+@implementation TSAlbumsLoader 
 
-- (void)fetchAlbumNames:(void (^)(NSString *albumName))block {
+- (void)fetchAlbumNames:(void (^)(NSArray *))block {
+    [self removeFetchedObjects];
+    NSMutableArray *fetchedAlbumNames = [NSMutableArray array];
     [self.library enumerateGroupsWithTypes:ALAssetsGroupAll
                             usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
                                 if (group) {
-                                    __block NSString *groupName = @"";
+                                    __block NSString *groupName = nil;
                                     [group setAssetsFilter:self.filter];
                                     [group enumerateAssetsUsingBlock:^(ALAsset *result, NSUInteger index, BOOL *stop) {
                                         if (result) {
                                             groupName = [group valueForProperty:ALAssetsGroupPropertyName];
-                                            block(groupName);
                                             *stop = YES;
                                         }
                                     }];
+                                    
+                                    if (groupName) {
+                                        [fetchedAlbumNames addObject:groupName];
+                                        _fetchedAlbumNames = [NSArray arrayWithArray:fetchedAlbumNames];
+                                        block(_fetchedAlbumNames);
+                                    }
                                 }
                             } failureBlock:^(NSError *error) {
                                 block(nil);
                             }];
+}
+
+- (void)removeFetchedObjects {
+    _fetchedAlbumNames = [NSArray array];
 }
 
 @end

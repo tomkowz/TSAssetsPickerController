@@ -9,7 +9,8 @@
 #import "TSBaseLoader.h"
 
 @interface TSAlbumsLoader : TSBaseLoader
+@property (nonatomic, readonly) NSArray *fetchedAlbumNames;
 
-- (void)fetchAlbumNames:(void (^)(NSString *albumName))block;
+- (void)fetchAlbumNames:(void (^)(NSArray *albumNames))block;
 
 @end

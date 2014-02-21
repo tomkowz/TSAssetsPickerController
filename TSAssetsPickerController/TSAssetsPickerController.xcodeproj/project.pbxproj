@@ -26,7 +26,7 @@
 		6D970A6418B7F8BE00D1D34B /* TSAssetsLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D970A4F18B7F8BE00D1D34B /* TSAssetsLoader.m */; };
 		6D970A6518B7F8BE00D1D34B /* TSAssetsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D970A5118B7F8BE00D1D34B /* TSAssetsManager.m */; };
 		6D970A6618B7F8BE00D1D34B /* AlbumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D970A5518B7F8BE00D1D34B /* AlbumCell.m */; };
-		6D970A6718B7F8BE00D1D34B /* CenterLabeledCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D970A5718B7F8BE00D1D34B /* CenterLabeledCell.m */; };
+		6D970A6718B7F8BE00D1D34B /* CenteredLabelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D970A5718B7F8BE00D1D34B /* CenteredLabelCell.m */; };
 		6D970A6818B7F8BE00D1D34B /* TSAlbumsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D970A5918B7F8BE00D1D34B /* TSAlbumsViewController.m */; };
 		6D970A6918B7F8BE00D1D34B /* AssetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D970A5C18B7F8BE00D1D34B /* AssetCell.m */; };
 		6D970A6A18B7F8BE00D1D34B /* TSAssetsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D970A5E18B7F8BE00D1D34B /* TSAssetsViewController.m */; };
@@ -74,8 +74,8 @@
 		6D970A5118B7F8BE00D1D34B /* TSAssetsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSAssetsManager.m; sourceTree = "<group>"; };
 		6D970A5418B7F8BE00D1D34B /* AlbumCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumCell.h; sourceTree = "<group>"; };
 		6D970A5518B7F8BE00D1D34B /* AlbumCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumCell.m; sourceTree = "<group>"; };
-		6D970A5618B7F8BE00D1D34B /* CenterLabeledCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CenterLabeledCell.h; sourceTree = "<group>"; };
-		6D970A5718B7F8BE00D1D34B /* CenterLabeledCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CenterLabeledCell.m; sourceTree = "<group>"; };
+		6D970A5618B7F8BE00D1D34B /* CenteredLabelCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CenteredLabelCell.h; sourceTree = "<group>"; };
+		6D970A5718B7F8BE00D1D34B /* CenteredLabelCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CenteredLabelCell.m; sourceTree = "<group>"; };
 		6D970A5818B7F8BE00D1D34B /* TSAlbumsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSAlbumsViewController.h; sourceTree = "<group>"; };
 		6D970A5918B7F8BE00D1D34B /* TSAlbumsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSAlbumsViewController.m; sourceTree = "<group>"; };
 		6D970A5B18B7F8BE00D1D34B /* AssetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssetCell.h; sourceTree = "<group>"; };
@@ -228,8 +228,8 @@
 			children = (
 				6D970A5418B7F8BE00D1D34B /* AlbumCell.h */,
 				6D970A5518B7F8BE00D1D34B /* AlbumCell.m */,
-				6D970A5618B7F8BE00D1D34B /* CenterLabeledCell.h */,
-				6D970A5718B7F8BE00D1D34B /* CenterLabeledCell.m */,
+				6D970A5618B7F8BE00D1D34B /* CenteredLabelCell.h */,
+				6D970A5718B7F8BE00D1D34B /* CenteredLabelCell.m */,
 				6D970A5818B7F8BE00D1D34B /* TSAlbumsViewController.h */,
 				6D970A5918B7F8BE00D1D34B /* TSAlbumsViewController.m */,
 			);
@@ -362,7 +362,7 @@
 				6D970A6518B7F8BE00D1D34B /* TSAssetsManager.m in Sources */,
 				6D970A6E18B7FC8600D1D34B /* TSBaseLoader.m in Sources */,
 				6D970A0418B7F41E00D1D34B /* TSViewController.m in Sources */,
-				6D970A6718B7F8BE00D1D34B /* CenterLabeledCell.m in Sources */,
+				6D970A6718B7F8BE00D1D34B /* CenteredLabelCell.m in Sources */,
 				6D970A6418B7F8BE00D1D34B /* TSAssetsLoader.m in Sources */,
 				6D970A6918B7F8BE00D1D34B /* AssetCell.m in Sources */,
 				6D970A6818B7F8BE00D1D34B /* TSAlbumsViewController.m in Sources */,

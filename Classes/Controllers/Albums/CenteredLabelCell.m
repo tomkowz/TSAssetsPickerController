@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 Tomasz Szulc. All rights reserved.
 //
 
-#import "CenterLabeledCell.h"
+#import "CenteredLabelCell.h"
 
-@implementation CenterLabeledCell
+@implementation CenteredLabelCell
 
 @end

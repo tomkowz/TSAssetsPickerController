@@ -57,7 +57,7 @@
                                             <segue destination="2wx-LF-p0f" kind="push" identifier="Assets" id="f25-66-YVB"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NoAlbumsCell" id="lP7-UE-e9z" customClass="CenterLabeledCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NoAlbumsCell" id="lP7-UE-e9z" customClass="CenteredLabelCell">
                                         <rect key="frame" x="0.0" y="66" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lP7-UE-e9z" id="Xmw-dp-nNt">

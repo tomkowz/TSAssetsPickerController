@@ -11,15 +11,14 @@
 #import <AssetsLibrary/AssetsLibrary.h>
 
 #import "AlbumCell.h"
-#import "CenterLabeledCell.h"
+#import "CenteredLabelCell.h"
 #import "TSAlbumsLoader.h"
 #import "TSAssetsViewController.h"
 
 @implementation TSAlbumsViewController {
-    TSAlbumsLoader *_albumLoader;
+    TSAlbumsLoader *_albumsLoader;
     
     NSString *_selectedAlbumName;
-    NSMutableArray *_albums;
     
     BOOL _fetchedFirstTime;
 }
@@ -27,8 +26,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _albumLoader = [[TSAlbumsLoader alloc] initWithLibrary:[ALAssetsLibrary new] filter:[ALAssetsFilter allAssets]];
-    _albums = [NSMutableArray new];
+    _albumsLoader = [[TSAlbumsLoader alloc] initWithLibrary:[ALAssetsLibrary new] filter:[ALAssetsFilter allAssets]];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -39,13 +37,10 @@
 
 - (void)fetchAlbums {
     _fetchedFirstTime = NO;
-    [_albums removeAllObjects];
-    [_tableView reloadData];
     
-    [_albumLoader fetchAlbumNames:^(NSString *albumName) {
+    [_albumsLoader fetchAlbumNames:^(NSArray *albumNames) {
         _fetchedFirstTime = YES;
-        if (albumName) {
-            [_albums addObject:albumName];
+        if (albumNames) {
             [_tableView reloadData];
         } else {
             // Something goes really wrong during fetch.
@@ -60,19 +55,19 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return _albums.count ? : 1;
+    return _albumsLoader.fetchedAlbumNames.count ? : 1;
 }
 
 static NSString *cellIdentifier = nil;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *_cell = nil;
-    if (_albums.count) {
+    if (_albumsLoader.fetchedAlbumNames.count > 0) {
         cellIdentifier = NSStringFromClass([AlbumCell class]);
         AlbumCell *cell = (AlbumCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
-        cell.textLabel.text = _albums.reverseObjectEnumerator.allObjects[indexPath.row];
+        cell.textLabel.text = _albumsLoader.fetchedAlbumNames.reverseObjectEnumerator.allObjects[indexPath.row];
         _cell = cell;
     } else {
-        CenterLabeledCell *cell = (CenterLabeledCell *)[tableView dequeueReusableCellWithIdentifier:@"NoAlbumsCell"];
+        CenteredLabelCell *cell = (CenteredLabelCell *)[tableView dequeueReusableCellWithIdentifier:@"NoAlbumsCell"];
         if (_fetchedFirstTime) {
             cell.label.text = @"No albums. Make some photos";
         } else {
@@ -86,7 +81,7 @@ static NSString *cellIdentifier = nil;
 
 #pragma mark - UITableViewDelegate
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    _selectedAlbumName = _albums.reverseObjectEnumerator.allObjects[indexPath.row];
+    _selectedAlbumName = _albumsLoader.fetchedAlbumNames.reverseObjectEnumerator.allObjects[indexPath.row];
     return indexPath;
 }
 
