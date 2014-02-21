@@ -12,8 +12,6 @@
 @class TSAssetsLoader;
 
 @interface TSAssetsManager : NSObject
-@property (nonatomic, readonly) TSAssetsLoader *assetsLoader;
-
 @property (nonatomic, readonly) NSArray *fetchedAssets;
 @property (nonatomic, readonly) NSArray *selectedAssets;
 

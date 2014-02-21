@@ -12,6 +12,7 @@
 #import "TSAssetsContainer.h"
 
 @implementation TSAssetsManager {
+    TSAssetsLoader *_assetsLoader;
     TSAssetsContainer *_selectedAssetsContainer;
     TSAssetsContainer *_selectedAssetsAfterUpdateContainer;
 }

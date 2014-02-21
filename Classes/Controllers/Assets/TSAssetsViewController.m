@@ -90,7 +90,7 @@ static NSString *cellIdentifier = nil;
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     cellIdentifier = NSStringFromClass([AssetCell class]);
     AssetCell *assetCell = (AssetCell *)[collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
-    ALAsset *asset = _assetsManager.assetsLoader.fetchedAssets.reverseObjectEnumerator.allObjects[indexPath.row];
+    ALAsset *asset = _assetsManager.fetchedAssets.reverseObjectEnumerator.allObjects[indexPath.row];
 
     BOOL isSelected = [_assetsManager isAssetSelected:asset];
     
@@ -109,7 +109,7 @@ static NSString *cellIdentifier = nil;
         shouldSelect = NO;
     }
     
-    ALAsset *asset = _assetsManager.assetsLoader.fetchedAssets.reverseObjectEnumerator.allObjects[indexPath.row];
+    ALAsset *asset = _assetsManager.fetchedAssets.reverseObjectEnumerator.allObjects[indexPath.row];
     if (shouldSelect) {
         [_assetsManager selectAsset:asset];
         _selectedIndexPath = indexPath;
