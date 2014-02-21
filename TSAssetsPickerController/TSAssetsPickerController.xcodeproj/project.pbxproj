@@ -22,7 +22,6 @@
 		6D970A1718B7F41E00D1D34B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6D970A1518B7F41E00D1D34B /* InfoPlist.strings */; };
 		6D970A1918B7F41E00D1D34B /* TSAssetsPickerControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D970A1818B7F41E00D1D34B /* TSAssetsPickerControllerTests.m */; };
 		6D970A2D18B7F4CC00D1D34B /* TSAlbumsLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D970A2418B7F4CC00D1D34B /* TSAlbumsLoader.m */; };
-		6D970A2E18B7F4CC00D1D34B /* DummyAssetsImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D970A2618B7F4CC00D1D34B /* DummyAssetsImporter.m */; };
 		6D970A2F18B7F4CC00D1D34B /* TSAssetsContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D970A2818B7F4CC00D1D34B /* TSAssetsContainer.m */; };
 		6D970A3018B7F4CC00D1D34B /* TSAssetsLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D970A2A18B7F4CC00D1D34B /* TSAssetsLoader.m */; };
 		6D970A3118B7F4CC00D1D34B /* TSAssetsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D970A2C18B7F4CC00D1D34B /* TSAssetsManager.m */; };
@@ -31,6 +30,7 @@
 		6D970A4118B7F50000D1D34B /* TSAlbumsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D970A3918B7F50000D1D34B /* TSAlbumsViewController.m */; };
 		6D970A4218B7F50000D1D34B /* AssetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D970A3C18B7F50000D1D34B /* AssetCell.m */; };
 		6D970A4318B7F50000D1D34B /* TSAssetsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D970A3E18B7F50000D1D34B /* TSAssetsViewController.m */; };
+		6D970A4718B7F88800D1D34B /* DummyAssetsImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D970A4618B7F88800D1D34B /* DummyAssetsImporter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,8 +65,6 @@
 		6D970A1818B7F41E00D1D34B /* TSAssetsPickerControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TSAssetsPickerControllerTests.m; sourceTree = "<group>"; };
 		6D970A2318B7F4CC00D1D34B /* TSAlbumsLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSAlbumsLoader.h; sourceTree = "<group>"; };
 		6D970A2418B7F4CC00D1D34B /* TSAlbumsLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSAlbumsLoader.m; sourceTree = "<group>"; };
-		6D970A2518B7F4CC00D1D34B /* DummyAssetsImporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DummyAssetsImporter.h; sourceTree = "<group>"; };
-		6D970A2618B7F4CC00D1D34B /* DummyAssetsImporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DummyAssetsImporter.m; sourceTree = "<group>"; };
 		6D970A2718B7F4CC00D1D34B /* TSAssetsContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSAssetsContainer.h; sourceTree = "<group>"; };
 		6D970A2818B7F4CC00D1D34B /* TSAssetsContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSAssetsContainer.m; sourceTree = "<group>"; };
 		6D970A2918B7F4CC00D1D34B /* TSAssetsLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSAssetsLoader.h; sourceTree = "<group>"; };
@@ -83,6 +81,8 @@
 		6D970A3C18B7F50000D1D34B /* AssetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetCell.m; sourceTree = "<group>"; };
 		6D970A3D18B7F50000D1D34B /* TSAssetsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSAssetsViewController.h; sourceTree = "<group>"; };
 		6D970A3E18B7F50000D1D34B /* TSAssetsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSAssetsViewController.m; sourceTree = "<group>"; };
+		6D970A4518B7F88800D1D34B /* DummyAssetsImporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DummyAssetsImporter.h; sourceTree = "<group>"; };
+		6D970A4618B7F88800D1D34B /* DummyAssetsImporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DummyAssetsImporter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +114,7 @@
 			children = (
 				6D970A2218B7F4CC00D1D34B /* API Classes */,
 				6D970A3218B7F50000D1D34B /* Controllers */,
+				6D970A4418B7F88800D1D34B /* Dummy Classes */,
 				6D9709F318B7F41E00D1D34B /* TSAssetsPickerController */,
 				6D970A1218B7F41E00D1D34B /* TSAssetsPickerControllerTests */,
 				6D9709EC18B7F41E00D1D34B /* Frameworks */,
@@ -189,8 +190,6 @@
 			children = (
 				6D970A2318B7F4CC00D1D34B /* TSAlbumsLoader.h */,
 				6D970A2418B7F4CC00D1D34B /* TSAlbumsLoader.m */,
-				6D970A2518B7F4CC00D1D34B /* DummyAssetsImporter.h */,
-				6D970A2618B7F4CC00D1D34B /* DummyAssetsImporter.m */,
 				6D970A2718B7F4CC00D1D34B /* TSAssetsContainer.h */,
 				6D970A2818B7F4CC00D1D34B /* TSAssetsContainer.m */,
 				6D970A2918B7F4CC00D1D34B /* TSAssetsLoader.h */,
@@ -234,6 +233,16 @@
 				6D970A3E18B7F50000D1D34B /* TSAssetsViewController.m */,
 			);
 			path = Assets;
+			sourceTree = "<group>";
+		};
+		6D970A4418B7F88800D1D34B /* Dummy Classes */ = {
+			isa = PBXGroup;
+			children = (
+				6D970A4518B7F88800D1D34B /* DummyAssetsImporter.h */,
+				6D970A4618B7F88800D1D34B /* DummyAssetsImporter.m */,
+			);
+			name = "Dummy Classes";
+			path = "../Dummy Classes";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -336,6 +345,7 @@
 			files = (
 				6D9709FA18B7F41E00D1D34B /* main.m in Sources */,
 				6D970A3118B7F4CC00D1D34B /* TSAssetsManager.m in Sources */,
+				6D970A4718B7F88800D1D34B /* DummyAssetsImporter.m in Sources */,
 				6D970A4018B7F50000D1D34B /* CenterLabeledCell.m in Sources */,
 				6D970A4118B7F50000D1D34B /* TSAlbumsViewController.m in Sources */,
 				6D970A3F18B7F50000D1D34B /* AlbumCell.m in Sources */,
@@ -346,7 +356,6 @@
 				6D970A3018B7F4CC00D1D34B /* TSAssetsLoader.m in Sources */,
 				6D9709FE18B7F41E00D1D34B /* TSAppDelegate.m in Sources */,
 				6D970A0418B7F41E00D1D34B /* TSViewController.m in Sources */,
-				6D970A2E18B7F4CC00D1D34B /* DummyAssetsImporter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
