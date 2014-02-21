@@ -1,7 +1,7 @@
 TSAssetsPickerController
 ========================
 <p>&nbsp;</p>
-<p><p align="center"><img src="http://gyazo.com/b9b02add35c03e514584fec089c7c974.gif"/></p></p>
+<p><p align="center"><img src="https://raw.github.com/tomkowz/TSAssetsPickerController/master/docs/demo.gif"/></p></p>
 
 
 
