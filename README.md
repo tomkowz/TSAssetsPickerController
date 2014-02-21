@@ -21,6 +21,13 @@ This picker allows you to select multiple (defined by you) assets and do what yo
 
 It supports photo and video assets. Video assets has thumbnail with little "play" mark. 
 
+- Browse all albums
+- Set filters (only Photos, only Videos, All)
+- Select multiple assets from one album
+- Customizable order of displaying assets, last-first, first-first (iWrapper has last-first, it cause that user can't scroll 1000+ elements to get latest asset)
+- Easy to apply in your project
+- Easy to customize
+
 
 How it works?
 ========================
