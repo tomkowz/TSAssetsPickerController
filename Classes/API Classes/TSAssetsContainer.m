@@ -31,7 +31,7 @@
 }
 
 - (void)removeAsset:(ALAsset *)asset {
-    ALAsset *assetToRemove = [self existsAssetSimilarTo:asset];
+    ALAsset *assetToRemove = [self assetSimilarTo:asset];
     if (assetToRemove)
         [_assets removeObject:assetToRemove];
 }
@@ -41,10 +41,10 @@
 }
 
 - (BOOL)assetExists:(ALAsset *)asset {
-    return ([self existsAssetSimilarTo:asset] != nil);
+    return ([self assetSimilarTo:asset] != nil);
 }
 
-- (ALAsset *)existsAssetSimilarTo:(ALAsset *)asset {
+- (ALAsset *)assetSimilarTo:(ALAsset *)asset {
     ALAsset *similarAsset = nil;
     
     NSURL *assetURL = [asset defaultRepresentation].url;

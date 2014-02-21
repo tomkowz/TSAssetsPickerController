@@ -22,6 +22,6 @@
 
 - (void)removeAllAssets;
 
-- (ALAsset *)existsAssetSimilarTo:(ALAsset *)asset;
+- (ALAsset *)assetSimilarTo:(ALAsset *)asset;
 
 @end

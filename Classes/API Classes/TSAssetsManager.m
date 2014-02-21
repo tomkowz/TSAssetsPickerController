@@ -39,7 +39,7 @@
     [_assetsLoader fetchAssetsFromAlbum:albumName block:^(NSArray *loadedAssets) {
         _selectedAssetsAfterUpdateContainer = [TSAssetsContainer new];
         for (ALAsset *asset in loadedAssets) {
-            ALAsset *selectedAsset = [_selectedAssetsContainer existsAssetSimilarTo:asset];
+            ALAsset *selectedAsset = [_selectedAssetsContainer assetSimilarTo:asset];
             if (selectedAsset) {
                 [_selectedAssetsAfterUpdateContainer addAsset:asset];
             }
@@ -59,7 +59,7 @@
 }
 
 - (BOOL)isAssetSelected:(ALAsset *)asset {
-     return ([_selectedAssetsContainer existsAssetSimilarTo:asset] != nil);
+     return ([_selectedAssetsContainer assetSimilarTo:asset] != nil);
 }
 
 
