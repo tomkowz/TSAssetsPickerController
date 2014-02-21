@@ -39,6 +39,7 @@ const NSUInteger static availableNumberOfSelectedItems = 5;
     [[TSAssetsLoader alloc] initWithLibrary:[ALAssetsLibrary new]
                                      filter:[ALAssetsFilter allAssets]];
     _assetsManager = [TSAssetsManager managerWithLoader:assetsLoader];
+//    _assetsManager.shouldReverseOrder = NO;
 }
 
 - (void)prepareUI {
@@ -90,7 +91,7 @@ static NSString *cellIdentifier = nil;
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     cellIdentifier = NSStringFromClass([AssetCell class]);
     AssetCell *assetCell = (AssetCell *)[collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
-    ALAsset *asset = _assetsManager.fetchedAssets.reverseObjectEnumerator.allObjects[indexPath.row];
+    ALAsset *asset = _assetsManager.fetchedAssets[indexPath.row];
 
     BOOL isSelected = [_assetsManager isAssetSelected:asset];
     
@@ -109,7 +110,7 @@ static NSString *cellIdentifier = nil;
         shouldSelect = NO;
     }
     
-    ALAsset *asset = _assetsManager.fetchedAssets.reverseObjectEnumerator.allObjects[indexPath.row];
+    ALAsset *asset = _assetsManager.fetchedAssets[indexPath.row];
     if (shouldSelect) {
         [_assetsManager selectAsset:asset];
         _selectedIndexPath = indexPath;

@@ -30,6 +30,7 @@
     if (self) {
         _assetsLoader = loader;
         _selectedAssetsContainer = [TSAssetsContainer new];
+        _shouldReverseOrder = YES;
     }
     return self;
 }
@@ -65,11 +66,19 @@
 
 #pragma mark - Accessors
 - (NSArray *)selectedAssets {
-    return [NSArray arrayWithArray:_selectedAssetsContainer.assets];
+    NSArray *array = [NSArray arrayWithArray:_selectedAssetsContainer.assets];
+    if (_shouldReverseOrder) {
+        array = array.reverseObjectEnumerator.allObjects;
+    }
+    return array;
 }
 
 - (NSArray *)fetchedAssets {
-    return [NSArray arrayWithArray:_assetsLoader.fetchedAssets];
+    NSArray *array = [NSArray arrayWithArray:_assetsLoader.fetchedAssets];
+    if (_shouldReverseOrder) {
+        array = array.reverseObjectEnumerator.allObjects;
+    }
+    return array;
 }
 
 @end
