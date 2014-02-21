@@ -1,5 +1,5 @@
 //
-//  TSAssetImporter.h
+//  TSAssetsImporter.h
 //  TSImagePickerController
 //
 //  Created by Tomasz Szulc on 21.02.2014.
@@ -8,6 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@interface TSAssetImporter : NSObject
+@interface TSAssetsImporter : NSObject
 + (BOOL)importAssets:(NSArray *)assets;
 @end

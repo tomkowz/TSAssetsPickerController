@@ -11,7 +11,7 @@
 #import "AssetCell.h"
 #import "TSAssetsLoader.h"
 #import "TSAssetsManager.h"
-#import "TSAssetImporter.h"
+#import "TSAssetsImporter.h"
 
 const NSString *DidEndImportAssetsNotification = @"didEndImportAssetsNotification";
 
@@ -54,7 +54,7 @@ const NSUInteger static availableNumberOfSelectedItems = 5;
 
 static NSString *const kToFrameSettingsSegue = @"ToFrameSettings";
 - (IBAction)onSelectPressed:(id)sender {
-    [TSAssetImporter importAssets:_assetsManager.selectedAssets];
+    [TSAssetsImporter importAssets:_assetsManager.selectedAssets];
     [[NSNotificationCenter defaultCenter] postNotificationName:(NSString *)DidEndImportAssetsNotification object:nil];
 }
 
