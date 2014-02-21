@@ -11,7 +11,7 @@
 #import "AssetCell.h"
 #import "TSAssetsLoader.h"
 #import "TSAssetsManager.h"
-#import "TSAssetsImporter.h"
+#import "DummyAssetsImporter.h"
 
 const NSString *DidEndImportAssetsNotification = @"didEndImportAssetsNotification";
 
@@ -54,7 +54,14 @@ const NSUInteger static availableNumberOfSelectedItems = 5;
 
 static NSString *const kToFrameSettingsSegue = @"ToFrameSettings";
 - (IBAction)onSelectPressed:(id)sender {
-    [TSAssetsImporter importAssets:_assetsManager.selectedAssets];
+    /*
+     Do something here with _assetsManager.selectedAssets.
+     After all post notification DidEndImportAssetsNotification to dismiss this picker
+     
+     Here e.g. is called DummyAssetsImporter which can get data from all assets.
+     */
+    [DummyAssetsImporter importAssets:_assetsManager.selectedAssets];
+    
     [[NSNotificationCenter defaultCenter] postNotificationName:(NSString *)DidEndImportAssetsNotification object:nil];
 }
 

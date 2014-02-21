@@ -1,16 +1,16 @@
 //
-//  TSAssetsImporter.m
+//  DummyAssetsImporter.m
 //  TSImagePickerController
 //
 //  Created by Tomasz Szulc on 21.02.2014.
 //  Copyright (c) 2014 Tomasz Szulc. All rights reserved.
 //
 
-#import "TSAssetsImporter.h"
+#import "DummyAssetsImporter.h"
 
 #import <AssetsLibrary/AssetsLibrary.h>
 
-@implementation TSAssetsImporter
+@implementation DummyAssetsImporter
 
 + (BOOL)importAssets:(NSArray *)assets {
     BOOL success = YES;

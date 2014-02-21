@@ -22,7 +22,7 @@
 		6D970A1718B7F41E00D1D34B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6D970A1518B7F41E00D1D34B /* InfoPlist.strings */; };
 		6D970A1918B7F41E00D1D34B /* TSAssetsPickerControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D970A1818B7F41E00D1D34B /* TSAssetsPickerControllerTests.m */; };
 		6D970A2D18B7F4CC00D1D34B /* TSAlbumsLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D970A2418B7F4CC00D1D34B /* TSAlbumsLoader.m */; };
-		6D970A2E18B7F4CC00D1D34B /* TSAssetsImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D970A2618B7F4CC00D1D34B /* TSAssetsImporter.m */; };
+		6D970A2E18B7F4CC00D1D34B /* DummyAssetsImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D970A2618B7F4CC00D1D34B /* DummyAssetsImporter.m */; };
 		6D970A2F18B7F4CC00D1D34B /* TSAssetsContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D970A2818B7F4CC00D1D34B /* TSAssetsContainer.m */; };
 		6D970A3018B7F4CC00D1D34B /* TSAssetsLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D970A2A18B7F4CC00D1D34B /* TSAssetsLoader.m */; };
 		6D970A3118B7F4CC00D1D34B /* TSAssetsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D970A2C18B7F4CC00D1D34B /* TSAssetsManager.m */; };
@@ -65,8 +65,8 @@
 		6D970A1818B7F41E00D1D34B /* TSAssetsPickerControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TSAssetsPickerControllerTests.m; sourceTree = "<group>"; };
 		6D970A2318B7F4CC00D1D34B /* TSAlbumsLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSAlbumsLoader.h; sourceTree = "<group>"; };
 		6D970A2418B7F4CC00D1D34B /* TSAlbumsLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSAlbumsLoader.m; sourceTree = "<group>"; };
-		6D970A2518B7F4CC00D1D34B /* TSAssetsImporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSAssetsImporter.h; sourceTree = "<group>"; };
-		6D970A2618B7F4CC00D1D34B /* TSAssetsImporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSAssetsImporter.m; sourceTree = "<group>"; };
+		6D970A2518B7F4CC00D1D34B /* DummyAssetsImporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DummyAssetsImporter.h; sourceTree = "<group>"; };
+		6D970A2618B7F4CC00D1D34B /* DummyAssetsImporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DummyAssetsImporter.m; sourceTree = "<group>"; };
 		6D970A2718B7F4CC00D1D34B /* TSAssetsContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSAssetsContainer.h; sourceTree = "<group>"; };
 		6D970A2818B7F4CC00D1D34B /* TSAssetsContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSAssetsContainer.m; sourceTree = "<group>"; };
 		6D970A2918B7F4CC00D1D34B /* TSAssetsLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSAssetsLoader.h; sourceTree = "<group>"; };
@@ -189,8 +189,8 @@
 			children = (
 				6D970A2318B7F4CC00D1D34B /* TSAlbumsLoader.h */,
 				6D970A2418B7F4CC00D1D34B /* TSAlbumsLoader.m */,
-				6D970A2518B7F4CC00D1D34B /* TSAssetsImporter.h */,
-				6D970A2618B7F4CC00D1D34B /* TSAssetsImporter.m */,
+				6D970A2518B7F4CC00D1D34B /* DummyAssetsImporter.h */,
+				6D970A2618B7F4CC00D1D34B /* DummyAssetsImporter.m */,
 				6D970A2718B7F4CC00D1D34B /* TSAssetsContainer.h */,
 				6D970A2818B7F4CC00D1D34B /* TSAssetsContainer.m */,
 				6D970A2918B7F4CC00D1D34B /* TSAssetsLoader.h */,
@@ -346,7 +346,7 @@
 				6D970A3018B7F4CC00D1D34B /* TSAssetsLoader.m in Sources */,
 				6D9709FE18B7F41E00D1D34B /* TSAppDelegate.m in Sources */,
 				6D970A0418B7F41E00D1D34B /* TSViewController.m in Sources */,
-				6D970A2E18B7F4CC00D1D34B /* TSAssetsImporter.m in Sources */,
+				6D970A2E18B7F4CC00D1D34B /* DummyAssetsImporter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
