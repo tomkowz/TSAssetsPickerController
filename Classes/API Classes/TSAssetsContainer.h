@@ -12,7 +12,6 @@
 
 @interface TSAssetsContainer : NSObject
 
-@property (nonatomic, readonly) ALAssetsLibrary *library;
 @property (nonatomic, readonly) NSArray *assets;
 @property (nonatomic, readonly) BOOL count;
 
