@@ -17,9 +17,7 @@
 
 @implementation TSAlbumsViewController {
     TSAlbumsLoader *_albumsLoader;
-    
     NSString *_selectedAlbumName;
-    
     BOOL _fetchedFirstTime;
 }
 
