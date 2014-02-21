@@ -13,7 +13,7 @@
 @interface TSAssetsContainer : NSObject
 
 @property (nonatomic, readonly) NSArray *assets;
-@property (nonatomic, readonly) BOOL count;
+@property (nonatomic, readonly) NSUInteger count;
 
 - (void)setAssets:(NSArray *)assets;
 

@@ -61,7 +61,7 @@
 
 
 #pragma mark - Accessors
-- (BOOL)count {
+- (NSUInteger)count {
     return _assets.count;
 }
 
