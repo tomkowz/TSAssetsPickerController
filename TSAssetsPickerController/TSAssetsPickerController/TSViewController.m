@@ -41,8 +41,11 @@
         _picker.delegate = self;
         _picker.numberOfItemsToSelect = 3;
         
-        _picker.filter = [ALAssetsFilter allVideos];
+        _picker.filter = [ALAssetsFilter allAssets];
         _picker.noAlbumsForSelectedFilter = @"Can't find any video. Record some and back.";
+        
+        _picker.shouldReverseAlbumsOrder = NO;
+        _picker.shouldReverseAssetsOrder = YES;
     }
 
     [self presentViewController:_picker animated:YES completion:nil];

@@ -36,7 +36,7 @@
 #pragma mark - Configuration
 - (void)_configureAlbumsLoader {
     _albumsLoader = [[TSAlbumsLoader alloc] initWithLibrary:[ALAssetsLibrary new] filter:_picker.filter];
-//    _albumsLoader.shouldReverseOrder = NO;
+    _albumsLoader.shouldReverseOrder = _picker.shouldReverseAlbumsOrder;
 }
 
 - (void)_setupViews {

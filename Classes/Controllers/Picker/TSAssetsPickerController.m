@@ -35,6 +35,8 @@
     _numberOfItemsToSelect = 1;
     _filter = [ALAssetsFilter allPhotos];
     _noAlbumsForSelectedFilter = @"No albums for selected filter";
+    _shouldReverseAlbumsOrder = YES;
+    _shouldReverseAssetsOrder = YES;
 #warning settings which determine if empty albums should be visible
 }
 

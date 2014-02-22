@@ -157,12 +157,12 @@
 		6D9709F318B7F41E00D1D34B /* TSAssetsPickerController */ = {
 			isa = PBXGroup;
 			children = (
+				6D970A0218B7F41E00D1D34B /* TSViewController.h */,
+				6D970A0318B7F41E00D1D34B /* TSViewController.m */,
 				6D970A5F18B7F8BE00D1D34B /* Dummy Classes */,
 				6D9709FC18B7F41E00D1D34B /* TSAppDelegate.h */,
 				6D9709FD18B7F41E00D1D34B /* TSAppDelegate.m */,
 				6D9709FF18B7F41E00D1D34B /* Main.storyboard */,
-				6D970A0218B7F41E00D1D34B /* TSViewController.h */,
-				6D970A0318B7F41E00D1D34B /* TSViewController.m */,
 				6D970A0518B7F41E00D1D34B /* Images.xcassets */,
 				6D9709F418B7F41E00D1D34B /* Supporting Files */,
 			);
