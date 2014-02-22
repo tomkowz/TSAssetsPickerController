@@ -68,6 +68,12 @@
  */
 @property (nonatomic) Class subclassOfNoAlbumsCellClass;
 
+/**
+ Set this class if you want to use custom subclass of AssetCell class.
+ This class is used to display assets in Assets view (UICollectionViewCell).
+ */
+@property (nonatomic) Class subclassOfAssetCellClass;
+
 @end
 
 @protocol TSAssetsPickerControllerDelegate <NSObject>

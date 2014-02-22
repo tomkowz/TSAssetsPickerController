@@ -35,9 +35,9 @@
 		6D970A7818B8D12200D1D34B /* TSAssetsPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D970A7618B8D12200D1D34B /* TSAssetsPickerController.m */; };
 		6D970A7918B8D12200D1D34B /* TSAssetsPickerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D970A7718B8D12200D1D34B /* TSAssetsPickerController.xib */; };
 		6D970A7D18B8F58200D1D34B /* AlbumRepresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D970A7C18B8F58200D1D34B /* AlbumRepresentation.m */; };
-		6D970A8818B93DF800D1D34B /* AssetCell+Configuration.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D970A8718B93DF800D1D34B /* AssetCell+Configuration.m */; };
 		6D970A8B18B94B5400D1D34B /* DummyNoAlbumsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D970A8A18B94B5400D1D34B /* DummyNoAlbumsCell.m */; };
 		6D970A8E18B95C7400D1D34B /* DummyAlbumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D970A8D18B95C7400D1D34B /* DummyAlbumCell.m */; };
+		6D970A9118B9628500D1D34B /* DummyAssetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D970A9018B9628500D1D34B /* DummyAssetCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,12 +98,12 @@
 		6D970A7B18B8F58200D1D34B /* AlbumRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumRepresentation.h; sourceTree = "<group>"; };
 		6D970A7C18B8F58200D1D34B /* AlbumRepresentation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumRepresentation.m; sourceTree = "<group>"; };
 		6D970A8118B91D9200D1D34B /* SystemVersionMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SystemVersionMacros.h; sourceTree = "<group>"; };
-		6D970A8618B93DF800D1D34B /* AssetCell+Configuration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AssetCell+Configuration.h"; sourceTree = "<group>"; };
-		6D970A8718B93DF800D1D34B /* AssetCell+Configuration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AssetCell+Configuration.m"; sourceTree = "<group>"; };
 		6D970A8918B94B5400D1D34B /* DummyNoAlbumsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DummyNoAlbumsCell.h; sourceTree = "<group>"; };
 		6D970A8A18B94B5400D1D34B /* DummyNoAlbumsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DummyNoAlbumsCell.m; sourceTree = "<group>"; };
 		6D970A8C18B95C7400D1D34B /* DummyAlbumCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DummyAlbumCell.h; sourceTree = "<group>"; };
 		6D970A8D18B95C7400D1D34B /* DummyAlbumCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DummyAlbumCell.m; sourceTree = "<group>"; };
+		6D970A8F18B9628500D1D34B /* DummyAssetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DummyAssetCell.h; sourceTree = "<group>"; };
+		6D970A9018B9628500D1D34B /* DummyAssetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DummyAssetCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -265,8 +265,6 @@
 				6D970A5E18B7F8BE00D1D34B /* TSAssetsViewController.m */,
 				6D970A5B18B7F8BE00D1D34B /* AssetCell.h */,
 				6D970A5C18B7F8BE00D1D34B /* AssetCell.m */,
-				6D970A8618B93DF800D1D34B /* AssetCell+Configuration.h */,
-				6D970A8718B93DF800D1D34B /* AssetCell+Configuration.m */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -280,6 +278,8 @@
 				6D970A8A18B94B5400D1D34B /* DummyNoAlbumsCell.m */,
 				6D970A8C18B95C7400D1D34B /* DummyAlbumCell.h */,
 				6D970A8D18B95C7400D1D34B /* DummyAlbumCell.m */,
+				6D970A8F18B9628500D1D34B /* DummyAssetCell.h */,
+				6D970A9018B9628500D1D34B /* DummyAssetCell.m */,
 			);
 			path = "Dummy Classes";
 			sourceTree = "<group>";
@@ -398,6 +398,7 @@
 				6D970A6B18B7F8BE00D1D34B /* DummyAssetsImporter.m in Sources */,
 				6D970A6218B7F8BE00D1D34B /* TSAlbumsLoader.m in Sources */,
 				6D970A7D18B8F58200D1D34B /* AlbumRepresentation.m in Sources */,
+				6D970A9118B9628500D1D34B /* DummyAssetCell.m in Sources */,
 				6D9709FE18B7F41E00D1D34B /* TSAppDelegate.m in Sources */,
 				6D970A7818B8D12200D1D34B /* TSAssetsPickerController.m in Sources */,
 				6D970A8B18B94B5400D1D34B /* DummyNoAlbumsCell.m in Sources */,
@@ -410,7 +411,6 @@
 				6D970A6918B7F8BE00D1D34B /* AssetCell.m in Sources */,
 				6D970A6818B7F8BE00D1D34B /* TSAlbumsViewController.m in Sources */,
 				6D970A6318B7F8BE00D1D34B /* TSAssetsContainer.m in Sources */,
-				6D970A8818B93DF800D1D34B /* AssetCell+Configuration.m in Sources */,
 				6D970A6618B7F8BE00D1D34B /* AlbumCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -9,7 +9,6 @@
 #import "TSAssetsViewController.h"
 
 #import "AssetCell.h"
-#import "AssetCell+Configuration.h"
 #import "SystemVersionMacros.h"
 #import "TSAssetsLoader.h"
 #import "TSAssetsManager.h"
@@ -93,7 +92,7 @@
 - (UICollectionViewFlowLayout *)newCollectionViewLayout {
     UICollectionViewFlowLayout *layout = [UICollectionViewFlowLayout new];
     [layout setScrollDirection:UICollectionViewScrollDirectionVertical];
-    [layout setItemSize:[AssetCell preferedCellSize]];
+    [layout setItemSize:[_picker.subclassOfAssetCellClass preferedCellSize]];
     [layout setMinimumLineSpacing:4.0];
     [layout setMinimumInteritemSpacing:0.0];
     [layout setSectionInset:UIEdgeInsetsMake(4, 4, 4, 4)];
@@ -103,7 +102,7 @@
 
 static NSString *cellIdentifier = nil;
 - (UICollectionView *)newCollectionView {
-    cellIdentifier = NSStringFromClass([AssetCell class]);
+    cellIdentifier = NSStringFromClass(_picker.subclassOfAssetCellClass);
     
     UICollectionViewFlowLayout *layout = [self newCollectionViewLayout];
     CGRect frame = self.view.bounds;
@@ -116,7 +115,7 @@ static NSString *cellIdentifier = nil;
     [collectionView setScrollEnabled:YES];
     [collectionView setAlwaysBounceVertical:YES];
     
-    [collectionView registerClass:[AssetCell class] forCellWithReuseIdentifier:cellIdentifier];
+    [collectionView registerClass:_picker.subclassOfAssetCellClass forCellWithReuseIdentifier:cellIdentifier];
     [collectionView setBackgroundColor:[UIColor whiteColor]];
     collectionView.delegate = self;
     collectionView.dataSource = self;
@@ -136,9 +135,10 @@ static NSString *cellIdentifier = nil;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    AssetCell *cell = (AssetCell *)[collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
+    id cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
     if (!cell) {
-        cell = [AssetCell new];
+        Class class = _picker.subclassOfAlbumCellClass;
+        cell = [class new];
     }
 
     ALAsset *asset = _assetsManager.fetchedAssets[indexPath.row];

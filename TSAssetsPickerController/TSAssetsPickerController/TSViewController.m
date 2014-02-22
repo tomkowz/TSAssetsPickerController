@@ -13,6 +13,7 @@
 #import "DummyAssetsImporter.h"
 #import "DummyAlbumCell.h"
 #import "DummyNoAlbumsCell.h"
+#import "DummyAssetCell.h"
 
 @interface TSViewController () <TSAssetsPickerControllerDelegate, UINavigationControllerDelegate> {
     TSAssetsPickerController *_picker;
@@ -58,21 +59,7 @@
         // Custom No Albums Cell which is visible when there is no albums in first view of TSAssetsPickerController
 //        _picker.subclassOfAlbumCellClass = [DummyAlbumCell class];
 //        _picker.subclassOfNoAlbumsCellClass = [DummyNoAlbumsCell class];
-        
-#warning replace this way of customizing with above one
-        // Custom Asset Cell configuration
-        /*
-        [AssetCell setPreferedCellSize:CGSizeMake(50, 50)];
-        [AssetCell setPreferedThumbnailRect:CGRectMake(5, 5, 40, 40)];
-        [AssetCell setPreferedMovieMarkRect:CGRectMake(22, 22, 20, 20)];
-        [AssetCell setPreferedImageForMovieMark:[UIImage imageNamed:@"movieMark"]];
-        
-        UIColor *normal = [UIColor colorWithWhite:0.7 alpha:0.3];
-        [AssetCell setPreferedBackgroundColor:normal forState:Normal];
-        
-        UIColor *selected = [UIColor colorWithRed:21.0f/255.0f green:150.0f/255.0f blue:210.0f/255.0f alpha:1.0f];
-        [AssetCell setPreferedBackgroundColor:selected forState:Selected];
-         */
+//        _picker.subclassOfAssetCellClass = [DummyAssetCell class];
     }
 
     [self presentViewController:_picker animated:YES completion:nil];

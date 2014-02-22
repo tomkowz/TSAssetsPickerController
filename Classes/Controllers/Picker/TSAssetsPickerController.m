@@ -9,6 +9,7 @@
 #import "TSAssetsPickerController.h"
 
 #import "AlbumCell.h"
+#import "AssetCell.h"
 #import "TSAlbumsViewController.h"
 #import "NoAlbumsCell.h"
 
@@ -35,6 +36,7 @@
         
         self.subclassOfAlbumCellClass = [AlbumCell class];
         self.subclassOfNoAlbumsCellClass = [NoAlbumsCell class];
+        self.subclassOfAssetCellClass = [AssetCell class];
     }
     return self;
 }

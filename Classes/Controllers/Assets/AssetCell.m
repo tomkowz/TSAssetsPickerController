@@ -7,20 +7,13 @@
 //
 
 #import "AssetCell.h"
-
 #import <AssetsLibrary/AssetsLibrary.h>
 
-#import "AssetCell+Configuration.h"
 
-@implementation AssetCell {
-    UIImageView *_thumbnailImageView;
-    UIImageView *_movieMarkImageView;
-}
-
+@implementation AssetCell
 @synthesize cellSelected = _cellSelected;
 
 #pragma mark - Initialization
-
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
@@ -37,29 +30,31 @@
     return self;
 }
 
+-(UIImageView *)thumbnailImageView {
+    if (!_thumbnailImageView) {
+        _thumbnailImageView = [[UIImageView alloc] initWithFrame:[[self class] preferedThumbnailRect]];
+    }
+    return _thumbnailImageView;
+}
+
+- (UIImageView *)movieMarkImageView {
+    if (!_movieMarkImageView) {
+        _movieMarkImageView = [[UIImageView alloc] initWithFrame:[[self class] preferedMovieMarkRect]];
+        [_movieMarkImageView setImage:[[self class] preferedMovieMarkImage]];
+    }
+    return _movieMarkImageView;
+}
+
+
 - (void)setup {
     _cellSelected = NO;
     
-    [self setupView];
-    [self setupThumbnailImageView];
-    [self setupMovieMarkImageView];
-}
-
-- (void)setupView {
-    CGRect frame = CGRectZero;
-    frame.size = [AssetCell preferedCellSize];
-    self.frame = frame;
-}
-
-- (void)setupThumbnailImageView {
-    _thumbnailImageView = [[UIImageView alloc] initWithFrame:[AssetCell preferedThumbnailRect]];
-    [self addSubview:_thumbnailImageView];
-}
-
-- (void)setupMovieMarkImageView {
-    _movieMarkImageView = [[UIImageView alloc] initWithFrame:[AssetCell preferedMovieMarkRect]];
-    [_movieMarkImageView setImage:[AssetCell preferedMovieMarkImage]];
-    [self addSubview:_movieMarkImageView];
+    CGRect rect = CGRectZero;
+    rect.size = [[self class] preferedCellSize];
+    self.frame = rect;
+    
+    [self addSubview:self.thumbnailImageView];
+    [self addSubview:self.movieMarkImageView];
 }
 
 
@@ -80,14 +75,42 @@
 
     UIColor *color;
     if (selected ) {
-        color = [AssetCell preferedBackgroundColorForState:Selected];
+        color = [[self class] preferedBackgroundColorForStateSelected];
     } else {
-        color = [AssetCell preferedBackgroundColorForState:Normal];
+        color = [[self class] preferedBackgroundColorForStateNormal];
     }
     
     [self setBackgroundColor:color];
     [_movieMarkImageView setBackgroundColor:color];
 }
 
+
+#pragma mark - Customization
++ (CGSize)preferedCellSize {
+    return CGSizeMake(74, 74);
+}
+
++ (CGRect)preferedThumbnailRect {
+    return CGRectMake(5, 5, 64, 64);
+}
+
++ (CGRect)preferedMovieMarkRect {
+    return CGRectMake(46, 46, 20, 20);
+}
+
++ (UIImage *)preferedMovieMarkImage {
+    return [UIImage imageNamed:@"movieMark"];
+}
+
++ (UIColor *)preferedBackgroundColorForStateNormal {
+    return [UIColor colorWithWhite:0.7 alpha:0.3];
+}
+
++ (UIColor *)preferedBackgroundColorForStateSelected {
+    return [UIColor colorWithRed:21.0f/255.0f green:150.0f/255.0f blue:210.0f/255.0f alpha:1.0f];
+}
+
 @end
+
+
 
