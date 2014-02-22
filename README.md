@@ -66,12 +66,6 @@ About classes
 
 In View Controllers only TSAlbumsLoader and TSAssetsManager is important. 
 
-How to install
+How to use
 =========================
-1. checkout repo
-2. add files from /Classes directory to your project
-3. open Main.storyboard file and copy TSAlbumsViewController and TSAssetsViewController
-4. add AssetsLibrary.framework
-
-Remember to do it in the same order. After copy-paste view controllers from storyboard all connections will be the same (no missing connections).
-
+// Need update
