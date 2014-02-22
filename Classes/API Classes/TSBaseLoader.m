@@ -19,6 +19,7 @@
     if (self) {
         _library = library;
         _filter = filter;
+        _shouldReverseOrder = YES;
     }
     return self;
 }

@@ -14,7 +14,6 @@
 @interface TSAssetsManager : NSObject
 @property (nonatomic, readonly) NSArray *fetchedAssets;
 @property (nonatomic, readonly) NSArray *selectedAssets;
-@property (nonatomic) BOOL shouldReverseOrder; // Default YES
 
 + (instancetype)managerWithLoader:(TSAssetsLoader *)loader;
 

@@ -12,6 +12,7 @@
 @interface TSBaseLoader : NSObject
 @property (nonatomic, readonly) ALAssetsLibrary *library;
 @property (nonatomic, readonly) ALAssetsFilter *filter;
+@property (nonatomic) BOOL shouldReverseOrder; // default YES
 
 - (instancetype)initWithLibrary:(ALAssetsLibrary *)library filter:(ALAssetsFilter *)filter;
 

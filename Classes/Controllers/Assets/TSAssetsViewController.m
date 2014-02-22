@@ -50,8 +50,9 @@ const NSUInteger static availableNumberOfSelectedItems = 5;
     TSAssetsLoader *assetsLoader =
     [[TSAssetsLoader alloc] initWithLibrary:[ALAssetsLibrary new]
                                      filter:[ALAssetsFilter allAssets]];
+//    assetsLoader.shouldReverseOrder = NO;
+    
     _assetsManager = [TSAssetsManager managerWithLoader:assetsLoader];
-    //    _assetsManager.shouldReverseOrder = NO;
 }
 
 - (void)configureWithAlbumName:(NSString *)name {

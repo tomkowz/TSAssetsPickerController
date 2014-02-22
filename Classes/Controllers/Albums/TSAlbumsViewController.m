@@ -27,20 +27,29 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupViews];
-    
+    [self configureAlbumsLoader];
+}
+
+- (void)configureAlbumsLoader {
     _albumsLoader = [[TSAlbumsLoader alloc] initWithLibrary:[ALAssetsLibrary new] filter:[ALAssetsFilter allAssets]];
-    _albumsLoader.shouldReverseOrder = NO;
+//    _albumsLoader.shouldReverseOrder = NO;
 }
 
 - (void)setupViews {
+    _tableView = [self newTableView];
+    [self.view addSubview:_tableView];
+}
+
+- (UITableView *)newTableView {
     CGRect frame = CGRectMake(0, 0,
                               CGRectGetWidth(self.view.frame),
                               CGRectGetHeight(self.view.frame) - CGRectGetHeight(self.navigationController.navigationBar.frame));
-
-    _tableView = [[UITableView alloc] initWithFrame:frame style:UITableViewStylePlain];
-    _tableView.delegate = self;
-    _tableView.dataSource = self;
-    [self.view addSubview:_tableView];
+    
+    UITableView *tableView = [[UITableView alloc] initWithFrame:frame style:UITableViewStylePlain];
+    tableView.delegate = self;
+    tableView.dataSource = self;
+    
+    return tableView;
 }
 
 - (void)viewWillAppear:(BOOL)animated {

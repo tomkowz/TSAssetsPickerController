@@ -46,7 +46,7 @@
 
 - (NSArray *)fetchedAlbumNames {
     NSArray *array = _fetchedAlbumNames;
-    if (_shouldReverseOrder) {
+    if (self.shouldReverseOrder) {
         array = array.reverseObjectEnumerator.allObjects;
     }
     
