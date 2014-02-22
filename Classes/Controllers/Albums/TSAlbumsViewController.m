@@ -48,7 +48,7 @@
 
 - (void)_configureNavigationBarButtons {
     UIBarButtonItem *cancelButton =
-    [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleDone target:self action:@selector(onCancelPressed)];
+    [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(onCancelPressed)];
     [self.navigationItem setLeftBarButtonItem:cancelButton];
 }
 
