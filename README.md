@@ -56,17 +56,17 @@ It consists of two parts:
 
 
 API
-=========================
+========================
 ![image](https://github.com/tomkowz/TSAssetsPickerController/blob/master/docs/diag1.png?raw=true)
 
 
 View Controllers
-=========================
+========================
 ![image](https://github.com/tomkowz/TSAssetsPickerController/blob/master/docs/diag2.png?raw=true)
 
 
 About classes
-=========================
+========================
 
 `TSAssetsPickerController` - This is a picker controller. You present this controller if you want to show picker on the screen. This class has `TSAssetsPickerControllerConfiguration` property and delegates your class should conforms to.
 
@@ -88,7 +88,7 @@ Not important for you but you can read about "low-level" classes:
 `AlbumRepresentation` - This class represents album.
 
 How to use
-=========================
+========================
 1. Import /Classes directory to your project
 2. Write some init code
 
@@ -112,3 +112,16 @@ How to use
     [self presentViewController:_picker animated:YES completion:nil];
 }
 ````
+
+License
+========================
+
+TSAssetsPickerController is available under the MIT license.
+
+Copyright © 2014 Tomasz Szulc
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
