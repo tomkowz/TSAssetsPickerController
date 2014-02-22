@@ -10,7 +10,9 @@
 
 #import <AssetsLibrary/AssetsLibrary.h>
 
-@implementation TSAlbumsLoader 
+@implementation TSAlbumsLoader
+
+@synthesize fetchedAlbumNames = _fetchedAlbumNames;
 
 - (void)fetchAlbumNames:(void (^)(NSArray *))block {
     [self removeFetchedObjects];
@@ -40,6 +42,15 @@
 
 - (void)removeFetchedObjects {
     _fetchedAlbumNames = [NSArray array];
+}
+
+- (NSArray *)fetchedAlbumNames {
+    NSArray *array = _fetchedAlbumNames;
+    if (_shouldReverseOrder) {
+        array = array.reverseObjectEnumerator.allObjects;
+    }
+    
+    return array;
 }
 
 @end

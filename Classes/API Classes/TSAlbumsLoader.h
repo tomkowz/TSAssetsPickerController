@@ -10,6 +10,7 @@
 
 @interface TSAlbumsLoader : TSBaseLoader
 @property (nonatomic, readonly) NSArray *fetchedAlbumNames;
+@property (nonatomic) BOOL shouldReverseOrder; // Default YES
 
 - (void)fetchAlbumNames:(void (^)(NSArray *albumNames))block;
 

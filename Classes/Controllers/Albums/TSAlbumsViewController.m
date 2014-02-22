@@ -30,6 +30,7 @@
     [self setupViews];
     
     _albumsLoader = [[TSAlbumsLoader alloc] initWithLibrary:[ALAssetsLibrary new] filter:[ALAssetsFilter allAssets]];
+    _albumsLoader.shouldReverseOrder = NO;
 }
 
 - (void)setupViews {
@@ -77,8 +78,7 @@
 
     if (showAlbumCell ) {
         AlbumCell *cell = (AlbumCell *)[topLevelObjects objectAtIndex:0];
-#warning Add ability to reverse order of this loader. Move this property to loader class
-        cell.textLabel.text = _albumsLoader.fetchedAlbumNames.reverseObjectEnumerator.allObjects[indexPath.row];
+        cell.textLabel.text = _albumsLoader.fetchedAlbumNames[indexPath.row];
         _cell = cell;
     } else {
         CenteredLabelCell *cell = (CenteredLabelCell *)[topLevelObjects objectAtIndex:0];
@@ -96,7 +96,7 @@
 
 #pragma mark - UITableViewDelegate
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    _selectedAlbumName = _albumsLoader.fetchedAlbumNames.reverseObjectEnumerator.allObjects[indexPath.row];
+    _selectedAlbumName = _albumsLoader.fetchedAlbumNames[indexPath.row];
     return indexPath;
 }
 
