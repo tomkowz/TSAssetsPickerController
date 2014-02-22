@@ -23,4 +23,6 @@
 - (void)deselectAsset:(ALAsset *)asset;
 - (BOOL)isAssetSelected:(ALAsset *)asset;
 
+- (void)deselectAllAssets;
+
 @end

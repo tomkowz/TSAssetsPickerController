@@ -56,6 +56,7 @@ const NSUInteger static availableNumberOfSelectedItems = 5;
 - (void)configureWithAlbumName:(NSString *)name {
     _albumName = name;
     self.navigationItem.title = name;
+    [_assetsManager deselectAllAssets];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

@@ -62,6 +62,10 @@
     [_selectedAssetsContainer removeAsset:asset];
 }
 
+- (void)deselectAllAssets {
+    [_selectedAssetsContainer removeAllAssets];
+}
+
 - (BOOL)isAssetSelected:(ALAsset *)asset {
      return ([_selectedAssetsContainer assetSimilarTo:asset] != nil);
 }

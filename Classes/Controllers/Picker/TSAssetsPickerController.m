@@ -43,10 +43,12 @@
 }
 
 - (void)albumsViewController:(TSAlbumsViewController *)albumsVC didFinishPickingAssets:(NSArray *)assets {
+    [self popToViewController:_albumsVC animated:NO];
     [self.delegate assetsPickerController:self didFinishPickingAssets:assets];
 }
 
 - (void)albumsViewController:(TSAlbumsViewController *)albumsVC failedWithError:(NSError *)error {
+    [self popToViewController:_albumsVC animated:NO];
     [self.delegate assetsPickerController:self failedWithError:error];
 }
 
