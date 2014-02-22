@@ -17,7 +17,7 @@ Why should you write the same controller from scratch? :)
 
 What it can do?
 ========================
-This picker allows you to select multiple (defined by you) assets and do what you want with them. In the example code there is connected DummyAssetsImporter which simulate assets importing, but you may do whatever you want.
+This picker allows you to select multiple (defined by you) assets and do what you want with them. 
 
 It supports photo and video assets. Video assets has thumbnail with little "play" mark. 
 
