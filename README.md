@@ -68,4 +68,8 @@ In View Controllers only TSAlbumsLoader and TSAssetsManager is important.
 
 How to use
 =========================
-// Need update
+1. Import /Classes directory to your project
+2. Make initialization and push TSAlbumsViewController
+    TSAlbumsViewController *_albumsVC; // ivar
+    _albumsVC = [TSAlbumsViewController new];
+    [self.navigationController pushViewController:_albumsVC animated:YES];
