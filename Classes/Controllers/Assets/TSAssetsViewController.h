@@ -11,10 +11,9 @@
 extern NSString *DidEndImportAssetsNotification;
 
 @interface TSAssetsViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
+@property (nonatomic, readonly) UICollectionView *collectionView;
+@property (nonatomic, readonly) UIBarButtonItem *selectButton;
 
 - (void)configureWithAlbumName:(NSString *)name;
-- (IBAction)onSelectPressed:(id)sender;
 
 @end

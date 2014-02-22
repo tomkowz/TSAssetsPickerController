@@ -34,6 +34,7 @@
 		6D970A6E18B7FC8600D1D34B /* TSBaseLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D970A6D18B7FC8600D1D34B /* TSBaseLoader.m */; };
 		6D970A7018B8A73700D1D34B /* AlbumCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D970A6F18B8A73700D1D34B /* AlbumCell.xib */; };
 		6D970A7218B8A99900D1D34B /* CenteredLabelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D970A7118B8A99900D1D34B /* CenteredLabelCell.xib */; };
+		6D970A7418B8B50800D1D34B /* AssetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D970A7318B8B50800D1D34B /* AssetCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +91,7 @@
 		6D970A6D18B7FC8600D1D34B /* TSBaseLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSBaseLoader.m; sourceTree = "<group>"; };
 		6D970A6F18B8A73700D1D34B /* AlbumCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlbumCell.xib; sourceTree = "<group>"; };
 		6D970A7118B8A99900D1D34B /* CenteredLabelCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CenteredLabelCell.xib; sourceTree = "<group>"; };
+		6D970A7318B8B50800D1D34B /* AssetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AssetCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -247,6 +249,7 @@
 			children = (
 				6D970A5B18B7F8BE00D1D34B /* AssetCell.h */,
 				6D970A5C18B7F8BE00D1D34B /* AssetCell.m */,
+				6D970A7318B8B50800D1D34B /* AssetCell.xib */,
 				6D970A5D18B7F8BE00D1D34B /* TSAssetsViewController.h */,
 				6D970A5E18B7F8BE00D1D34B /* TSAssetsViewController.m */,
 			);
@@ -341,6 +344,7 @@
 			files = (
 				6D970A7218B8A99900D1D34B /* CenteredLabelCell.xib in Resources */,
 				6D970A0618B7F41E00D1D34B /* Images.xcassets in Resources */,
+				6D970A7418B8B50800D1D34B /* AssetCell.xib in Resources */,
 				6D9709F818B7F41E00D1D34B /* InfoPlist.strings in Resources */,
 				6D970A0118B7F41E00D1D34B /* Main.storyboard in Resources */,
 				6D970A7018B8A73700D1D34B /* AlbumCell.xib in Resources */,

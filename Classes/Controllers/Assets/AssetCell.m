@@ -10,9 +10,7 @@
 
 #import <AssetsLibrary/AssetsLibrary.h>
 
-@implementation AssetCell {
-    UIImageView *_movieIconImageView;
-}
+@implementation AssetCell
 @synthesize cellSelected = _cellSelected;
 
 #pragma mark - Initialization
@@ -39,30 +37,12 @@
 
 #pragma mark - Configuration
 - (void)configure:(ALAsset *)asset {
-    static CGRect imageViewRect;
-    if (CGRectEqualToRect(imageViewRect, CGRectZero)) {
-        imageViewRect = CGRectInset(self.bounds, 4, 4); // border
-    }
-    
     CGImageRef thumbnailRef = [asset thumbnail];
     UIImage *thumbnail = [UIImage imageWithCGImage:thumbnailRef];
+    [_assetThumbnail setImage:thumbnail];
     
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:imageViewRect];
-    [imageView setImage:thumbnail];
-    
-    [self.contentView addSubview:imageView];
-    
-    // type
     NSString *type = [asset valueForProperty:ALAssetPropertyType];
-    if ([type isEqualToString:ALAssetTypeVideo]) {
-        UIImage *movieIcon = [UIImage imageNamed:@"movie"];
-        _movieIconImageView = [[UIImageView alloc] initWithImage:movieIcon];
-        CGRect frame = _movieIconImageView.frame;
-        frame.origin = CGPointMake(CGRectGetMaxX(imageViewRect) - movieIcon.size.width - 2,
-                                   CGRectGetMaxY(imageViewRect) - movieIcon.size.height - 2);
-        _movieIconImageView.frame = frame;
-        [self.contentView addSubview:_movieIconImageView];
-    }
+    [_movieMark setHidden:(![type isEqualToString:ALAssetTypeVideo])];
 }
 
 
@@ -78,7 +58,7 @@
     }
     
     [self setBackgroundColor:color];
-    [_movieIconImageView setBackgroundColor:color];
+    [_movieMark setBackgroundColor:color];
 }
 
 @end

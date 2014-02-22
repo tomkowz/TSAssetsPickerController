@@ -29,23 +29,29 @@ const NSUInteger static availableNumberOfSelectedItems = 5;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self prepareUI];
+    [self setupViews];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(fetchAssets)
                                                  name:UIApplicationDidBecomeActiveNotification
                                                object:nil];
+    [self setupAssetsManager];
+}
+
+- (void)setupViews {
+    _collectionView = [self newCollectionView];
+    [self.view addSubview:_collectionView];
     
+    _selectButton = [self newSelectButton];
+    self.navigationItem.rightBarButtonItem = _selectButton;
+}
+
+- (void)setupAssetsManager {
     TSAssetsLoader *assetsLoader =
     [[TSAssetsLoader alloc] initWithLibrary:[ALAssetsLibrary new]
                                      filter:[ALAssetsFilter allAssets]];
     _assetsManager = [TSAssetsManager managerWithLoader:assetsLoader];
-//    _assetsManager.shouldReverseOrder = NO;
-}
-
-- (void)prepareUI {
-    [_collectionView setBackgroundColor:[UIColor clearColor]];
-    [_doneButton setEnabled:NO];
-    [_doneButton setTitle:@"Import"];
+    //    _assetsManager.shouldReverseOrder = NO;
 }
 
 - (void)configureWithAlbumName:(NSString *)name {
@@ -53,8 +59,7 @@ const NSUInteger static availableNumberOfSelectedItems = 5;
     self.navigationItem.title = name;
 }
 
-static NSString *const kToFrameSettingsSegue = @"ToFrameSettings";
-- (IBAction)onSelectPressed:(id)sender {
+- (void)onSelectPressed {
     /*
      Do something here with _assetsManager.selectedAssets.
      After all post notification DidEndImportAssetsNotification to dismiss this picker
@@ -82,22 +87,64 @@ static NSString *const kToFrameSettingsSegue = @"ToFrameSettings";
 }
 
 
+#pragma mark - Setup View
+- (UICollectionViewFlowLayout *)newCollectionViewLayout {
+    UICollectionViewFlowLayout *layout = [UICollectionViewFlowLayout new];
+    [layout setScrollDirection:UICollectionViewScrollDirectionVertical];
+    [layout setItemSize:CGSizeMake(74, 74)];
+    [layout setMinimumLineSpacing:4.0];
+    [layout setMinimumInteritemSpacing:0.0];
+    
+    return layout;
+}
+
+static NSString *cellIdentifier = nil;
+- (UICollectionView *)newCollectionView {
+    cellIdentifier = NSStringFromClass([AssetCell class]);
+    
+    CGRect frame = CGRectMake(0, 0,
+                              CGRectGetWidth(self.view.frame),
+                              CGRectGetHeight(self.view.frame) - CGRectGetHeight(self.navigationController.navigationBar.frame));
+    
+    UICollectionViewFlowLayout *layout = [self newCollectionViewLayout];
+    UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:frame collectionViewLayout:layout];
+    [collectionView setContentInset:UIEdgeInsetsMake(4, 4, 0, 4)];
+    [collectionView setBounces:YES];
+    [collectionView setScrollEnabled:YES];
+    
+    UINib *cellNib = [UINib nibWithNibName:cellIdentifier bundle:[NSBundle mainBundle]];
+    [collectionView registerNib:cellNib forCellWithReuseIdentifier:cellIdentifier];
+    [collectionView setBackgroundColor:[UIColor whiteColor]];
+    collectionView.delegate = self;
+    collectionView.dataSource = self;
+    return collectionView;
+}
+
+- (UIBarButtonItem *)newSelectButton {
+    UIBarButtonItem *selectButton = [[UIBarButtonItem alloc] initWithTitle:@"Select" style:UIBarButtonItemStyleDone target:self action:@selector(onSelectPressed)];
+    [selectButton setEnabled:NO];
+    return selectButton;
+}
+
+
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return _assetsManager.fetchedAssets.count;
 }
 
-static NSString *cellIdentifier = nil;
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    cellIdentifier = NSStringFromClass([AssetCell class]);
-    AssetCell *assetCell = (AssetCell *)[collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
-    ALAsset *asset = _assetsManager.fetchedAssets[indexPath.row];
+    AssetCell *cell = (AssetCell *)[collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
+    if (!cell) {
+        NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:cellIdentifier owner:self options:nil];
+        cell = (AssetCell *)[topLevelObjects objectAtIndex:0];
+    }
 
+    ALAsset *asset = _assetsManager.fetchedAssets[indexPath.row];
     BOOL isSelected = [_assetsManager isAssetSelected:asset];
     
-    [assetCell configure:asset];
-    [assetCell markAsSelected:isSelected];
-    return assetCell;
+    [cell configure:asset];
+    [cell markAsSelected:isSelected];
+    return cell;
 }
 
 
@@ -105,8 +152,8 @@ static NSString *cellIdentifier = nil;
 - (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     BOOL shouldSelect = (_assetsManager.selectedAssets.count < availableNumberOfSelectedItems);
 
-    AssetCell *photoCell = (AssetCell *)[collectionView cellForItemAtIndexPath:indexPath];
-    if (photoCell.isCellSelected) {
+    AssetCell *cell = (AssetCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    if (cell.isCellSelected) {
         shouldSelect = NO;
     }
     
@@ -116,11 +163,11 @@ static NSString *cellIdentifier = nil;
         _selectedIndexPath = indexPath;
     } else {
         [_assetsManager deselectAsset:asset];
-        [photoCell setBackgroundColor:[UIColor blueColor]];
+        [cell setBackgroundColor:[UIColor blueColor]];
     }
     
-    [photoCell markAsSelected:shouldSelect];
-    [_doneButton setEnabled:(_assetsManager.selectedAssets.count > 0)];
+    [cell markAsSelected:shouldSelect];
+    [_selectButton setEnabled:(_assetsManager.selectedAssets.count > 0)];
     
     return shouldSelect;
 }
