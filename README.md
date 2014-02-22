@@ -64,7 +64,7 @@ About classes
 
 **TSAssetsManager** - This classes is used directly by TSAssetsViewController. Instance is initialized with TSAssetsLoader object. It keeps information about fetched and selected assets. It can fetch assets via TSAssetsLoader. Also it can mark assets as selected or deselected and check if asset exists.
 
-In View Controllers only TSAlbumsLoader and TSAssetsManager is important. 
+In View Controllers only TSAlbumsLoader and TSAssetsManager are important. 
 
 How to use
 =========================
