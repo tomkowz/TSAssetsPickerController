@@ -57,6 +57,7 @@
         // Custom No Albums Cell which is visible when there is no albums in first view of TSAssetsPickerController
 //        _picker.configuration.noAlbumCellClass = [DummyNoAlbumsCell class];
         
+#warning replace this way of customizing with above one
         // Custom Asset Cell configuration
         /*
         [AssetCell setPreferedCellSize:CGSizeMake(50, 50)];

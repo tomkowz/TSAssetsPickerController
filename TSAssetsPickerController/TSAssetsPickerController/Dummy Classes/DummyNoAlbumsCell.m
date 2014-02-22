@@ -10,10 +10,14 @@
 
 @implementation DummyNoAlbumsCell
 
-- (void)setup {
-    [super setup];
-    self.label.font = [UIFont systemFontOfSize:10.0];
-    self.label.textColor = [UIColor blueColor];
+- (UILabel *)label {
+    UILabel *label = [super label];
+    label.font = [UIFont systemFontOfSize:10.0];
+    label.textColor = [UIColor blueColor];
+    self.label = label;
+    
+    return label;
 }
+
 
 @end

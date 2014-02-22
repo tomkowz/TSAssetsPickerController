@@ -10,28 +10,14 @@
 
 @implementation NoAlbumsCell
 
-- (id)initWithFrame:(CGRect)frame {
-    self = [super initWithFrame:frame];
-    if (self) {
-        [self setup];
+- (UILabel *)label {
+    if (!_label) {
+        _label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 21)];
+        _label.textAlignment = NSTextAlignmentCenter;
+        _label.font = [UIFont systemFontOfSize:13.0];
+        [self addSubview:_label];
     }
-    return self;
-}
-
-- (id)init {
-    self = [super init];
-    if (self) {
-        [self setup];
-    }
-    return self;
-}
-
-- (void)setup {
-    CGFloat offset = 20.0;
-    _label = [[UILabel alloc] initWithFrame:CGRectMake(offset, 11, 100, 21)];
-    _label.textAlignment = NSTextAlignmentCenter;
-    _label.font = [UIFont systemFontOfSize:13.0];
-    [self addSubview:_label];
+    return _label;
 }
 
 - (void)layoutSubviews {
