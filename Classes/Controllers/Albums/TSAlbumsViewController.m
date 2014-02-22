@@ -11,6 +11,7 @@
 #import "TSAssetsPickerController.h"
 
 #import "AlbumCell.h"
+#import "AlbumRepresentation.h"
 #import "CenteredLabelCell.h"
 #import "TSAlbumsLoader.h"
 #import "TSAssetsViewController.h"
@@ -93,19 +94,20 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return _albumsLoader.fetchedAlbumNames.count ? : 1;
+    return _albumsLoader.fetchedAlbumRepresentations.count ? : 1;
 }
 
 static NSString *const toAssetSegue = @"ToAssets";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *_cell = nil;
-    BOOL showAlbumCell = _albumsLoader.fetchedAlbumNames.count > 0;
+    BOOL showAlbumCell = _albumsLoader.fetchedAlbumRepresentations.count > 0;
     Class cellClass =  showAlbumCell ? [AlbumCell class] : [CenteredLabelCell class];
     NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass(cellClass) owner:self options:nil];
 
     if (showAlbumCell) {
         AlbumCell *cell = (AlbumCell *)[topLevelObjects objectAtIndex:0];
-        cell.textLabel.text = _albumsLoader.fetchedAlbumNames[indexPath.row];
+        AlbumRepresentation *albumRepresentation = _albumsLoader.fetchedAlbumRepresentations[indexPath.row];
+        [cell configureWithAlbumRepresentation:albumRepresentation dimmIfEmpty:_picker.shouldDimmEmptyAlbums];
         _cell = cell;
     } else {
         CenteredLabelCell *cell = (CenteredLabelCell *)[topLevelObjects objectAtIndex:0];
@@ -125,8 +127,8 @@ static NSString *const toAssetSegue = @"ToAssets";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    NSString *albumName = _albumsLoader.fetchedAlbumNames[indexPath.row];
-    [self _showAssetsViewControllerWithAlbumName:albumName];
+    AlbumRepresentation *album = _albumsLoader.fetchedAlbumRepresentations[indexPath.row];
+    [self _showAssetsViewControllerWithAlbumName:album.name];
 }
 
 - (void)_showAssetsViewControllerWithAlbumName:(NSString *)name {

@@ -10,9 +10,11 @@
 
 #import <AssetsLibrary/AssetsLibrary.h>
 
+#import "AlbumRepresentation.h"
+
 @implementation TSAlbumsLoader
 
-@synthesize fetchedAlbumNames = _fetchedAlbumNames;
+@synthesize fetchedAlbumRepresentations = _fetchedAlbumRepresentations;
 
 - (instancetype)initWithLibrary:(ALAssetsLibrary *)library filter:(ALAssetsFilter *)filter {
     self = [super initWithLibrary:library filter:filter];
@@ -24,26 +26,28 @@
 
 - (void)fetchAlbumNames:(void (^)(NSArray *, NSError *))block {
     [self removeFetchedObjects];
-    NSMutableArray *fetchedAlbumNames = [NSMutableArray array];
+    NSMutableArray *albumRepresentations = [NSMutableArray array];
     [self.library enumerateGroupsWithTypes:ALAssetsGroupAll
                             usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
                                 if (group) {
-                                    __block NSString *groupName = nil;
+                                    __block AlbumRepresentation *representation = nil;
+                                    
                                     [group setAssetsFilter:self.filter];
                                     [group enumerateAssetsUsingBlock:^(ALAsset *result, NSUInteger index, BOOL *stop) {
-                                        if (result || _shouldReturnEmptyAlbums) {
-                                            groupName = [group valueForProperty:ALAssetsGroupPropertyName];
+                                        if ((result || _shouldReturnEmptyAlbums) && !representation) {
+                                            NSString *groupName = [group valueForProperty:ALAssetsGroupPropertyName];
+                                            representation = [AlbumRepresentation albumRepresentationWithName:groupName isEmpty:(result == nil)];
                                             *stop = YES;
                                         }
                                     }];
                                     
-                                    if (groupName) {
-                                        [fetchedAlbumNames addObject:groupName];
-                                        _fetchedAlbumNames = [NSArray arrayWithArray:fetchedAlbumNames];
-                                        block(_fetchedAlbumNames, nil);
+                                    if (representation) {
+                                        [albumRepresentations addObject:representation];
+                                        _fetchedAlbumRepresentations = [NSArray arrayWithArray:albumRepresentations];
+                                        block(_fetchedAlbumRepresentations, nil);
                                     }
                                     
-                                    if (fetchedAlbumNames.count == 0) {
+                                    if (albumRepresentations.count == 0) {
                                         block([NSArray array], nil);
                                     }
                                 }
@@ -53,11 +57,11 @@
 }
 
 - (void)removeFetchedObjects {
-    _fetchedAlbumNames = [NSArray array];
+    _fetchedAlbumRepresentations = [NSArray array];
 }
 
-- (NSArray *)fetchedAlbumNames {
-    NSArray *array = _fetchedAlbumNames;
+- (NSArray *)fetchedAlbums {
+    NSArray *array = _fetchedAlbumRepresentations;
     if (self.shouldReverseOrder) {
         array = array.reverseObjectEnumerator.allObjects;
     }

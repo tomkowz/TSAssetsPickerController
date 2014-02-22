@@ -38,6 +38,7 @@
     _shouldReverseAlbumsOrder = YES;
     _shouldReverseAssetsOrder = YES;
     _shouldShowEmptyAlbums = NO;
+    _shouldDimmEmptyAlbums = YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated {

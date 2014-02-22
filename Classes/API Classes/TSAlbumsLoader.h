@@ -9,7 +9,7 @@
 #import "TSBaseLoader.h"
 
 @interface TSAlbumsLoader : TSBaseLoader
-@property (nonatomic, readonly) NSArray *fetchedAlbumNames;
+@property (nonatomic, readonly) NSArray *fetchedAlbumRepresentations;
 @property (nonatomic) BOOL shouldReturnEmptyAlbums; // default set to NO
 
 - (void)fetchAlbumNames:(void (^)(NSArray *albumNames, NSError *error))block;

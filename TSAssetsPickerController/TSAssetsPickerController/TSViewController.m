@@ -47,7 +47,8 @@
         _picker.shouldReverseAlbumsOrder = NO;
         _picker.shouldReverseAssetsOrder = YES;
         
-        _picker.shouldShowEmptyAlbums = YES;
+//        _picker.shouldShowEmptyAlbums = YES;
+//        _picker.shouldDimmEmptyAlbums = NO;
     }
 
     [self presentViewController:_picker animated:YES completion:nil];

@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AlbumCell : UITableViewCell
+@class AlbumRepresentation;
 
+@interface AlbumCell : UITableViewCell
+- (void)configureWithAlbumRepresentation:(AlbumRepresentation *)albumRepresentation dimmIfEmpty:(BOOL)dimm;
 @end
