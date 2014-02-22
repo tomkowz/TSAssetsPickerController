@@ -10,7 +10,7 @@ TSAssetPickerController is a custom picker controller which allows you to select
 I decided to share this picker because it's easy to add to the project, easy to maintain and it works very well. This picker is used by [iWrapper app](https://itunes.apple.com/pl/app/iwrapper-superb-screenshots/id549973157?mt=8). Try it and apply to your projects.
 
 
-Why should I use it?
+Why should You use it?
 ========================
 Why should you write the same controller from scratch? :)
 
