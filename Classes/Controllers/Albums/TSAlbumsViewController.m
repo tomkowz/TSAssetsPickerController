@@ -47,13 +47,13 @@
 - (void)fetchAlbums {
     _fetchedFirstTime = NO;
     
-    [_albumsLoader fetchAlbumNames:^(NSArray *albumNames) {
+    [_albumsLoader fetchAlbumNames:^(NSArray *albumNames, NSError *error) {
         _fetchedFirstTime = YES;
-        if (albumNames) {
+        
+        if (!error) {
             [_tableView reloadData];
         } else {
-#warning add support when user block photos
-            // Something goes really wrong during fetch.
+            NSLog(@"No access to Camera Roll.");
         }
     }];
 }

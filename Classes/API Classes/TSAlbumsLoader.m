@@ -14,7 +14,7 @@
 
 @synthesize fetchedAlbumNames = _fetchedAlbumNames;
 
-- (void)fetchAlbumNames:(void (^)(NSArray *))block {
+- (void)fetchAlbumNames:(void (^)(NSArray *, NSError *))block {
     [self removeFetchedObjects];
     NSMutableArray *fetchedAlbumNames = [NSMutableArray array];
     [self.library enumerateGroupsWithTypes:ALAssetsGroupAll
@@ -32,11 +32,11 @@
                                     if (groupName) {
                                         [fetchedAlbumNames addObject:groupName];
                                         _fetchedAlbumNames = [NSArray arrayWithArray:fetchedAlbumNames];
-                                        block(_fetchedAlbumNames);
+                                        block(_fetchedAlbumNames, nil);
                                     }
                                 }
                             } failureBlock:^(NSError *error) {
-                                block(nil);
+                                block([NSArray array], error);
                             }];
 }
 

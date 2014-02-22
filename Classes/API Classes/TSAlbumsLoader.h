@@ -12,6 +12,6 @@
 @property (nonatomic, readonly) NSArray *fetchedAlbumNames;
 @property (nonatomic) BOOL shouldReverseOrder; // Default YES
 
-- (void)fetchAlbumNames:(void (^)(NSArray *albumNames))block;
+- (void)fetchAlbumNames:(void (^)(NSArray *albumNames, NSError *error))block;
 
 @end
