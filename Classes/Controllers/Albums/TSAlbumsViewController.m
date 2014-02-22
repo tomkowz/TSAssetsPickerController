@@ -37,7 +37,7 @@
                               CGRectGetWidth(self.view.frame),
                               CGRectGetHeight(self.view.frame) - CGRectGetHeight(self.navigationController.navigationBar.frame));
 
-    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(frame) style:UITableViewStylePlain];
+    _tableView = [[UITableView alloc] initWithFrame:frame style:UITableViewStylePlain];
     _tableView.delegate = self;
     _tableView.dataSource = self;
     [self.view addSubview:_tableView];
