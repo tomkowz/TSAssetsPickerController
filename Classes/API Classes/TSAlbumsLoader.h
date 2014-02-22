@@ -10,6 +10,7 @@
 
 @interface TSAlbumsLoader : TSBaseLoader
 @property (nonatomic, readonly) NSArray *fetchedAlbumNames;
+@property (nonatomic) BOOL shouldReturnEmptyAlbums; // default set to NO
 
 - (void)fetchAlbumNames:(void (^)(NSArray *albumNames, NSError *error))block;
 

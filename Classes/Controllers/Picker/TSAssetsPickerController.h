@@ -21,6 +21,7 @@
 @property (nonatomic, copy) NSString *noAlbumsForSelectedFilter; // default: No albums for selected filter
 @property (nonatomic) BOOL shouldReverseAlbumsOrder; // default set to YES
 @property (nonatomic) BOOL shouldReverseAssetsOrder; // default set to YES;
+@property (nonatomic) BOOL shouldShowEmptyAlbums; // default set to NO;
 @end
 
 @protocol TSAssetsPickerControllerDelegate <NSObject>

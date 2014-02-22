@@ -37,6 +37,7 @@
 - (void)_configureAlbumsLoader {
     _albumsLoader = [[TSAlbumsLoader alloc] initWithLibrary:[ALAssetsLibrary new] filter:_picker.filter];
     _albumsLoader.shouldReverseOrder = _picker.shouldReverseAlbumsOrder;
+    _albumsLoader.shouldReturnEmptyAlbums = _picker.shouldShowEmptyAlbums;
 }
 
 - (void)_setupViews {

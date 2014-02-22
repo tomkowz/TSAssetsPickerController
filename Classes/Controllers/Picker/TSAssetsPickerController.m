@@ -37,7 +37,7 @@
     _noAlbumsForSelectedFilter = @"No albums for selected filter";
     _shouldReverseAlbumsOrder = YES;
     _shouldReverseAssetsOrder = YES;
-#warning settings which determine if empty albums should be visible
+    _shouldShowEmptyAlbums = NO;
 }
 
 - (void)viewWillAppear:(BOOL)animated {

@@ -14,6 +14,14 @@
 
 @synthesize fetchedAlbumNames = _fetchedAlbumNames;
 
+- (instancetype)initWithLibrary:(ALAssetsLibrary *)library filter:(ALAssetsFilter *)filter {
+    self = [super initWithLibrary:library filter:filter];
+    if (self) {
+        _shouldReturnEmptyAlbums = NO;
+    }
+    return self;
+}
+
 - (void)fetchAlbumNames:(void (^)(NSArray *, NSError *))block {
     [self removeFetchedObjects];
     NSMutableArray *fetchedAlbumNames = [NSMutableArray array];
@@ -23,7 +31,7 @@
                                     __block NSString *groupName = nil;
                                     [group setAssetsFilter:self.filter];
                                     [group enumerateAssetsUsingBlock:^(ALAsset *result, NSUInteger index, BOOL *stop) {
-                                        if (result) {
+                                        if (result || _shouldReturnEmptyAlbums) {
                                             groupName = [group valueForProperty:ALAssetsGroupPropertyName];
                                             *stop = YES;
                                         }

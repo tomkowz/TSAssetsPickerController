@@ -75,7 +75,7 @@
 - (void)_fetchAssets {
     [_assetsManager fetchAssetsWithAlbumName:_albumName block:^(NSUInteger numberOfAssets, NSError *error) {
         if (!error) {
-            if (numberOfAssets > 0)
+            if (numberOfAssets > 0 || _picker.shouldShowEmptyAlbums)
                 [_collectionView reloadData];
             else {
                 [self.navigationController popViewControllerAnimated:YES];
