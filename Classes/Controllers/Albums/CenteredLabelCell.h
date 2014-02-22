@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface CenteredLabelCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UILabel *label;
+@property (nonatomic) UILabel *label;
 @end

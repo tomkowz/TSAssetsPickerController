@@ -107,6 +107,7 @@ static NSString *const toAssetSegue = @"ToAssets";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *_cell = nil;
     BOOL showAlbumCell = _albumsLoader.fetchedAlbumRepresentations.count > 0;
+    showAlbumCell = NO;
     Class cellClass =  showAlbumCell ? [AlbumCell class] : [CenteredLabelCell class];
     NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass(cellClass) owner:self options:nil];
 
