@@ -33,7 +33,11 @@
 }
 
 - (void)setupViews {
-    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame)) style:UITableViewStylePlain];
+    CGRect frame = CGRectMake(0, 0,
+                              CGRectGetWidth(self.view.frame),
+                              CGRectGetHeight(self.view.frame) - CGRectGetHeight(self.navigationController.navigationBar.frame));
+
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(frame) style:UITableViewStylePlain];
     _tableView.delegate = self;
     _tableView.dataSource = self;
     [self.view addSubview:_tableView];
