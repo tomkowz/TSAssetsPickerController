@@ -70,6 +70,9 @@ How to use
 =========================
 1. Import /Classes directory to your project
 2. Make initialization and push TSAlbumsViewController
+
+````objc
     TSAlbumsViewController *_albumsVC; // ivar
     _albumsVC = [TSAlbumsViewController new];
     [self.navigationController pushViewController:_albumsVC animated:YES];
+````
