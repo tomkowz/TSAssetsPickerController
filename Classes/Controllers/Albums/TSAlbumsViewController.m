@@ -15,16 +15,28 @@
 #import "TSAlbumsLoader.h"
 #import "TSAssetsViewController.h"
 
-@implementation TSAlbumsViewController {
+@interface TSAlbumsViewController ()  <UITableViewDelegate, UITableViewDataSource> {
     TSAlbumsLoader *_albumsLoader;
     NSString *_selectedAlbumName;
     BOOL _fetchedFirstTime;
 }
 
+@end
+
+@implementation TSAlbumsViewController
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setupViews];
     
     _albumsLoader = [[TSAlbumsLoader alloc] initWithLibrary:[ALAssetsLibrary new] filter:[ALAssetsFilter allAssets]];
+}
+
+- (void)setupViews {
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame)) style:UITableViewStylePlain];
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
+    [self.view addSubview:_tableView];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -41,6 +53,7 @@
         if (albumNames) {
             [_tableView reloadData];
         } else {
+#warning add support when user block photos
             // Something goes really wrong during fetch.
         }
     }];
@@ -56,16 +69,19 @@
     return _albumsLoader.fetchedAlbumNames.count ? : 1;
 }
 
-static NSString *cellIdentifier = nil;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *_cell = nil;
-    if (_albumsLoader.fetchedAlbumNames.count > 0) {
-        cellIdentifier = NSStringFromClass([AlbumCell class]);
-        AlbumCell *cell = (AlbumCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+    BOOL showAlbumCell = _albumsLoader.fetchedAlbumNames.count > 0;
+    Class cellClass =  showAlbumCell ? [AlbumCell class] : [CenteredLabelCell class];
+    NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass(cellClass) owner:self options:nil];
+
+    if (showAlbumCell ) {
+        AlbumCell *cell = (AlbumCell *)[topLevelObjects objectAtIndex:0];
+#warning Add ability to reverse order of this loader. Move this property to loader class
         cell.textLabel.text = _albumsLoader.fetchedAlbumNames.reverseObjectEnumerator.allObjects[indexPath.row];
         _cell = cell;
     } else {
-        CenteredLabelCell *cell = (CenteredLabelCell *)[tableView dequeueReusableCellWithIdentifier:@"NoAlbumsCell"];
+        CenteredLabelCell *cell = (CenteredLabelCell *)[topLevelObjects objectAtIndex:0];
         if (_fetchedFirstTime) {
             cell.label.text = @"No albums. Make some photos";
         } else {
@@ -73,6 +89,7 @@ static NSString *cellIdentifier = nil;
         }
         _cell = cell;
     }
+    
     return _cell;
 }
 

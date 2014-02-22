@@ -8,13 +8,12 @@
 
 #import "TSViewController.h"
 
+#import "TSAlbumsViewController.h"
 #import "TSAssetsViewController.h"
 
-@interface TSViewController ()
-
-@end
-
-@implementation TSViewController
+@implementation TSViewController {
+    TSAlbumsViewController *_albumsVC;
+}
 
 - (void)viewDidLoad
 {
@@ -33,4 +32,8 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
+- (IBAction)onOpenPickerPressed:(id)sender {
+    _albumsVC = [TSAlbumsViewController new];
+    [self.navigationController pushViewController:_albumsVC animated:YES];
+}
 @end

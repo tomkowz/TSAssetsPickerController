@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TSAlbumsViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
-
+@interface TSAlbumsViewController : UIViewController
+@property (nonatomic, readonly) UITableView *tableView;
 @end

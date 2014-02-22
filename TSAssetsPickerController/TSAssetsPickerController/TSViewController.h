@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface TSViewController : UIViewController
+- (IBAction)onOpenPickerPressed:(id)sender;
 
 @end
