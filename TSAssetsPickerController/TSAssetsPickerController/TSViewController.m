@@ -39,6 +39,7 @@
     if (!_picker) {
         _picker = [TSAssetsPickerController new];
         _picker.delegate = self;
+        _picker.numberOfItemsToSelect = 3;
     }
 
     [self presentViewController:_picker animated:YES completion:nil];

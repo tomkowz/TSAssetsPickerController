@@ -8,11 +8,11 @@
 
 #import "TSAssetsViewController.h"
 
+#import "TSAssetsPickerController.h"
+
 #import "AssetCell.h"
 #import "TSAssetsLoader.h"
 #import "TSAssetsManager.h"
-
-const NSUInteger static availableNumberOfSelectedItems = 5;
 
 @interface TSAssetsViewController () <UICollectionViewDelegate, UICollectionViewDataSource> {
     TSAssetsManager *_assetsManager;
@@ -146,7 +146,7 @@ static NSString *cellIdentifier = nil;
 
 #pragma mark - UICollectionViewDelegate
 - (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    BOOL shouldSelect = (_assetsManager.selectedAssets.count < availableNumberOfSelectedItems);
+    BOOL shouldSelect = (_assetsManager.selectedAssets.count < _picker.numberOfItemsToSelect);
 
     AssetCell *cell = (AssetCell *)[collectionView cellForItemAtIndexPath:indexPath];
     if (cell.isCellSelected) {

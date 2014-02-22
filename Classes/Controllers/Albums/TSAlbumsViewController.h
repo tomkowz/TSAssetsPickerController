@@ -8,11 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@class TSAssetsPickerController;
+
 @protocol TSAlbumsViewControllerDelegate;
 
 @interface TSAlbumsViewController : UIViewController
 @property (nonatomic) UITableView *tableView;
 @property (nonatomic, weak) id <TSAlbumsViewControllerDelegate> delegate;
+@property (nonatomic, weak) TSAssetsPickerController *picker;
 @end
 
 @protocol TSAlbumsViewControllerDelegate <NSObject>

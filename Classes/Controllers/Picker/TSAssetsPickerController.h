@@ -14,6 +14,10 @@
 
 @interface TSAssetsPickerController : UINavigationController
 @property (nonatomic, weak) id <TSAssetsPickerControllerDelegate, UINavigationControllerDelegate> delegate;
+
+// Settings
+@property (nonatomic) NSUInteger numberOfItemsToSelect; // default set to 1
+
 @end
 
 @protocol TSAssetsPickerControllerDelegate <NSObject>

@@ -8,7 +8,7 @@
 
 #import "TSAlbumsViewController.h"
 
-#import <AssetsLibrary/AssetsLibrary.h>
+#import "TSAssetsPickerController.h"
 
 #import "AlbumCell.h"
 #import "CenteredLabelCell.h"
@@ -131,6 +131,7 @@ static NSString *const toAssetSegue = @"ToAssets";
 - (void)_showAssetsViewControllerWithAlbumName:(NSString *)name {
     TSAssetsViewController *assetsVC = [TSAssetsViewController new];
     assetsVC.delegate = self;
+    assetsVC.picker = _picker;
     [assetsVC configureWithAlbumName:name];
     [self.navigationController pushViewController:assetsVC animated:YES];
 }
