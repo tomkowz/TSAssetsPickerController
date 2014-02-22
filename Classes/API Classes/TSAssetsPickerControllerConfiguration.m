@@ -10,6 +10,7 @@
 
 #import <AssetsLibrary/AssetsLibrary.h>
 #import "AssetCell+Configuration.h"
+#import "NoAlbumsCell.h"
 
 @implementation TSAssetsPickerControllerConfiguration
 
@@ -18,6 +19,7 @@
     if (self) {
         [self _setDefaultConfiguration];
         [self _setDefaultAssetCellConfiguration];
+        [self _setNoAlbumsCellClass];
     }
     return self;
 }
@@ -46,6 +48,10 @@
     
     UIColor *selected = [UIColor colorWithRed:21.0f/255.0f green:150.0f/255.0f blue:210.0f/255.0f alpha:1.0f];
     [AssetCell setPreferedBackgroundColor:selected forState:Selected];
+}
+
+- (void)_setNoAlbumsCellClass {
+    _noAlbumCellClass = [NoAlbumsCell class];
 }
 
 @end

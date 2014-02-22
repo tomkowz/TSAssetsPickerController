@@ -138,8 +138,6 @@ static NSString *cellIdentifier = nil;
     AssetCell *cell = (AssetCell *)[collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
     if (!cell) {
         cell = [AssetCell new];
-//        NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:cellIdentifier owner:self options:nil];
-//        cell = (AssetCell *)[topLevelObjects objectAtIndex:0];
     }
 
     ALAsset *asset = _assetsManager.fetchedAssets[indexPath.row];

@@ -26,4 +26,6 @@
 @property (nonatomic) BOOL shouldShowEmptyAlbums; // default set to NO;
 @property (nonatomic) BOOL shouldDimmEmptyAlbums; // default set to YES; Works only if shouldShowEmptyAlbums is set to YES
 
+@property (nonatomic) Class noAlbumCellClass;
+
 @end

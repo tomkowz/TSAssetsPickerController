@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Tomasz Szulc. All rights reserved.
 //
 
-#import "CenteredLabelCell.h"
+#import "NoAlbumsCell.h"
 
-@implementation CenteredLabelCell
+@implementation NoAlbumsCell
 
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];

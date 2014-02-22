@@ -26,7 +26,7 @@
 		6D970A6418B7F8BE00D1D34B /* TSAssetsLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D970A4F18B7F8BE00D1D34B /* TSAssetsLoader.m */; };
 		6D970A6518B7F8BE00D1D34B /* TSAssetsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D970A5118B7F8BE00D1D34B /* TSAssetsManager.m */; };
 		6D970A6618B7F8BE00D1D34B /* AlbumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D970A5518B7F8BE00D1D34B /* AlbumCell.m */; };
-		6D970A6718B7F8BE00D1D34B /* CenteredLabelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D970A5718B7F8BE00D1D34B /* CenteredLabelCell.m */; };
+		6D970A6718B7F8BE00D1D34B /* NoAlbumsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D970A5718B7F8BE00D1D34B /* NoAlbumsCell.m */; };
 		6D970A6818B7F8BE00D1D34B /* TSAlbumsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D970A5918B7F8BE00D1D34B /* TSAlbumsViewController.m */; };
 		6D970A6918B7F8BE00D1D34B /* AssetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D970A5C18B7F8BE00D1D34B /* AssetCell.m */; };
 		6D970A6A18B7F8BE00D1D34B /* TSAssetsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D970A5E18B7F8BE00D1D34B /* TSAssetsViewController.m */; };
@@ -38,6 +38,7 @@
 		6D970A7D18B8F58200D1D34B /* AlbumRepresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D970A7C18B8F58200D1D34B /* AlbumRepresentation.m */; };
 		6D970A8018B90A8E00D1D34B /* TSAssetsPickerControllerConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D970A7F18B90A8E00D1D34B /* TSAssetsPickerControllerConfiguration.m */; };
 		6D970A8818B93DF800D1D34B /* AssetCell+Configuration.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D970A8718B93DF800D1D34B /* AssetCell+Configuration.m */; };
+		6D970A8B18B94B5400D1D34B /* DummyNoAlbumsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D970A8A18B94B5400D1D34B /* DummyNoAlbumsCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,8 +81,8 @@
 		6D970A5118B7F8BE00D1D34B /* TSAssetsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSAssetsManager.m; sourceTree = "<group>"; };
 		6D970A5418B7F8BE00D1D34B /* AlbumCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumCell.h; sourceTree = "<group>"; };
 		6D970A5518B7F8BE00D1D34B /* AlbumCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumCell.m; sourceTree = "<group>"; };
-		6D970A5618B7F8BE00D1D34B /* CenteredLabelCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CenteredLabelCell.h; sourceTree = "<group>"; };
-		6D970A5718B7F8BE00D1D34B /* CenteredLabelCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CenteredLabelCell.m; sourceTree = "<group>"; };
+		6D970A5618B7F8BE00D1D34B /* NoAlbumsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoAlbumsCell.h; sourceTree = "<group>"; };
+		6D970A5718B7F8BE00D1D34B /* NoAlbumsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoAlbumsCell.m; sourceTree = "<group>"; };
 		6D970A5818B7F8BE00D1D34B /* TSAlbumsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSAlbumsViewController.h; sourceTree = "<group>"; };
 		6D970A5918B7F8BE00D1D34B /* TSAlbumsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSAlbumsViewController.m; sourceTree = "<group>"; };
 		6D970A5B18B7F8BE00D1D34B /* AssetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssetCell.h; sourceTree = "<group>"; };
@@ -103,6 +104,8 @@
 		6D970A8118B91D9200D1D34B /* SystemVersionMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SystemVersionMacros.h; sourceTree = "<group>"; };
 		6D970A8618B93DF800D1D34B /* AssetCell+Configuration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AssetCell+Configuration.h"; sourceTree = "<group>"; };
 		6D970A8718B93DF800D1D34B /* AssetCell+Configuration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AssetCell+Configuration.m"; sourceTree = "<group>"; };
+		6D970A8918B94B5400D1D34B /* DummyNoAlbumsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DummyNoAlbumsCell.h; sourceTree = "<group>"; };
+		6D970A8A18B94B5400D1D34B /* DummyNoAlbumsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DummyNoAlbumsCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -254,8 +257,8 @@
 				6D970A5418B7F8BE00D1D34B /* AlbumCell.h */,
 				6D970A5518B7F8BE00D1D34B /* AlbumCell.m */,
 				6D970A6F18B8A73700D1D34B /* AlbumCell.xib */,
-				6D970A5618B7F8BE00D1D34B /* CenteredLabelCell.h */,
-				6D970A5718B7F8BE00D1D34B /* CenteredLabelCell.m */,
+				6D970A5618B7F8BE00D1D34B /* NoAlbumsCell.h */,
+				6D970A5718B7F8BE00D1D34B /* NoAlbumsCell.m */,
 			);
 			path = Albums;
 			sourceTree = "<group>";
@@ -278,6 +281,8 @@
 			children = (
 				6D970A6018B7F8BE00D1D34B /* DummyAssetsImporter.h */,
 				6D970A6118B7F8BE00D1D34B /* DummyAssetsImporter.m */,
+				6D970A8918B94B5400D1D34B /* DummyNoAlbumsCell.h */,
+				6D970A8A18B94B5400D1D34B /* DummyNoAlbumsCell.m */,
 			);
 			path = "Dummy Classes";
 			sourceTree = "<group>";
@@ -399,10 +404,11 @@
 				6D970A7D18B8F58200D1D34B /* AlbumRepresentation.m in Sources */,
 				6D9709FE18B7F41E00D1D34B /* TSAppDelegate.m in Sources */,
 				6D970A7818B8D12200D1D34B /* TSAssetsPickerController.m in Sources */,
+				6D970A8B18B94B5400D1D34B /* DummyNoAlbumsCell.m in Sources */,
 				6D970A6518B7F8BE00D1D34B /* TSAssetsManager.m in Sources */,
 				6D970A6E18B7FC8600D1D34B /* TSBaseLoader.m in Sources */,
 				6D970A0418B7F41E00D1D34B /* TSViewController.m in Sources */,
-				6D970A6718B7F8BE00D1D34B /* CenteredLabelCell.m in Sources */,
+				6D970A6718B7F8BE00D1D34B /* NoAlbumsCell.m in Sources */,
 				6D970A6418B7F8BE00D1D34B /* TSAssetsLoader.m in Sources */,
 				6D970A6918B7F8BE00D1D34B /* AssetCell.m in Sources */,
 				6D970A6818B7F8BE00D1D34B /* TSAlbumsViewController.m in Sources */,

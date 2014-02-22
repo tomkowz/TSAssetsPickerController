@@ -11,7 +11,7 @@
 
 #import "AlbumCell.h"
 #import "AlbumRepresentation.h"
-#import "CenteredLabelCell.h"
+#import "NoAlbumsCell.h"
 #import "SystemVersionMacros.h"
 #import "TSAlbumsLoader.h"
 #import "TSAssetsPickerController.h"
@@ -108,20 +108,21 @@ static NSString *const toAssetSegue = @"ToAssets";
     UITableViewCell *_cell = nil;
     BOOL showAlbumCell = _albumsLoader.fetchedAlbumRepresentations.count > 0;
     showAlbumCell = NO;
-    Class cellClass =  showAlbumCell ? [AlbumCell class] : [CenteredLabelCell class];
-    NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass(cellClass) owner:self options:nil];
 
     if (showAlbumCell) {
+        /*
         AlbumCell *cell = (AlbumCell *)[topLevelObjects objectAtIndex:0];
         AlbumRepresentation *albumRepresentation = _albumsLoader.fetchedAlbumRepresentations[indexPath.row];
         [cell configureWithAlbumRepresentation:albumRepresentation dimmIfEmpty:_picker.configuration.shouldDimmEmptyAlbums];
         _cell = cell;
+         */
     } else {
-        CenteredLabelCell *cell = (CenteredLabelCell *)[topLevelObjects objectAtIndex:0];
+        Class class = _picker.configuration.noAlbumCellClass;
+        id cell = [class new];
         if (_fetchedFirstTime) {
-            cell.label.text = _picker.configuration.noAlbumsForSelectedFilter;
+            [(UILabel *)[cell valueForKey:@"label"] setText: _picker.configuration.noAlbumsForSelectedFilter];
         } else {
-            cell.label.text = @"";
+            [(UILabel *)[cell valueForKey:@"label"] setText:@""];
         }
         _cell = cell;
     }
@@ -144,6 +145,10 @@ static NSString *const toAssetSegue = @"ToAssets";
     assetsVC.picker = _picker;
     [assetsVC configureWithAlbumName:name];
     [self.navigationController pushViewController:assetsVC animated:YES];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 80.0;
 }
 
 

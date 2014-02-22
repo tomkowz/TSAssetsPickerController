@@ -11,6 +11,7 @@
 #import "TSAssetsPickerController.h"
 
 #import "DummyAssetsImporter.h"
+#import "DummyNoAlbumsCell.h"
 
 @interface TSViewController () <TSAssetsPickerControllerDelegate, UINavigationControllerDelegate> {
     TSAssetsPickerController *_picker;
@@ -52,6 +53,9 @@
 //        _picker.configuration.shouldShowEmptyAlbums = YES;
 //        _picker.configuration.shouldDimmEmptyAlbums = NO;
         
+        
+        // Custom No Albums Cell which is visible when there is no albums in first view of TSAssetsPickerController
+//        _picker.configuration.noAlbumCellClass = [DummyNoAlbumsCell class];
         
         // Custom Asset Cell configuration
         /*
