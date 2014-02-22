@@ -20,7 +20,7 @@
     return self;
 }
 
-- (void)fetchAssetsFromAlbum:(NSString *)album block:(void (^)(NSArray *loadedAssets))block {
+- (void)fetchAssetsFromAlbum:(NSString *)album block:(void (^)(NSArray *, NSError *error))block {
     [self removeFetchedAssets];
     NSMutableArray *mutableAssets = [NSMutableArray new];
     [self.library enumerateGroupsWithTypes:ALAssetsGroupAll
@@ -34,11 +34,11 @@
                                    }];
                                    
                                    _fetchedAssets = [NSArray arrayWithArray:mutableAssets];
-                                   block(_fetchedAssets);
+                                   block(_fetchedAssets, nil);
                                }
                            }
                          failureBlock:^(NSError *error) {
-                             block(nil);
+                             block([NSArray array], error);
                          }];
 }
 

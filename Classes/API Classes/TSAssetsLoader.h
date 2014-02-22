@@ -11,6 +11,6 @@
 @interface TSAssetsLoader : TSBaseLoader
 @property (nonatomic, readonly) NSArray *fetchedAssets;
 
-- (void)fetchAssetsFromAlbum:(NSString *)album block:(void (^)(NSArray *loadedAssets))block;
+- (void)fetchAssetsFromAlbum:(NSString *)album block:(void (^)(NSArray *loadedAssets, NSError *error))block;
 
 @end

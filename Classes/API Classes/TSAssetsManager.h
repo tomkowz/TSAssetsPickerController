@@ -18,7 +18,7 @@
 
 + (instancetype)managerWithLoader:(TSAssetsLoader *)loader;
 
-- (void)fetchAssetsWithAlbumName:(NSString *)albumName block:(void (^)(NSUInteger numberOfAssets))block;
+- (void)fetchAssetsWithAlbumName:(NSString *)albumName block:(void (^)(NSUInteger numberOfAssets, NSError *error))block;
 
 - (void)selectAsset:(ALAsset *)asset;
 - (void)deselectAsset:(ALAsset *)asset;

@@ -36,18 +36,22 @@
 }
 
 
-- (void)fetchAssetsWithAlbumName:(NSString *)albumName block:(void (^)(NSUInteger))block {
-    [_assetsLoader fetchAssetsFromAlbum:albumName block:^(NSArray *loadedAssets) {
-        _selectedAssetsAfterUpdateContainer = [TSAssetsContainer new];
-        for (ALAsset *asset in loadedAssets) {
-            ALAsset *selectedAsset = [_selectedAssetsContainer assetSimilarTo:asset];
-            if (selectedAsset) {
-                [_selectedAssetsAfterUpdateContainer addAsset:asset];
+- (void)fetchAssetsWithAlbumName:(NSString *)albumName block:(void (^)(NSUInteger, NSError *))block {
+    [_assetsLoader fetchAssetsFromAlbum:albumName block:^(NSArray *loadedAssets, NSError *error) {
+        if (!error) {
+            _selectedAssetsAfterUpdateContainer = [TSAssetsContainer new];
+            for (ALAsset *asset in loadedAssets) {
+                ALAsset *selectedAsset = [_selectedAssetsContainer assetSimilarTo:asset];
+                if (selectedAsset) {
+                    [_selectedAssetsAfterUpdateContainer addAsset:asset];
+                }
             }
+            
+            [_selectedAssetsContainer setAssets:_selectedAssetsAfterUpdateContainer.assets];
+            block(loadedAssets.count, nil);
+        } else {
+            block(0, error);
         }
-        
-        [_selectedAssetsContainer setAssets:_selectedAssetsAfterUpdateContainer.assets];
-        block(loadedAssets.count);
     }];
 }
 

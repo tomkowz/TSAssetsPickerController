@@ -77,11 +77,15 @@ const NSUInteger static availableNumberOfSelectedItems = 5;
 }
 
 - (void)fetchAssets {
-    [_assetsManager fetchAssetsWithAlbumName:_albumName block:^(NSUInteger numberOfAssets) {
-        if (numberOfAssets > 0)
-            [_collectionView reloadData];
-        else {
-            [self.navigationController popViewControllerAnimated:YES];
+    [_assetsManager fetchAssetsWithAlbumName:_albumName block:^(NSUInteger numberOfAssets, NSError *error) {
+        if (!error) {
+            if (numberOfAssets > 0)
+                [_collectionView reloadData];
+            else {
+                [self.navigationController popViewControllerAnimated:YES];
+            }
+        } else {
+            NSLog(@"No access to Camera Roll.");
         }
     }];
 }
