@@ -41,8 +41,8 @@
         _picker.delegate = self;
         _picker.configuration.numberOfItemsToSelect = 3;
         
-        _picker.configuration.filter = [ALAssetsFilter allPhotos];
-        _picker.configuration.noAlbumsForSelectedFilter = @"Can't find any photo. Take some and back.";
+        _picker.configuration.filter = [ALAssetsFilter allAssets];
+        _picker.configuration.noAlbumsForSelectedFilter = @"Can't find any asset. Create some and back.";
         
         _picker.configuration.shouldReverseAlbumsOrder = NO;
         _picker.configuration.shouldReverseAssetsOrder = YES;

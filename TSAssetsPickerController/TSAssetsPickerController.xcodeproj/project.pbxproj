@@ -208,9 +208,9 @@
 		6D970A4818B7F8BE00D1D34B /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				6D970A8118B91D9200D1D34B /* SystemVersionMacros.h */,
 				6D970A4918B7F8BE00D1D34B /* API Classes */,
 				6D970A5218B7F8BE00D1D34B /* Controllers */,
+				6D970A8118B91D9200D1D34B /* SystemVersionMacros.h */,
 			);
 			name = Classes;
 			path = ../Classes;
