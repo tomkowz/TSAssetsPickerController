@@ -48,4 +48,8 @@
     [self.delegate assetsPickerControllerDidCancel:self];
 }
 
+- (void)albumsViewController:(TSAlbumsViewController *)albumsVC didFinishPickingAssets:(NSArray *)assets {
+    [self.delegate assetsPickerController:self didFinishPickingAssets:assets];
+}
+
 @end

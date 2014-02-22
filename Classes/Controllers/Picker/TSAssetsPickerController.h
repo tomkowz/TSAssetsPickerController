@@ -17,6 +17,6 @@
 @end
 
 @protocol TSAssetsPickerControllerDelegate <NSObject>
-- (void)assetsPickerController:(TSAssetsPickerController *)picker didFinishPickingAssets:(NSArray *)assets library:(ALAssetsLibrary *)library;
+- (void)assetsPickerController:(TSAssetsPickerController *)picker didFinishPickingAssets:(NSArray *)assets;
 - (void)assetsPickerControllerDidCancel:(TSAssetsPickerController *)picker;
 @end

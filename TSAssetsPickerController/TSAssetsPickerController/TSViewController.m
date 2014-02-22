@@ -9,7 +9,8 @@
 #import "TSViewController.h"
 
 #import "TSAssetsPickerController.h"
-#import "TSAssetsViewController.h"
+
+#import "DummyAssetsImporter.h"
 
 @interface TSViewController () <TSAssetsPickerControllerDelegate, UINavigationControllerDelegate> {
     TSAssetsPickerController *_picker;
@@ -21,7 +22,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didEndImportAssets) name:DidEndImportAssetsNotification object:nil];
 }
 
 - (void)didEndImportAssets {
@@ -50,8 +50,13 @@
     [_picker dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)assetsPickerController:(TSAssetsPickerController *)picker didFinishPickingAssets:(NSArray *)assets library:(ALAssetsLibrary *)library {
-    
+- (void)assetsPickerController:(TSAssetsPickerController *)picker didFinishPickingAssets:(NSArray *)assets {
+    /*
+     Do something here with assets.
+     Here for example DummyAssetsImporter "imports" data from assets and make some log.
+     */
+
+    [DummyAssetsImporter importAssets:assets];
 }
 
 @end

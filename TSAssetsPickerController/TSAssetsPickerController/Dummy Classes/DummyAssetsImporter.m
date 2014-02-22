@@ -25,6 +25,7 @@
         // ...
     }
     NSLog(@"---");
+    NSLog(@"Done");
     return success;
 }
 

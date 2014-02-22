@@ -157,6 +157,7 @@
 		6D9709F318B7F41E00D1D34B /* TSAssetsPickerController */ = {
 			isa = PBXGroup;
 			children = (
+				6D970A5F18B7F8BE00D1D34B /* Dummy Classes */,
 				6D9709FC18B7F41E00D1D34B /* TSAppDelegate.h */,
 				6D9709FD18B7F41E00D1D34B /* TSAppDelegate.m */,
 				6D9709FF18B7F41E00D1D34B /* Main.storyboard */,
@@ -202,7 +203,6 @@
 			children = (
 				6D970A4918B7F8BE00D1D34B /* API Classes */,
 				6D970A5218B7F8BE00D1D34B /* Controllers */,
-				6D970A5F18B7F8BE00D1D34B /* Dummy Classes */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -238,14 +238,14 @@
 		6D970A5318B7F8BE00D1D34B /* Albums */ = {
 			isa = PBXGroup;
 			children = (
+				6D970A5818B7F8BE00D1D34B /* TSAlbumsViewController.h */,
+				6D970A5918B7F8BE00D1D34B /* TSAlbumsViewController.m */,
 				6D970A5418B7F8BE00D1D34B /* AlbumCell.h */,
 				6D970A5518B7F8BE00D1D34B /* AlbumCell.m */,
 				6D970A6F18B8A73700D1D34B /* AlbumCell.xib */,
 				6D970A5618B7F8BE00D1D34B /* CenteredLabelCell.h */,
 				6D970A5718B7F8BE00D1D34B /* CenteredLabelCell.m */,
 				6D970A7118B8A99900D1D34B /* CenteredLabelCell.xib */,
-				6D970A5818B7F8BE00D1D34B /* TSAlbumsViewController.h */,
-				6D970A5918B7F8BE00D1D34B /* TSAlbumsViewController.m */,
 			);
 			path = Albums;
 			sourceTree = "<group>";
@@ -253,11 +253,11 @@
 		6D970A5A18B7F8BE00D1D34B /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				6D970A5D18B7F8BE00D1D34B /* TSAssetsViewController.h */,
+				6D970A5E18B7F8BE00D1D34B /* TSAssetsViewController.m */,
 				6D970A5B18B7F8BE00D1D34B /* AssetCell.h */,
 				6D970A5C18B7F8BE00D1D34B /* AssetCell.m */,
 				6D970A7318B8B50800D1D34B /* AssetCell.xib */,
-				6D970A5D18B7F8BE00D1D34B /* TSAssetsViewController.h */,
-				6D970A5E18B7F8BE00D1D34B /* TSAssetsViewController.m */,
 			);
 			path = Assets;
 			sourceTree = "<group>";

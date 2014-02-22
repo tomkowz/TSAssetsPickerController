@@ -15,7 +15,7 @@
 #import "TSAlbumsLoader.h"
 #import "TSAssetsViewController.h"
 
-@interface TSAlbumsViewController ()  <UITableViewDelegate, UITableViewDataSource> {
+@interface TSAlbumsViewController ()  <UITableViewDelegate, UITableViewDataSource, TSAssetsViewControllerDelegate> {
     TSAlbumsLoader *_albumsLoader;
     BOOL _fetchedFirstTime;
 }
@@ -130,8 +130,15 @@ static NSString *const toAssetSegue = @"ToAssets";
 
 - (void)_showAssetsViewControllerWithAlbumName:(NSString *)name {
     TSAssetsViewController *assetsVC = [TSAssetsViewController new];
+    assetsVC.delegate = self;
     [assetsVC configureWithAlbumName:name];
     [self.navigationController pushViewController:assetsVC animated:YES];
+}
+
+
+#pragma mark - TSAssetsViewControllerDelegate
+- (void)assetsViewController:(TSAssetsViewController *)assetsVC didFinishPickingAssets:(NSArray *)assets {
+    [_delegate albumsViewController:self didFinishPickingAssets:assets];
 }
 
 @end
