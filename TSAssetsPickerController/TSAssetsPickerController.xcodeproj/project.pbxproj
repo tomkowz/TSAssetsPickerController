@@ -103,6 +103,7 @@
 		6D970A7C18B8F58200D1D34B /* AlbumRepresentation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumRepresentation.m; sourceTree = "<group>"; };
 		6D970A7E18B90A8E00D1D34B /* TSAssetsPickerControllerConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSAssetsPickerControllerConfiguration.h; sourceTree = "<group>"; };
 		6D970A7F18B90A8E00D1D34B /* TSAssetsPickerControllerConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSAssetsPickerControllerConfiguration.m; sourceTree = "<group>"; };
+		6D970A8118B91D9200D1D34B /* SystemVersionMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SystemVersionMacros.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +208,7 @@
 		6D970A4818B7F8BE00D1D34B /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				6D970A8118B91D9200D1D34B /* SystemVersionMacros.h */,
 				6D970A4918B7F8BE00D1D34B /* API Classes */,
 				6D970A5218B7F8BE00D1D34B /* Controllers */,
 			);

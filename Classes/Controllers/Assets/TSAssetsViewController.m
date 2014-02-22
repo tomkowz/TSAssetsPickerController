@@ -8,11 +8,12 @@
 
 #import "TSAssetsViewController.h"
 
-#import "TSAssetsPickerController.h"
 
 #import "AssetCell.h"
+#import "SystemVersionMacros.h"
 #import "TSAssetsLoader.h"
 #import "TSAssetsManager.h"
+#import "TSAssetsPickerController.h"
 
 @interface TSAssetsViewController () <UICollectionViewDelegate, UICollectionViewDataSource> {
     TSAssetsManager *_assetsManager;
@@ -94,7 +95,7 @@
     [layout setItemSize:CGSizeMake(74, 74)];
     [layout setMinimumLineSpacing:4.0];
     [layout setMinimumInteritemSpacing:0.0];
-    [layout setSectionInset:UIEdgeInsetsMake(4, 4, 0, 4)];
+    [layout setSectionInset:UIEdgeInsetsMake(4, 4, 4, 4)];
     
     return layout;
 }
@@ -104,7 +105,12 @@ static NSString *cellIdentifier = nil;
     cellIdentifier = NSStringFromClass([AssetCell class]);
     
     UICollectionViewFlowLayout *layout = [self newCollectionViewLayout];
-    UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:layout];
+    CGRect frame = self.view.bounds;
+    if (SYSTEM_VERSION_LESS_THAN(@"7.0")) {
+        frame.size.height -= CGRectGetHeight(self.navigationController.navigationBar.frame);
+    }
+    
+    UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:frame collectionViewLayout:layout];
     [collectionView setBounces:YES];
     [collectionView setScrollEnabled:YES];
     [collectionView setAlwaysBounceVertical:YES];

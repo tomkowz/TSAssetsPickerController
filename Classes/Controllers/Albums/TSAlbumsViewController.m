@@ -8,12 +8,13 @@
 
 #import "TSAlbumsViewController.h"
 
-#import "TSAssetsPickerController.h"
 
 #import "AlbumCell.h"
 #import "AlbumRepresentation.h"
 #import "CenteredLabelCell.h"
+#import "SystemVersionMacros.h"
 #import "TSAlbumsLoader.h"
+#import "TSAssetsPickerController.h"
 #import "TSAssetsViewController.h"
 
 @interface TSAlbumsViewController ()  <UITableViewDelegate, UITableViewDataSource, TSAssetsViewControllerDelegate> {
@@ -53,7 +54,12 @@
 }
 
 - (UITableView *)newTableView {
-    UITableView *tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+    CGRect frame = self.view.bounds;
+    if (SYSTEM_VERSION_LESS_THAN(@"7.0")) {
+        frame.size.height -= CGRectGetHeight(self.navigationController.navigationBar.frame);
+    }
+    
+    UITableView *tableView = [[UITableView alloc] initWithFrame:frame style:UITableViewStylePlain];
     tableView.delegate = self;
     tableView.dataSource = self;
     
