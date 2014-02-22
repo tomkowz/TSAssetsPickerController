@@ -66,7 +66,7 @@
 
 #pragma mark - Actions
 - (void)onCancelPressed {
-    
+    [_delegate albumsViewControllerDidCancel:self];
 }
 
 

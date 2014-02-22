@@ -10,9 +10,12 @@
 
 #import "TSAlbumsViewController.h"
 
-@implementation TSAssetsPickerController {
+@interface TSAssetsPickerController () < TSAlbumsViewControllerDelegate> {
     TSAlbumsViewController *_albumsVC;
 }
+@end
+
+@implementation TSAssetsPickerController
 
 - (void)viewDidLoad
 {
@@ -22,17 +25,27 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self pushViewController:_albumsVC animated:NO];
+    
+    if (!_albumsVC.isViewLoaded && !_albumsVC.view.window) {
+        [self pushViewController:_albumsVC animated:NO];
+    }
 }
 
 - (void)_configureAlbumsViewController {
     _albumsVC = [TSAlbumsViewController new];
+    _albumsVC.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+#pragma mark - TSAlbumsViewControllerDelegate
+- (void)albumsViewControllerDidCancel:(TSAlbumsViewController *)albumsVC {
+    [self.delegate assetsPickerControllerDidCancel:self];
 }
 
 @end

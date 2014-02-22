@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TSAssetsPickerController : UINavigationController
+#import <AssetsLibrary/AssetsLibrary.h>
 
+@protocol TSAssetsPickerControllerDelegate;
+
+@interface TSAssetsPickerController : UINavigationController
+@property (nonatomic, weak) id <TSAssetsPickerControllerDelegate, UINavigationControllerDelegate> delegate;
+@end
+
+@protocol TSAssetsPickerControllerDelegate <NSObject>
+- (void)assetsPickerController:(TSAssetsPickerController *)picker didFinishPickingAssets:(NSArray *)assets library:(ALAssetsLibrary *)library;
+- (void)assetsPickerControllerDidCancel:(TSAssetsPickerController *)picker;
 @end

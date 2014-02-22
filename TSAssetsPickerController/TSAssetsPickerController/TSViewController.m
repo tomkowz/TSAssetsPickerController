@@ -11,9 +11,12 @@
 #import "TSAssetsPickerController.h"
 #import "TSAssetsViewController.h"
 
-@implementation TSViewController {
+@interface TSViewController () <TSAssetsPickerControllerDelegate, UINavigationControllerDelegate> {
     TSAssetsPickerController *_picker;
 }
+@end
+
+@implementation TSViewController
 
 - (void)viewDidLoad
 {
@@ -33,7 +36,22 @@
 }
 
 - (IBAction)onOpenPickerPressed:(id)sender {
-    _picker = [TSAssetsPickerController new];
+    if (!_picker) {
+        _picker = [TSAssetsPickerController new];
+        _picker.delegate = self;
+    }
+
     [self presentViewController:_picker animated:YES completion:nil];
 }
+
+
+#pragma mark - TSAssetsPickerControllerDelegate
+- (void)assetsPickerControllerDidCancel:(TSAssetsPickerController *)picker {
+    [_picker dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)assetsPickerController:(TSAssetsPickerController *)picker didFinishPickingAssets:(NSArray *)assets library:(ALAssetsLibrary *)library {
+    
+}
+
 @end

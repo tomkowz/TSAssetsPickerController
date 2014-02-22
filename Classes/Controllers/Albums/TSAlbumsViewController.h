@@ -8,7 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol TSAlbumsViewControllerDelegate;
+
 @interface TSAlbumsViewController : UIViewController
 @property (nonatomic) UITableView *tableView;
-@property (nonatomic) UINavigationBar *navigationBar;
+@property (nonatomic, weak) id <TSAlbumsViewControllerDelegate> delegate;
+@end
+
+@protocol TSAlbumsViewControllerDelegate <NSObject>
+- (void)albumsViewControllerDidCancel:(TSAlbumsViewController *)albumsVC;
 @end
