@@ -94,6 +94,7 @@
     [layout setItemSize:CGSizeMake(74, 74)];
     [layout setMinimumLineSpacing:4.0];
     [layout setMinimumInteritemSpacing:0.0];
+    [layout setSectionInset:UIEdgeInsetsMake(4, 4, 0, 4)];
     
     return layout;
 }
@@ -104,7 +105,6 @@ static NSString *cellIdentifier = nil;
     
     UICollectionViewFlowLayout *layout = [self newCollectionViewLayout];
     UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:layout];
-    [collectionView setContentInset:UIEdgeInsetsMake(4, 4, 0, 4)];
     [collectionView setBounces:YES];
     [collectionView setScrollEnabled:YES];
     [collectionView setAlwaysBounceVertical:YES];
@@ -168,5 +168,6 @@ static NSString *cellIdentifier = nil;
     
     return shouldSelect;
 }
+
 
 @end

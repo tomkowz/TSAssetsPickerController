@@ -25,7 +25,7 @@
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
-            <size key="customSize" width="218" height="197"/>
+            <size key="customSize" width="218" height="195"/>
             <connections>
                 <outlet property="assetThumbnail" destination="uGg-EN-reI" id="7ct-gt-cvL"/>
                 <outlet property="movieMark" destination="VCP-zh-gRw" id="oBp-SU-ovX"/>
