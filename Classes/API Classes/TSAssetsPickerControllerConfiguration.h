@@ -8,7 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
+#import "AssetCell+Configuration.h"
+
 @class ALAssetsFilter;
+@class TSAssetCellConfiguration;
 
 @interface TSAssetsPickerControllerConfiguration : NSObject
 

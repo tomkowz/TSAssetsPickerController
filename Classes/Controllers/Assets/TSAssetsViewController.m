@@ -8,7 +8,6 @@
 
 #import "TSAssetsViewController.h"
 
-
 #import "AssetCell.h"
 #import "SystemVersionMacros.h"
 #import "TSAssetsLoader.h"
@@ -89,10 +88,11 @@
 
 
 #pragma mark - Setup View
+#warning this layout shold be also customizable
 - (UICollectionViewFlowLayout *)newCollectionViewLayout {
     UICollectionViewFlowLayout *layout = [UICollectionViewFlowLayout new];
     [layout setScrollDirection:UICollectionViewScrollDirectionVertical];
-    [layout setItemSize:CGSizeMake(74, 74)];
+    [layout setItemSize:[AssetCell preferedCellSize]];
     [layout setMinimumLineSpacing:4.0];
     [layout setMinimumInteritemSpacing:0.0];
     [layout setSectionInset:UIEdgeInsetsMake(4, 4, 4, 4)];
@@ -115,8 +115,7 @@ static NSString *cellIdentifier = nil;
     [collectionView setScrollEnabled:YES];
     [collectionView setAlwaysBounceVertical:YES];
     
-    UINib *cellNib = [UINib nibWithNibName:cellIdentifier bundle:[NSBundle mainBundle]];
-    [collectionView registerNib:cellNib forCellWithReuseIdentifier:cellIdentifier];
+    [collectionView registerClass:[AssetCell class] forCellWithReuseIdentifier:cellIdentifier];
     [collectionView setBackgroundColor:[UIColor whiteColor]];
     collectionView.delegate = self;
     collectionView.dataSource = self;
@@ -138,8 +137,9 @@ static NSString *cellIdentifier = nil;
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     AssetCell *cell = (AssetCell *)[collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
     if (!cell) {
-        NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:cellIdentifier owner:self options:nil];
-        cell = (AssetCell *)[topLevelObjects objectAtIndex:0];
+        cell = [AssetCell new];
+//        NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:cellIdentifier owner:self options:nil];
+//        cell = (AssetCell *)[topLevelObjects objectAtIndex:0];
     }
 
     ALAsset *asset = _assetsManager.fetchedAssets[indexPath.row];

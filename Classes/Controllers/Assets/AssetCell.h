@@ -11,8 +11,6 @@
 @class ALAsset;
 
 @interface AssetCell : UICollectionViewCell
-@property (nonatomic, weak) IBOutlet UIImageView *assetThumbnail;
-@property (nonatomic, weak) IBOutlet UIImageView *movieMark;
 
 @property (nonatomic, readonly, getter = isCellSelected) BOOL cellSelected;
 

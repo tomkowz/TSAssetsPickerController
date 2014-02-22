@@ -9,6 +9,7 @@
 #import "TSAssetsPickerControllerConfiguration.h"
 
 #import <AssetsLibrary/AssetsLibrary.h>
+#import "AssetCell+Configuration.h"
 
 @implementation TSAssetsPickerControllerConfiguration
 
@@ -16,6 +17,7 @@
     self = [super init];
     if (self) {
         [self _setDefaultConfiguration];
+        [self _setDefaultAssetCellConfiguration];
     }
     return self;
 }
@@ -31,6 +33,19 @@
     
     _shouldShowEmptyAlbums = NO;
     _shouldDimmEmptyAlbums = YES;
+}
+
+- (void)_setDefaultAssetCellConfiguration {
+    [AssetCell setPreferedCellSize:CGSizeMake(74, 74)];
+    [AssetCell setPreferedThumbnailRect:CGRectMake(5, 5, 64, 64)];
+    [AssetCell setPreferedMovieMarkRect:CGRectMake(46, 46, 20, 20)];
+    [AssetCell setPreferedImageForMovieMark:[UIImage imageNamed:@"movieMark"]];
+    
+    UIColor *normal = [UIColor colorWithWhite:0.7 alpha:0.3];
+    [AssetCell setPreferedBackgroundColor:normal forState:Normal];
+    
+    UIColor *selected = [UIColor colorWithRed:21.0f/255.0f green:150.0f/255.0f blue:210.0f/255.0f alpha:1.0f];
+    [AssetCell setPreferedBackgroundColor:selected forState:Selected];
 }
 
 @end

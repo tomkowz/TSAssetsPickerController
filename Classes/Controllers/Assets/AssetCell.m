@@ -10,10 +10,17 @@
 
 #import <AssetsLibrary/AssetsLibrary.h>
 
-@implementation AssetCell
+#import "AssetCell+Configuration.h"
+
+@implementation AssetCell {
+    UIImageView *_thumbnailImageView;
+    UIImageView *_movieMarkImageView;
+}
+
 @synthesize cellSelected = _cellSelected;
 
 #pragma mark - Initialization
+
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
@@ -22,8 +29,8 @@
     return self;
 }
 
-- (id)initWithCoder:(NSCoder *)aDecoder {
-    self = [super initWithCoder:aDecoder];
+- (id)init {
+    self = [super init];
     if (self) {
         [self setup];
     }
@@ -32,6 +39,27 @@
 
 - (void)setup {
     _cellSelected = NO;
+    
+    [self setupView];
+    [self setupThumbnailImageView];
+    [self setupMovieMarkImageView];
+}
+
+- (void)setupView {
+    CGRect frame = CGRectZero;
+    frame.size = [AssetCell preferedCellSize];
+    self.frame = frame;
+}
+
+- (void)setupThumbnailImageView {
+    _thumbnailImageView = [[UIImageView alloc] initWithFrame:[AssetCell preferedThumbnailRect]];
+    [self addSubview:_thumbnailImageView];
+}
+
+- (void)setupMovieMarkImageView {
+    _movieMarkImageView = [[UIImageView alloc] initWithFrame:[AssetCell preferedMovieMarkRect]];
+    [_movieMarkImageView setImage:[AssetCell preferedMovieMarkImage]];
+    [self addSubview:_movieMarkImageView];
 }
 
 
@@ -39,10 +67,10 @@
 - (void)configure:(ALAsset *)asset {
     CGImageRef thumbnailRef = [asset thumbnail];
     UIImage *thumbnail = [UIImage imageWithCGImage:thumbnailRef];
-    [_assetThumbnail setImage:thumbnail];
+    [_thumbnailImageView setImage:thumbnail];
     
     NSString *type = [asset valueForProperty:ALAssetPropertyType];
-    [_movieMark setHidden:(![type isEqualToString:ALAssetTypeVideo])];
+    [_movieMarkImageView setHidden:(![type isEqualToString:ALAssetTypeVideo])];
 }
 
 
@@ -52,13 +80,14 @@
 
     UIColor *color;
     if (selected ) {
-        color = [UIColor colorWithRed:21.0f/255.0f green:150.0f/255.0f blue:210.0f/255.0f alpha:1.0f];
+        color = [AssetCell preferedBackgroundColorForState:Selected];
     } else {
-        color = [UIColor colorWithWhite:0.7 alpha:0.3];
+        color = [AssetCell preferedBackgroundColorForState:Normal];
     }
     
     [self setBackgroundColor:color];
-    [_movieMark setBackgroundColor:color];
+    [_movieMarkImageView setBackgroundColor:color];
 }
 
 @end
+
