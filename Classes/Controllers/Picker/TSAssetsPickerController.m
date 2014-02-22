@@ -8,6 +8,7 @@
 
 #import "TSAssetsPickerController.h"
 
+#import "AlbumCell.h"
 #import "TSAlbumsViewController.h"
 #import "NoAlbumsCell.h"
 
@@ -32,7 +33,8 @@
         self.shouldShowEmptyAlbums = NO;
         self.shouldDimmEmptyAlbums = YES;
         
-        self.subclassOfNoAlbumsCell = [NoAlbumsCell class];
+        self.subclassOfAlbumCellClass = [AlbumCell class];
+        self.subclassOfNoAlbumsCellClass = [NoAlbumsCell class];
     }
     return self;
 }

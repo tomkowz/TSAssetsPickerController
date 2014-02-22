@@ -8,17 +8,19 @@
 
 #import "AlbumCell.h"
 
-#import "AlbumRepresentation.h"
-
 @implementation AlbumCell
 
-- (void)configureWithAlbumRepresentation:(AlbumRepresentation *)albumRepresentation dimmIfEmpty:(BOOL)dimm {
-    self.textLabel.text = albumRepresentation.name;
-    
-    if (dimm) {
-        CGFloat alpha = albumRepresentation.isEmpty ? 0.3 : 1.0;
-        self.textLabel.alpha = alpha;
+- (id)init {
+    self = [super init];
+    if (self) {
+        [self setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
     }
+    return self;
+}
+
+- (void)dimm:(BOOL)dimm {
+    CGFloat alpha = dimm ? 0.3 : 1.0;
+    self.textLabel.alpha = alpha;
 }
 
 @end

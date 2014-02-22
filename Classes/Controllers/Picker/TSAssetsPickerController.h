@@ -57,10 +57,16 @@
 @property (nonatomic) BOOL shouldDimmEmptyAlbums;
 
 /**
+ Set this class if you want to use custom subclass of AlbumCell class.
+ This class is used to dislpay album (label with name) on Albums view.
+ */
+@property (nonatomic) Class subclassOfAlbumCellClass;
+
+/**
  Set this class if you want to use custom subclass of NoAlbumsCell class.
  This class is used to display "noAlbumsForSelectedFilter" property on Albums view.
  */
-@property (nonatomic) Class subclassOfNoAlbumsCell;
+@property (nonatomic) Class subclassOfNoAlbumsCellClass;
 
 @end
 

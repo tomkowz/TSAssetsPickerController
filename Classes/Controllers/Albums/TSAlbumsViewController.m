@@ -109,14 +109,15 @@ static NSString *const toAssetSegue = @"ToAssets";
     BOOL showAlbumCell = _albumsLoader.fetchedAlbumRepresentations.count > 0;
 
     if (showAlbumCell) {
-        /*
-        AlbumCell *cell = (AlbumCell *)[topLevelObjects objectAtIndex:0];
+        Class class = _picker.subclassOfAlbumCellClass;
+        id cell = [class new];
+        
         AlbumRepresentation *albumRepresentation = _albumsLoader.fetchedAlbumRepresentations[indexPath.row];
-        [cell configureWithAlbumRepresentation:albumRepresentation dimmIfEmpty:_picker.configuration.shouldDimmEmptyAlbums];
+        [(UILabel *)[cell valueForKey:@"textLabel"] setText:albumRepresentation.name];
+        [cell dimm:albumRepresentation.isEmpty];
         _cell = cell;
-         */
     } else {
-        Class class = _picker.subclassOfNoAlbumsCell;
+        Class class = _picker.subclassOfNoAlbumsCellClass;
         id cell = [class new];
         if (_fetchedFirstTime) {
             [(UILabel *)[cell valueForKey:@"label"] setText: _picker.noAlbumsForSelectedFilter];
