@@ -55,8 +55,14 @@
      Do something here with assets.
      Here for example DummyAssetsImporter "imports" data from assets and make some log.
      */
-
+    [_picker dismissViewControllerAnimated:YES completion:nil];
     [DummyAssetsImporter importAssets:assets];
+}
+
+- (void)assetsPickerController:(TSAssetsPickerController *)picker failedWithError:(NSError *)error {
+    if (error) {
+        NSLog(@"Error occurs. Show dialog or something. Probably because user blocked access to Camera Roll.");
+    }
 }
 
 @end

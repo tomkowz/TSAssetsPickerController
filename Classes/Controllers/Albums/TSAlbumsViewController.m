@@ -80,7 +80,7 @@
         if (!error) {
             [_tableView reloadData];
         } else {
-            NSLog(@"No access to Camera Roll.");
+            [_delegate albumsViewController:self failedWithError:error];
         }
     }];
 }
@@ -139,6 +139,14 @@ static NSString *const toAssetSegue = @"ToAssets";
 #pragma mark - TSAssetsViewControllerDelegate
 - (void)assetsViewController:(TSAssetsViewController *)assetsVC didFinishPickingAssets:(NSArray *)assets {
     [_delegate albumsViewController:self didFinishPickingAssets:assets];
+}
+
+- (void)assetsViewController:(TSAssetsViewController *)albumsVC {
+    [_delegate albumsViewControllerDidCancel:self];
+}
+
+- (void)assetsViewController:(TSAssetsViewController *)albumsVC failedWithError:(NSError *)error {
+    [_delegate albumsViewController:self failedWithError:error];
 }
 
 @end

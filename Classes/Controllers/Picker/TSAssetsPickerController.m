@@ -46,4 +46,8 @@
     [self.delegate assetsPickerController:self didFinishPickingAssets:assets];
 }
 
+- (void)albumsViewController:(TSAlbumsViewController *)albumsVC failedWithError:(NSError *)error {
+    [self.delegate assetsPickerController:self failedWithError:error];
+}
+
 @end

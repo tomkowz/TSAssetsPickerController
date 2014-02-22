@@ -80,7 +80,7 @@ const NSUInteger static availableNumberOfSelectedItems = 5;
                 [self.navigationController popViewControllerAnimated:YES];
             }
         } else {
-            NSLog(@"No access to Camera Roll.");
+            [_delegate assetsViewController:self failedWithError:error];
         }
     }];
 }

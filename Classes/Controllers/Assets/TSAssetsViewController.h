@@ -20,4 +20,5 @@
 
 @protocol TSAssetsViewControllerDelegate <NSObject>
 - (void)assetsViewController:(TSAssetsViewController *)assetsVC didFinishPickingAssets:(NSArray *)assets;
+- (void)assetsViewController:(TSAssetsViewController *)albumsVC failedWithError:(NSError *)error;
 @end

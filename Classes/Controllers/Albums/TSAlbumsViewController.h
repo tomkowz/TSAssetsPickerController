@@ -16,6 +16,8 @@
 @end
 
 @protocol TSAlbumsViewControllerDelegate <NSObject>
-- (void)albumsViewControllerDidCancel:(TSAlbumsViewController *)albumsVC;
 - (void)albumsViewController:(TSAlbumsViewController *)albumsVC didFinishPickingAssets:(NSArray *)assets;
+- (void)albumsViewControllerDidCancel:(TSAlbumsViewController *)albumsVC;
+- (void)albumsViewController:(TSAlbumsViewController *)albumsVC failedWithError:(NSError *)error;
+
 @end
