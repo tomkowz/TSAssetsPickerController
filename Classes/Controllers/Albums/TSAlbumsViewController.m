@@ -17,7 +17,6 @@
 
 @interface TSAlbumsViewController ()  <UITableViewDelegate, UITableViewDataSource> {
     TSAlbumsLoader *_albumsLoader;
-    NSString *_selectedAlbumName;
     BOOL _fetchedFirstTime;
 }
 
@@ -42,7 +41,6 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    _selectedAlbumName = nil;
     [self fetchAlbums];
 }
 
@@ -70,6 +68,7 @@
     return _albumsLoader.fetchedAlbumNames.count ? : 1;
 }
 
+static NSString *const toAssetSegue = @"ToAssets";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *_cell = nil;
     BOOL showAlbumCell = _albumsLoader.fetchedAlbumNames.count > 0;
@@ -95,24 +94,17 @@
 
 
 #pragma mark - UITableViewDelegate
-- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    _selectedAlbumName = _albumsLoader.fetchedAlbumNames[indexPath.row];
-    return indexPath;
-}
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    NSString *albumName = _albumsLoader.fetchedAlbumNames[indexPath.row];
+    [self showAssetsViewControllerWithAlbumName:albumName];
 }
 
-
-#pragma mark - Segue Support
-static NSString *const kToImagesSegue = @"Assets";
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:kToImagesSegue]) {
-        TSAssetsViewController *destination = (TSAssetsViewController *)segue.destinationViewController;
-        [destination configureWithAlbumName:_selectedAlbumName];
-    }
+- (void)showAssetsViewControllerWithAlbumName:(NSString *)name {
+    TSAssetsViewController *assetsVC = [TSAssetsViewController new];
+    [assetsVC configureWithAlbumName:name];
+    [self.navigationController pushViewController:assetsVC animated:YES];
 }
-
 
 @end
