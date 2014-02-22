@@ -8,11 +8,12 @@
 
 #import "TSViewController.h"
 
+#import "TSAssetsPickerController.h"
 #import "TSAlbumsViewController.h"
 #import "TSAssetsViewController.h"
 
 @implementation TSViewController {
-    TSAlbumsViewController *_albumsVC;
+    TSAssetsPickerController *_picker;
 }
 
 - (void)viewDidLoad
@@ -33,7 +34,7 @@
 }
 
 - (IBAction)onOpenPickerPressed:(id)sender {
-    _albumsVC = [TSAlbumsViewController new];
-    [self.navigationController pushViewController:_albumsVC animated:YES];
+    _picker = [TSAssetsPickerController new];
+    [self presentViewController:_picker animated:YES completion:nil];
 }
 @end

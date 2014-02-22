@@ -30,6 +30,7 @@
     [self configureAlbumsLoader];
 }
 
+
 - (void)configureAlbumsLoader {
     _albumsLoader = [[TSAlbumsLoader alloc] initWithLibrary:[ALAssetsLibrary new] filter:[ALAssetsFilter allAssets]];
 //    _albumsLoader.shouldReverseOrder = NO;
@@ -40,12 +41,13 @@
     [self.view addSubview:_tableView];
 }
 
+- (UINavigationBar *)newNavigationBar {
+    UINavigationBar *navigationBar = [[UINavigationBar alloc] init];
+    return navigationBar;
+}
+
 - (UITableView *)newTableView {
-    CGRect frame = CGRectMake(0, 0,
-                              CGRectGetWidth(self.view.frame),
-                              CGRectGetHeight(self.view.frame) - CGRectGetHeight(self.navigationController.navigationBar.frame));
-    
-    UITableView *tableView = [[UITableView alloc] initWithFrame:frame style:UITableViewStylePlain];
+    UITableView *tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
     tableView.delegate = self;
     tableView.dataSource = self;
     

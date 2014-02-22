@@ -107,12 +107,8 @@ static NSString *cellIdentifier = nil;
 - (UICollectionView *)newCollectionView {
     cellIdentifier = NSStringFromClass([AssetCell class]);
     
-    CGRect frame = CGRectMake(0, 0,
-                              CGRectGetWidth(self.view.frame),
-                              CGRectGetHeight(self.view.frame) - CGRectGetHeight(self.navigationController.navigationBar.frame));
-    
     UICollectionViewFlowLayout *layout = [self newCollectionViewLayout];
-    UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:frame collectionViewLayout:layout];
+    UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:layout];
     [collectionView setContentInset:UIEdgeInsetsMake(4, 4, 0, 4)];
     [collectionView setBounces:YES];
     [collectionView setScrollEnabled:YES];

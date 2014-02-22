@@ -10,4 +10,5 @@
 
 @interface TSAlbumsViewController : UIViewController
 @property (nonatomic) UITableView *tableView;
+@property (nonatomic) UINavigationBar *navigationBar;
 @end

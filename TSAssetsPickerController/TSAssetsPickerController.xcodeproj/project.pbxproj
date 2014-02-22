@@ -35,6 +35,8 @@
 		6D970A7018B8A73700D1D34B /* AlbumCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D970A6F18B8A73700D1D34B /* AlbumCell.xib */; };
 		6D970A7218B8A99900D1D34B /* CenteredLabelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D970A7118B8A99900D1D34B /* CenteredLabelCell.xib */; };
 		6D970A7418B8B50800D1D34B /* AssetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D970A7318B8B50800D1D34B /* AssetCell.xib */; };
+		6D970A7818B8D12200D1D34B /* TSAssetsPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D970A7618B8D12200D1D34B /* TSAssetsPickerController.m */; };
+		6D970A7918B8D12200D1D34B /* TSAssetsPickerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D970A7718B8D12200D1D34B /* TSAssetsPickerController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +94,9 @@
 		6D970A6F18B8A73700D1D34B /* AlbumCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlbumCell.xib; sourceTree = "<group>"; };
 		6D970A7118B8A99900D1D34B /* CenteredLabelCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CenteredLabelCell.xib; sourceTree = "<group>"; };
 		6D970A7318B8B50800D1D34B /* AssetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AssetCell.xib; sourceTree = "<group>"; };
+		6D970A7518B8D12200D1D34B /* TSAssetsPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSAssetsPickerController.h; path = Picker/TSAssetsPickerController.h; sourceTree = "<group>"; };
+		6D970A7618B8D12200D1D34B /* TSAssetsPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSAssetsPickerController.m; path = Picker/TSAssetsPickerController.m; sourceTree = "<group>"; };
+		6D970A7718B8D12200D1D34B /* TSAssetsPickerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TSAssetsPickerController.xib; path = Picker/TSAssetsPickerController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,6 +228,7 @@
 		6D970A5218B7F8BE00D1D34B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				6D970A7A18B8D12900D1D34B /* Picker */,
 				6D970A5318B7F8BE00D1D34B /* Albums */,
 				6D970A5A18B7F8BE00D1D34B /* Assets */,
 			);
@@ -263,6 +269,16 @@
 				6D970A6118B7F8BE00D1D34B /* DummyAssetsImporter.m */,
 			);
 			path = "Dummy Classes";
+			sourceTree = "<group>";
+		};
+		6D970A7A18B8D12900D1D34B /* Picker */ = {
+			isa = PBXGroup;
+			children = (
+				6D970A7518B8D12200D1D34B /* TSAssetsPickerController.h */,
+				6D970A7618B8D12200D1D34B /* TSAssetsPickerController.m */,
+				6D970A7718B8D12200D1D34B /* TSAssetsPickerController.xib */,
+			);
+			name = Picker;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -343,6 +359,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6D970A7218B8A99900D1D34B /* CenteredLabelCell.xib in Resources */,
+				6D970A7918B8D12200D1D34B /* TSAssetsPickerController.xib in Resources */,
 				6D970A0618B7F41E00D1D34B /* Images.xcassets in Resources */,
 				6D970A7418B8B50800D1D34B /* AssetCell.xib in Resources */,
 				6D9709F818B7F41E00D1D34B /* InfoPlist.strings in Resources */,
@@ -371,6 +388,7 @@
 				6D970A6B18B7F8BE00D1D34B /* DummyAssetsImporter.m in Sources */,
 				6D970A6218B7F8BE00D1D34B /* TSAlbumsLoader.m in Sources */,
 				6D9709FE18B7F41E00D1D34B /* TSAppDelegate.m in Sources */,
+				6D970A7818B8D12200D1D34B /* TSAssetsPickerController.m in Sources */,
 				6D970A6518B7F8BE00D1D34B /* TSAssetsManager.m in Sources */,
 				6D970A6E18B7FC8600D1D34B /* TSBaseLoader.m in Sources */,
 				6D970A0418B7F41E00D1D34B /* TSViewController.m in Sources */,
