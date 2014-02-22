@@ -25,14 +25,14 @@ It supports photo and video assets. Video assets has thumbnail with little "play
 - Set filters (only Photos, only Videos, All)
 - Select multiple assets from one album
 - Customizable order of displaying assets, last-first, first-first (iWrapper has last-first, it cause that user can't scroll 1000+ elements to get latest asset)
-- Other configurations, looks below
+- Other configurations, look below
 - Easy to apply in your project
 - Easy to customize
 
 
 Configuration
 ========================
-`TSAssetsPickerController` class has `TSAssetsPickerControllerConfiguration` property which is used to keep settings for the picker.
+`TSAssetsPickerController` has plenty of properties to set.
 
 
 | Property                      | Type           	| Default value |
@@ -44,7 +44,85 @@ Configuration
 | shouldReverseAssetsOrder		| `BOOL`			| YES			|
 | shouldShowEmptyAlbums			| `BOOL`			| NO			|
 | shouldDimmEmptyAlbums			| `BOOL`			| YES			|
+| subclassOfAlbumCellClass		| `Class`			| AlbumCell		|
+| subclassOfNoAlbumsCell		| `Class`			| NoAlbumsCell	|
+| subclassOfAssetCell			| `Class`			| AssetCell		|
 
+
+There is also `TSAssetsPickerControllerDelegate` protocol which is very similar to `UIImagePickerControllerDelegate`.
+
+`- (void)assetsPickerController:(TSAssetsPickerController *)picker didFinishPickingAssets:(NSArray *)assets;` - returns array of ALAssets objects when user finish selecting items.
+`- (void)assetsPickerControllerDidCancel:(TSAssetsPickerController *)picker` - called when user tap "Cancel"
+
+`- (void)assetsPickerController:(TSAssetsPickerController *)picker failedWithError:(NSError *)error` - called when error occurs
+
+
+Properties of `TSAssetsPickerController` with description
+========================
+```objective-c
+@interface TSAssetsPickerController : UINavigationController
+@property (nonatomic, weak) id <TSAssetsPickerControllerDelegate, UINavigationControllerDelegate> delegate;
+
+/**
+ Maximum number of items selected in one time. Defaults 1.
+ */
+@property (nonatomic) NSUInteger numberOfItemsToSelect;
+
+/**
+ Filter used to filter assets in Camera Roll. Defaults Photo.
+ */
+@property (nonatomic) ALAssetsFilter *filter;
+
+/**
+ This text is displayed in NoAlbumsCell and subclasses of it.
+ Text is displayed when there is no albums for selected filter.
+ Defaults "No albums for selected filter".
+ */
+@property (nonatomic, copy) NSString *noAlbumsForSelectedFilter;
+
+/**
+ This flag determines if albums order should be reveresed, last-first.
+ Defaults YES.
+ */
+@property (nonatomic) BOOL shouldReverseAlbumsOrder;
+
+/**
+ This flag determines if assets order in albums should be reversed, last-first.
+ Defaults YES.
+ */
+@property (nonatomic) BOOL shouldReverseAssetsOrder;
+
+/**
+ This flag determines if picker should display empty albums.
+ Defaults NO.
+ */
+@property (nonatomic) BOOL shouldShowEmptyAlbums;
+
+/**
+ this flag determines if picker should dimm empty albums (It dimss labels in AlbumCell).
+ */
+@property (nonatomic) BOOL shouldDimmEmptyAlbums;
+
+/**
+ Set this class if you want to use custom subclass of AlbumCell class.
+ This class is used to dislpay album (label with name) on Albums view.
+ */
+@property (nonatomic) Class subclassOfAlbumCellClass;
+
+/**
+ Set this class if you want to use custom subclass of NoAlbumsCell class.
+ This class is used to display "noAlbumsForSelectedFilter" property on Albums view.
+ */
+@property (nonatomic) Class subclassOfNoAlbumsCellClass;
+
+/**
+ Set this class if you want to use custom subclass of AssetCell class.
+ This class is used to display assets in Assets view (UICollectionViewCell).
+ */
+@property (nonatomic) Class subclassOfAssetCellClass;
+
+@end
+```
 
 
 How it works?
@@ -68,11 +146,15 @@ View Controllers
 About classes
 ========================
 
-`TSAssetsPickerController` - This is a picker controller. You present this controller if you want to show picker on the screen. This class has `TSAssetsPickerControllerConfiguration` property and delegates your class should conforms to.
+`TSAssetsPickerController` - This is a picker controller. You present this controller if you want to show picker on the screen. 
 
-`TSAssetsPickerControllerConfiguration` - This class keeps picker's settings.
+`AlbumCell` - It's base class of cell which is displayed on TSAlbumsViewController (cell with album name).
 
+`NoAlbumsCell` - It's base class of cell which is displayed on TSAlbumsViewController when there is no albums.
 
+`AssetCell` It's base class of cell which is displayed on TSAssetsViewController.
+
+---
 Not important for you but you can read about "low-level" classes:
 
 `TSBaseLoader` with `ALAssets` objects, and also it keeps information about which filter should be use when browsing albums and assets.
@@ -92,40 +174,31 @@ How to use
 1. Import /Classes directory to your project
 2. Write some init code
 
-````objc
-- (IBAction)onOpenPickerPressed:(id)sender {
+````objective-c
     if (!_picker) {
         _picker = [TSAssetsPickerController new];
         _picker.delegate = self;
         
-        // Main Configuration
-        _picker.configuration.numberOfItemsToSelect = 3;
+        // Main configuration
+        _picker.numberOfItemsToSelect = 3;
         
-        _picker.configuration.filter = [ALAssetsFilter allVideos];
-        _picker.configuration.noAlbumsForSelectedFilter = @"Can't find any video. Record some and back.";
+        _picker.filter = [ALAssetsFilter allAssets];
+        _picker.noAlbumsForSelectedFilter = @"Can't find any asset. Create some and back.";
         
-        _picker.configuration.shouldReverseAlbumsOrder = NO;
-        _picker.configuration.shouldReverseAssetsOrder = YES;
+        _picker.shouldReverseAlbumsOrder = NO;
+        _picker.shouldReverseAssetsOrder = YES;
         
-//        _picker.configuration.shouldShowEmptyAlbums = YES;
-//        _picker.configuration.shouldDimmEmptyAlbums = NO;
-
-
-		// Asset Cell Configuration (optional because defaults exists)
-		[AssetCell setPreferedCellSize:CGSizeMake(50, 50)];
-        [AssetCell setPreferedThumbnailRect:CGRectMake(5, 5, 40, 40)];
-        [AssetCell setPreferedMovieMarkRect:CGRectMake(22, 22, 20, 20)];
-        [AssetCell setPreferedImageForMovieMark:[UIImage imageNamed:@"movieMark"]];
+        _picker.shouldShowEmptyAlbums = YES;
+        _picker.shouldDimmEmptyAlbums = NO;
         
-        UIColor *normal = [UIColor colorWithWhite:0.7 alpha:0.3];
-        [AssetCell setPreferedBackgroundColor:normal forState:Normal];
         
-        UIColor *selected = [UIColor colorWithRed:21.0f/255.0f green:150.0f/255.0f blue:210.0f/255.0f alpha:1.0f];
-        [AssetCell setPreferedBackgroundColor:selected forState:Selected];
+        // Set subclasses of cell classes to custom UI.
+        _picker.subclassOfAlbumCellClass = [DummyAlbumCell class];
+        _picker.subclassOfNoAlbumsCellClass = [DummyNoAlbumsCell class];
+        _picker.subclassOfAssetCellClass = [DummyAssetCell class];
     }
 
     [self presentViewController:_picker animated:YES completion:nil];
-}
 ````
 
 License
