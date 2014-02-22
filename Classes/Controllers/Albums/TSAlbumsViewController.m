@@ -35,7 +35,7 @@
 
 #pragma mark - Configuration
 - (void)_configureAlbumsLoader {
-    _albumsLoader = [[TSAlbumsLoader alloc] initWithLibrary:[ALAssetsLibrary new] filter:[ALAssetsFilter allAssets]];
+    _albumsLoader = [[TSAlbumsLoader alloc] initWithLibrary:[ALAssetsLibrary new] filter:_picker.filter];
 //    _albumsLoader.shouldReverseOrder = NO;
 }
 
@@ -102,14 +102,14 @@ static NSString *const toAssetSegue = @"ToAssets";
     Class cellClass =  showAlbumCell ? [AlbumCell class] : [CenteredLabelCell class];
     NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass(cellClass) owner:self options:nil];
 
-    if (showAlbumCell ) {
+    if (showAlbumCell) {
         AlbumCell *cell = (AlbumCell *)[topLevelObjects objectAtIndex:0];
         cell.textLabel.text = _albumsLoader.fetchedAlbumNames[indexPath.row];
         _cell = cell;
     } else {
         CenteredLabelCell *cell = (CenteredLabelCell *)[topLevelObjects objectAtIndex:0];
         if (_fetchedFirstTime) {
-            cell.label.text = @"No albums. Make some photos";
+            cell.label.text = _picker.noAlbumsForSelectedFilter;
         } else {
             cell.label.text = @"";
         }

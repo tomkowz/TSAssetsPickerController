@@ -40,6 +40,9 @@
         _picker = [TSAssetsPickerController new];
         _picker.delegate = self;
         _picker.numberOfItemsToSelect = 3;
+        
+        _picker.filter = [ALAssetsFilter allVideos];
+        _picker.noAlbumsForSelectedFilter = @"Can't find any video. Record some and back.";
     }
 
     [self presentViewController:_picker animated:YES completion:nil];

@@ -33,6 +33,9 @@
 
 - (void)_setup {
     _numberOfItemsToSelect = 1;
+    _filter = [ALAssetsFilter allPhotos];
+    _noAlbumsForSelectedFilter = @"No albums for selected filter";
+#warning settings which determine if empty albums should be visible
 }
 
 - (void)viewWillAppear:(BOOL)animated {

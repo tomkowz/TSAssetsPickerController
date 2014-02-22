@@ -34,6 +34,10 @@
                                         _fetchedAlbumNames = [NSArray arrayWithArray:fetchedAlbumNames];
                                         block(_fetchedAlbumNames, nil);
                                     }
+                                    
+                                    if (fetchedAlbumNames.count == 0) {
+                                        block([NSArray array], nil);
+                                    }
                                 }
                             } failureBlock:^(NSError *error) {
                                 block([NSArray array], error);

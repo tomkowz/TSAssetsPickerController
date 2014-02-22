@@ -17,7 +17,8 @@
 
 // Settings
 @property (nonatomic) NSUInteger numberOfItemsToSelect; // default set to 1
-
+@property (nonatomic) ALAssetsFilter *filter; // default Photo
+@property (nonatomic, copy) NSString *noAlbumsForSelectedFilter; // default: No albums for selected filter
 @end
 
 @protocol TSAssetsPickerControllerDelegate <NSObject>
