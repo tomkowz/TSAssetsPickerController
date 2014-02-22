@@ -23,7 +23,6 @@
 /**
  Filter used to filter assets in Camera Roll. Defaults Photo.
  */
-#warning Should be custom enumeration.
 @property (nonatomic) ALAssetsFilter *filter;
 
 /**
