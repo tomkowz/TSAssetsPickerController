@@ -33,6 +33,8 @@ It supports photo and video assets. Video assets has thumbnail with little "play
 Configuration
 ========================
 `TSAssetsPickerController` class has `TSAssetsPickerControllerConfiguration` property which is used to keep settings for the picker.
+
+
 | Property                      | Type           	| Default value |
 | ----------------------------- | -----------------	| -------------:|
 | numberOfItemsToSelect			| `NSUInteger`		| 1				|
