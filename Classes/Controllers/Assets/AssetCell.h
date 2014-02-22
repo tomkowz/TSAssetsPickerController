@@ -12,7 +12,7 @@
 
 @interface AssetCell : UICollectionViewCell
 @property (nonatomic, weak) IBOutlet UIImageView *assetThumbnail;
-@property (weak, nonatomic) IBOutlet UIImageView *movieMark;
+@property (nonatomic, weak) IBOutlet UIImageView *movieMark;
 
 @property (nonatomic, readonly, getter = isCellSelected) BOOL cellSelected;
 

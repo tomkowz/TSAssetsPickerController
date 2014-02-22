@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface TSAlbumsViewController : UIViewController
-@property (nonatomic, readonly) UITableView *tableView;
+@property (nonatomic) UITableView *tableView;
 @end
