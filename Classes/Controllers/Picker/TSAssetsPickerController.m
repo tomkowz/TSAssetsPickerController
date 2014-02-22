@@ -17,7 +17,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self configureAlbumsViewController];
+    [self _configureAlbumsViewController];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -25,7 +25,7 @@
     [self pushViewController:_albumsVC animated:NO];
 }
 
-- (void)configureAlbumsViewController {
+- (void)_configureAlbumsViewController {
     _albumsVC = [TSAlbumsViewController new];
 }
 

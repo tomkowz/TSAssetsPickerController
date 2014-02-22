@@ -26,24 +26,28 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setupViews];
-    [self configureAlbumsLoader];
+    [self _configureAlbumsLoader];
+
+    [self _configureNavigationBarButtons];
+    [self _setupViews];
 }
 
 
-- (void)configureAlbumsLoader {
+#pragma mark - Configuration
+- (void)_configureAlbumsLoader {
     _albumsLoader = [[TSAlbumsLoader alloc] initWithLibrary:[ALAssetsLibrary new] filter:[ALAssetsFilter allAssets]];
 //    _albumsLoader.shouldReverseOrder = NO;
 }
 
-- (void)setupViews {
+- (void)_setupViews {
     _tableView = [self newTableView];
     [self.view addSubview:_tableView];
 }
 
-- (UINavigationBar *)newNavigationBar {
-    UINavigationBar *navigationBar = [[UINavigationBar alloc] init];
-    return navigationBar;
+- (void)_configureNavigationBarButtons {
+    UIBarButtonItem *cancelButton =
+    [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleDone target:self action:@selector(onCancelPressed)];
+    [self.navigationItem setLeftBarButtonItem:cancelButton];
 }
 
 - (UITableView *)newTableView {
@@ -56,10 +60,18 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self fetchAlbums];
+    [self _fetchAlbums];
 }
 
-- (void)fetchAlbums {
+
+#pragma mark - Actions
+- (void)onCancelPressed {
+    
+}
+
+
+#pragma mark - Fetch
+- (void)_fetchAlbums {
     _fetchedFirstTime = NO;
     
     [_albumsLoader fetchAlbumNames:^(NSArray *albumNames, NSError *error) {
@@ -113,10 +125,10 @@ static NSString *const toAssetSegue = @"ToAssets";
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     NSString *albumName = _albumsLoader.fetchedAlbumNames[indexPath.row];
-    [self showAssetsViewControllerWithAlbumName:albumName];
+    [self _showAssetsViewControllerWithAlbumName:albumName];
 }
 
-- (void)showAssetsViewControllerWithAlbumName:(NSString *)name {
+- (void)_showAssetsViewControllerWithAlbumName:(NSString *)name {
     TSAssetsViewController *assetsVC = [TSAssetsViewController new];
     [assetsVC configureWithAlbumName:name];
     [self.navigationController pushViewController:assetsVC animated:YES];

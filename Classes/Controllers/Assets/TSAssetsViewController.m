@@ -29,16 +29,17 @@ const NSUInteger static availableNumberOfSelectedItems = 5;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setupViews];
+    [self _setupAssetsManager];
+
+    [self _setupViews];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(fetchAssets)
+                                             selector:@selector(_fetchAssets)
                                                  name:UIApplicationDidBecomeActiveNotification
                                                object:nil];
-    [self setupAssetsManager];
 }
 
-- (void)setupViews {
+- (void)_setupViews {
     _collectionView = [self newCollectionView];
     [self.view addSubview:_collectionView];
     
@@ -46,7 +47,7 @@ const NSUInteger static availableNumberOfSelectedItems = 5;
     self.navigationItem.rightBarButtonItem = _selectButton;
 }
 
-- (void)setupAssetsManager {
+- (void)_setupAssetsManager {
     TSAssetsLoader *assetsLoader =
     [[TSAssetsLoader alloc] initWithLibrary:[ALAssetsLibrary new]
                                      filter:[ALAssetsFilter allAssets]];
@@ -60,6 +61,13 @@ const NSUInteger static availableNumberOfSelectedItems = 5;
     self.navigationItem.title = name;
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self _fetchAssets];
+}
+
+
+#pragma mark - Actions
 - (void)onSelectPressed {
     /*
      Do something here with _assetsManager.selectedAssets.
@@ -72,12 +80,9 @@ const NSUInteger static availableNumberOfSelectedItems = 5;
     [[NSNotificationCenter defaultCenter] postNotificationName:(NSString *)DidEndImportAssetsNotification object:nil];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [self fetchAssets];
-}
 
-- (void)fetchAssets {
+#pragma mark - Fetch
+- (void)_fetchAssets {
     [_assetsManager fetchAssetsWithAlbumName:_albumName block:^(NSUInteger numberOfAssets, NSError *error) {
         if (!error) {
             if (numberOfAssets > 0)

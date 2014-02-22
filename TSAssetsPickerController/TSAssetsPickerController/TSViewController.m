@@ -9,7 +9,6 @@
 #import "TSViewController.h"
 
 #import "TSAssetsPickerController.h"
-#import "TSAlbumsViewController.h"
 #import "TSAssetsViewController.h"
 
 @implementation TSViewController {
