@@ -20,7 +20,7 @@
 - (id)init {
     self = [super init];
     if (self) {
-        [self _setup];
+        _configuration = [TSAssetsPickerControllerConfiguration new];
     }
     return self;
 }
@@ -29,16 +29,6 @@
 {
     [super viewDidLoad];
     [self _configureAlbumsViewController];
-}
-
-- (void)_setup {
-    _numberOfItemsToSelect = 1;
-    _filter = [ALAssetsFilter allPhotos];
-    _noAlbumsForSelectedFilter = @"No albums for selected filter";
-    _shouldReverseAlbumsOrder = YES;
-    _shouldReverseAssetsOrder = YES;
-    _shouldShowEmptyAlbums = NO;
-    _shouldDimmEmptyAlbums = YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated {

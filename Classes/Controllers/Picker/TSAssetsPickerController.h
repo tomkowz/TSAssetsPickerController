@@ -9,23 +9,13 @@
 #import <UIKit/UIKit.h>
 
 #import <AssetsLibrary/AssetsLibrary.h>
+#import "TSAssetsPickerControllerConfiguration.h"
 
 @protocol TSAssetsPickerControllerDelegate;
 
 @interface TSAssetsPickerController : UINavigationController
 @property (nonatomic, weak) id <TSAssetsPickerControllerDelegate, UINavigationControllerDelegate> delegate;
-
-// Settings
-@property (nonatomic) NSUInteger numberOfItemsToSelect; // default set to 1
-
-@property (nonatomic) ALAssetsFilter *filter; // default Photo
-@property (nonatomic, copy) NSString *noAlbumsForSelectedFilter; // default: No albums for selected filter
-
-@property (nonatomic) BOOL shouldReverseAlbumsOrder; // default set to YES
-@property (nonatomic) BOOL shouldReverseAssetsOrder; // default set to YES;
-
-@property (nonatomic) BOOL shouldShowEmptyAlbums; // default set to NO;
-@property (nonatomic) BOOL shouldDimmEmptyAlbums; // default set to YES;
+@property (nonatomic) TSAssetsPickerControllerConfiguration *configuration;
 
 @end
 

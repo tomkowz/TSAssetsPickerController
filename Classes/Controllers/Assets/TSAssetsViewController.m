@@ -47,8 +47,8 @@
 - (void)_setupAssetsManager {
     TSAssetsLoader *assetsLoader =
     [[TSAssetsLoader alloc] initWithLibrary:[ALAssetsLibrary new]
-                                     filter:_picker.filter];
-    assetsLoader.shouldReverseOrder = _picker.shouldReverseAssetsOrder;
+                                     filter:_picker.configuration.filter];
+    assetsLoader.shouldReverseOrder = _picker.configuration.shouldReverseAssetsOrder;
     
     _assetsManager = [TSAssetsManager managerWithLoader:assetsLoader];
 }
@@ -75,7 +75,7 @@
 - (void)_fetchAssets {
     [_assetsManager fetchAssetsWithAlbumName:_albumName block:^(NSUInteger numberOfAssets, NSError *error) {
         if (!error) {
-            if (numberOfAssets > 0 || _picker.shouldShowEmptyAlbums)
+            if (numberOfAssets > 0 || _picker.configuration.shouldShowEmptyAlbums)
                 [_collectionView reloadData];
             else {
                 [self.navigationController popViewControllerAnimated:YES];
@@ -146,7 +146,7 @@ static NSString *cellIdentifier = nil;
 
 #pragma mark - UICollectionViewDelegate
 - (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    BOOL shouldSelect = (_assetsManager.selectedAssets.count < _picker.numberOfItemsToSelect);
+    BOOL shouldSelect = (_assetsManager.selectedAssets.count < _picker.configuration.numberOfItemsToSelect);
 
     AssetCell *cell = (AssetCell *)[collectionView cellForItemAtIndexPath:indexPath];
     if (cell.isCellSelected) {

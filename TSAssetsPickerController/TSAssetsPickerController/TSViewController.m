@@ -39,16 +39,16 @@
     if (!_picker) {
         _picker = [TSAssetsPickerController new];
         _picker.delegate = self;
-        _picker.numberOfItemsToSelect = 3;
+        _picker.configuration.numberOfItemsToSelect = 3;
         
-        _picker.filter = [ALAssetsFilter allVideos];
-        _picker.noAlbumsForSelectedFilter = @"Can't find any video. Record some and back.";
+        _picker.configuration.filter = [ALAssetsFilter allVideos];
+        _picker.configuration.noAlbumsForSelectedFilter = @"Can't find any video. Record some and back.";
         
-        _picker.shouldReverseAlbumsOrder = NO;
-        _picker.shouldReverseAssetsOrder = YES;
+        _picker.configuration.shouldReverseAlbumsOrder = NO;
+        _picker.configuration.shouldReverseAssetsOrder = YES;
         
-//        _picker.shouldShowEmptyAlbums = YES;
-//        _picker.shouldDimmEmptyAlbums = NO;
+//        _picker.configuration.shouldShowEmptyAlbums = YES;
+//        _picker.configuration.shouldDimmEmptyAlbums = NO;
     }
 
     [self presentViewController:_picker animated:YES completion:nil];

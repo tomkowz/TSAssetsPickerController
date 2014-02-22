@@ -36,9 +36,9 @@
 
 #pragma mark - Configuration
 - (void)_configureAlbumsLoader {
-    _albumsLoader = [[TSAlbumsLoader alloc] initWithLibrary:[ALAssetsLibrary new] filter:_picker.filter];
-    _albumsLoader.shouldReverseOrder = _picker.shouldReverseAlbumsOrder;
-    _albumsLoader.shouldReturnEmptyAlbums = _picker.shouldShowEmptyAlbums;
+    _albumsLoader = [[TSAlbumsLoader alloc] initWithLibrary:[ALAssetsLibrary new] filter:_picker.configuration.filter];
+    _albumsLoader.shouldReverseOrder = _picker.configuration.shouldReverseAlbumsOrder;
+    _albumsLoader.shouldReturnEmptyAlbums = _picker.configuration.shouldShowEmptyAlbums;
 }
 
 - (void)_setupViews {
@@ -107,12 +107,12 @@ static NSString *const toAssetSegue = @"ToAssets";
     if (showAlbumCell) {
         AlbumCell *cell = (AlbumCell *)[topLevelObjects objectAtIndex:0];
         AlbumRepresentation *albumRepresentation = _albumsLoader.fetchedAlbumRepresentations[indexPath.row];
-        [cell configureWithAlbumRepresentation:albumRepresentation dimmIfEmpty:_picker.shouldDimmEmptyAlbums];
+        [cell configureWithAlbumRepresentation:albumRepresentation dimmIfEmpty:_picker.configuration.shouldDimmEmptyAlbums];
         _cell = cell;
     } else {
         CenteredLabelCell *cell = (CenteredLabelCell *)[topLevelObjects objectAtIndex:0];
         if (_fetchedFirstTime) {
-            cell.label.text = _picker.noAlbumsForSelectedFilter;
+            cell.label.text = _picker.configuration.noAlbumsForSelectedFilter;
         } else {
             cell.label.text = @"";
         }
