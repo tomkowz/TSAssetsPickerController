@@ -107,6 +107,7 @@ static NSString *cellIdentifier = nil;
     [collectionView setContentInset:UIEdgeInsetsMake(4, 4, 0, 4)];
     [collectionView setBounces:YES];
     [collectionView setScrollEnabled:YES];
+    [collectionView setAlwaysBounceVertical:YES];
     
     UINib *cellNib = [UINib nibWithNibName:cellIdentifier bundle:[NSBundle mainBundle]];
     [collectionView registerNib:cellNib forCellWithReuseIdentifier:cellIdentifier];
