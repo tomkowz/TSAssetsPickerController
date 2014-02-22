@@ -42,21 +42,21 @@
         _picker.delegate = self;
         
         // Main configuration
-        _picker.configuration.numberOfItemsToSelect = 3;
+        _picker.numberOfItemsToSelect = 3;
         
-        _picker.configuration.filter = [ALAssetsFilter allAssets];
-        _picker.configuration.noAlbumsForSelectedFilter = @"Can't find any asset. Create some and back.";
+        _picker.filter = [ALAssetsFilter allAssets];
+        _picker.noAlbumsForSelectedFilter = @"Can't find any asset. Create some and back.";
         
-        _picker.configuration.shouldReverseAlbumsOrder = NO;
-        _picker.configuration.shouldReverseAssetsOrder = YES;
+        _picker.shouldReverseAlbumsOrder = NO;
+        _picker.shouldReverseAssetsOrder = YES;
         
-//        _picker.configuration.shouldShowEmptyAlbums = YES;
-//        _picker.configuration.shouldDimmEmptyAlbums = NO;
+//        _picker.shouldShowEmptyAlbums = YES;
+//        _picker.shouldDimmEmptyAlbums = NO;
         
         
         // Custom No Albums Cell which is visible when there is no albums in first view of TSAssetsPickerController
 //        _picker.configuration.noAlbumCellClass = [DummyNoAlbumsCell class];
-        
+    
 #warning replace this way of customizing with above one
         // Custom Asset Cell configuration
         /*

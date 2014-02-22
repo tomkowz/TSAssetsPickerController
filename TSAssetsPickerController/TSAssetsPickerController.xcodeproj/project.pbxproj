@@ -36,7 +36,6 @@
 		6D970A7818B8D12200D1D34B /* TSAssetsPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D970A7618B8D12200D1D34B /* TSAssetsPickerController.m */; };
 		6D970A7918B8D12200D1D34B /* TSAssetsPickerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D970A7718B8D12200D1D34B /* TSAssetsPickerController.xib */; };
 		6D970A7D18B8F58200D1D34B /* AlbumRepresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D970A7C18B8F58200D1D34B /* AlbumRepresentation.m */; };
-		6D970A8018B90A8E00D1D34B /* TSAssetsPickerControllerConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D970A7F18B90A8E00D1D34B /* TSAssetsPickerControllerConfiguration.m */; };
 		6D970A8818B93DF800D1D34B /* AssetCell+Configuration.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D970A8718B93DF800D1D34B /* AssetCell+Configuration.m */; };
 		6D970A8B18B94B5400D1D34B /* DummyNoAlbumsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D970A8A18B94B5400D1D34B /* DummyNoAlbumsCell.m */; };
 /* End PBXBuildFile section */
@@ -99,8 +98,6 @@
 		6D970A7718B8D12200D1D34B /* TSAssetsPickerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TSAssetsPickerController.xib; path = Picker/TSAssetsPickerController.xib; sourceTree = "<group>"; };
 		6D970A7B18B8F58200D1D34B /* AlbumRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumRepresentation.h; sourceTree = "<group>"; };
 		6D970A7C18B8F58200D1D34B /* AlbumRepresentation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumRepresentation.m; sourceTree = "<group>"; };
-		6D970A7E18B90A8E00D1D34B /* TSAssetsPickerControllerConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSAssetsPickerControllerConfiguration.h; sourceTree = "<group>"; };
-		6D970A7F18B90A8E00D1D34B /* TSAssetsPickerControllerConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSAssetsPickerControllerConfiguration.m; sourceTree = "<group>"; };
 		6D970A8118B91D9200D1D34B /* SystemVersionMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SystemVersionMacros.h; sourceTree = "<group>"; };
 		6D970A8618B93DF800D1D34B /* AssetCell+Configuration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AssetCell+Configuration.h"; sourceTree = "<group>"; };
 		6D970A8718B93DF800D1D34B /* AssetCell+Configuration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AssetCell+Configuration.m"; sourceTree = "<group>"; };
@@ -233,8 +230,6 @@
 				6D970A5118B7F8BE00D1D34B /* TSAssetsManager.m */,
 				6D970A7B18B8F58200D1D34B /* AlbumRepresentation.h */,
 				6D970A7C18B8F58200D1D34B /* AlbumRepresentation.m */,
-				6D970A7E18B90A8E00D1D34B /* TSAssetsPickerControllerConfiguration.h */,
-				6D970A7F18B90A8E00D1D34B /* TSAssetsPickerControllerConfiguration.m */,
 			);
 			path = "API Classes";
 			sourceTree = "<group>";
@@ -415,7 +410,6 @@
 				6D970A6318B7F8BE00D1D34B /* TSAssetsContainer.m in Sources */,
 				6D970A8818B93DF800D1D34B /* AssetCell+Configuration.m in Sources */,
 				6D970A6618B7F8BE00D1D34B /* AlbumCell.m in Sources */,
-				6D970A8018B90A8E00D1D34B /* TSAssetsPickerControllerConfiguration.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

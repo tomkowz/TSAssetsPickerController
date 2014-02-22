@@ -37,9 +37,9 @@
 
 #pragma mark - Configuration
 - (void)_configureAlbumsLoader {
-    _albumsLoader = [[TSAlbumsLoader alloc] initWithLibrary:[ALAssetsLibrary new] filter:_picker.configuration.filter];
-    _albumsLoader.shouldReverseOrder = _picker.configuration.shouldReverseAlbumsOrder;
-    _albumsLoader.shouldReturnEmptyAlbums = _picker.configuration.shouldShowEmptyAlbums;
+    _albumsLoader = [[TSAlbumsLoader alloc] initWithLibrary:[ALAssetsLibrary new] filter:_picker.filter];
+    _albumsLoader.shouldReverseOrder = _picker.shouldReverseAlbumsOrder;
+    _albumsLoader.shouldReturnEmptyAlbums = _picker.shouldShowEmptyAlbums;
 }
 
 - (void)_setupViews {
@@ -107,7 +107,6 @@ static NSString *const toAssetSegue = @"ToAssets";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *_cell = nil;
     BOOL showAlbumCell = _albumsLoader.fetchedAlbumRepresentations.count > 0;
-    showAlbumCell = NO;
 
     if (showAlbumCell) {
         /*
@@ -117,10 +116,10 @@ static NSString *const toAssetSegue = @"ToAssets";
         _cell = cell;
          */
     } else {
-        Class class = _picker.configuration.noAlbumCellClass;
+        Class class = _picker.subclassOfNoAlbumsCell;
         id cell = [class new];
         if (_fetchedFirstTime) {
-            [(UILabel *)[cell valueForKey:@"label"] setText: _picker.configuration.noAlbumsForSelectedFilter];
+            [(UILabel *)[cell valueForKey:@"label"] setText: _picker.noAlbumsForSelectedFilter];
         } else {
             [(UILabel *)[cell valueForKey:@"label"] setText:@""];
         }
@@ -145,10 +144,6 @@ static NSString *const toAssetSegue = @"ToAssets";
     assetsVC.picker = _picker;
     [assetsVC configureWithAlbumName:name];
     [self.navigationController pushViewController:assetsVC animated:YES];
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 80.0;
 }
 
 

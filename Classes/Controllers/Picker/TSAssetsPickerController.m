@@ -9,6 +9,7 @@
 #import "TSAssetsPickerController.h"
 
 #import "TSAlbumsViewController.h"
+#import "NoAlbumsCell.h"
 
 @interface TSAssetsPickerController () < TSAlbumsViewControllerDelegate> {
     TSAlbumsViewController *_albumsVC;
@@ -20,7 +21,18 @@
 - (id)init {
     self = [super init];
     if (self) {
-        _configuration = [TSAssetsPickerControllerConfiguration new];
+        self.numberOfItemsToSelect = 1;
+        
+        self.filter = [ALAssetsFilter allPhotos];
+        self.noAlbumsForSelectedFilter = @"No albums for selected filter";
+        
+        self.shouldReverseAlbumsOrder = YES;
+        self.shouldReverseAssetsOrder = YES;
+        
+        self.shouldShowEmptyAlbums = NO;
+        self.shouldDimmEmptyAlbums = YES;
+        
+        self.subclassOfNoAlbumsCell = [NoAlbumsCell class];
     }
     return self;
 }
