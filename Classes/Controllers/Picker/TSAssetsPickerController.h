@@ -73,6 +73,12 @@
  */
 @property (nonatomic) Class subclassOfAssetCellClass;
 
+/**
+ Set this class if you want to use custom subclass of AssetsFlowLayout class.
+ This class is a layout of UICollectionView of TSAssetsViewController.
+ */
+@property (nonatomic) Class subclassOfAssetsFlowLayoutClass;
+
 @end
 
 @protocol TSAssetsPickerControllerDelegate <NSObject>

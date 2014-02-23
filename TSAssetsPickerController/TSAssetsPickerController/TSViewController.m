@@ -14,6 +14,7 @@
 #import "DummyAlbumCell.h"
 #import "DummyNoAlbumsCell.h"
 #import "DummyAssetCell.h"
+#import "DummyAssetsFlowLayout.h"
 
 @interface TSViewController () <TSAssetsPickerControllerDelegate, UINavigationControllerDelegate> {
     TSAssetsPickerController *_picker;
@@ -60,6 +61,7 @@
 //        _picker.subclassOfAlbumCellClass = [DummyAlbumCell class];
 //        _picker.subclassOfNoAlbumsCellClass = [DummyNoAlbumsCell class];
 //        _picker.subclassOfAssetCellClass = [DummyAssetCell class];
+//        _picker.subclassOfAssetsFlowLayoutClass = [DummyAssetsFlowLayout class];
     }
 
     [self presentViewController:_picker animated:YES completion:nil];

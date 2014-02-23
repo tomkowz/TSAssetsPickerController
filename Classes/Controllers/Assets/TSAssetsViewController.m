@@ -13,6 +13,7 @@
 #import "TSAssetsLoader.h"
 #import "TSAssetsManager.h"
 #import "TSAssetsPickerController.h"
+#import "AssetsFlowLayout.h"
 
 @interface TSAssetsViewController () <UICollectionViewDelegate, UICollectionViewDataSource> {
     TSAssetsManager *_assetsManager;
@@ -88,33 +89,33 @@
 
 
 #pragma mark - Setup View
-#warning this layout shold be also customizable
-- (UICollectionViewFlowLayout *)newCollectionViewLayout {
-    UICollectionViewFlowLayout *layout = [UICollectionViewFlowLayout new];
-    [layout setScrollDirection:UICollectionViewScrollDirectionVertical];
-    [layout setItemSize:[_picker.subclassOfAssetCellClass preferedCellSize]];
-    [layout setMinimumLineSpacing:4.0];
-    [layout setMinimumInteritemSpacing:0.0];
-    [layout setSectionInset:UIEdgeInsetsMake(4, 4, 4, 4)];
-    
-    return layout;
-}
-
 static NSString *cellIdentifier = nil;
 - (UICollectionView *)newCollectionView {
     cellIdentifier = NSStringFromClass(_picker.subclassOfAssetCellClass);
     
-    UICollectionViewFlowLayout *layout = [self newCollectionViewLayout];
     CGRect frame = self.view.bounds;
     if (SYSTEM_VERSION_LESS_THAN(@"7.0")) {
         frame.size.height -= CGRectGetHeight(self.navigationController.navigationBar.frame);
     }
+
+    CGSize cellSize = [_picker.subclassOfAssetCellClass preferedCellSize];
+    UICollectionViewFlowLayout *layout = [[_picker.subclassOfAssetsFlowLayoutClass alloc] initWithItemSize:cellSize];
+    // workaround, I don't know why collection view not call this property itself.
+    layout.sectionInset = layout.sectionInset;
+    layout.scrollDirection = layout.scrollDirection;
+    layout.minimumLineSpacing = layout.minimumLineSpacing;
+    layout.minimumInteritemSpacing = layout.minimumInteritemSpacing;
     
-    UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:frame collectionViewLayout:layout];
+    UICollectionView *collectionView =
+    [[UICollectionView alloc] initWithFrame:frame collectionViewLayout:layout];
+    
     [collectionView setBounces:YES];
     [collectionView setScrollEnabled:YES];
-    [collectionView setAlwaysBounceVertical:YES];
     
+    BOOL scrollVertical = (layout.scrollDirection == UICollectionViewScrollDirectionVertical);
+    [collectionView setAlwaysBounceVertical:scrollVertical];
+    [collectionView setAlwaysBounceHorizontal:!scrollVertical];
+ 
     [collectionView registerClass:_picker.subclassOfAssetCellClass forCellWithReuseIdentifier:cellIdentifier];
     [collectionView setBackgroundColor:[UIColor whiteColor]];
     collectionView.delegate = self;

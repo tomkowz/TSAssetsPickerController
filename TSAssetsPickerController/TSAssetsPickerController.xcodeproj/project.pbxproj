@@ -38,6 +38,8 @@
 		6D970A8B18B94B5400D1D34B /* DummyNoAlbumsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D970A8A18B94B5400D1D34B /* DummyNoAlbumsCell.m */; };
 		6D970A8E18B95C7400D1D34B /* DummyAlbumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D970A8D18B95C7400D1D34B /* DummyAlbumCell.m */; };
 		6D970A9118B9628500D1D34B /* DummyAssetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D970A9018B9628500D1D34B /* DummyAssetCell.m */; };
+		6D970A9718B9689B00D1D34B /* AssetsFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D970A9618B9689B00D1D34B /* AssetsFlowLayout.m */; };
+		6D970A9A18B970BD00D1D34B /* DummyAssetsFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D970A9918B970BD00D1D34B /* DummyAssetsFlowLayout.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +106,10 @@
 		6D970A8D18B95C7400D1D34B /* DummyAlbumCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DummyAlbumCell.m; sourceTree = "<group>"; };
 		6D970A8F18B9628500D1D34B /* DummyAssetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DummyAssetCell.h; sourceTree = "<group>"; };
 		6D970A9018B9628500D1D34B /* DummyAssetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DummyAssetCell.m; sourceTree = "<group>"; };
+		6D970A9518B9689B00D1D34B /* AssetsFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssetsFlowLayout.h; sourceTree = "<group>"; };
+		6D970A9618B9689B00D1D34B /* AssetsFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetsFlowLayout.m; sourceTree = "<group>"; };
+		6D970A9818B970BD00D1D34B /* DummyAssetsFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DummyAssetsFlowLayout.h; sourceTree = "<group>"; };
+		6D970A9918B970BD00D1D34B /* DummyAssetsFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DummyAssetsFlowLayout.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -265,6 +271,8 @@
 				6D970A5E18B7F8BE00D1D34B /* TSAssetsViewController.m */,
 				6D970A5B18B7F8BE00D1D34B /* AssetCell.h */,
 				6D970A5C18B7F8BE00D1D34B /* AssetCell.m */,
+				6D970A9518B9689B00D1D34B /* AssetsFlowLayout.h */,
+				6D970A9618B9689B00D1D34B /* AssetsFlowLayout.m */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -280,6 +288,8 @@
 				6D970A8D18B95C7400D1D34B /* DummyAlbumCell.m */,
 				6D970A8F18B9628500D1D34B /* DummyAssetCell.h */,
 				6D970A9018B9628500D1D34B /* DummyAssetCell.m */,
+				6D970A9818B970BD00D1D34B /* DummyAssetsFlowLayout.h */,
+				6D970A9918B970BD00D1D34B /* DummyAssetsFlowLayout.m */,
 			);
 			path = "Dummy Classes";
 			sourceTree = "<group>";
@@ -399,6 +409,7 @@
 				6D970A6218B7F8BE00D1D34B /* TSAlbumsLoader.m in Sources */,
 				6D970A7D18B8F58200D1D34B /* AlbumRepresentation.m in Sources */,
 				6D970A9118B9628500D1D34B /* DummyAssetCell.m in Sources */,
+				6D970A9718B9689B00D1D34B /* AssetsFlowLayout.m in Sources */,
 				6D9709FE18B7F41E00D1D34B /* TSAppDelegate.m in Sources */,
 				6D970A7818B8D12200D1D34B /* TSAssetsPickerController.m in Sources */,
 				6D970A8B18B94B5400D1D34B /* DummyNoAlbumsCell.m in Sources */,
@@ -407,6 +418,7 @@
 				6D970A6E18B7FC8600D1D34B /* TSBaseLoader.m in Sources */,
 				6D970A0418B7F41E00D1D34B /* TSViewController.m in Sources */,
 				6D970A6718B7F8BE00D1D34B /* NoAlbumsCell.m in Sources */,
+				6D970A9A18B970BD00D1D34B /* DummyAssetsFlowLayout.m in Sources */,
 				6D970A6418B7F8BE00D1D34B /* TSAssetsLoader.m in Sources */,
 				6D970A6918B7F8BE00D1D34B /* AssetCell.m in Sources */,
 				6D970A6818B7F8BE00D1D34B /* TSAlbumsViewController.m in Sources */,
