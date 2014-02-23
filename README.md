@@ -24,6 +24,8 @@ It supports photo and video assets. Video assets has thumbnail with little "play
 - Browse all albums
 - Set filters (only Photos, only Videos, All)
 - Supports all orientations
+- Supports both iOS 6 and iOS7
+- Supports both iPhone and iPad
 - Select multiple assets from one album
 - Customizable order of displaying assets, last-first, first-first (iWrapper has last-first, it cause that user can't scroll 1000+ elements to get latest asset)
 - Picker has plenty of properties to customize, look below
