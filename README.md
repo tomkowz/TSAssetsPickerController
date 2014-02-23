@@ -288,7 +288,7 @@ Changelog
 
 1.0.2 (23.02.2014)
 ---
-- Added Podspec of TSAssetsPickerController. Now available on [CocoaPzods](http://cocoapods.org)
+- Added Podspec of TSAssetsPickerController. Now available on [CocoaPods](http://cocoapods.org)
 
 1.0.1 (23.02.2014)
 ---
