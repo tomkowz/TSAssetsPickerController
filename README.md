@@ -35,18 +35,19 @@ Configuration
 `TSAssetsPickerController` has plenty of properties to set.
 
 
-| Property                      | Type           	| Default value |
-| ----------------------------- | -----------------	| -------------:|
-| numberOfItemsToSelect			| `NSUInteger`		| 1				|
-| filter						| `ALAssetsFilter`	| allPhotos		|
-| noAlbumsForSelectedFilter		| `NSString`		| some string	|
-| shouldReverseAlbumsOrder		| `BOOL`			| YES			|
-| shouldReverseAssetsOrder		| `BOOL`			| YES			|
-| shouldShowEmptyAlbums			| `BOOL`			| NO			|
-| shouldDimmEmptyAlbums			| `BOOL`			| YES			|
-| subclassOfAlbumCellClass		| `Class`			| AlbumCell		|
-| subclassOfNoAlbumsCell		| `Class`			| NoAlbumsCell	|
-| subclassOfAssetCell			| `Class`			| AssetCell		|
+| Property                      	| Type           	| Default value 	|
+| --------------------------------- | -----------------	| -----------------:|
+| numberOfItemsToSelect				| `NSUInteger`		| 1					|
+| filter							| `ALAssetsFilter`	| allPhotos			|
+| noAlbumsForSelectedFilter			| `NSString`		| some string		|
+| shouldReverseAlbumsOrder			| `BOOL`			| YES				|
+| shouldReverseAssetsOrder			| `BOOL`			| YES				|
+| shouldShowEmptyAlbums				| `BOOL`			| NO				|
+| shouldDimmEmptyAlbums				| `BOOL`			| YES				|
+| subclassOfAlbumCellClass			| `Class`			| AlbumCell			|
+| subclassOfNoAlbumsCell			| `Class`			| NoAlbumsCell		|
+| subclassOfAssetCell				| `Class`			| AssetCell			|
+| subclassOfAssetsFlowLayoutClass	| `Class`			| AssetsFlowLayout 	|
 
 
 There is also `TSAssetsPickerControllerDelegate` protocol which is very similar to `UIImagePickerControllerDelegate`.
