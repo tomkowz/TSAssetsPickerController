@@ -289,7 +289,6 @@ Changelog
 1.0 (22.02.2014)
 ---
 - Implemented basic functionality
-- 
 - Added to github
 
 License
