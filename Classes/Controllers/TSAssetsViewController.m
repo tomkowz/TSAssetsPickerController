@@ -109,14 +109,16 @@ static NSString *cellIdentifier = nil;
     layout.minimumInteritemSpacing = layout.minimumInteritemSpacing;
     
     UICollectionView *collectionView = [[_picker.subclassOfAssetsCollectionViewClass alloc] initWithFrame:frame collectionViewLayout:layout];
+    [collectionView setAutoresizingMask:(UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight)];
+
     [collectionView registerClass:_picker.subclassOfAssetCellClass forCellWithReuseIdentifier:cellIdentifier];
     
     BOOL scrollVertical = (layout.scrollDirection == UICollectionViewScrollDirectionVertical);
     [collectionView setAlwaysBounceVertical:scrollVertical];
     [collectionView setAlwaysBounceHorizontal:!scrollVertical];
     
-    collectionView.delegate = self;
-    collectionView.dataSource = self;
+    [collectionView setDelegate:self];
+    [collectionView setDataSource:self];
     
     return collectionView;
 }

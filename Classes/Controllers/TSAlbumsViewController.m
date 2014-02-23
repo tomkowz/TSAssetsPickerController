@@ -60,8 +60,9 @@
     }
     
     UITableView *tableView = [[_picker.subclassOfAlbumsTableViewClass alloc] initWithFrame:frame style:UITableViewStylePlain];
-    tableView.delegate = self;
-    tableView.dataSource = self;
+    [tableView setAutoresizingMask:(UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight)];
+    [tableView setDelegate:self];
+    [tableView setDataSource:self];
     
     return tableView;
 }
