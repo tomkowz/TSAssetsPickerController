@@ -23,9 +23,10 @@ It supports photo and video assets. Video assets has thumbnail with little "play
 
 - Browse all albums
 - Set filters (only Photos, only Videos, All)
+- Supports all orientations
 - Select multiple assets from one album
 - Customizable order of displaying assets, last-first, first-first (iWrapper has last-first, it cause that user can't scroll 1000+ elements to get latest asset)
-- Other configurations, look below
+- Picker has plenty of properties to customize, look below
 - Easy to apply in your project
 - Easy to customize
 
@@ -275,6 +276,19 @@ How to use
 
     [self presentViewController:_picker animated:YES completion:nil];
 ````
+
+Changelog
+========================
+
+1.0.1 (23.02.2014)
+---
+- Added rotation support
+
+1.0 (22.02.2014)
+---
+- Implemented basic functionality
+- 
+- Added to github
 
 License
 ========================
