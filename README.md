@@ -9,6 +9,10 @@ TSAssetPickerController is a custom picker controller which allows you to select
 
 I decided to share this picker because it's easy to add to the project, easy to maintain and it works very well. This picker is used by [iWrapper app](https://itunes.apple.com/pl/app/iwrapper-superb-screenshots/id549973157?mt=8). Try it and apply to your projects.
 
+Cocoapods
+========================
+`TSAssetsPickerController` is available on [CocoaPods](http://cocoapods.org)
+
 
 Why should You use it?
 ========================
@@ -281,6 +285,10 @@ How to use
 
 Changelog
 ========================
+
+1.0.2 (23.02.2014)
+---
+- Added Podspec of TSAssetsPickerController. Now available on [CocoaPzods](http://cocoapods.org)
 
 1.0.1 (23.02.2014)
 ---
