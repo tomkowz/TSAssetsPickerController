@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
 
 # Source Info
   s.platform     =  :ios, '6.0'
-  s.source       =  {:git => 'https://github.com/tomkowz/TSAssetsPickerController.git', :tag => '1.0.1'}
+  s.source       =  {:git => 'https://github.com/tomkowz/TSAssetsPickerController.git', :tag => '1.0.2'}
   s.source_files = 'Classes/**/*'
 
   s.requires_arc = true
