@@ -121,6 +121,12 @@ Properties of `TSAssetsPickerController` with description
  */
 @property (nonatomic) Class subclassOfAssetCellClass;
 
+/**
+ Set this class if you want to use custom subclass of AssetsFlowLayout class.
+ This class is a layout of UICollectionView of TSAssetsViewController.
+ */
+@property (nonatomic) Class subclassOfAssetsFlowLayoutClass;
+
 @end
 ```
 
@@ -152,7 +158,10 @@ About classes
 
 `NoAlbumsCell` - It's base class of cell which is displayed on TSAlbumsViewController when there is no albums.
 
-`AssetCell` It's base class of cell which is displayed on TSAssetsViewController.
+`AssetCell` - It's base class of cell which is displayed on TSAssetsViewController.
+
+`AssetsFlowLayout` - It's base class of flow layout used in TSAssetsViewController. Remember to not override `-itemSize` method. Size of item is read from `[AssetCell preferedCellSize]` automatically.
+
 
 ---
 Not important for you but you can read about "low-level" classes:
@@ -196,6 +205,7 @@ How to use
         _picker.subclassOfAlbumCellClass = [DummyAlbumCell class];
         _picker.subclassOfNoAlbumsCellClass = [DummyNoAlbumsCell class];
         _picker.subclassOfAssetCellClass = [DummyAssetCell class];
+        _picker.subclassOfAssetsFlowLayoutClass = [DummyAssetsFlowLayout class];
     }
 
     [self presentViewController:_picker animated:YES completion:nil];
