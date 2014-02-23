@@ -30,7 +30,7 @@ It supports photo and video assets. Video assets has thumbnail with little "play
 - Easy to customize
 
 
-Configuration
+Settings
 ========================
 `TSAssetsPickerController` has plenty of properties to set.
 
@@ -58,6 +58,7 @@ Configuration
 There is also `TSAssetsPickerControllerDelegate` protocol which is very similar to `UIImagePickerControllerDelegate`.
 
 `- (void)assetsPickerController:(TSAssetsPickerController *)picker didFinishPickingAssets:(NSArray *)assets;` - returns array of ALAssets objects when user finish selecting items.
+
 `- (void)assetsPickerControllerDidCancel:(TSAssetsPickerController *)picker` - called when user tap "Cancel"
 
 `- (void)assetsPickerController:(TSAssetsPickerController *)picker failedWithError:(NSError *)error` - called when error occurs
@@ -65,9 +66,11 @@ There is also `TSAssetsPickerControllerDelegate` protocol which is very similar 
 
 Properties of `TSAssetsPickerController` with description
 ========================
+
 ```objective-c
 @interface TSAssetsPickerController : UINavigationController
-@property (nonatomic, weak) id <TSAssetsPickerControllerDelegate, UINavigationControllerDelegate> delegate;
+@property (nonatomic, weak) id <TSAssetsPickerControllerDelegate, 
+    UINavigationControllerDelegate> delegate;
 
 /**
  Maximum number of items selected in one time. Defaults 1.
@@ -182,10 +185,31 @@ View Controllers
 ![image](https://github.com/tomkowz/TSAssetsPickerController/blob/master/docs/diag2.png?raw=true)
 
 
-About classes
+Classes
 ========================
+Classes are stored in 3 folders:
 
-`TSAssetsPickerController` - This is a picker controller. You present this controller if you want to show picker on the screen. 
+`Controllers` - View Controllers. Only `TSAssetsPickerController` is important to you.
+
+`Customizable Classes` - In this directory are classes you should subclass if you want change picker's UI.
+
+`API Classes` - Picker's logic. Not important to you.
+
+
+`Controlers` directory:
+---
+
+`TSAssetsPickerController` - This is a picker controller main class. You present this controller if you want to show picker on the screen. 
+
+`TSAlbumsViewController` - shows list of albums
+
+`TSAssetsViewController` - shows list of assets
+
+
+`Customizable Classes` directory:
+---
+
+These classes should be subclassed and set in `TSAssetsPickerController` properties (if you want customize the picker).
 
 `AlbumCell` - Base class of cell which is displayed on `TSAlbumsViewController` (cell with album name).
 
@@ -197,9 +221,8 @@ About classes
 
 `AssetsCollectionView` -  Base class of `UICollectionView` used in `TSAssetsViewController`. subclass this base and configure in `TSAssetsPickerController`.
 
-
+`API Classes` directory:
 ---
-Not important for you but you can read about "low-level" classes:
 
 `TSBaseLoader` with `ALAssets` objects, and also it keeps information about which filter should be use when browsing albums and assets.
 
@@ -212,6 +235,8 @@ Not important for you but you can read about "low-level" classes:
 `TSAssetsManager` - This classes is used directly by `TSAssetsViewController`. Instance is initialized with `TSAssetsLoader` object. It keeps information about fetched and selected assets. It can fetch assets via `TSAssetsLoader`. Also it can mark assets as selected or deselected and check if asset exists.
 
 `AlbumRepresentation` - This class represents album.
+
+
 
 How to use
 ========================

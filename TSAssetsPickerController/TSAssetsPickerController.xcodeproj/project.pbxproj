@@ -7,10 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6D07880418B9794E0073E253 /* AssetsCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D07880318B9794E0073E253 /* AssetsCollectionView.m */; };
 		6D07880718B97CC30073E253 /* DummyAssetsCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D07880618B97CC30073E253 /* DummyAssetsCollectionView.m */; };
-		6D07880A18B9809C0073E253 /* AlbumsTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D07880918B9809C0073E253 /* AlbumsTableView.m */; };
 		6D07880D18B980D30073E253 /* DummyAlbumsTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D07880C18B980D30073E253 /* DummyAlbumsTableView.m */; };
+		6D0788A918BA0C0D0073E253 /* TSAlbumsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D07889518BA0C0D0073E253 /* TSAlbumsViewController.m */; };
+		6D0788AA18BA0C0D0073E253 /* TSAssetsPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D07889718BA0C0D0073E253 /* TSAssetsPickerController.m */; };
+		6D0788AB18BA0C0D0073E253 /* TSAssetsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D07889918BA0C0D0073E253 /* TSAssetsViewController.m */; };
+		6D0788AC18BA0C0D0073E253 /* AlbumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D07889D18BA0C0D0073E253 /* AlbumCell.m */; };
+		6D0788AD18BA0C0D0073E253 /* AlbumsTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D07889F18BA0C0D0073E253 /* AlbumsTableView.m */; };
+		6D0788AE18BA0C0D0073E253 /* NoAlbumsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D0788A118BA0C0D0073E253 /* NoAlbumsCell.m */; };
+		6D0788AF18BA0C0D0073E253 /* AssetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D0788A418BA0C0D0073E253 /* AssetCell.m */; };
+		6D0788B018BA0C0D0073E253 /* AssetsCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D0788A618BA0C0D0073E253 /* AssetsCollectionView.m */; };
+		6D0788B118BA0C0D0073E253 /* AssetsFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D0788A818BA0C0D0073E253 /* AssetsFlowLayout.m */; };
 		6D9709EE18B7F41E00D1D34B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D9709ED18B7F41E00D1D34B /* Foundation.framework */; };
 		6D9709F018B7F41E00D1D34B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D9709EF18B7F41E00D1D34B /* CoreGraphics.framework */; };
 		6D9709F218B7F41E00D1D34B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D9709F118B7F41E00D1D34B /* UIKit.framework */; };
@@ -29,19 +36,12 @@
 		6D970A6318B7F8BE00D1D34B /* TSAssetsContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D970A4D18B7F8BE00D1D34B /* TSAssetsContainer.m */; };
 		6D970A6418B7F8BE00D1D34B /* TSAssetsLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D970A4F18B7F8BE00D1D34B /* TSAssetsLoader.m */; };
 		6D970A6518B7F8BE00D1D34B /* TSAssetsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D970A5118B7F8BE00D1D34B /* TSAssetsManager.m */; };
-		6D970A6618B7F8BE00D1D34B /* AlbumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D970A5518B7F8BE00D1D34B /* AlbumCell.m */; };
-		6D970A6718B7F8BE00D1D34B /* NoAlbumsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D970A5718B7F8BE00D1D34B /* NoAlbumsCell.m */; };
-		6D970A6818B7F8BE00D1D34B /* TSAlbumsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D970A5918B7F8BE00D1D34B /* TSAlbumsViewController.m */; };
-		6D970A6918B7F8BE00D1D34B /* AssetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D970A5C18B7F8BE00D1D34B /* AssetCell.m */; };
-		6D970A6A18B7F8BE00D1D34B /* TSAssetsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D970A5E18B7F8BE00D1D34B /* TSAssetsViewController.m */; };
 		6D970A6B18B7F8BE00D1D34B /* DummyAssetsImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D970A6118B7F8BE00D1D34B /* DummyAssetsImporter.m */; };
 		6D970A6E18B7FC8600D1D34B /* TSBaseLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D970A6D18B7FC8600D1D34B /* TSBaseLoader.m */; };
-		6D970A7818B8D12200D1D34B /* TSAssetsPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D970A7618B8D12200D1D34B /* TSAssetsPickerController.m */; };
 		6D970A7D18B8F58200D1D34B /* AlbumRepresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D970A7C18B8F58200D1D34B /* AlbumRepresentation.m */; };
 		6D970A8B18B94B5400D1D34B /* DummyNoAlbumsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D970A8A18B94B5400D1D34B /* DummyNoAlbumsCell.m */; };
 		6D970A8E18B95C7400D1D34B /* DummyAlbumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D970A8D18B95C7400D1D34B /* DummyAlbumCell.m */; };
 		6D970A9118B9628500D1D34B /* DummyAssetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D970A9018B9628500D1D34B /* DummyAssetCell.m */; };
-		6D970A9718B9689B00D1D34B /* AssetsFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D970A9618B9689B00D1D34B /* AssetsFlowLayout.m */; };
 		6D970A9A18B970BD00D1D34B /* DummyAssetsFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D970A9918B970BD00D1D34B /* DummyAssetsFlowLayout.m */; };
 /* End PBXBuildFile section */
 
@@ -56,14 +56,29 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		6D07880218B9794E0073E253 /* AssetsCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssetsCollectionView.h; sourceTree = "<group>"; };
-		6D07880318B9794E0073E253 /* AssetsCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetsCollectionView.m; sourceTree = "<group>"; };
 		6D07880518B97CC30073E253 /* DummyAssetsCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DummyAssetsCollectionView.h; sourceTree = "<group>"; };
 		6D07880618B97CC30073E253 /* DummyAssetsCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DummyAssetsCollectionView.m; sourceTree = "<group>"; };
-		6D07880818B9809C0073E253 /* AlbumsTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumsTableView.h; sourceTree = "<group>"; };
-		6D07880918B9809C0073E253 /* AlbumsTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumsTableView.m; sourceTree = "<group>"; };
 		6D07880B18B980D30073E253 /* DummyAlbumsTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DummyAlbumsTableView.h; sourceTree = "<group>"; };
 		6D07880C18B980D30073E253 /* DummyAlbumsTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DummyAlbumsTableView.m; sourceTree = "<group>"; };
+		6D07889418BA0C0D0073E253 /* TSAlbumsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSAlbumsViewController.h; sourceTree = "<group>"; };
+		6D07889518BA0C0D0073E253 /* TSAlbumsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSAlbumsViewController.m; sourceTree = "<group>"; };
+		6D07889618BA0C0D0073E253 /* TSAssetsPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSAssetsPickerController.h; sourceTree = "<group>"; };
+		6D07889718BA0C0D0073E253 /* TSAssetsPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSAssetsPickerController.m; sourceTree = "<group>"; };
+		6D07889818BA0C0D0073E253 /* TSAssetsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSAssetsViewController.h; sourceTree = "<group>"; };
+		6D07889918BA0C0D0073E253 /* TSAssetsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSAssetsViewController.m; sourceTree = "<group>"; };
+		6D07889C18BA0C0D0073E253 /* AlbumCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumCell.h; sourceTree = "<group>"; };
+		6D07889D18BA0C0D0073E253 /* AlbumCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumCell.m; sourceTree = "<group>"; };
+		6D07889E18BA0C0D0073E253 /* AlbumsTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumsTableView.h; sourceTree = "<group>"; };
+		6D07889F18BA0C0D0073E253 /* AlbumsTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumsTableView.m; sourceTree = "<group>"; };
+		6D0788A018BA0C0D0073E253 /* NoAlbumsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoAlbumsCell.h; sourceTree = "<group>"; };
+		6D0788A118BA0C0D0073E253 /* NoAlbumsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoAlbumsCell.m; sourceTree = "<group>"; };
+		6D0788A318BA0C0D0073E253 /* AssetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssetCell.h; sourceTree = "<group>"; };
+		6D0788A418BA0C0D0073E253 /* AssetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetCell.m; sourceTree = "<group>"; };
+		6D0788A518BA0C0D0073E253 /* AssetsCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssetsCollectionView.h; sourceTree = "<group>"; };
+		6D0788A618BA0C0D0073E253 /* AssetsCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetsCollectionView.m; sourceTree = "<group>"; };
+		6D0788A718BA0C0D0073E253 /* AssetsFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssetsFlowLayout.h; sourceTree = "<group>"; };
+		6D0788A818BA0C0D0073E253 /* AssetsFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetsFlowLayout.m; sourceTree = "<group>"; };
+		6D0788B218BA0C1D0073E253 /* SystemVersionMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SystemVersionMacros.h; path = "../API Classes/SystemVersionMacros.h"; sourceTree = "<group>"; };
 		6D9709EA18B7F41E00D1D34B /* TSAssetsPickerController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TSAssetsPickerController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D9709ED18B7F41E00D1D34B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6D9709EF18B7F41E00D1D34B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -91,33 +106,18 @@
 		6D970A4F18B7F8BE00D1D34B /* TSAssetsLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSAssetsLoader.m; sourceTree = "<group>"; };
 		6D970A5018B7F8BE00D1D34B /* TSAssetsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSAssetsManager.h; sourceTree = "<group>"; };
 		6D970A5118B7F8BE00D1D34B /* TSAssetsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSAssetsManager.m; sourceTree = "<group>"; };
-		6D970A5418B7F8BE00D1D34B /* AlbumCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumCell.h; sourceTree = "<group>"; };
-		6D970A5518B7F8BE00D1D34B /* AlbumCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumCell.m; sourceTree = "<group>"; };
-		6D970A5618B7F8BE00D1D34B /* NoAlbumsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoAlbumsCell.h; sourceTree = "<group>"; };
-		6D970A5718B7F8BE00D1D34B /* NoAlbumsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoAlbumsCell.m; sourceTree = "<group>"; };
-		6D970A5818B7F8BE00D1D34B /* TSAlbumsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSAlbumsViewController.h; sourceTree = "<group>"; };
-		6D970A5918B7F8BE00D1D34B /* TSAlbumsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSAlbumsViewController.m; sourceTree = "<group>"; };
-		6D970A5B18B7F8BE00D1D34B /* AssetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssetCell.h; sourceTree = "<group>"; };
-		6D970A5C18B7F8BE00D1D34B /* AssetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetCell.m; sourceTree = "<group>"; };
-		6D970A5D18B7F8BE00D1D34B /* TSAssetsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSAssetsViewController.h; sourceTree = "<group>"; };
-		6D970A5E18B7F8BE00D1D34B /* TSAssetsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSAssetsViewController.m; sourceTree = "<group>"; };
 		6D970A6018B7F8BE00D1D34B /* DummyAssetsImporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DummyAssetsImporter.h; sourceTree = "<group>"; };
 		6D970A6118B7F8BE00D1D34B /* DummyAssetsImporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DummyAssetsImporter.m; sourceTree = "<group>"; };
 		6D970A6C18B7FC8600D1D34B /* TSBaseLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSBaseLoader.h; sourceTree = "<group>"; };
 		6D970A6D18B7FC8600D1D34B /* TSBaseLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSBaseLoader.m; sourceTree = "<group>"; };
-		6D970A7518B8D12200D1D34B /* TSAssetsPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSAssetsPickerController.h; path = Picker/TSAssetsPickerController.h; sourceTree = "<group>"; };
-		6D970A7618B8D12200D1D34B /* TSAssetsPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSAssetsPickerController.m; path = Picker/TSAssetsPickerController.m; sourceTree = "<group>"; };
 		6D970A7B18B8F58200D1D34B /* AlbumRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumRepresentation.h; sourceTree = "<group>"; };
 		6D970A7C18B8F58200D1D34B /* AlbumRepresentation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumRepresentation.m; sourceTree = "<group>"; };
-		6D970A8118B91D9200D1D34B /* SystemVersionMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SystemVersionMacros.h; sourceTree = "<group>"; };
 		6D970A8918B94B5400D1D34B /* DummyNoAlbumsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DummyNoAlbumsCell.h; sourceTree = "<group>"; };
 		6D970A8A18B94B5400D1D34B /* DummyNoAlbumsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DummyNoAlbumsCell.m; sourceTree = "<group>"; };
 		6D970A8C18B95C7400D1D34B /* DummyAlbumCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DummyAlbumCell.h; sourceTree = "<group>"; };
 		6D970A8D18B95C7400D1D34B /* DummyAlbumCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DummyAlbumCell.m; sourceTree = "<group>"; };
 		6D970A8F18B9628500D1D34B /* DummyAssetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DummyAssetCell.h; sourceTree = "<group>"; };
 		6D970A9018B9628500D1D34B /* DummyAssetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DummyAssetCell.m; sourceTree = "<group>"; };
-		6D970A9518B9689B00D1D34B /* AssetsFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssetsFlowLayout.h; sourceTree = "<group>"; };
-		6D970A9618B9689B00D1D34B /* AssetsFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetsFlowLayout.m; sourceTree = "<group>"; };
 		6D970A9818B970BD00D1D34B /* DummyAssetsFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DummyAssetsFlowLayout.h; sourceTree = "<group>"; };
 		6D970A9918B970BD00D1D34B /* DummyAssetsFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DummyAssetsFlowLayout.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -146,6 +146,55 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6D07889318BA0C0D0073E253 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				6D0788B218BA0C1D0073E253 /* SystemVersionMacros.h */,
+				6D07889418BA0C0D0073E253 /* TSAlbumsViewController.h */,
+				6D07889518BA0C0D0073E253 /* TSAlbumsViewController.m */,
+				6D07889618BA0C0D0073E253 /* TSAssetsPickerController.h */,
+				6D07889718BA0C0D0073E253 /* TSAssetsPickerController.m */,
+				6D07889818BA0C0D0073E253 /* TSAssetsViewController.h */,
+				6D07889918BA0C0D0073E253 /* TSAssetsViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		6D07889A18BA0C0D0073E253 /* Customizable Classes */ = {
+			isa = PBXGroup;
+			children = (
+				6D07889B18BA0C0D0073E253 /* Albums View */,
+				6D0788A218BA0C0D0073E253 /* Assets View */,
+			);
+			path = "Customizable Classes";
+			sourceTree = "<group>";
+		};
+		6D07889B18BA0C0D0073E253 /* Albums View */ = {
+			isa = PBXGroup;
+			children = (
+				6D07889C18BA0C0D0073E253 /* AlbumCell.h */,
+				6D07889D18BA0C0D0073E253 /* AlbumCell.m */,
+				6D07889E18BA0C0D0073E253 /* AlbumsTableView.h */,
+				6D07889F18BA0C0D0073E253 /* AlbumsTableView.m */,
+				6D0788A018BA0C0D0073E253 /* NoAlbumsCell.h */,
+				6D0788A118BA0C0D0073E253 /* NoAlbumsCell.m */,
+			);
+			path = "Albums View";
+			sourceTree = "<group>";
+		};
+		6D0788A218BA0C0D0073E253 /* Assets View */ = {
+			isa = PBXGroup;
+			children = (
+				6D0788A318BA0C0D0073E253 /* AssetCell.h */,
+				6D0788A418BA0C0D0073E253 /* AssetCell.m */,
+				6D0788A518BA0C0D0073E253 /* AssetsCollectionView.h */,
+				6D0788A618BA0C0D0073E253 /* AssetsCollectionView.m */,
+				6D0788A718BA0C0D0073E253 /* AssetsFlowLayout.h */,
+				6D0788A818BA0C0D0073E253 /* AssetsFlowLayout.m */,
+			);
+			path = "Assets View";
+			sourceTree = "<group>";
+		};
 		6D9709E118B7F41E00D1D34B = {
 			isa = PBXGroup;
 			children = (
@@ -224,9 +273,9 @@
 		6D970A4818B7F8BE00D1D34B /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				6D07889318BA0C0D0073E253 /* Controllers */,
+				6D07889A18BA0C0D0073E253 /* Customizable Classes */,
 				6D970A4918B7F8BE00D1D34B /* API Classes */,
-				6D970A5218B7F8BE00D1D34B /* Controllers */,
-				6D970A8118B91D9200D1D34B /* SystemVersionMacros.h */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -251,46 +300,6 @@
 			path = "API Classes";
 			sourceTree = "<group>";
 		};
-		6D970A5218B7F8BE00D1D34B /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				6D970A7A18B8D12900D1D34B /* Picker */,
-				6D970A5318B7F8BE00D1D34B /* Albums */,
-				6D970A5A18B7F8BE00D1D34B /* Assets */,
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
-		6D970A5318B7F8BE00D1D34B /* Albums */ = {
-			isa = PBXGroup;
-			children = (
-				6D970A5818B7F8BE00D1D34B /* TSAlbumsViewController.h */,
-				6D970A5918B7F8BE00D1D34B /* TSAlbumsViewController.m */,
-				6D970A5418B7F8BE00D1D34B /* AlbumCell.h */,
-				6D970A5518B7F8BE00D1D34B /* AlbumCell.m */,
-				6D970A5618B7F8BE00D1D34B /* NoAlbumsCell.h */,
-				6D970A5718B7F8BE00D1D34B /* NoAlbumsCell.m */,
-				6D07880818B9809C0073E253 /* AlbumsTableView.h */,
-				6D07880918B9809C0073E253 /* AlbumsTableView.m */,
-			);
-			path = Albums;
-			sourceTree = "<group>";
-		};
-		6D970A5A18B7F8BE00D1D34B /* Assets */ = {
-			isa = PBXGroup;
-			children = (
-				6D970A5D18B7F8BE00D1D34B /* TSAssetsViewController.h */,
-				6D970A5E18B7F8BE00D1D34B /* TSAssetsViewController.m */,
-				6D970A5B18B7F8BE00D1D34B /* AssetCell.h */,
-				6D970A5C18B7F8BE00D1D34B /* AssetCell.m */,
-				6D970A9518B9689B00D1D34B /* AssetsFlowLayout.h */,
-				6D970A9618B9689B00D1D34B /* AssetsFlowLayout.m */,
-				6D07880218B9794E0073E253 /* AssetsCollectionView.h */,
-				6D07880318B9794E0073E253 /* AssetsCollectionView.m */,
-			);
-			path = Assets;
-			sourceTree = "<group>";
-		};
 		6D970A5F18B7F8BE00D1D34B /* Dummy Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -310,15 +319,6 @@
 				6D07880C18B980D30073E253 /* DummyAlbumsTableView.m */,
 			);
 			path = "Dummy Classes";
-			sourceTree = "<group>";
-		};
-		6D970A7A18B8D12900D1D34B /* Picker */ = {
-			isa = PBXGroup;
-			children = (
-				6D970A7518B8D12200D1D34B /* TSAssetsPickerController.h */,
-				6D970A7618B8D12200D1D34B /* TSAssetsPickerController.m */,
-			);
-			name = Picker;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -419,31 +419,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6D970A6A18B7F8BE00D1D34B /* TSAssetsViewController.m in Sources */,
+				6D0788AB18BA0C0D0073E253 /* TSAssetsViewController.m in Sources */,
 				6D9709FA18B7F41E00D1D34B /* main.m in Sources */,
 				6D970A6B18B7F8BE00D1D34B /* DummyAssetsImporter.m in Sources */,
-				6D07880A18B9809C0073E253 /* AlbumsTableView.m in Sources */,
 				6D970A6218B7F8BE00D1D34B /* TSAlbumsLoader.m in Sources */,
 				6D07880D18B980D30073E253 /* DummyAlbumsTableView.m in Sources */,
 				6D970A7D18B8F58200D1D34B /* AlbumRepresentation.m in Sources */,
+				6D0788B118BA0C0D0073E253 /* AssetsFlowLayout.m in Sources */,
 				6D970A9118B9628500D1D34B /* DummyAssetCell.m in Sources */,
-				6D970A9718B9689B00D1D34B /* AssetsFlowLayout.m in Sources */,
+				6D0788A918BA0C0D0073E253 /* TSAlbumsViewController.m in Sources */,
 				6D9709FE18B7F41E00D1D34B /* TSAppDelegate.m in Sources */,
-				6D970A7818B8D12200D1D34B /* TSAssetsPickerController.m in Sources */,
-				6D07880418B9794E0073E253 /* AssetsCollectionView.m in Sources */,
 				6D970A8B18B94B5400D1D34B /* DummyNoAlbumsCell.m in Sources */,
 				6D970A6518B7F8BE00D1D34B /* TSAssetsManager.m in Sources */,
+				6D0788AC18BA0C0D0073E253 /* AlbumCell.m in Sources */,
 				6D970A8E18B95C7400D1D34B /* DummyAlbumCell.m in Sources */,
 				6D970A6E18B7FC8600D1D34B /* TSBaseLoader.m in Sources */,
 				6D970A0418B7F41E00D1D34B /* TSViewController.m in Sources */,
-				6D970A6718B7F8BE00D1D34B /* NoAlbumsCell.m in Sources */,
+				6D0788AD18BA0C0D0073E253 /* AlbumsTableView.m in Sources */,
 				6D970A9A18B970BD00D1D34B /* DummyAssetsFlowLayout.m in Sources */,
 				6D970A6418B7F8BE00D1D34B /* TSAssetsLoader.m in Sources */,
+				6D0788AE18BA0C0D0073E253 /* NoAlbumsCell.m in Sources */,
+				6D0788B018BA0C0D0073E253 /* AssetsCollectionView.m in Sources */,
 				6D07880718B97CC30073E253 /* DummyAssetsCollectionView.m in Sources */,
-				6D970A6918B7F8BE00D1D34B /* AssetCell.m in Sources */,
-				6D970A6818B7F8BE00D1D34B /* TSAlbumsViewController.m in Sources */,
 				6D970A6318B7F8BE00D1D34B /* TSAssetsContainer.m in Sources */,
-				6D970A6618B7F8BE00D1D34B /* AlbumCell.m in Sources */,
+				6D0788AA18BA0C0D0073E253 /* TSAssetsPickerController.m in Sources */,
+				6D0788AF18BA0C0D0073E253 /* AssetCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

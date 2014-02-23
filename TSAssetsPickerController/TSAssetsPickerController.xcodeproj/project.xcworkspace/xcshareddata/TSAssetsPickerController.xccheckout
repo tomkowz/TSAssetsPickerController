@@ -5,34 +5,34 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>D69E47D3-E927-4CF7-BC83-DF9D3C5C30AE</string>
+	<string>02C8F26E-7F2A-4712-BA65-505881099C63</string>
 	<key>IDESourceControlProjectName</key>
 	<string>TSAssetsPickerController</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>003C4F9E-3FAD-4579-AFD8-47EF4266B449</key>
-		<string>https://github.com/tomkowz/TSAssetPickerController.git</string>
+		<key>B322003B-602C-47CF-87B2-FDEA27A767DF</key>
+		<string>https://github.com/tomkowz/TSAssetsPickerController.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>TSAssetsPickerController/TSAssetsPickerController.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>003C4F9E-3FAD-4579-AFD8-47EF4266B449</key>
+		<key>B322003B-602C-47CF-87B2-FDEA27A767DF</key>
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/tomkowz/TSAssetPickerController.git</string>
+	<string>https://github.com/tomkowz/TSAssetsPickerController.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>003C4F9E-3FAD-4579-AFD8-47EF4266B449</string>
+	<string>B322003B-602C-47CF-87B2-FDEA27A767DF</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>003C4F9E-3FAD-4579-AFD8-47EF4266B449</string>
+			<string>B322003B-602C-47CF-87B2-FDEA27A767DF</string>
 			<key>IDESourceControlWCCName</key>
 			<string>TSAssetPickerController</string>
 		</dict>
