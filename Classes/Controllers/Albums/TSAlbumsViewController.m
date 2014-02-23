@@ -29,7 +29,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self _configureAlbumsLoader];
-
+    self.title = _picker.albumsViewControllerTitle;
     [self _configureNavigationBarButtons];
     [self _setupViews];
 }

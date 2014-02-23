@@ -30,6 +30,7 @@
         
         self.filter = [ALAssetsFilter allPhotos];
         
+        self.albumsViewControllerTitle = @"Albums";
         self.cancelButtonTitle = @"Cancel";
         self.selectButtonTitle = @"Select";
         

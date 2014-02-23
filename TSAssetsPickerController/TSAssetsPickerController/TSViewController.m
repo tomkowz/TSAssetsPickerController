@@ -49,6 +49,7 @@
         // Main configuration
         _picker.numberOfItemsToSelect = 3;
         
+//        _picker.albumsViewControllerTitle = @"Albumy";
 //        _picker.selectButtonTitle = @"Wybierz";
 //        _picker.cancelButtonTitle = @"Anuluj";
         

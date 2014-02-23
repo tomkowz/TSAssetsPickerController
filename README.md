@@ -39,6 +39,7 @@ Configuration
 | ------------------------------------- | -----------------	| ---------------------:|
 | numberOfItemsToSelect					| `NSUInteger`		| 1						|
 | filter								| `ALAssetsFilter`	| allPhotos				|
+| albumsViewControllerTitle				| `NSString`		| Albums				|
 | cancelButtonTitle						| `NSString`		| Cancel				|
 | selectButtonTitle						| `NSString`		| Select				|
 | noAlbumsForSelectedFilter				| `NSString`		| some string			|
@@ -77,6 +78,11 @@ Properties of `TSAssetsPickerController` with description
  Filter used to filter assets in Camera Roll. Defaults Photo.
  */
 @property (nonatomic) ALAssetsFilter *filter;
+
+/**
+ Title of TSAlbumsViewController 
+ */
+@property (nonatomic, copy) NSString *albumsViewControllerTitle;
 
 /**
  Title of cancel button. Defaults "Cancel"
@@ -220,6 +226,7 @@ How to use
         // Main configuration
         _picker.numberOfItemsToSelect = 3;
         
+        _picker.albumsViewControllerTitle = @"Albumy";
         _picker.selectButtonTitle = @"Wybierz";
         _picker.cancelButtonTitle = @"Anuluj";
         

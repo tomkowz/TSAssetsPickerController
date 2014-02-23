@@ -26,6 +26,11 @@
 @property (nonatomic) ALAssetsFilter *filter;
 
 /**
+ Title of TSAlbumsViewController 
+ */
+@property (nonatomic, copy) NSString *albumsViewControllerTitle;
+
+/**
  Title of cancel button. Defaults "Cancel"
  */
 @property (nonatomic, copy) NSString *cancelButtonTitle;
