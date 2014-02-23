@@ -35,19 +35,20 @@ Configuration
 `TSAssetsPickerController` has plenty of properties to set.
 
 
-| Property                      	| Type           	| Default value 	|
-| --------------------------------- | -----------------	| -----------------:|
-| numberOfItemsToSelect				| `NSUInteger`		| 1					|
-| filter							| `ALAssetsFilter`	| allPhotos			|
-| noAlbumsForSelectedFilter			| `NSString`		| some string		|
-| shouldReverseAlbumsOrder			| `BOOL`			| YES				|
-| shouldReverseAssetsOrder			| `BOOL`			| YES				|
-| shouldShowEmptyAlbums				| `BOOL`			| NO				|
-| shouldDimmEmptyAlbums				| `BOOL`			| YES				|
-| subclassOfAlbumCellClass			| `Class`			| AlbumCell			|
-| subclassOfNoAlbumsCell			| `Class`			| NoAlbumsCell		|
-| subclassOfAssetCell				| `Class`			| AssetCell			|
-| subclassOfAssetsFlowLayoutClass	| `Class`			| AssetsFlowLayout 	|
+| Property                      		| Type           	| Default value 		|
+| ------------------------------------- | -----------------	| ---------------------:|
+| numberOfItemsToSelect					| `NSUInteger`		| 1						|
+| filter								| `ALAssetsFilter`	| allPhotos				|
+| noAlbumsForSelectedFilter				| `NSString`		| some string			|
+| shouldReverseAlbumsOrder				| `BOOL`			| YES					|
+| shouldReverseAssetsOrder				| `BOOL`			| YES					|
+| shouldShowEmptyAlbums					| `BOOL`			| NO					|
+| shouldDimmEmptyAlbums					| `BOOL`			| YES					|
+| subclassOfAlbumCellClass				| `Class`			| AlbumCell				|
+| subclassOfNoAlbumsCell				| `Class`			| NoAlbumsCell			|
+| subclassOfAssetCell					| `Class`			| AssetCell				|
+| subclassOfAssetsFlowLayoutClass		| `Class`			| AssetsFlowLayout 		|
+| subclassOfAssetsCollectionViewClass 	| `Class`			| AssetsCollectionView 	|
 
 
 There is also `TSAssetsPickerControllerDelegate` protocol which is very similar to `UIImagePickerControllerDelegate`.
@@ -128,6 +129,12 @@ Properties of `TSAssetsPickerController` with description
  */
 @property (nonatomic) Class subclassOfAssetsFlowLayoutClass;
 
+/**
+ Set this class if you want to use custom subclass of AssetsCollectionView class.
+ This class is UICollectionView placed in TSAssetsViewController.
+ */
+@property (nonatomic) Class subclassOfAssetsCollectionViewClass;
+
 @end
 ```
 
@@ -155,13 +162,15 @@ About classes
 
 `TSAssetsPickerController` - This is a picker controller. You present this controller if you want to show picker on the screen. 
 
-`AlbumCell` - It's base class of cell which is displayed on TSAlbumsViewController (cell with album name).
+`AlbumCell` - Base class of cell which is displayed on `TSAlbumsViewController` (cell with album name).
 
-`NoAlbumsCell` - It's base class of cell which is displayed on TSAlbumsViewController when there is no albums.
+`NoAlbumsCell` - Base class of cell which is displayed on `TSAlbumsViewController` when there is no albums.
 
-`AssetCell` - It's base class of cell which is displayed on TSAssetsViewController.
+`AssetCell` - Base class of cell which is displayed on `TSAssetsViewController`.
 
-`AssetsFlowLayout` - It's base class of flow layout used in TSAssetsViewController. Remember to not override `-itemSize` method. Size of item is read from `[AssetCell preferedCellSize]` automatically.
+`AssetsFlowLayout` - Base class of flow layout used in `TSAssetsViewController`. Remember to not override `-itemSize` method. Size of item is read from `[AssetCell preferedCellSize]` automatically.
+
+`AssetsCollectionView` -  Base class of `UICollectionView` used in `TSAssetsViewController`. subclass this base and configure in `TSAssetsPickerController`.
 
 
 ---
@@ -207,6 +216,7 @@ How to use
         _picker.subclassOfNoAlbumsCellClass = [DummyNoAlbumsCell class];
         _picker.subclassOfAssetCellClass = [DummyAssetCell class];
         _picker.subclassOfAssetsFlowLayoutClass = [DummyAssetsFlowLayout class];
+        _picker.subclassOfAssetsCollectionViewClass = [DummyAssetsCollectionView class];
     }
 
     [self presentViewController:_picker animated:YES completion:nil];

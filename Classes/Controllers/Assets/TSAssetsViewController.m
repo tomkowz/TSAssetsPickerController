@@ -14,6 +14,7 @@
 #import "TSAssetsManager.h"
 #import "TSAssetsPickerController.h"
 #import "AssetsFlowLayout.h"
+#import "AssetsCollectionView.h"
 
 @interface TSAssetsViewController () <UICollectionViewDelegate, UICollectionViewDataSource> {
     TSAssetsManager *_assetsManager;
@@ -39,6 +40,7 @@
 
 - (void)_setupViews {
     _collectionView = [self newCollectionView];
+
     [self.view addSubview:_collectionView];
     
     _selectButton = [self newSelectButton];
@@ -100,26 +102,22 @@ static NSString *cellIdentifier = nil;
 
     CGSize cellSize = [_picker.subclassOfAssetCellClass preferedCellSize];
     UICollectionViewFlowLayout *layout = [[_picker.subclassOfAssetsFlowLayoutClass alloc] initWithItemSize:cellSize];
-    // workaround, I don't know why collection view not call this property itself.
+    // workaround, I don't know why collection view not call this properties itself.
     layout.sectionInset = layout.sectionInset;
     layout.scrollDirection = layout.scrollDirection;
     layout.minimumLineSpacing = layout.minimumLineSpacing;
     layout.minimumInteritemSpacing = layout.minimumInteritemSpacing;
     
-    UICollectionView *collectionView =
-    [[UICollectionView alloc] initWithFrame:frame collectionViewLayout:layout];
-    
-    [collectionView setBounces:YES];
-    [collectionView setScrollEnabled:YES];
+    UICollectionView *collectionView = [[_picker.subclassOfAssetsCollectionViewClass alloc] initWithFrame:frame collectionViewLayout:layout];
+    [collectionView registerClass:_picker.subclassOfAssetCellClass forCellWithReuseIdentifier:cellIdentifier];
     
     BOOL scrollVertical = (layout.scrollDirection == UICollectionViewScrollDirectionVertical);
     [collectionView setAlwaysBounceVertical:scrollVertical];
     [collectionView setAlwaysBounceHorizontal:!scrollVertical];
- 
-    [collectionView registerClass:_picker.subclassOfAssetCellClass forCellWithReuseIdentifier:cellIdentifier];
-    [collectionView setBackgroundColor:[UIColor whiteColor]];
+    
     collectionView.delegate = self;
     collectionView.dataSource = self;
+    
     return collectionView;
 }
 

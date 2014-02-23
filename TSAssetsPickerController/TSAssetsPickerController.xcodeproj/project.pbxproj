@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6D07880418B9794E0073E253 /* AssetsCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D07880318B9794E0073E253 /* AssetsCollectionView.m */; };
+		6D07880718B97CC30073E253 /* DummyAssetsCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D07880618B97CC30073E253 /* DummyAssetsCollectionView.m */; };
 		6D9709EE18B7F41E00D1D34B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D9709ED18B7F41E00D1D34B /* Foundation.framework */; };
 		6D9709F018B7F41E00D1D34B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D9709EF18B7F41E00D1D34B /* CoreGraphics.framework */; };
 		6D9709F218B7F41E00D1D34B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D9709F118B7F41E00D1D34B /* UIKit.framework */; };
@@ -53,6 +55,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6D07880218B9794E0073E253 /* AssetsCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssetsCollectionView.h; sourceTree = "<group>"; };
+		6D07880318B9794E0073E253 /* AssetsCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetsCollectionView.m; sourceTree = "<group>"; };
+		6D07880518B97CC30073E253 /* DummyAssetsCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DummyAssetsCollectionView.h; sourceTree = "<group>"; };
+		6D07880618B97CC30073E253 /* DummyAssetsCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DummyAssetsCollectionView.m; sourceTree = "<group>"; };
 		6D9709EA18B7F41E00D1D34B /* TSAssetsPickerController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TSAssetsPickerController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D9709ED18B7F41E00D1D34B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6D9709EF18B7F41E00D1D34B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -273,6 +279,8 @@
 				6D970A5C18B7F8BE00D1D34B /* AssetCell.m */,
 				6D970A9518B9689B00D1D34B /* AssetsFlowLayout.h */,
 				6D970A9618B9689B00D1D34B /* AssetsFlowLayout.m */,
+				6D07880218B9794E0073E253 /* AssetsCollectionView.h */,
+				6D07880318B9794E0073E253 /* AssetsCollectionView.m */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -290,6 +298,8 @@
 				6D970A9018B9628500D1D34B /* DummyAssetCell.m */,
 				6D970A9818B970BD00D1D34B /* DummyAssetsFlowLayout.h */,
 				6D970A9918B970BD00D1D34B /* DummyAssetsFlowLayout.m */,
+				6D07880518B97CC30073E253 /* DummyAssetsCollectionView.h */,
+				6D07880618B97CC30073E253 /* DummyAssetsCollectionView.m */,
 			);
 			path = "Dummy Classes";
 			sourceTree = "<group>";
@@ -412,6 +422,7 @@
 				6D970A9718B9689B00D1D34B /* AssetsFlowLayout.m in Sources */,
 				6D9709FE18B7F41E00D1D34B /* TSAppDelegate.m in Sources */,
 				6D970A7818B8D12200D1D34B /* TSAssetsPickerController.m in Sources */,
+				6D07880418B9794E0073E253 /* AssetsCollectionView.m in Sources */,
 				6D970A8B18B94B5400D1D34B /* DummyNoAlbumsCell.m in Sources */,
 				6D970A6518B7F8BE00D1D34B /* TSAssetsManager.m in Sources */,
 				6D970A8E18B95C7400D1D34B /* DummyAlbumCell.m in Sources */,
@@ -420,6 +431,7 @@
 				6D970A6718B7F8BE00D1D34B /* NoAlbumsCell.m in Sources */,
 				6D970A9A18B970BD00D1D34B /* DummyAssetsFlowLayout.m in Sources */,
 				6D970A6418B7F8BE00D1D34B /* TSAssetsLoader.m in Sources */,
+				6D07880718B97CC30073E253 /* DummyAssetsCollectionView.m in Sources */,
 				6D970A6918B7F8BE00D1D34B /* AssetCell.m in Sources */,
 				6D970A6818B7F8BE00D1D34B /* TSAlbumsViewController.m in Sources */,
 				6D970A6318B7F8BE00D1D34B /* TSAssetsContainer.m in Sources */,
