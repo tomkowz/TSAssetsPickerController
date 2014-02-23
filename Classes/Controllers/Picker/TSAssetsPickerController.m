@@ -29,6 +29,10 @@
         self.numberOfItemsToSelect = 1;
         
         self.filter = [ALAssetsFilter allPhotos];
+        
+        self.cancelButtonTitle = @"Cancel";
+        self.selectButtonTitle = @"Select";
+        
         self.noAlbumsForSelectedFilter = @"No albums for selected filter";
         
         self.shouldReverseAlbumsOrder = YES;

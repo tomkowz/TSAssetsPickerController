@@ -122,7 +122,7 @@ static NSString *cellIdentifier = nil;
 }
 
 - (UIBarButtonItem *)newSelectButton {
-    UIBarButtonItem *selectButton = [[UIBarButtonItem alloc] initWithTitle:@"Select" style:UIBarButtonItemStyleDone target:self action:@selector(onSelectPressed)];
+    UIBarButtonItem *selectButton = [[UIBarButtonItem alloc] initWithTitle:_picker.selectButtonTitle style:UIBarButtonItemStyleDone target:self action:@selector(onSelectPressed)];
     [selectButton setEnabled:NO];
     return selectButton;
 }

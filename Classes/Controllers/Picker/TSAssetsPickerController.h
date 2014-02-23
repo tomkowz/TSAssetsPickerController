@@ -26,6 +26,16 @@
 @property (nonatomic) ALAssetsFilter *filter;
 
 /**
+ Title of cancel button. Defaults "Cancel"
+ */
+@property (nonatomic, copy) NSString *cancelButtonTitle;
+
+/**
+ Title of select button. Defaults "Select"
+ */
+@property (nonatomic, copy) NSString *selectButtonTitle;
+
+/**
  This text is displayed in NoAlbumsCell and subclasses of it.
  Text is displayed when there is no albums for selected filter.
  Defaults "No albums for selected filter".

@@ -49,6 +49,9 @@
         // Main configuration
         _picker.numberOfItemsToSelect = 3;
         
+//        _picker.selectButtonTitle = @"Wybierz";
+//        _picker.cancelButtonTitle = @"Anuluj";
+        
         _picker.filter = [ALAssetsFilter allAssets];
         _picker.noAlbumsForSelectedFilter = @"Can't find any asset. Create some and back.";
         
