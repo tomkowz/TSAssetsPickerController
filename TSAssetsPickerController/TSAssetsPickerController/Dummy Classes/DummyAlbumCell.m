@@ -13,7 +13,8 @@
 - (id)init {
     self = [super init];
     if (self) {
-        self.textLabel.textColor = [UIColor redColor];
+        self.textLabel.textColor = [UIColor greenColor];
+        self.backgroundColor = [UIColor blueColor];
     }
     return self;
 }

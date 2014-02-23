@@ -14,6 +14,7 @@
 #import "NoAlbumsCell.h"
 #import "AssetsFlowLayout.h"
 #import "AssetsCollectionView.h"
+#import "AlbumsTableView.h"
 
 @interface TSAssetsPickerController () < TSAlbumsViewControllerDelegate> {
     TSAlbumsViewController *_albumsVC;
@@ -38,6 +39,7 @@
         
         self.subclassOfAlbumCellClass = [AlbumCell class];
         self.subclassOfNoAlbumsCellClass = [NoAlbumsCell class];
+        self.subclassOfAlbumsTableViewClass = [AlbumsTableView class];
         self.subclassOfAssetCellClass = [AssetCell class];
         self.subclassOfAssetsFlowLayoutClass = [AssetsFlowLayout class];
         self.subclassOfAssetsCollectionViewClass = [AssetsCollectionView class];

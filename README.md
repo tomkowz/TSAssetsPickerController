@@ -46,6 +46,7 @@ Configuration
 | shouldDimmEmptyAlbums					| `BOOL`			| YES					|
 | subclassOfAlbumCellClass				| `Class`			| AlbumCell				|
 | subclassOfNoAlbumsCell				| `Class`			| NoAlbumsCell			|
+| subclassOfAlbumsTableViewClass		| `Class`			| AlbumsTableView		|
 | subclassOfAssetCell					| `Class`			| AssetCell				|
 | subclassOfAssetsFlowLayoutClass		| `Class`			| AssetsFlowLayout 		|
 | subclassOfAssetsCollectionViewClass 	| `Class`			| AssetsCollectionView 	|
@@ -116,6 +117,12 @@ Properties of `TSAssetsPickerController` with description
  This class is used to display "noAlbumsForSelectedFilter" property on Albums view.
  */
 @property (nonatomic) Class subclassOfNoAlbumsCellClass;
+
+/**
+ Set this class if you want to use custom subclass of AlbumsTableView class.
+ This class is UITableView placed in TSAlbumsTableView.
+ */
+@property (nonatomic) Class subclassOfAlbumsTableViewClass;
 
 /**
  Set this class if you want to use custom subclass of AssetCell class.

@@ -68,6 +68,12 @@
 @property (nonatomic) Class subclassOfNoAlbumsCellClass;
 
 /**
+ Set this class if you want to use custom subclass of AlbumsTableView class.
+ This class is UITableView placed in TSAlbumsTableView.
+ */
+@property (nonatomic) Class subclassOfAlbumsTableViewClass;
+
+/**
  Set this class if you want to use custom subclass of AssetCell class.
  This class is used to display assets in Assets view (UICollectionViewCell).
  */

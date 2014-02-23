@@ -13,6 +13,7 @@
 #import "DummyAssetsImporter.h"
 #import "DummyAlbumCell.h"
 #import "DummyNoAlbumsCell.h"
+#import "DummyAlbumsTableView.h"
 #import "DummyAssetCell.h"
 #import "DummyAssetsFlowLayout.h"
 #import "DummyAssetsCollectionView.h"
@@ -61,6 +62,7 @@
         // Custom No Albums Cell which is visible when there is no albums in first view of TSAssetsPickerController
 //        _picker.subclassOfAlbumCellClass = [DummyAlbumCell class];
 //        _picker.subclassOfNoAlbumsCellClass = [DummyNoAlbumsCell class];
+//        _picker.subclassOfAlbumsTableViewClass = [DummyAlbumsTableView class];
 //        _picker.subclassOfAssetCellClass = [DummyAssetCell class];
 //        _picker.subclassOfAssetsFlowLayoutClass = [DummyAssetsFlowLayout class];
 //        _picker.subclassOfAssetsCollectionViewClass = [DummyAssetsCollectionView class];

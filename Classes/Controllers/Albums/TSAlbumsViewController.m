@@ -59,7 +59,7 @@
         frame.size.height -= CGRectGetHeight(self.navigationController.navigationBar.frame);
     }
     
-    UITableView *tableView = [[UITableView alloc] initWithFrame:frame style:UITableViewStylePlain];
+    UITableView *tableView = [[_picker.subclassOfAlbumsTableViewClass alloc] initWithFrame:frame style:UITableViewStylePlain];
     tableView.delegate = self;
     tableView.dataSource = self;
     
