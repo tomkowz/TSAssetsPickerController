@@ -166,7 +166,6 @@ static NSString *cellIdentifier = nil;
         _selectedIndexPath = indexPath;
     } else {
         [_assetsManager deselectAsset:asset];
-        [cell setBackgroundColor:[UIColor blueColor]];
     }
     
     [cell markAsSelected:shouldSelect];
