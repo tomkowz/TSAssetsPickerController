@@ -7,6 +7,7 @@
 //
 
 #import "TSAssetsPickerController.h"
+#import "TSAssetsPickerController+Subclasses.h"
 
 #import "AlbumCell.h"
 #import "AssetCell.h"
@@ -19,6 +20,7 @@
 @interface TSAssetsPickerController () < TSAlbumsViewControllerDelegate> {
     TSAlbumsViewController *_albumsVC;
 }
+
 @end
 
 @implementation TSAssetsPickerController
@@ -41,13 +43,6 @@
         
         self.shouldShowEmptyAlbums = NO;
         self.shouldDimmEmptyAlbums = YES;
-        
-        self.subclassOfAlbumCellClass = [AlbumCell class];
-        self.subclassOfNoAlbumsCellClass = [NoAlbumsCell class];
-        self.subclassOfAlbumsTableViewClass = [AlbumsTableView class];
-        self.subclassOfAssetCellClass = [AssetCell class];
-        self.subclassOfAssetsFlowLayoutClass = [AssetsFlowLayout class];
-        self.subclassOfAssetsCollectionViewClass = [AssetsCollectionView class];
     }
     return self;
 }

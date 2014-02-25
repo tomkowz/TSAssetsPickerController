@@ -9,12 +9,15 @@
 #import "TSAssetsViewController.h"
 
 #import "AssetCell.h"
+#import "AlbumCell.h"
+#import "AssetsFlowLayout.h"
+#import "AssetsCollectionView.h"
 #import "SystemVersionMacros.h"
 #import "TSAssetsLoader.h"
 #import "TSAssetsManager.h"
 #import "TSAssetsPickerController.h"
-#import "AssetsFlowLayout.h"
-#import "AssetsCollectionView.h"
+#import "TSAssetsPickerController+Subclasses.h"
+
 
 @interface TSAssetsViewController () <UICollectionViewDelegate, UICollectionViewDataSource> {
     TSAssetsManager *_assetsManager;
@@ -93,25 +96,29 @@
 #pragma mark - Setup View
 static NSString *cellIdentifier = nil;
 - (UICollectionView *)newCollectionView {
-    cellIdentifier = NSStringFromClass(_picker.subclassOfAssetCellClass);
-    
+    Class subclassOfAssetCellClass = [_picker subclassForClass:[AssetCell class]];
+    cellIdentifier = NSStringFromClass(subclassOfAssetCellClass);
+
     CGRect frame = self.view.bounds;
     if (SYSTEM_VERSION_LESS_THAN(@"7.0")) {
         frame.size.height -= CGRectGetHeight(self.navigationController.navigationBar.frame);
     }
 
-    CGSize cellSize = [_picker.subclassOfAssetCellClass preferedCellSize];
-    UICollectionViewFlowLayout *layout = [[_picker.subclassOfAssetsFlowLayoutClass alloc] initWithItemSize:cellSize];
+    Class subclassOfAssetsFlowLayoutClass = [_picker subclassForClass:[AssetsFlowLayout class]];
+    
+    CGSize cellSize = [subclassOfAssetCellClass preferedCellSize];
+    UICollectionViewFlowLayout *layout = [[subclassOfAssetsFlowLayoutClass alloc] initWithItemSize:cellSize];
     // workaround, I don't know why collection view not call this properties itself.
     layout.sectionInset = layout.sectionInset;
     layout.scrollDirection = layout.scrollDirection;
     layout.minimumLineSpacing = layout.minimumLineSpacing;
     layout.minimumInteritemSpacing = layout.minimumInteritemSpacing;
     
-    UICollectionView *collectionView = [[_picker.subclassOfAssetsCollectionViewClass alloc] initWithFrame:frame collectionViewLayout:layout];
+    Class collectionViewClass = [_picker subclassForClass:[AssetsCollectionView class]];
+    UICollectionView *collectionView = [[collectionViewClass alloc] initWithFrame:frame collectionViewLayout:layout];
     [collectionView setAutoresizingMask:(UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight)];
 
-    [collectionView registerClass:_picker.subclassOfAssetCellClass forCellWithReuseIdentifier:cellIdentifier];
+    [collectionView registerClass:subclassOfAssetCellClass forCellWithReuseIdentifier:cellIdentifier];
     
     BOOL scrollVertical = (layout.scrollDirection == UICollectionViewScrollDirectionVertical);
     [collectionView setAlwaysBounceVertical:scrollVertical];
@@ -138,7 +145,7 @@ static NSString *cellIdentifier = nil;
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     id cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
     if (!cell) {
-        Class class = _picker.subclassOfAlbumCellClass;
+        Class class = [_picker subclassForClass:[AlbumCell class]];
         cell = [class new];
     }
 

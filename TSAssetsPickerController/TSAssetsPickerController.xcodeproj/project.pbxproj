@@ -43,6 +43,7 @@
 		6D970A8E18B95C7400D1D34B /* DummyAlbumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D970A8D18B95C7400D1D34B /* DummyAlbumCell.m */; };
 		6D970A9118B9628500D1D34B /* DummyAssetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D970A9018B9628500D1D34B /* DummyAssetCell.m */; };
 		6D970A9A18B970BD00D1D34B /* DummyAssetsFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D970A9918B970BD00D1D34B /* DummyAssetsFlowLayout.m */; };
+		6DCB37AF18BD148400BB323D /* TSAssetsPickerController+Subclasses.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DCB37AE18BD148400BB323D /* TSAssetsPickerController+Subclasses.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +121,8 @@
 		6D970A9018B9628500D1D34B /* DummyAssetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DummyAssetCell.m; sourceTree = "<group>"; };
 		6D970A9818B970BD00D1D34B /* DummyAssetsFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DummyAssetsFlowLayout.h; sourceTree = "<group>"; };
 		6D970A9918B970BD00D1D34B /* DummyAssetsFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DummyAssetsFlowLayout.m; sourceTree = "<group>"; };
+		6DCB37AD18BD148400BB323D /* TSAssetsPickerController+Subclasses.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TSAssetsPickerController+Subclasses.h"; sourceTree = "<group>"; };
+		6DCB37AE18BD148400BB323D /* TSAssetsPickerController+Subclasses.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TSAssetsPickerController+Subclasses.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +159,8 @@
 				6D07889718BA0C0D0073E253 /* TSAssetsPickerController.m */,
 				6D07889818BA0C0D0073E253 /* TSAssetsViewController.h */,
 				6D07889918BA0C0D0073E253 /* TSAssetsViewController.m */,
+				6DCB37AD18BD148400BB323D /* TSAssetsPickerController+Subclasses.h */,
+				6DCB37AE18BD148400BB323D /* TSAssetsPickerController+Subclasses.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -426,6 +431,7 @@
 				6D07880D18B980D30073E253 /* DummyAlbumsTableView.m in Sources */,
 				6D970A7D18B8F58200D1D34B /* AlbumRepresentation.m in Sources */,
 				6D0788B118BA0C0D0073E253 /* AssetsFlowLayout.m in Sources */,
+				6DCB37AF18BD148400BB323D /* TSAssetsPickerController+Subclasses.m in Sources */,
 				6D970A9118B9628500D1D34B /* DummyAssetCell.m in Sources */,
 				6D0788A918BA0C0D0073E253 /* TSAlbumsViewController.m in Sources */,
 				6D9709FE18B7F41E00D1D34B /* TSAppDelegate.m in Sources */,

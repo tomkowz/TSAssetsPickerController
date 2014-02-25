@@ -18,7 +18,7 @@
 #import "DummyAssetsFlowLayout.h"
 #import "DummyAssetsCollectionView.h"
 
-@interface TSViewController () <TSAssetsPickerControllerDelegate, UINavigationControllerDelegate> {
+@interface TSViewController () <TSAssetsPickerControllerDelegate, TSAssetsPickerControllerDataSource, UINavigationControllerDelegate> {
     TSAssetsPickerController *_picker;
 }
 @end
@@ -45,7 +45,7 @@
     if (!_picker) {
         _picker = [TSAssetsPickerController new];
         _picker.delegate = self;
-        
+        _picker.dataSource = self;
         // Main configuration
         _picker.numberOfItemsToSelect = 3;
         
@@ -61,20 +61,29 @@
         
 //        _picker.shouldShowEmptyAlbums = YES;
 //        _picker.shouldDimmEmptyAlbums = NO;
-        
-        
-        // Custom No Albums Cell which is visible when there is no albums in first view of TSAssetsPickerController
-//        _picker.subclassOfAlbumCellClass = [DummyAlbumCell class];
-//        _picker.subclassOfNoAlbumsCellClass = [DummyNoAlbumsCell class];
-//        _picker.subclassOfAlbumsTableViewClass = [DummyAlbumsTableView class];
-//        _picker.subclassOfAssetCellClass = [DummyAssetCell class];
-//        _picker.subclassOfAssetsFlowLayoutClass = [DummyAssetsFlowLayout class];
-//        _picker.subclassOfAssetsCollectionViewClass = [DummyAssetsCollectionView class];
     }
 
     [self presentViewController:_picker animated:YES completion:nil];
 }
 
+
+#pragma mark - TSAssetsPickerControllerDataSource
+/*
+- (Class)assetsPickerController:(TSAssetsPickerController *)picker subclassForClass:(Class)aClass {
+    Class c = nil;
+    // Custom classes should be set by data source method.
+    if (aClass == [AlbumCell class])
+        c = [DummyAlbumCell class];
+    
+    if (aClass == [AlbumsTableView class])
+        c = [DummyAlbumsTableView class];
+    
+    if (aClass == [AssetCell class])
+        c = [DummyAssetCell class];
+    
+    return c;
+}
+*/
 
 #pragma mark - TSAssetsPickerControllerDelegate
 - (void)assetsPickerControllerDidCancel:(TSAssetsPickerController *)picker {

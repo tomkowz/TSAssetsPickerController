@@ -11,10 +11,12 @@
 
 #import "AlbumCell.h"
 #import "AlbumRepresentation.h"
+#import "AlbumsTableView.h"
 #import "NoAlbumsCell.h"
 #import "SystemVersionMacros.h"
 #import "TSAlbumsLoader.h"
 #import "TSAssetsPickerController.h"
+#import "TSAssetsPickerController+Subclasses.h"
 #import "TSAssetsViewController.h"
 
 @interface TSAlbumsViewController ()  <UITableViewDelegate, UITableViewDataSource, TSAssetsViewControllerDelegate> {
@@ -59,7 +61,8 @@
         frame.size.height -= CGRectGetHeight(self.navigationController.navigationBar.frame);
     }
     
-    UITableView *tableView = [[_picker.subclassOfAlbumsTableViewClass alloc] initWithFrame:frame style:UITableViewStylePlain];
+    Class subclassOfTableViewClass = [_picker subclassForClass:[AlbumsTableView class]];
+    UITableView *tableView = [[subclassOfTableViewClass alloc] initWithFrame:frame style:UITableViewStylePlain];
     [tableView setAutoresizingMask:(UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight)];
     [tableView setDelegate:self];
     [tableView setDataSource:self];
@@ -110,7 +113,7 @@ static NSString *const toAssetSegue = @"ToAssets";
     BOOL showAlbumCell = _albumsLoader.fetchedAlbumRepresentations.count > 0;
 
     if (showAlbumCell) {
-        Class class = _picker.subclassOfAlbumCellClass;
+        Class class = [_picker subclassForClass:[AlbumCell class]];
         id cell = [class new];
         
         AlbumRepresentation *albumRepresentation = _albumsLoader.fetchedAlbumRepresentations[indexPath.row];
@@ -118,7 +121,7 @@ static NSString *const toAssetSegue = @"ToAssets";
         [cell dimm:albumRepresentation.isEmpty];
         _cell = cell;
     } else {
-        Class class = _picker.subclassOfNoAlbumsCellClass;
+        Class class = [_picker subclassForClass:[NoAlbumsCell class]];
         id cell = [class new];
         if (_fetchedFirstTime) {
             [(UILabel *)[cell valueForKey:@"label"] setText: _picker.noAlbumsForSelectedFilter];

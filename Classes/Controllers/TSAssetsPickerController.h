@@ -11,9 +11,11 @@
 #import <AssetsLibrary/AssetsLibrary.h>
 
 @protocol TSAssetsPickerControllerDelegate;
+@protocol TSAssetsPickerControllerDataSource;
 
 @interface TSAssetsPickerController : UINavigationController
 @property (nonatomic, weak) id <TSAssetsPickerControllerDelegate, UINavigationControllerDelegate> delegate;
+@property (nonatomic, weak) id <TSAssetsPickerControllerDataSource> dataSource;
 
 /**
  Maximum number of items selected in one time. Defaults 1.
@@ -70,43 +72,11 @@
  */
 @property (nonatomic) BOOL shouldDimmEmptyAlbums;
 
-/**
- Set this class if you want to use custom subclass of AlbumCell class.
- This class is used to dislpay album (label with name) on Albums view.
- */
-@property (nonatomic) Class subclassOfAlbumCellClass;
-
-/**
- Set this class if you want to use custom subclass of NoAlbumsCell class.
- This class is used to display "noAlbumsForSelectedFilter" property on Albums view.
- */
-@property (nonatomic) Class subclassOfNoAlbumsCellClass;
-
-/**
- Set this class if you want to use custom subclass of AlbumsTableView class.
- This class is UITableView placed in TSAlbumsTableView.
- */
-@property (nonatomic) Class subclassOfAlbumsTableViewClass;
-
-/**
- Set this class if you want to use custom subclass of AssetCell class.
- This class is used to display assets in Assets view (UICollectionViewCell).
- */
-@property (nonatomic) Class subclassOfAssetCellClass;
-
-/**
- Set this class if you want to use custom subclass of AssetsFlowLayout class.
- This class is a layout of UICollectionView of TSAssetsViewController.
- */
-@property (nonatomic) Class subclassOfAssetsFlowLayoutClass;
-
-/**
- Set this class if you want to use custom subclass of AssetsCollectionView class.
- This class is UICollectionView placed in TSAssetsViewController.
- */
-@property (nonatomic) Class subclassOfAssetsCollectionViewClass;
+@end
 
 
+@protocol TSAssetsPickerControllerDataSource <NSObject>
+- (Class)assetsPickerController:(TSAssetsPickerController *)picker subclassForClass:(Class)aClass;
 @end
 
 @protocol TSAssetsPickerControllerDelegate <NSObject>
