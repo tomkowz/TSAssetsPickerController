@@ -160,7 +160,7 @@ static NSString *cellIdentifier = nil;
 
 #pragma mark - UICollectionViewDelegate
 - (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    BOOL shouldSelect = (_assetsManager.selectedAssets.count < _picker.numberOfItemsToSelect);
+    BOOL shouldSelect = (_assetsManager.selectedAssets.count < [_picker.dataSource numberOfItemsToSelectInAssetsPickerController:_picker]);
 
     AssetCell *cell = (AssetCell *)[collectionView cellForItemAtIndexPath:indexPath];
     if (cell.isCellSelected) {

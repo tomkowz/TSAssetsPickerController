@@ -47,7 +47,6 @@
         _picker.delegate = self;
         _picker.dataSource = self;
         // Main configuration
-        _picker.numberOfItemsToSelect = 3;
         
 //        _picker.albumsViewControllerTitle = @"Albumy";
 //        _picker.selectButtonTitle = @"Wybierz";
@@ -68,6 +67,10 @@
 
 
 #pragma mark - TSAssetsPickerControllerDataSource
+- (NSUInteger)numberOfItemsToSelectInAssetsPickerController:(TSAssetsPickerController *)picker {
+    return 3;
+}
+
 /*
 - (Class)assetsPickerController:(TSAssetsPickerController *)picker subclassForClass:(Class)aClass {
     Class c = nil;

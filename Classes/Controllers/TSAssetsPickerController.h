@@ -17,10 +17,6 @@
 @property (nonatomic, weak) id <TSAssetsPickerControllerDelegate, UINavigationControllerDelegate> delegate;
 @property (nonatomic, weak) id <TSAssetsPickerControllerDataSource> dataSource;
 
-/**
- Maximum number of items selected in one time. Defaults 1.
- */
-@property (nonatomic) NSUInteger numberOfItemsToSelect;
 
 /**
  Filter used to filter assets in Camera Roll. Defaults Photo.
@@ -76,7 +72,14 @@
 
 
 @protocol TSAssetsPickerControllerDataSource <NSObject>
+
+/// Maximum number of items selected in one time. Defaults 1.
+- (NSUInteger)numberOfItemsToSelectInAssetsPickerController:(TSAssetsPickerController *)picker;
+
+@optional
+/// Use this method if you want to use subclass of UI classes used by picker, such cells, table view, collection view.
 - (Class)assetsPickerController:(TSAssetsPickerController *)picker subclassForClass:(Class)aClass;
+
 @end
 
 @protocol TSAssetsPickerControllerDelegate <NSObject>

@@ -28,8 +28,6 @@
 - (id)init {
     self = [super init];
     if (self) {
-        self.numberOfItemsToSelect = 1;
-        
         self.filter = [ALAssetsFilter allPhotos];
         
         self.albumsViewControllerTitle = @"Albums";
@@ -47,8 +45,14 @@
     return self;
 }
 
+- (void)checkDataSource {    
+    if (![self.dataSource respondsToSelector:@selector(numberOfItemsToSelectInAssetsPickerController:)])
+        [NSException raise:@"TSAssetsPickerController" format:@"dataSource must responds to selector numberOfItemsToSelectInAssetsPickerController:"];
+}
+
 - (void)viewDidLoad
 {
+    [self checkDataSource];
     [super viewDidLoad];
     [self _configureAlbumsViewController];
 }
