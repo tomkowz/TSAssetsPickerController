@@ -8,20 +8,28 @@
 
 #import <UIKit/UIKit.h>
 
+/// Framework
 #import <AssetsLibrary/AssetsLibrary.h>
 
+/// Necessary classes
+#import "TSAssetsFilterDescriptor.h"
+#import "TSAssetsFilterDimensionsDescriptor.h"
+
+/// UI Classes
+#import "AlbumCell.h"
+#import "NoAlbumsCell.h"
+#import "AlbumsTableView.h"
+#import "AssetCell.h"
+#import "AssetsFlowLayout.h"
+#import "AssetsCollectionView.h"
+
+@class TSAssetsFilterDescriptor;
 @protocol TSAssetsPickerControllerDelegate;
 @protocol TSAssetsPickerControllerDataSource;
 
 @interface TSAssetsPickerController : UINavigationController
 @property (nonatomic, weak) id <TSAssetsPickerControllerDelegate, UINavigationControllerDelegate> delegate;
 @property (nonatomic, weak) id <TSAssetsPickerControllerDataSource> dataSource;
-
-
-/**
- Filter used to filter assets in Camera Roll. Defaults Photo.
- */
-@property (nonatomic) ALAssetsFilter *filter;
 
 /**
  Title of TSAlbumsViewController 
@@ -75,6 +83,9 @@
 
 /// Maximum number of items selected in one time. Defaults 1.
 - (NSUInteger)numberOfItemsToSelectInAssetsPickerController:(TSAssetsPickerController *)picker;
+
+/// Filter used to filtering assets.
+- (TSAssetsFilterDescriptor *)filterOfAssetsPickerController:(TSAssetsPickerController *)picker;
 
 @optional
 /// Use this method if you want to use subclass of UI classes used by picker, such cells, table view, collection view.

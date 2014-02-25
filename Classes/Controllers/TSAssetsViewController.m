@@ -51,9 +51,11 @@
 }
 
 - (void)_setupAssetsManager {
+    TSAssetsFilterDescriptor *filter = [_picker.dataSource filterOfAssetsPickerController:_picker];
+
     TSAssetsLoader *assetsLoader =
     [[TSAssetsLoader alloc] initWithLibrary:[ALAssetsLibrary new]
-                                     filter:_picker.filter];
+                                     filter:filter.assetsFilter];
     assetsLoader.shouldReverseOrder = _picker.shouldReverseAssetsOrder;
     
     _assetsManager = [TSAssetsManager managerWithLoader:assetsLoader];

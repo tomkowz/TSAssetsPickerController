@@ -52,7 +52,6 @@
 //        _picker.selectButtonTitle = @"Wybierz";
 //        _picker.cancelButtonTitle = @"Anuluj";
         
-        _picker.filter = [ALAssetsFilter allAssets];
         _picker.noAlbumsForSelectedFilter = @"Can't find any asset. Create some and back.";
         
         _picker.shouldReverseAlbumsOrder = NO;
@@ -69,6 +68,12 @@
 #pragma mark - TSAssetsPickerControllerDataSource
 - (NSUInteger)numberOfItemsToSelectInAssetsPickerController:(TSAssetsPickerController *)picker {
     return 3;
+}
+
+- (TSAssetsFilterDescriptor *)filterOfAssetsPickerController:(TSAssetsPickerController *)picker {
+    TSAssetsFilterDescriptor *filter = [TSAssetsFilterDescriptor new];
+    filter.filterType = FilterTypeAll;
+    return filter;
 }
 
 /*

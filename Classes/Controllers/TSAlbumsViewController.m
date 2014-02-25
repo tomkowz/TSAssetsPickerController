@@ -39,7 +39,8 @@
 
 #pragma mark - Configuration
 - (void)_configureAlbumsLoader {
-    _albumsLoader = [[TSAlbumsLoader alloc] initWithLibrary:[ALAssetsLibrary new] filter:_picker.filter];
+    TSAssetsFilterDescriptor *filter = [_picker.dataSource filterOfAssetsPickerController:_picker];
+    _albumsLoader = [[TSAlbumsLoader alloc] initWithLibrary:[ALAssetsLibrary new] filter:filter.assetsFilter];
     _albumsLoader.shouldReverseOrder = _picker.shouldReverseAlbumsOrder;
     _albumsLoader.shouldReturnEmptyAlbums = _picker.shouldShowEmptyAlbums;
 }

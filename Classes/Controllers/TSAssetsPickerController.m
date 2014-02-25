@@ -27,9 +27,7 @@
 
 - (id)init {
     self = [super init];
-    if (self) {
-        self.filter = [ALAssetsFilter allPhotos];
-        
+    if (self) {        
         self.albumsViewControllerTitle = @"Albums";
         self.cancelButtonTitle = @"Cancel";
         self.selectButtonTitle = @"Select";
@@ -47,7 +45,10 @@
 
 - (void)checkDataSource {    
     if (![self.dataSource respondsToSelector:@selector(numberOfItemsToSelectInAssetsPickerController:)])
-        [NSException raise:@"TSAssetsPickerController" format:@"dataSource must responds to selector numberOfItemsToSelectInAssetsPickerController:"];
+        [NSException raise:@"TSAssetsPickerController" format:@"dataSource must responds to numberOfItemsToSelectInAssetsPickerController:"];
+    
+    if (![self.dataSource respondsToSelector:@selector(filterOfAssetsPickerController:)])
+        [NSException raise:@"TSAssetsPickerController" format:@"dataSource must responds to filterOfAssetsPickerController:"];
 }
 
 - (void)viewDidLoad
