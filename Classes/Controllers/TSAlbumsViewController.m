@@ -119,7 +119,10 @@ static NSString *const toAssetSegue = @"ToAssets";
         
         AlbumRepresentation *albumRepresentation = _albumsLoader.fetchedAlbumRepresentations[indexPath.row];
         [(UILabel *)[cell valueForKey:@"textLabel"] setText:albumRepresentation.name];
-        [cell dimm:albumRepresentation.isEmpty];
+
+        if (_picker.shouldDimmEmptyAlbums)
+            [cell dimm:albumRepresentation.isEmpty];
+        
         _cell = cell;
     } else {
         Class class = [_picker subclassForClass:[NoAlbumsCell class]];
