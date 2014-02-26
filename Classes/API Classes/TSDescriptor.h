@@ -14,8 +14,11 @@
 
 @interface TSDescriptor : NSObject
 
-/// OR - asset size matches if one of the sizes is correct.
-+ (instancetype)descriptorWithDimensionsEqualTo:(NSArray *)array;
++ (instancetype)descriptorWithDimensionsEqualToSizes:(NSArray *)sizes;
++ (instancetype)descriptorWithDimensionsEqualToSize:(CGSize)size;
++ (instancetype)descriptorWithDimmensionsLessThanSize:(CGSize)size orEqual:(BOOL)equal;
++ (instancetype)descriptorWithDimmensionsGreaterThanSize:(CGSize)size orEqual:(BOOL)equal;
+
 - (BOOL)isSizeMatchToFilter:(CGSize)size;
 
 @end

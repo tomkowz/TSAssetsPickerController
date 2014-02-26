@@ -22,9 +22,24 @@ typedef enum {
     EqualityType _equalityType;
 }
 
-+ (instancetype)descriptorWithDimensionsEqualTo:(NSArray *)array {
-    return [[self alloc] initWithDimensions:array type:EqualityTypeEqual];
++ (instancetype)descriptorWithDimensionsEqualToSizes:(NSArray *)sizes {
+    return [[self alloc] initWithDimensions:sizes type:EqualityTypeEqual];
 }
+
++ (instancetype)descriptorWithDimensionsEqualToSize:(CGSize)size {
+    return [[self alloc] initWithDimensions:@[TSSizeValue(size.width, size.height)] type:EqualityTypeEqual];
+}
+
++ (instancetype)descriptorWithDimmensionsLessThanSize:(CGSize)size orEqual:(BOOL)equal {
+    EqualityType type = equal ? EqualityTypeLessThanOrEqual : EqualityTypeLessThan;
+    return [[self alloc] initWithDimensions:@[TSSizeValue(size.width, size.height)] type:type];
+}
+
++ (instancetype)descriptorWithDimmensionsGreaterThanSize:(CGSize)size orEqual:(BOOL)equal {
+    EqualityType type = equal ? EqualityTypeGreaterThanOrEqual : EqualityTypeGreaterThan;
+    return [[self alloc] initWithDimensions:@[TSSizeValue(size.width, size.height)] type:type];
+}
+
 
 + (instancetype)filterWithDimensions:(NSArray *)dimensions type:(EqualityType)type {
     return [[self alloc] initWithDimensions:dimensions type:type];
@@ -46,6 +61,7 @@ typedef enum {
         BOOL compareResult = [self compareSize:size toSize:sizeValue withEquality:_equalityType];
 //        NSLog(@"result = %d", compareResult);
         if (compareResult) {
+//            NSLog(@"%@", NSStringFromCGSize(size));
             result = YES;
             break;
         }

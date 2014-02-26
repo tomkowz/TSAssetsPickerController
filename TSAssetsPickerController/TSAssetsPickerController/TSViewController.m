@@ -72,11 +72,13 @@
 
 - (TSFilter *)filterOfAssetsPickerController:(TSAssetsPickerController *)picker {
     /// Specify size of assets
-    NSArray *screenshotSizes = @[TSSizeValue(320, 480), TSSizeValue(1136, 640)];
+//    NSArray *screenshotSizes = @[TSSizeValue(320, 480), TSSizeValue(1136, 640)];
 
     /// Create descriptor
-    TSDescriptor *descriptor = [TSDescriptor descriptorWithDimensionsEqualTo:screenshotSizes];
-    TSFilter *filter = [TSFilter filterWithType:FilterTypePhoto descriptor:descriptor];
+//    TSDescriptor *equalDescriptor = [TSDescriptor descriptorWithDimensionsEqualToSizes:screenshotSizes];
+    TSDescriptor *lessDescriptor = [TSDescriptor descriptorWithDimmensionsLessThanSize:CGSizeMake(320, 480) orEqual:YES];
+//    TSDescriptor *greaterDescriptor = [TSDescriptor descriptorWithDimmensionsGreaterThanSize:CGSizeMake(1000, 1000)];
+    TSFilter *filter = [TSFilter filterWithType:FilterTypePhoto descriptor:lessDescriptor];
 
     return filter;
 }
