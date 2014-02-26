@@ -34,21 +34,23 @@
                                     __block AlbumRepresentation *representation = nil;
                                     
                                     [group setAssetsFilter:self.filter.assetsFilter];
+                                    
+                                    __block BOOL matchToFilter = NO;
                                     [group enumerateAssetsUsingBlock:^(ALAsset *result, NSUInteger index, BOOL *stop) {
-                                        if (!representation) {
-                                            BOOL matchToFilter = NO;
-                                            if (result) {
-                                                CGSize assetSize = [result.defaultRepresentation dimensions];
-                                                matchToFilter = [self.filter isSizeMatch:assetSize];
-                                            }
-                                            
-                                            if (matchToFilter || _shouldReturnEmptyAlbums) {
-                                                NSString *groupName = [group valueForProperty:ALAssetsGroupPropertyName];
-                                                representation = [AlbumRepresentation albumRepresentationWithName:groupName isEmpty:(result == nil)];
+                                        if (!representation && result) {
+                                            CGSize assetSize = [result.defaultRepresentation dimensions];
+                                            matchToFilter = [self.filter isSizeMatch:assetSize];
+                                            if (matchToFilter) {
                                                 *stop = YES;
                                             }
                                         }
                                     }];
+                                    
+                                    if (matchToFilter || _shouldReturnEmptyAlbums) {
+                                        NSString *groupName = [group valueForProperty:ALAssetsGroupPropertyName];
+                                        representation = [AlbumRepresentation albumRepresentationWithName:groupName isEmpty:!matchToFilter];
+                                    }
+                                    
                                     
                                     if (representation) {
                                         [albumRepresentations addObject:representation];
