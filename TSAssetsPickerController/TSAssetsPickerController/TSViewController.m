@@ -71,37 +71,8 @@
 }
 
 - (TSFilter *)filterOfAssetsPickerController:(TSAssetsPickerController *)picker {
-    
-    TSFilter *filter = [TSFilter filterWithType:FilterTypePhoto];
-    /*
-    /// Specify size of assets
-//    NSArray *screenshotSizes = @[TSSizeValue(320, 480), TSSizeValue(1136, 640)];
-
-    /// Create descriptor
-//    TSDescriptor *equalDescriptor = [TSDescriptor descriptorWithDimensionsEqualToSizes:screenshotSizes];
-    TSSizePredicate *lessDescriptor = [TSSizePredicate matchSizeLessThan:CGSizeMake(1136, 640) orEqual:YES];
-    TSSizePredicate *greaterDescriptor = [TSSizePredicate matchSizeGreaterThan:CGSizeMake(320, 480) orEqual:YES];
-    TSFilter *filter = [TSFilter filterWithType:FilterTypePhoto predicates:@[lessDescriptor, greaterDescriptor] logicGateType:AND];
-    */
-    return filter;
+    return [TSFilter filterWithType:FilterTypePhoto];
 }
-
-/*
-- (Class)assetsPickerController:(TSAssetsPickerController *)picker subclassForClass:(Class)aClass {
-    Class c = nil;
-    // Custom classes should be set by data source method.
-    if (aClass == [AlbumCell class])
-        c = [DummyAlbumCell class];
-    
-    if (aClass == [AlbumsTableView class])
-        c = [DummyAlbumsTableView class];
-    
-    if (aClass == [AssetCell class])
-        c = [DummyAssetCell class];
-    
-    return c;
-}
-*/
 
 #pragma mark - TSAssetsPickerControllerDelegate
 - (void)assetsPickerControllerDidCancel:(TSAssetsPickerController *)picker {
@@ -109,10 +80,6 @@
 }
 
 - (void)assetsPickerController:(TSAssetsPickerController *)picker didFinishPickingAssets:(NSArray *)assets {
-    /*
-     Do something here with assets.
-     Here for example DummyAssetsImporter "imports" data from assets and make some log.
-     */
     [_picker dismissViewControllerAnimated:YES completion:nil];
     [DummyAssetsImporter importAssets:assets];
 }
