@@ -7,13 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-@class ALAssetsLibrary, ALAssetsFilter;
+@class ALAssetsLibrary;
+@class TSAssetsFilterDescriptor;
 
 @interface TSBaseLoader : NSObject
 @property (nonatomic, readonly) ALAssetsLibrary *library;
-@property (nonatomic, readonly) ALAssetsFilter *filter;
+@property (nonatomic, readonly) TSAssetsFilterDescriptor *filter;
 @property (nonatomic) BOOL shouldReverseOrder; // default YES
 
-- (instancetype)initWithLibrary:(ALAssetsLibrary *)library filter:(ALAssetsFilter *)filter;
+- (instancetype)initWithLibrary:(ALAssetsLibrary *)library filter:(TSAssetsFilterDescriptor *)filter;
 
 @end

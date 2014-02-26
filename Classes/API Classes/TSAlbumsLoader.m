@@ -11,12 +11,13 @@
 #import <AssetsLibrary/AssetsLibrary.h>
 
 #import "AlbumRepresentation.h"
+#import "TSAssetsFilterDescriptor.h"
 
 @implementation TSAlbumsLoader
 
 @synthesize fetchedAlbumRepresentations = _fetchedAlbumRepresentations;
 
-- (instancetype)initWithLibrary:(ALAssetsLibrary *)library filter:(ALAssetsFilter *)filter {
+- (instancetype)initWithLibrary:(ALAssetsLibrary *)library filter:(TSAssetsFilterDescriptor *)filter {
     self = [super initWithLibrary:library filter:filter];
     if (self) {
         _shouldReturnEmptyAlbums = NO;
@@ -32,7 +33,7 @@
                                 if (group) {
                                     __block AlbumRepresentation *representation = nil;
                                     
-                                    [group setAssetsFilter:self.filter];
+                                    [group setAssetsFilter:self.filter.assetsFilter];
                                     [group enumerateAssetsUsingBlock:^(ALAsset *result, NSUInteger index, BOOL *stop) {
                                         if ((result || _shouldReturnEmptyAlbums) && !representation) {
                                             NSString *groupName = [group valueForProperty:ALAssetsGroupPropertyName];

@@ -9,10 +9,11 @@
 #import "TSAssetsLoader.h"
 
 #import <AssetsLibrary/AssetsLibrary.h>
+#import "TSAssetsFilterDescriptor.h"
 
 @implementation TSAssetsLoader
 
-- (instancetype)initWithLibrary:(ALAssetsLibrary *)library filter:(ALAssetsFilter *)filter {
+- (instancetype)initWithLibrary:(ALAssetsLibrary *)library filter:(TSAssetsFilterDescriptor *)filter {
     self = [super initWithLibrary:library filter:filter];
     if (self) {
         _fetchedAssets = [NSArray array];
@@ -26,7 +27,7 @@
     [self.library enumerateGroupsWithTypes:ALAssetsGroupAll
                            usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
                                if (group && [[group valueForProperty:ALAssetsGroupPropertyName] isEqualToString:album]) {
-                                   [group setAssetsFilter:self.filter];
+                                   [group setAssetsFilter:self.filter.assetsFilter];
                                    [group enumerateAssetsUsingBlock:^(ALAsset *result, NSUInteger index, BOOL *stop) {
                                        if (result) {
                                            [mutableAssets addObject:result];

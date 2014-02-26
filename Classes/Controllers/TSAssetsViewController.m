@@ -55,7 +55,7 @@
 
     TSAssetsLoader *assetsLoader =
     [[TSAssetsLoader alloc] initWithLibrary:[ALAssetsLibrary new]
-                                     filter:filter.assetsFilter];
+                                     filter:filter];
     assetsLoader.shouldReverseOrder = _picker.shouldReverseAssetsOrder;
     
     _assetsManager = [TSAssetsManager managerWithLoader:assetsLoader];
