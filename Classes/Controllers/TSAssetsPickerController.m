@@ -25,18 +25,6 @@
 
 @implementation TSAssetsPickerController
 
-- (id)init {
-    self = [super init];
-    if (self) {        
-        self.albumsViewControllerTitle = @"Albums";
-        self.cancelButtonTitle = @"Cancel";
-        self.selectButtonTitle = @"Select";
-        
-        self.noAlbumsForSelectedFilter = @"No albums for selected filter";
-    }
-    return self;
-}
-
 - (void)checkDataSource {    
     if (![self.dataSource respondsToSelector:@selector(numberOfItemsToSelectInAssetsPickerController:)])
         [NSException raise:@"TSAssetsPickerController" format:@"dataSource must responds to numberOfItemsToSelectInAssetsPickerController:"];

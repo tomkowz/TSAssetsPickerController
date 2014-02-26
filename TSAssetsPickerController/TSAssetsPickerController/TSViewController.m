@@ -46,13 +46,6 @@
         _picker = [TSAssetsPickerController new];
         _picker.delegate = self;
         _picker.dataSource = self;
-        // Main configuration
-        
-//        _picker.albumsViewControllerTitle = @"Albumy";
-//        _picker.selectButtonTitle = @"Wybierz";
-//        _picker.cancelButtonTitle = @"Anuluj";
-        
-        _picker.noAlbumsForSelectedFilter = @"Can't find any asset. Create some and back.";
     }
 
     [self presentViewController:_picker animated:YES completion:nil];
@@ -70,7 +63,24 @@
     TSSizePredicate *predicate = [TSSizePredicate matchSize:CGSizeMake(320, 480)];
     return [TSFilter filterWithType:FilterTypePhoto predicate:predicate];
 }
+
 /*
+- (NSString *)assetsPickerControllerTitleForAlbumsView:(TSAssetsPickerController *)picker {
+    return @"Albums1";
+}
+
+- (NSString *)assetsPickerControllerTitleForCancelButtonInAlbumsView:(TSAssetsPickerController *)picker {
+    return @"Cancel1";
+}
+
+- (NSString *)assetsPickerControllerTitleForSelectButtonInAssetsView:(TSAssetsPickerController *)picker {
+    return @"Select1";
+}
+
+- (NSString *)assetsPickerControllerTextForCellWhenNoAlbumsAvailable:(TSAssetsPickerController *)picker {
+    return @"Can't find any asset. Create some and back.";
+}
+
 - (BOOL)assetsPickerControllerShouldShowEmptyAlbums:(TSAssetsPickerController *)picker {
     return YES;
 }

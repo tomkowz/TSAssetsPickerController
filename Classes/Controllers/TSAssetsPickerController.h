@@ -31,33 +31,10 @@
 @property (nonatomic, weak) id <TSAssetsPickerControllerDelegate, UINavigationControllerDelegate> delegate;
 @property (nonatomic, weak) id <TSAssetsPickerControllerDataSource> dataSource;
 
-/**
- Title of TSAlbumsViewController 
- */
-@property (nonatomic, copy) NSString *albumsViewControllerTitle;
-
-/**
- Title of cancel button. Defaults "Cancel"
- */
-@property (nonatomic, copy) NSString *cancelButtonTitle;
-
-/**
- Title of select button. Defaults "Select"
- */
-@property (nonatomic, copy) NSString *selectButtonTitle;
-
-/**
- This text is displayed in NoAlbumsCell and subclasses of it.
- Text is displayed when there is no albums for selected filter.
- Defaults "No albums for selected filter".
- */
-@property (nonatomic, copy) NSString *noAlbumsForSelectedFilter;
-
 @end
 
 
 @protocol TSAssetsPickerControllerDataSource <NSObject>
-
 /// Maximum number of items selected in one time.
 - (NSUInteger)numberOfItemsToSelectInAssetsPickerController:(TSAssetsPickerController *)picker;
 
@@ -65,6 +42,21 @@
 - (TSFilter *)filterOfAssetsPickerController:(TSAssetsPickerController *)picker;
 
 @optional
+/// Title of TSAlbumsViewController
+- (NSString *)assetsPickerControllerTitleForAlbumsView:(TSAssetsPickerController *)picker;
+
+/// Title of cancel button. Defaults "Cancel"
+- (NSString *)assetsPickerControllerTitleForCancelButtonInAlbumsView:(TSAssetsPickerController *)picker;
+
+/// Title of select button. Defaults "Select"
+- (NSString *)assetsPickerControllerTitleForSelectButtonInAssetsView:(TSAssetsPickerController *)picker;
+
+/**
+ This text is displayed in NoAlbumsCell.
+ Text is displayed when there is no albums for selected filter.
+ Defaults "No albums for selected filter".
+ */
+- (NSString *)assetsPickerControllerTextForCellWhenNoAlbumsAvailable:(TSAssetsPickerController *)picker;
 
 /// Define albums order. Defaults NO.
 - (BOOL)assetsPickerControllerShouldReverseAlbumsOrder:(TSAssetsPickerController *)picker;

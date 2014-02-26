@@ -10,6 +10,10 @@
 
 @interface TSAssetsPickerController (Internals)
 
+- (NSString *)albumsViewControllerTitle;
+- (NSString *)cancelButtonTitle;
+- (NSString *)selectButtonTitle;
+- (NSString *)noAlbumsForSelectedFilter;
 - (BOOL)shouldShowEmptyAlbums;
 - (BOOL)shouldDimmEmptyAlbums;
 - (BOOL)shouldReverseAlbumsOrder;

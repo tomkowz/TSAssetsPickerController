@@ -12,6 +12,38 @@
 
 @implementation TSAssetsPickerController (Internals)
 
+- (NSString *)albumsViewControllerTitle {
+    NSString *text = @"Albums";
+    if ([self.dataSource respondsToSelector:@selector(assetsPickerControllerTitleForAlbumsView:)]) {
+        text = [self.dataSource assetsPickerControllerTitleForAlbumsView:self];
+    }
+    return text;
+}
+
+- (NSString *)cancelButtonTitle {
+    NSString *text = @"Cancel";
+    if ([self.dataSource respondsToSelector:@selector(assetsPickerControllerTitleForCancelButtonInAlbumsView:)]) {
+        text = [self.dataSource assetsPickerControllerTitleForCancelButtonInAlbumsView:self];
+    }
+    return text;
+}
+
+- (NSString *)selectButtonTitle {
+    NSString *text = @"Select";
+    if ([self.dataSource respondsToSelector:@selector(assetsPickerControllerTitleForSelectButtonInAssetsView:)]) {
+        text = [self.dataSource assetsPickerControllerTitleForSelectButtonInAssetsView:self];
+    }
+    return text;
+}
+
+- (NSString *)noAlbumsForSelectedFilter {
+    NSString *text = @"No albums for selected filter";
+    if ([self.dataSource respondsToSelector:@selector(assetsPickerControllerTextForCellWhenNoAlbumsAvailable:)]) {
+        text = [self.dataSource assetsPickerControllerTextForCellWhenNoAlbumsAvailable:self];
+    }
+    return text;
+}
+
 - (BOOL)shouldShowEmptyAlbums {
     BOOL should = NO;
     if ([self.dataSource respondsToSelector:@selector(assetsPickerControllerShouldShowEmptyAlbums:)]) {
