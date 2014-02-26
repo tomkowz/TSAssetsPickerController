@@ -53,18 +53,6 @@
  */
 @property (nonatomic, copy) NSString *noAlbumsForSelectedFilter;
 
-/**
- This flag determines if albums order should be reveresed, last-first.
- Defaults YES.
- */
-@property (nonatomic) BOOL shouldReverseAlbumsOrder;
-
-/**
- This flag determines if assets order in albums should be reversed, last-first.
- Defaults YES.
- */
-@property (nonatomic) BOOL shouldReverseAssetsOrder;
-
 @end
 
 
@@ -77,6 +65,13 @@
 - (TSFilter *)filterOfAssetsPickerController:(TSAssetsPickerController *)picker;
 
 @optional
+
+/// Define albums order. Defaults NO.
+- (BOOL)assetsPickerControllerShouldReverseAlbumsOrder:(TSAssetsPickerController *)picker;
+
+/// Define assets order. YES if last-first, NO if first-first. Defaults YES.
+- (BOOL)assetsPickerControllerShouldReverseAssetsOrder:(TSAssetsPickerController *)picker;
+
 /// Method determines if picker should display empty albums. Defaults NO.
 - (BOOL)assetsPickerControllerShouldShowEmptyAlbums:(TSAssetsPickerController *)picker;
 

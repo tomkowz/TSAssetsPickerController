@@ -33,9 +33,6 @@
         self.selectButtonTitle = @"Select";
         
         self.noAlbumsForSelectedFilter = @"No albums for selected filter";
-        
-        self.shouldReverseAlbumsOrder = YES;
-        self.shouldReverseAssetsOrder = YES;
     }
     return self;
 }

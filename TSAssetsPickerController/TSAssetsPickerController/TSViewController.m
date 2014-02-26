@@ -53,10 +53,6 @@
 //        _picker.cancelButtonTitle = @"Anuluj";
         
         _picker.noAlbumsForSelectedFilter = @"Can't find any asset. Create some and back.";
-        
-        _picker.shouldReverseAlbumsOrder = NO;
-        _picker.shouldReverseAssetsOrder = YES;
-        
     }
 
     [self presentViewController:_picker animated:YES completion:nil];
@@ -81,6 +77,10 @@
 
 - (BOOL)assetsPickerControllerShouldDimmCellsForEmptyAlbums:(TSAssetsPickerController *)picker {
     return NO;
+}
+
+- (BOOL)assetsPickerControllerShouldReverseAlbumsOrder:(TSAssetsPickerController *)picker {
+    return YES;
 }*/
 
 #pragma mark - TSAssetsPickerControllerDelegate

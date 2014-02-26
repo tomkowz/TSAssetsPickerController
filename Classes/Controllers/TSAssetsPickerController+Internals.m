@@ -28,6 +28,22 @@
     return should;
 }
 
+- (BOOL)shouldReverseAlbumsOrder {
+    BOOL should = NO;
+    if ([self.dataSource respondsToSelector:@selector(assetsPickerControllerShouldReverseAlbumsOrder:)]) {
+        should = [self.dataSource assetsPickerControllerShouldReverseAlbumsOrder:self];
+    }
+    return should;
+}
+
+- (BOOL)shouldReverseAssetsOrder {
+    BOOL should = YES;
+    if ([self.dataSource respondsToSelector:@selector(assetsPickerControllerShouldReverseAssetsOrder:)]) {
+        should = [self.dataSource assetsPickerControllerShouldReverseAssetsOrder:self];
+    }
+    return should;
+}
+
 - (Class)subclassForClass:(Class)aClass {
     Class subclass = aClass;
     if ([self.dataSource respondsToSelector:@selector(assetsPickerController:subclassForClass:)]) {

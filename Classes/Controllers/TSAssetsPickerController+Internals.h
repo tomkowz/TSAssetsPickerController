@@ -12,6 +12,8 @@
 
 - (BOOL)shouldShowEmptyAlbums;
 - (BOOL)shouldDimmEmptyAlbums;
+- (BOOL)shouldReverseAlbumsOrder;
+- (BOOL)shouldReverseAssetsOrder;
 
 - (Class)subclassForClass:(Class)aClass;
 

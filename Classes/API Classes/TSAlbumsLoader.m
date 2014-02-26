@@ -71,7 +71,7 @@
     _fetchedAlbumRepresentations = [NSArray array];
 }
 
-- (NSArray *)fetchedAlbums {
+- (NSArray *)fetchedAlbumRepresentations {
     NSArray *array = _fetchedAlbumRepresentations;
     if (self.shouldReverseOrder) {
         array = array.reverseObjectEnumerator.allObjects;
