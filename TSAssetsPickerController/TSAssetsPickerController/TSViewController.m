@@ -71,8 +71,15 @@
 }
 
 - (TSAssetsFilterDescriptor *)filterOfAssetsPickerController:(TSAssetsPickerController *)picker {
-    TSAssetsFilterDescriptor *filter = [TSAssetsFilterDescriptor new];
-    filter.filterType = FilterTypeAll;
+    NSArray *screenshotSizes =
+    @[TSSizeValue(320, 480)];
+    
+    TSAssetsFilterDimensionsDescriptor *descriptor =
+    [TSAssetsFilterDimensionsDescriptor filterWithDimensionsEqualTo:screenshotSizes];
+
+    TSAssetsFilterDescriptor *filter =
+    [TSAssetsFilterDescriptor filterWithType:FilterTypeAll dimensionsDescriptor:descriptor];
+
     return filter;
 }
 

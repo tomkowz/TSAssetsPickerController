@@ -8,19 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-typedef enum {
-    EqualityTypeNotEqual,
-    EqualityTypeEqual,
-    EqualityTypeGreaterThan,
-    EqualityTypeGreaterThanOrEqual,
-    EqualityTypeLessThan,
-    EqualityTypeLessThanOrEqual
-} EqualityType;
+#define TSSizeValue(width,height) [NSValue valueWithCGSize:CGSizeMake(width,height)]
 
 @interface TSAssetsFilterDimensionsDescriptor : NSObject
-@property (nonatomic, readonly) CGSize dimensions;
-@property (nonatomic, readonly) EqualityType equalityType;
 
-+ (instancetype)filterWithDimensions:(CGSize)dimensions type:(EqualityType)type;
+/// OR - asset size matches if one of the sizes is correct.
++ (instancetype)filterWithDimensionsEqualTo:(NSArray *)array;
+- (BOOL)isSizeMatchToFilter:(CGSize)size;
 
 @end

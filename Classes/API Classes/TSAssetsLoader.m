@@ -30,7 +30,11 @@
                                    [group setAssetsFilter:self.filter.assetsFilter];
                                    [group enumerateAssetsUsingBlock:^(ALAsset *result, NSUInteger index, BOOL *stop) {
                                        if (result) {
-                                           [mutableAssets addObject:result];
+                                           CGSize assetSize = [result.defaultRepresentation dimensions];
+                                           BOOL matchToFilter = [self.filter isSizeMatchToDimensionFilters:assetSize];
+                                           if (matchToFilter) {
+                                               [mutableAssets addObject:result];
+                                           }
                                        }
                                    }];
                                    

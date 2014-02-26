@@ -35,10 +35,18 @@
                                     
                                     [group setAssetsFilter:self.filter.assetsFilter];
                                     [group enumerateAssetsUsingBlock:^(ALAsset *result, NSUInteger index, BOOL *stop) {
-                                        if ((result || _shouldReturnEmptyAlbums) && !representation) {
-                                            NSString *groupName = [group valueForProperty:ALAssetsGroupPropertyName];
-                                            representation = [AlbumRepresentation albumRepresentationWithName:groupName isEmpty:(result == nil)];
-                                            *stop = YES;
+                                        if (!representation) {
+                                            BOOL matchToFilter = NO;
+                                            if (result) {
+                                                CGSize assetSize = [result.defaultRepresentation dimensions];
+                                                matchToFilter = [self.filter isSizeMatchToDimensionFilters:assetSize];
+                                            }
+                                            
+                                            if (matchToFilter || _shouldReturnEmptyAlbums) {
+                                                NSString *groupName = [group valueForProperty:ALAssetsGroupPropertyName];
+                                                representation = [AlbumRepresentation albumRepresentationWithName:groupName isEmpty:(result == nil)];
+                                                *stop = YES;
+                                            }
                                         }
                                     }];
                                     
