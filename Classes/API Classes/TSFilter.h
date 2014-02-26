@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @class ALAssetsFilter;
-@class TSAssetsFilterDimensionsDescriptor;
+@class TSDescriptor;
 
 typedef enum {
     FilterTypePhoto,
@@ -17,13 +17,13 @@ typedef enum {
     FilterTypeAll
 } FilterType;
 
-@interface TSAssetsFilterDescriptor : NSObject
-+ (instancetype)filterWithType:(FilterType)type dimensionsDescriptor:(TSAssetsFilterDimensionsDescriptor *)descriptor;
+@interface TSFilter : NSObject
++ (instancetype)filterWithType:(FilterType)type descriptor:(TSDescriptor *)descriptor;
 
 - (BOOL)isSizeMatchToDimensionFilters:(CGSize)size;
 
 @end
 
-@interface TSAssetsFilterDescriptor (AssetsLibrary)
+@interface TSFilter (AssetsLibrary)
 @property (nonatomic, readonly) ALAssetsFilter *assetsFilter;
 @end

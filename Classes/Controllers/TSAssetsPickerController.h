@@ -11,9 +11,9 @@
 /// Framework
 #import <AssetsLibrary/AssetsLibrary.h>
 
-/// Necessary classes
-#import "TSAssetsFilterDescriptor.h"
-#import "TSAssetsFilterDimensionsDescriptor.h"
+/// Predicates
+#import "TSFilter.h"
+#import "TSDescriptor.h"
 
 /// UI Classes
 #import "AlbumCell.h"
@@ -23,7 +23,7 @@
 #import "AssetsFlowLayout.h"
 #import "AssetsCollectionView.h"
 
-@class TSAssetsFilterDescriptor;
+@class TSFilter;
 @protocol TSAssetsPickerControllerDelegate;
 @protocol TSAssetsPickerControllerDataSource;
 
@@ -85,7 +85,7 @@
 - (NSUInteger)numberOfItemsToSelectInAssetsPickerController:(TSAssetsPickerController *)picker;
 
 /// Filter used to filtering assets.
-- (TSAssetsFilterDescriptor *)filterOfAssetsPickerController:(TSAssetsPickerController *)picker;
+- (TSFilter *)filterOfAssetsPickerController:(TSAssetsPickerController *)picker;
 
 @optional
 /// Use this method if you want to use subclass of UI classes used by picker, such cells, table view, collection view.

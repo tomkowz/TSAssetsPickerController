@@ -8,12 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+@class ALAssetsFilter;
+
 #define TSSizeValue(width,height) [NSValue valueWithCGSize:CGSizeMake(width,height)]
 
-@interface TSAssetsFilterDimensionsDescriptor : NSObject
+@interface TSDescriptor : NSObject
 
 /// OR - asset size matches if one of the sizes is correct.
-+ (instancetype)filterWithDimensionsEqualTo:(NSArray *)array;
++ (instancetype)descriptorWithDimensionsEqualTo:(NSArray *)array;
 - (BOOL)isSizeMatchToFilter:(CGSize)size;
 
 @end

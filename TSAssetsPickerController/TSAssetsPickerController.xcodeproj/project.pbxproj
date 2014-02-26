@@ -18,8 +18,8 @@
 		6D0788AF18BA0C0D0073E253 /* AssetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D0788A418BA0C0D0073E253 /* AssetCell.m */; };
 		6D0788B018BA0C0D0073E253 /* AssetsCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D0788A618BA0C0D0073E253 /* AssetsCollectionView.m */; };
 		6D0788B118BA0C0D0073E253 /* AssetsFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D0788A818BA0C0D0073E253 /* AssetsFlowLayout.m */; };
-		6D3148C618BD51B5001EA9F1 /* TSAssetsFilterDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D3148C518BD51B5001EA9F1 /* TSAssetsFilterDescriptor.m */; };
-		6D3148C918BD5299001EA9F1 /* TSAssetsFilterDimensionsDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D3148C818BD5299001EA9F1 /* TSAssetsFilterDimensionsDescriptor.m */; };
+		6D3148C618BD51B5001EA9F1 /* TSFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D3148C518BD51B5001EA9F1 /* TSFilter.m */; };
+		6D3148C918BD5299001EA9F1 /* TSDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D3148C818BD5299001EA9F1 /* TSDescriptor.m */; };
 		6D9709EE18B7F41E00D1D34B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D9709ED18B7F41E00D1D34B /* Foundation.framework */; };
 		6D9709F018B7F41E00D1D34B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D9709EF18B7F41E00D1D34B /* CoreGraphics.framework */; };
 		6D9709F218B7F41E00D1D34B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D9709F118B7F41E00D1D34B /* UIKit.framework */; };
@@ -82,10 +82,10 @@
 		6D0788A718BA0C0D0073E253 /* AssetsFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssetsFlowLayout.h; sourceTree = "<group>"; };
 		6D0788A818BA0C0D0073E253 /* AssetsFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetsFlowLayout.m; sourceTree = "<group>"; };
 		6D0788B218BA0C1D0073E253 /* SystemVersionMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SystemVersionMacros.h; path = "../API Classes/SystemVersionMacros.h"; sourceTree = "<group>"; };
-		6D3148C418BD51B5001EA9F1 /* TSAssetsFilterDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSAssetsFilterDescriptor.h; sourceTree = "<group>"; };
-		6D3148C518BD51B5001EA9F1 /* TSAssetsFilterDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSAssetsFilterDescriptor.m; sourceTree = "<group>"; };
-		6D3148C718BD5299001EA9F1 /* TSAssetsFilterDimensionsDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSAssetsFilterDimensionsDescriptor.h; sourceTree = "<group>"; };
-		6D3148C818BD5299001EA9F1 /* TSAssetsFilterDimensionsDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSAssetsFilterDimensionsDescriptor.m; sourceTree = "<group>"; };
+		6D3148C418BD51B5001EA9F1 /* TSFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSFilter.h; sourceTree = "<group>"; };
+		6D3148C518BD51B5001EA9F1 /* TSFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSFilter.m; sourceTree = "<group>"; };
+		6D3148C718BD5299001EA9F1 /* TSDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSDescriptor.h; sourceTree = "<group>"; };
+		6D3148C818BD5299001EA9F1 /* TSDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSDescriptor.m; sourceTree = "<group>"; };
 		6D9709EA18B7F41E00D1D34B /* TSAssetsPickerController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TSAssetsPickerController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D9709ED18B7F41E00D1D34B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6D9709EF18B7F41E00D1D34B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -209,10 +209,10 @@
 		6D3148CA18BD534D001EA9F1 /* Filter */ = {
 			isa = PBXGroup;
 			children = (
-				6D3148C418BD51B5001EA9F1 /* TSAssetsFilterDescriptor.h */,
-				6D3148C518BD51B5001EA9F1 /* TSAssetsFilterDescriptor.m */,
-				6D3148C718BD5299001EA9F1 /* TSAssetsFilterDimensionsDescriptor.h */,
-				6D3148C818BD5299001EA9F1 /* TSAssetsFilterDimensionsDescriptor.m */,
+				6D3148C418BD51B5001EA9F1 /* TSFilter.h */,
+				6D3148C518BD51B5001EA9F1 /* TSFilter.m */,
+				6D3148C718BD5299001EA9F1 /* TSDescriptor.h */,
+				6D3148C818BD5299001EA9F1 /* TSDescriptor.m */,
 			);
 			name = Filter;
 			sourceTree = "<group>";
@@ -456,9 +456,9 @@
 				6D970A8B18B94B5400D1D34B /* DummyNoAlbumsCell.m in Sources */,
 				6D970A6518B7F8BE00D1D34B /* TSAssetsManager.m in Sources */,
 				6D0788AC18BA0C0D0073E253 /* AlbumCell.m in Sources */,
-				6D3148C918BD5299001EA9F1 /* TSAssetsFilterDimensionsDescriptor.m in Sources */,
+				6D3148C918BD5299001EA9F1 /* TSDescriptor.m in Sources */,
 				6D970A8E18B95C7400D1D34B /* DummyAlbumCell.m in Sources */,
-				6D3148C618BD51B5001EA9F1 /* TSAssetsFilterDescriptor.m in Sources */,
+				6D3148C618BD51B5001EA9F1 /* TSFilter.m in Sources */,
 				6D970A6E18B7FC8600D1D34B /* TSBaseLoader.m in Sources */,
 				6D970A0418B7F41E00D1D34B /* TSViewController.m in Sources */,
 				6D0788AD18BA0C0D0073E253 /* AlbumsTableView.m in Sources */,

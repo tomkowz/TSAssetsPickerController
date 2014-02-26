@@ -8,11 +8,11 @@
 
 #import "TSBaseLoader.h"
 #import <AssetsLibrary/AssetsLibrary.h>
-#import "TSAssetsFilterDescriptor.h"
+#import "TSFilter.h"
 
 @implementation TSBaseLoader
 
-- (instancetype)initWithLibrary:(ALAssetsLibrary *)library filter:(TSAssetsFilterDescriptor *)filter {
+- (instancetype)initWithLibrary:(ALAssetsLibrary *)library filter:(TSFilter *)filter {
     NSParameterAssert(library);
     NSParameterAssert(filter);
     

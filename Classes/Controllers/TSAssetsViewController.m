@@ -51,7 +51,7 @@
 }
 
 - (void)_setupAssetsManager {
-    TSAssetsFilterDescriptor *filter = [_picker.dataSource filterOfAssetsPickerController:_picker];
+    TSFilter *filter = [_picker.dataSource filterOfAssetsPickerController:_picker];
 
     TSAssetsLoader *assetsLoader =
     [[TSAssetsLoader alloc] initWithLibrary:[ALAssetsLibrary new]

@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Tomasz Szulc. All rights reserved.
 //
 
-#import "TSAssetsFilterDimensionsDescriptor.h"
+#import "TSDescriptor.h"
 
 typedef enum {
     EqualityTypeNotEqual,
@@ -17,12 +17,12 @@ typedef enum {
     EqualityTypeLessThanOrEqual
 } EqualityType;
 
-@implementation TSAssetsFilterDimensionsDescriptor {
+@implementation TSDescriptor {
     NSArray *_dimensions;
     EqualityType _equalityType;
 }
 
-+ (instancetype)filterWithDimensionsEqualTo:(NSArray *)array {
++ (instancetype)descriptorWithDimensionsEqualTo:(NSArray *)array {
     return [[self alloc] initWithDimensions:array type:EqualityTypeEqual];
 }
 
@@ -40,13 +40,13 @@ typedef enum {
 }
 
 - (BOOL)isSizeMatchToFilter:(CGSize)size {
-    BOOL result = YES;
+    BOOL result = NO;
     for (NSValue *value in _dimensions) {
         CGSize sizeValue = [value CGSizeValue];
         BOOL compareResult = [self compareSize:size toSize:sizeValue withEquality:_equalityType];
 //        NSLog(@"result = %d", compareResult);
-        if (!compareResult) {
-            result = NO;
+        if (compareResult) {
+            result = YES;
             break;
         }
     }

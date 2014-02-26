@@ -6,24 +6,23 @@
 //  Copyright (c) 2014 Tomasz Szulc. All rights reserved.
 //
 
-#import "TSAssetsFilterDescriptor.h"
+#import "TSFilter.h"
 
 #import <AssetsLibrary/AssetsLibrary.h>
+#import "TSDescriptor.h"
 
-#import "TSAssetsFilterDimensionsDescriptor.h"
-
-@interface TSAssetsFilterDescriptor ()
+@interface TSFilter ()
 @property (nonatomic) FilterType filterType;
-@property (nonatomic) TSAssetsFilterDimensionsDescriptor *descriptor;
+@property (nonatomic) TSDescriptor *descriptor;
 @end
 
-@implementation TSAssetsFilterDescriptor
+@implementation TSFilter
 
-+ (instancetype)filterWithType:(FilterType)type dimensionsDescriptor:(TSAssetsFilterDimensionsDescriptor *)descriptor {
-    return [[self alloc] initWithType:type dimensionsDescriptor:descriptor];
++ (instancetype)filterWithType:(FilterType)type descriptor:(TSDescriptor *)descriptor {
+    return [[self alloc] initWithType:type descriptor:descriptor];
 }
 
-- (instancetype)initWithType:(FilterType)type dimensionsDescriptor:(TSAssetsFilterDimensionsDescriptor *)descriptor {
+- (instancetype)initWithType:(FilterType)type descriptor:(TSDescriptor *)descriptor {
     self = [super init];
     if (self) {
         _filterType = type;
@@ -38,7 +37,7 @@
 
 @end
 
-@implementation TSAssetsFilterDescriptor (AssetsLibrary)
+@implementation TSFilter (AssetsLibrary)
 
 - (ALAssetsFilter *)assetsFilter {
     ALAssetsFilter *filter = nil;

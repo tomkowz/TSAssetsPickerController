@@ -70,15 +70,13 @@
     return 3;
 }
 
-- (TSAssetsFilterDescriptor *)filterOfAssetsPickerController:(TSAssetsPickerController *)picker {
-    NSArray *screenshotSizes =
-    @[TSSizeValue(320, 480)];
-    
-    TSAssetsFilterDimensionsDescriptor *descriptor =
-    [TSAssetsFilterDimensionsDescriptor filterWithDimensionsEqualTo:screenshotSizes];
+- (TSFilter *)filterOfAssetsPickerController:(TSAssetsPickerController *)picker {
+    /// Specify size of assets
+    NSArray *screenshotSizes = @[TSSizeValue(320, 480), TSSizeValue(1136, 640)];
 
-    TSAssetsFilterDescriptor *filter =
-    [TSAssetsFilterDescriptor filterWithType:FilterTypeAll dimensionsDescriptor:descriptor];
+    /// Create descriptor
+    TSDescriptor *descriptor = [TSDescriptor descriptorWithDimensionsEqualTo:screenshotSizes];
+    TSFilter *filter = [TSFilter filterWithType:FilterTypePhoto descriptor:descriptor];
 
     return filter;
 }

@@ -11,13 +11,13 @@
 #import <AssetsLibrary/AssetsLibrary.h>
 
 #import "AlbumRepresentation.h"
-#import "TSAssetsFilterDescriptor.h"
+#import "TSFilter.h"
 
 @implementation TSAlbumsLoader
 
 @synthesize fetchedAlbumRepresentations = _fetchedAlbumRepresentations;
 
-- (instancetype)initWithLibrary:(ALAssetsLibrary *)library filter:(TSAssetsFilterDescriptor *)filter {
+- (instancetype)initWithLibrary:(ALAssetsLibrary *)library filter:(TSFilter *)filter {
     self = [super initWithLibrary:library filter:filter];
     if (self) {
         _shouldReturnEmptyAlbums = NO;
