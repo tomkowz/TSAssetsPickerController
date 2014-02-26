@@ -53,8 +53,6 @@
 
 
 #pragma mark - TSAssetsPickerControllerDataSource
-
-
 - (NSUInteger)numberOfItemsToSelectInAssetsPickerController:(TSAssetsPickerController *)picker {
     return 3;
 }
