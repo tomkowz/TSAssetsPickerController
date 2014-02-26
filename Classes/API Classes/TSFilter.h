@@ -17,8 +17,15 @@ typedef enum {
     FilterTypeAll
 } FilterType;
 
+typedef enum {
+    OR,
+    AND
+} LogicGateType;
+
 @interface TSFilter : NSObject
+// how to set OR or AND matching type?
 + (instancetype)filterWithType:(FilterType)type descriptor:(TSDescriptor *)descriptor;
++ (instancetype)filterWithType:(FilterType)type descriptors:(NSArray *)descriptors logicGateType:(LogicGateType)logicGateType;
 
 - (BOOL)isSizeMatchToDimensionFilters:(CGSize)size;
 

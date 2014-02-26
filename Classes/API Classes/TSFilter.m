@@ -13,26 +13,57 @@
 
 @interface TSFilter ()
 @property (nonatomic) FilterType filterType;
-@property (nonatomic) TSDescriptor *descriptor;
+@property (nonatomic) NSArray *descriptors;
+@property (nonatomic) LogicGateType logicGateType;
 @end
 
 @implementation TSFilter
 
 + (instancetype)filterWithType:(FilterType)type descriptor:(TSDescriptor *)descriptor {
-    return [[self alloc] initWithType:type descriptor:descriptor];
+    return [[self alloc] initWithType:type descriptors:@[descriptor] logicGateType:OR];
 }
 
-- (instancetype)initWithType:(FilterType)type descriptor:(TSDescriptor *)descriptor {
++ (instancetype)filterWithType:(FilterType)type descriptors:(NSArray *)descriptors logicGateType:(LogicGateType)logicGateType {
+    return [[self alloc] initWithType:type descriptors:descriptors logicGateType:logicGateType];
+}
+
+- (instancetype)initWithType:(FilterType)type descriptors:(NSArray *)descriptors logicGateType:(LogicGateType)logicGateType {
     self = [super init];
     if (self) {
         _filterType = type;
-        _descriptor = descriptor;
+        _descriptors = descriptors;
+        _logicGateType = logicGateType;
     }
     return self;
 }
 
 - (BOOL)isSizeMatchToDimensionFilters:(CGSize)size {
-    return [_descriptor isSizeMatchToFilter:size];
+    BOOL match = NO;
+    
+    NSMutableArray *results = [NSMutableArray array];
+    for (TSDescriptor *descriptor in _descriptors) {
+        BOOL result = [descriptor isSizeMatchToFilter:size];
+        [results addObject:@(result)];
+    }
+    
+    if (_logicGateType == OR) {
+        for (NSNumber *resultObject in results) {
+            if ([resultObject boolValue]) {
+                match = YES;
+                break;
+            }
+        }
+    } else if (_logicGateType == AND) {
+        match = YES;
+        for (NSNumber *resultObject in results) {
+            if (![resultObject boolValue]) {
+                match = NO;
+                break;
+            }
+        }
+    }
+    
+    return match;
 }
 
 @end

@@ -76,9 +76,9 @@
 
     /// Create descriptor
 //    TSDescriptor *equalDescriptor = [TSDescriptor descriptorWithDimensionsEqualToSizes:screenshotSizes];
-    TSDescriptor *lessDescriptor = [TSDescriptor descriptorWithDimmensionsLessThanSize:CGSizeMake(320, 480) orEqual:YES];
-//    TSDescriptor *greaterDescriptor = [TSDescriptor descriptorWithDimmensionsGreaterThanSize:CGSizeMake(1000, 1000)];
-    TSFilter *filter = [TSFilter filterWithType:FilterTypePhoto descriptor:lessDescriptor];
+    TSDescriptor *lessDescriptor = [TSDescriptor descriptorWithDimmensionsLessThanSize:CGSizeMake(1136, 640) orEqual:YES];
+    TSDescriptor *greaterDescriptor = [TSDescriptor descriptorWithDimmensionsGreaterThanSize:CGSizeMake(320, 480) orEqual:YES];
+    TSFilter *filter = [TSFilter filterWithType:FilterTypePhoto descriptors:@[lessDescriptor, greaterDescriptor] logicGateType:AND];
 
     return filter;
 }
