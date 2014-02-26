@@ -6,35 +6,35 @@
 //  Copyright (c) 2014 Tomasz Szulc. All rights reserved.
 //
 
-#import "TSDescriptor.h"
+#import "TSSizePredicate.h"
 
 #import "TSSizeComparator.h"
 
-@implementation TSDescriptor {
+@implementation TSSizePredicate {
     NSArray *_dimensions;
     EqualityType _equalityType;
 }
 
-+ (instancetype)descriptorWithDimensionsEqualToSizes:(NSArray *)sizes {
++ (instancetype)matchSizes:(NSArray *)sizes {
     return [[self alloc] initWithDimensions:sizes type:EqualityTypeEqual];
 }
 
-+ (instancetype)descriptorWithDimensionsEqualToSize:(CGSize)size {
++ (instancetype)matchSize:(CGSize)size {
     return [[self alloc] initWithDimensions:@[TSSizeValue(size.width, size.height)] type:EqualityTypeEqual];
 }
 
-+ (instancetype)descriptorWithDimmensionsLessThanSize:(CGSize)size orEqual:(BOOL)equal {
++ (instancetype)matchSizeLessThan:(CGSize)size orEqual:(BOOL)equal {
     EqualityType type = equal ? EqualityTypeLessThanOrEqual : EqualityTypeLessThan;
     return [[self alloc] initWithDimensions:@[TSSizeValue(size.width, size.height)] type:type];
 }
 
-+ (instancetype)descriptorWithDimmensionsGreaterThanSize:(CGSize)size orEqual:(BOOL)equal {
++ (instancetype)matchSizeGreaterThan:(CGSize)size orEqual:(BOOL)equal {
     EqualityType type = equal ? EqualityTypeGreaterThanOrEqual : EqualityTypeGreaterThan;
     return [[self alloc] initWithDimensions:@[TSSizeValue(size.width, size.height)] type:type];
 }
 
 
-+ (instancetype)filterWithDimensions:(NSArray *)dimensions type:(EqualityType)type {
++ (instancetype)predicateWithDimensions:(NSArray *)dimensions type:(EqualityType)type {
     return [[self alloc] initWithDimensions:dimensions type:type];
 }
 
@@ -47,14 +47,12 @@
     return self;
 }
 
-- (BOOL)isSizeMatchToFilter:(CGSize)size {
+- (BOOL)isSizeMatch:(CGSize)size {
     BOOL result = NO;
     for (NSValue *value in _dimensions) {
         CGSize sizeValue = [value CGSizeValue];
         BOOL compareResult = [TSSizeComparator compareSize:size toSize:sizeValue withEquality:_equalityType];
-//        NSLog(@"result = %d", compareResult);
         if (compareResult) {
-//            NSLog(@"%@", NSStringFromCGSize(size));
             result = YES;
             break;
         }

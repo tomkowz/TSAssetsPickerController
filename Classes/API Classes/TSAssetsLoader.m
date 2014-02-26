@@ -31,7 +31,7 @@
                                    [group enumerateAssetsUsingBlock:^(ALAsset *result, NSUInteger index, BOOL *stop) {
                                        if (result) {
                                            CGSize assetSize = [result.defaultRepresentation dimensions];
-                                           BOOL matchToFilter = [self.filter isSizeMatchToDimensionFilters:assetSize];
+                                           BOOL matchToFilter = [self.filter isSizeMatch:assetSize];
                                            if (matchToFilter) {
                                                [mutableAssets addObject:result];
                                            }

@@ -39,7 +39,7 @@
                                             BOOL matchToFilter = NO;
                                             if (result) {
                                                 CGSize assetSize = [result.defaultRepresentation dimensions];
-                                                matchToFilter = [self.filter isSizeMatchToDimensionFilters:assetSize];
+                                                matchToFilter = [self.filter isSizeMatch:assetSize];
                                             }
                                             
                                             if (matchToFilter || _shouldReturnEmptyAlbums) {

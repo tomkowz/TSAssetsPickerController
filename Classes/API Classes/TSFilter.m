@@ -9,7 +9,7 @@
 #import "TSFilter.h"
 
 #import <AssetsLibrary/AssetsLibrary.h>
-#import "TSDescriptor.h"
+#import "TSSizePredicate.h"
 
 @interface TSFilter ()
 @property (nonatomic) FilterType filterType;
@@ -19,30 +19,30 @@
 
 @implementation TSFilter
 
-+ (instancetype)filterWithType:(FilterType)type descriptor:(TSDescriptor *)descriptor {
-    return [[self alloc] initWithType:type descriptors:@[descriptor] logicGateType:OR];
++ (instancetype)filterWithType:(FilterType)type predicate:(TSSizePredicate *)predicate {
+    return [[self alloc] initWithType:type predicates:@[predicate] logicGateType:OR];
 }
 
-+ (instancetype)filterWithType:(FilterType)type descriptors:(NSArray *)descriptors logicGateType:(LogicGateType)logicGateType {
-    return [[self alloc] initWithType:type descriptors:descriptors logicGateType:logicGateType];
++ (instancetype)filterWithType:(FilterType)type predicates:(NSArray *)predicates logicGateType:(LogicGateType)logicGateType {
+    return [[self alloc] initWithType:type predicates:predicates logicGateType:logicGateType];
 }
 
-- (instancetype)initWithType:(FilterType)type descriptors:(NSArray *)descriptors logicGateType:(LogicGateType)logicGateType {
+- (instancetype)initWithType:(FilterType)type predicates:(NSArray *)predicates logicGateType:(LogicGateType)logicGateType {
     self = [super init];
     if (self) {
         _filterType = type;
-        _descriptors = descriptors;
+        _descriptors = predicates;
         _logicGateType = logicGateType;
     }
     return self;
 }
 
-- (BOOL)isSizeMatchToDimensionFilters:(CGSize)size {
+- (BOOL)isSizeMatch:(CGSize)size {
     BOOL match = NO;
     
     NSMutableArray *results = [NSMutableArray array];
-    for (TSDescriptor *descriptor in _descriptors) {
-        BOOL result = [descriptor isSizeMatchToFilter:size];
+    for (TSSizePredicate *descriptor in _descriptors) {
+        BOOL result = [descriptor isSizeMatch:size];
         [results addObject:@(result)];
     }
     

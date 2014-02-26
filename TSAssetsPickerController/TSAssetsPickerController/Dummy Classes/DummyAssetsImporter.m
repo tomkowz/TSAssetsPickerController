@@ -19,7 +19,7 @@
         
         // Data prepared to store
         NSData *data = [self dataRepresentationOfAsset:asset];
-        NSLog(@"Prepared %d bytes to save. Should I do something with this?", [data length]);
+        NSLog(@"Prepared %d bytes to save. Should I do something with this?", (int)[data length]);
         
         // Here your logic how-to deal with this data...
         // ...

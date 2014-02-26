@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @class ALAssetsFilter;
-@class TSDescriptor;
+@class TSSizePredicate;
 
 typedef enum {
     FilterTypePhoto,
@@ -23,11 +23,11 @@ typedef enum {
 } LogicGateType;
 
 @interface TSFilter : NSObject
-// how to set OR or AND matching type?
-+ (instancetype)filterWithType:(FilterType)type descriptor:(TSDescriptor *)descriptor;
-+ (instancetype)filterWithType:(FilterType)type descriptors:(NSArray *)descriptors logicGateType:(LogicGateType)logicGateType;
 
-- (BOOL)isSizeMatchToDimensionFilters:(CGSize)size;
++ (instancetype)filterWithType:(FilterType)type predicate:(TSSizePredicate *)predicate;
++ (instancetype)filterWithType:(FilterType)type predicates:(NSArray *)predicates logicGateType:(LogicGateType)logicGateType;
+
+- (BOOL)isSizeMatch:(CGSize)size;
 
 @end
 

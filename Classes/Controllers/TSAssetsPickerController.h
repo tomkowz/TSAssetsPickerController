@@ -13,7 +13,7 @@
 
 /// Predicates
 #import "TSFilter.h"
-#import "TSDescriptor.h"
+#import "TSSizePredicate.h"
 
 /// UI Classes
 #import "AlbumCell.h"
