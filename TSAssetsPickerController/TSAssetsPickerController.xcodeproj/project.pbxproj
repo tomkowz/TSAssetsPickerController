@@ -18,6 +18,7 @@
 		6D0788AF18BA0C0D0073E253 /* AssetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D0788A418BA0C0D0073E253 /* AssetCell.m */; };
 		6D0788B018BA0C0D0073E253 /* AssetsCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D0788A618BA0C0D0073E253 /* AssetsCollectionView.m */; };
 		6D0788B118BA0C0D0073E253 /* AssetsFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D0788A818BA0C0D0073E253 /* AssetsFlowLayout.m */; };
+		6D099B8418BE904F00205C4F /* TSSizeComparator.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D099B8318BE904F00205C4F /* TSSizeComparator.m */; };
 		6D3148C618BD51B5001EA9F1 /* TSFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D3148C518BD51B5001EA9F1 /* TSFilter.m */; };
 		6D3148C918BD5299001EA9F1 /* TSDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D3148C818BD5299001EA9F1 /* TSDescriptor.m */; };
 		6D9709EE18B7F41E00D1D34B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D9709ED18B7F41E00D1D34B /* Foundation.framework */; };
@@ -82,6 +83,8 @@
 		6D0788A718BA0C0D0073E253 /* AssetsFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssetsFlowLayout.h; sourceTree = "<group>"; };
 		6D0788A818BA0C0D0073E253 /* AssetsFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetsFlowLayout.m; sourceTree = "<group>"; };
 		6D0788B218BA0C1D0073E253 /* SystemVersionMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SystemVersionMacros.h; path = "../API Classes/SystemVersionMacros.h"; sourceTree = "<group>"; };
+		6D099B8218BE904F00205C4F /* TSSizeComparator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSSizeComparator.h; sourceTree = "<group>"; };
+		6D099B8318BE904F00205C4F /* TSSizeComparator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSSizeComparator.m; sourceTree = "<group>"; };
 		6D3148C418BD51B5001EA9F1 /* TSFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSFilter.h; sourceTree = "<group>"; };
 		6D3148C518BD51B5001EA9F1 /* TSFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSFilter.m; sourceTree = "<group>"; };
 		6D3148C718BD5299001EA9F1 /* TSDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSDescriptor.h; sourceTree = "<group>"; };
@@ -213,6 +216,8 @@
 				6D3148C518BD51B5001EA9F1 /* TSFilter.m */,
 				6D3148C718BD5299001EA9F1 /* TSDescriptor.h */,
 				6D3148C818BD5299001EA9F1 /* TSDescriptor.m */,
+				6D099B8218BE904F00205C4F /* TSSizeComparator.h */,
+				6D099B8318BE904F00205C4F /* TSSizeComparator.m */,
 			);
 			name = Filter;
 			sourceTree = "<group>";
@@ -461,6 +466,7 @@
 				6D3148C618BD51B5001EA9F1 /* TSFilter.m in Sources */,
 				6D970A6E18B7FC8600D1D34B /* TSBaseLoader.m in Sources */,
 				6D970A0418B7F41E00D1D34B /* TSViewController.m in Sources */,
+				6D099B8418BE904F00205C4F /* TSSizeComparator.m in Sources */,
 				6D0788AD18BA0C0D0073E253 /* AlbumsTableView.m in Sources */,
 				6D970A9A18B970BD00D1D34B /* DummyAssetsFlowLayout.m in Sources */,
 				6D970A6418B7F8BE00D1D34B /* TSAssetsLoader.m in Sources */,
