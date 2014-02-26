@@ -24,6 +24,7 @@ typedef enum {
 
 @interface TSFilter : NSObject
 
++ (instancetype)filterWithType:(FilterType)type;
 + (instancetype)filterWithType:(FilterType)type predicate:(TSSizePredicate *)predicate;
 + (instancetype)filterWithType:(FilterType)type predicates:(NSArray *)predicates logicGateType:(LogicGateType)logicGateType;
 

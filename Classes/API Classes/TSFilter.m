@@ -13,11 +13,15 @@
 
 @interface TSFilter ()
 @property (nonatomic) FilterType filterType;
-@property (nonatomic) NSArray *descriptors;
+@property (nonatomic) NSArray *predicates;
 @property (nonatomic) LogicGateType logicGateType;
 @end
 
 @implementation TSFilter
+
++ (instancetype)filterWithType:(FilterType)type {
+    return [[self alloc] initWithType:type predicates:nil logicGateType:OR];
+}
 
 + (instancetype)filterWithType:(FilterType)type predicate:(TSSizePredicate *)predicate {
     return [[self alloc] initWithType:type predicates:@[predicate] logicGateType:OR];
@@ -31,7 +35,7 @@
     self = [super init];
     if (self) {
         _filterType = type;
-        _descriptors = predicates;
+        _predicates = predicates;
         _logicGateType = logicGateType;
     }
     return self;
@@ -40,27 +44,31 @@
 - (BOOL)isSizeMatch:(CGSize)size {
     BOOL match = NO;
     
-    NSMutableArray *results = [NSMutableArray array];
-    for (TSSizePredicate *descriptor in _descriptors) {
-        BOOL result = [descriptor isSizeMatch:size];
-        [results addObject:@(result)];
-    }
-    
-    if (_logicGateType == OR) {
-        for (NSNumber *resultObject in results) {
-            if ([resultObject boolValue]) {
-                match = YES;
-                break;
+    if (_predicates) {
+        NSMutableArray *results = [NSMutableArray array];
+        for (TSSizePredicate *descriptor in _predicates) {
+            BOOL result = [descriptor isSizeMatch:size];
+            [results addObject:@(result)];
+        }
+        
+        if (_logicGateType == OR) {
+            for (NSNumber *resultObject in results) {
+                if ([resultObject boolValue]) {
+                    match = YES;
+                    break;
+                }
+            }
+        } else if (_logicGateType == AND) {
+            match = YES;
+            for (NSNumber *resultObject in results) {
+                if (![resultObject boolValue]) {
+                    match = NO;
+                    break;
+                }
             }
         }
-    } else if (_logicGateType == AND) {
+    } else {
         match = YES;
-        for (NSNumber *resultObject in results) {
-            if (![resultObject boolValue]) {
-                match = NO;
-                break;
-            }
-        }
     }
     
     return match;

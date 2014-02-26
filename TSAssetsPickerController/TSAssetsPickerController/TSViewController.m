@@ -71,6 +71,9 @@
 }
 
 - (TSFilter *)filterOfAssetsPickerController:(TSAssetsPickerController *)picker {
+    
+    TSFilter *filter = [TSFilter filterWithType:FilterTypePhoto];
+    /*
     /// Specify size of assets
 //    NSArray *screenshotSizes = @[TSSizeValue(320, 480), TSSizeValue(1136, 640)];
 
@@ -79,7 +82,7 @@
     TSSizePredicate *lessDescriptor = [TSSizePredicate matchSizeLessThan:CGSizeMake(1136, 640) orEqual:YES];
     TSSizePredicate *greaterDescriptor = [TSSizePredicate matchSizeGreaterThan:CGSizeMake(320, 480) orEqual:YES];
     TSFilter *filter = [TSFilter filterWithType:FilterTypePhoto predicates:@[lessDescriptor, greaterDescriptor] logicGateType:AND];
-
+    */
     return filter;
 }
 
