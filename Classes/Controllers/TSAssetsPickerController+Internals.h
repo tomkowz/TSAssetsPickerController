@@ -8,7 +8,10 @@
 
 #import "TSAssetsPickerController.h"
 
-@interface TSAssetsPickerController (Subclasses)
+@interface TSAssetsPickerController (Internals)
+
+- (BOOL)shouldShowEmptyAlbums;
+- (BOOL)shouldDimmEmptyAlbums;
 
 - (Class)subclassForClass:(Class)aClass;
 

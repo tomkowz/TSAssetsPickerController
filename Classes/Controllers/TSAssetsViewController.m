@@ -16,7 +16,7 @@
 #import "TSAssetsLoader.h"
 #import "TSAssetsManager.h"
 #import "TSAssetsPickerController.h"
-#import "TSAssetsPickerController+Subclasses.h"
+#import "TSAssetsPickerController+Internals.h"
 
 
 @interface TSAssetsViewController () <UICollectionViewDelegate, UICollectionViewDataSource> {

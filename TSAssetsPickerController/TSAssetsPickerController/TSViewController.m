@@ -57,8 +57,6 @@
         _picker.shouldReverseAlbumsOrder = NO;
         _picker.shouldReverseAssetsOrder = YES;
         
-        _picker.shouldShowEmptyAlbums = NO;
-        _picker.shouldDimmEmptyAlbums = NO;
     }
 
     [self presentViewController:_picker animated:YES completion:nil];
@@ -66,13 +64,24 @@
 
 
 #pragma mark - TSAssetsPickerControllerDataSource
+
+
 - (NSUInteger)numberOfItemsToSelectInAssetsPickerController:(TSAssetsPickerController *)picker {
     return 3;
 }
 
 - (TSFilter *)filterOfAssetsPickerController:(TSAssetsPickerController *)picker {
-    return [TSFilter filterWithType:FilterTypePhoto];
+    TSSizePredicate *predicate = [TSSizePredicate matchSize:CGSizeMake(320, 480)];
+    return [TSFilter filterWithType:FilterTypePhoto predicate:predicate];
 }
+/*
+- (BOOL)assetsPickerControllerShouldShowEmptyAlbums:(TSAssetsPickerController *)picker {
+    return YES;
+}
+
+- (BOOL)assetsPickerControllerShouldDimmCellsForEmptyAlbums:(TSAssetsPickerController *)picker {
+    return NO;
+}*/
 
 #pragma mark - TSAssetsPickerControllerDelegate
 - (void)assetsPickerControllerDidCancel:(TSAssetsPickerController *)picker {

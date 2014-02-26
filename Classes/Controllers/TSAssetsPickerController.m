@@ -7,7 +7,7 @@
 //
 
 #import "TSAssetsPickerController.h"
-#import "TSAssetsPickerController+Subclasses.h"
+#import "TSAssetsPickerController+Internals.h"
 
 #import "AlbumCell.h"
 #import "AssetCell.h"
@@ -36,9 +36,6 @@
         
         self.shouldReverseAlbumsOrder = YES;
         self.shouldReverseAssetsOrder = YES;
-        
-        self.shouldShowEmptyAlbums = NO;
-        self.shouldDimmEmptyAlbums = YES;
     }
     return self;
 }

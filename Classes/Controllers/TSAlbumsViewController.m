@@ -16,7 +16,7 @@
 #import "SystemVersionMacros.h"
 #import "TSAlbumsLoader.h"
 #import "TSAssetsPickerController.h"
-#import "TSAssetsPickerController+Subclasses.h"
+#import "TSAssetsPickerController+Internals.h"
 #import "TSAssetsViewController.h"
 
 @interface TSAlbumsViewController ()  <UITableViewDelegate, UITableViewDataSource, TSAssetsViewControllerDelegate> {

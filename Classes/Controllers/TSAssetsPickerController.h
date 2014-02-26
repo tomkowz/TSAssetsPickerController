@@ -65,29 +65,27 @@
  */
 @property (nonatomic) BOOL shouldReverseAssetsOrder;
 
-/**
- This flag determines if picker should display empty albums.
- Defaults NO.
- */
-@property (nonatomic) BOOL shouldShowEmptyAlbums;
-
-/**
- this flag determines if picker should dimm empty albums (It dimss labels in AlbumCell).
- */
-@property (nonatomic) BOOL shouldDimmEmptyAlbums;
-
 @end
 
 
 @protocol TSAssetsPickerControllerDataSource <NSObject>
 
-/// Maximum number of items selected in one time. Defaults 1.
+/// Maximum number of items selected in one time.
 - (NSUInteger)numberOfItemsToSelectInAssetsPickerController:(TSAssetsPickerController *)picker;
 
 /// Filter used to filtering assets.
 - (TSFilter *)filterOfAssetsPickerController:(TSAssetsPickerController *)picker;
 
 @optional
+/// Method determines if picker should display empty albums. Defaults NO.
+- (BOOL)assetsPickerControllerShouldShowEmptyAlbums:(TSAssetsPickerController *)picker;
+
+/** 
+ Method determines if picker should dimm empty albums (It dimss labels in AlbumCell).
+ Use only if you return YES for shouldShowEmptyAlbums. Defaults YES.
+ */
+- (BOOL)assetsPickerControllerShouldDimmCellsForEmptyAlbums:(TSAssetsPickerController *)picker;
+
 /// Use this method if you want to use subclass of UI classes used by picker, such cells, table view, collection view.
 - (Class)assetsPickerController:(TSAssetsPickerController *)picker subclassForClass:(Class)aClass;
 
