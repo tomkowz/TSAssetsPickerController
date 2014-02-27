@@ -1,5 +1,8 @@
 # TSAssetsPickerController 
 ---
+<p>&nbsp;</p>
+<p><p align="center"><img src="https://raw.github.com/tomkowz/TSAssetsPickerController/master/docs/demo.gif"/></p></p>
+
 TSAssetsPickerController is a control for iOS which works very similar to `UIImagePickerController`. It has an elegant and carefully designed classes.
 
 # Overview
@@ -107,33 +110,33 @@ Two methods of picker's data source have to be also implemented.
 
 Optional methods of data source.
 
-    - (NSString *)assetsPickerControllerTitleForAlbumsView:(TSAssetsPickerController *)picker {
-        return @"Albums";
-    }
-    
-    - (NSString *)assetsPickerControllerTitleForCancelButtonInAlbumsView:(TSAssetsPickerController *)picker {
-        return @"Cancel";
-    }
-    
-    - (NSString *)assetsPickerControllerTitleForSelectButtonInAssetsView:(TSAssetsPickerController *)picker {
-        return @"Select";
-    }
-    
-    - (NSString *)assetsPickerControllerTextForCellWhenNoAlbumsAvailable:(TSAssetsPickerController *)picker {
-        return @"Can't find any asset. Create some and back.";
-    }
-    
-    - (BOOL)assetsPickerControllerShouldShowEmptyAlbums:(TSAssetsPickerController *)picker {
-        return YES;
-    }
-    
-    - (BOOL)assetsPickerControllerShouldDimmCellsForEmptyAlbums:(TSAssetsPickerController *)picker {
-        return NO;
-    }
-    
-    - (BOOL)assetsPickerControllerShouldReverseAlbumsOrder:(TSAssetsPickerController *)picker {
-        return YES;
-    }
+	- (NSString *)assetsPickerControllerTitleForAlbumsView:(TSAssetsPickerController *)picker {
+	    return @"Albums";
+	}
+	
+	- (NSString *)assetsPickerControllerTitleForCancelButtonInAlbumsView:(TSAssetsPickerController *)picker {
+	    return @"Cancel";
+	}
+	
+	- (NSString *)assetsPickerControllerTitleForSelectButtonInAssetsView:(TSAssetsPickerController *)picker {
+	    return @"Select";
+	}
+	
+	- (NSString *)assetsPickerControllerTextForCellWhenNoAlbumsAvailable:(TSAssetsPickerController *)picker {
+	    return @"Can't find any asset. Create some and back.";
+	}
+	
+	- (BOOL)assetsPickerControllerShouldShowEmptyAlbums:(TSAssetsPickerController *)picker {
+	    return YES;
+	}
+	
+	- (BOOL)assetsPickerControllerShouldDimmCellsForEmptyAlbums:(TSAssetsPickerController *)picker {
+	    return NO;
+	}
+	
+	- (BOOL)assetsPickerControllerShouldReverseAlbumsOrder:(TSAssetsPickerController *)picker {
+	    return YES;
+	}
 
 # Requirements
 `TSAssetsPickerController` needs ARC and works only on iOS6 and iOS7.
