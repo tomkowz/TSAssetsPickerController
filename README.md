@@ -8,6 +8,20 @@ TSAssetsPickerController is a control for iOS which works very similar to `UIIma
 # Overview
 TSAssetsPickerController is a controller you can use to select multiple assets (ALAsset objects).
 
+#### Features
+---
+- Browse all albums
+- Asset filtering (type, size)
+- Supports all orientations
+- Supports iOS6, iOS7
+- Supports iPhone, iPad
+- Allows to select multiple assets from one album
+- Customizable order of albums and assets,
+- Plenty of options to set.
+- Easy to apply in your project
+- Easy to customize
+<br><br>
+
 # API Quickstart
 ---
 There is few topics you should know about. Most important classes are `TSAssetsPickerController`, its `delegate` and `dataSource`, `TSFilter` with `TSSizePredicate` class, and UI classes which you can subclass to customize TSAssetsPickerController's UI.
