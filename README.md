@@ -1,5 +1,4 @@
 # TSAssetsPickerController 
----
 <p>&nbsp;</p>
 <p><p align="center"><img src="https://raw.github.com/tomkowz/TSAssetsPickerController/master/docs/demo.gif"/></p></p>
 
@@ -9,7 +8,7 @@ TSAssetsPickerController is a control for iOS which works very similar to `UIIma
 TSAssetsPickerController is a controller you can use to select multiple assets (ALAsset objects).
 
 #### Features
----
+
 - Browse all albums
 - Asset filtering (type, size)
 - Supports all orientations
@@ -23,14 +22,12 @@ TSAssetsPickerController is a controller you can use to select multiple assets (
 <br><br>
 
 # API Quickstart
----
 There is few topics you should know about. Most important classes are `TSAssetsPickerController`, its `delegate` and `dataSource`, `TSFilter` with `TSSizePredicate` class, and UI classes which you can subclass to customize TSAssetsPickerController's UI.
 
 TSAssetsPickerController uses `TSAssetsPickerControllerDelegate` and `TSAssetsPickerControllerDataSource`.
 
 <br>
 ## TSAssetsPickerControllerDelegate
----
 Delegate has methods which your class have to implements. These methods are called when user finish picking assets, when user tapped cancel and when error occurs. 
 
 Method with error is called when user prohibits access to its Camera Roll. 
@@ -39,7 +36,6 @@ Method which is called when user finished picking assets returns ALAssets object
 <br><br>
 
 ### TSAssetsPickerControllerDataSource
----
 Data source has plenty of methods that are used to configure TAssetsPickerController. With data source you can set **number of items to select** and **filter** (`TSFilter` described later) which are required method of data source which your class have to implements.
 
 Optional methods allow to set **title for albums view**, **title of cancel button**, **title of select button** and **text for cell which is visible when no albums is available**.
@@ -51,7 +47,6 @@ Last but not least is method you should use to **set subclasses for classes whic
 
 
 #### Classes to subclass
------
 Following table describes clases which you can subclass.
 
 | Class name | Description |
@@ -63,7 +58,6 @@ Following table describes clases which you can subclass.
 
 
 ### TSFilter and TSSizePredicate
-----
 `TSFilter` is used by `TSAssetsPickerControllerDataSource` in method `- (TSFilter *)filterOfAssetsPickerController:(TSAssetsPickerController *)picker`. Instance of this class determines what sort of assets and whith which options assets should be filtered. It's very simple to use. 
 
 Instance may be created with filter (`Photo`, `Video`, `All`) and (optional) with one or more predicates.
@@ -86,15 +80,14 @@ The most extensive designed initializer has ability to set logic gate. It is use
 <br><br>
 
 # Examples
----
 Creating `TSAssetsPickerControllerInstnce`.
-
+```objective-c
     _picker = [TSAssetsPickerController new];
     _picker.delegate = self;
     _picker.dataSource = self;
-
+```
 To responds to actions performed by picker class must implements few picker delegate's methods.
-
+```objective-c
     #pragma mark - TSAssetsPickerControllerDelegate
     - (void)assetsPickerControllerDidCancel:(TSAssetsPickerController *)picker {
         [_picker dismissViewControllerAnimated:YES completion:nil];
@@ -110,9 +103,9 @@ To responds to actions performed by picker class must implements few picker dele
             NSLog(@"Error occurs. Show dialog or something. Probably because user blocked access to Camera Roll.");
         }
     }
-    
+```
 Two methods of picker's data source have to be also implemented.
-
+```objective-c
     - (NSUInteger)numberOfItemsToSelectInAssetsPickerController:(TSAssetsPickerController *)picker {
         return 3;
     }
@@ -121,37 +114,37 @@ Two methods of picker's data source have to be also implemented.
         TSSizePredicate *predicate = [TSSizePredicate matchSize:CGSizeMake(320, 480)];
         return [TSFilter filterWithType:FilterTypePhoto predicate:predicate];
     }
-
+```
 Optional methods of data source.
-
-	- (NSString *)assetsPickerControllerTitleForAlbumsView:(TSAssetsPickerController *)picker {
+```objective-c
+    - (NSString *)assetsPickerControllerTitleForAlbumsView:(TSAssetsPickerController *)picker {
 	    return @"Albums";
-	}
+    }
 	
-	- (NSString *)assetsPickerControllerTitleForCancelButtonInAlbumsView:(TSAssetsPickerController *)picker {
-	    return @"Cancel";
-	}
+    - (NSString *)assetsPickerControllerTitleForCancelButtonInAlbumsView:(TSAssetsPickerController *)picker {
+        return @"Cancel";
+    }
 	
-	- (NSString *)assetsPickerControllerTitleForSelectButtonInAssetsView:(TSAssetsPickerController *)picker {
+    - (NSString *)assetsPickerControllerTitleForSelectButtonInAssetsView:(TSAssetsPickerController *)picker {
 	    return @"Select";
-	}
+    }
 	
-	- (NSString *)assetsPickerControllerTextForCellWhenNoAlbumsAvailable:(TSAssetsPickerController *)picker {
+    - (NSString *)assetsPickerControllerTextForCellWhenNoAlbumsAvailable:(TSAssetsPickerController *)picker {
 	    return @"Can't find any asset. Create some and back.";
-	}
+    }
 	
-	- (BOOL)assetsPickerControllerShouldShowEmptyAlbums:(TSAssetsPickerController *)picker {
+    - (BOOL)assetsPickerControllerShouldShowEmptyAlbums:(TSAssetsPickerController *)picker {
 	    return YES;
-	}
+    }
 	
-	- (BOOL)assetsPickerControllerShouldDimmCellsForEmptyAlbums:(TSAssetsPickerController *)picker {
-	    return NO;
-	}
+    - (BOOL)assetsPickerControllerShouldDimmCellsForEmptyAlbums:(TSAssetsPickerController *)picker {
+        return NO;
+    }
 	
-	- (BOOL)assetsPickerControllerShouldReverseAlbumsOrder:(TSAssetsPickerController *)picker {
+    - (BOOL)assetsPickerControllerShouldReverseAlbumsOrder:(TSAssetsPickerController *)picker {
 	    return YES;
-	}
-
+    }
+```
 # Requirements
 `TSAssetsPickerController` needs ARC and works only on iOS6 and iOS7.
 <br><br>
@@ -168,12 +161,11 @@ To install and use `TSAssetsPickerController` you have to add `Classes` director
 
 
 # Donate [![image](https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=szulc%2etomasz%40o2%2epl&lc=US&item_name=Donate%20for%20TSAssetsPickerController&item_number=TSAssetsPickerController&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted)
----
+
 If you like the project, you can donate it  :)
 <br><br>
 
 # Changelog
----
 ##### 1.1 (27.02.2014)
 - Added `TSFilter` to filter assets before showing it to the user.
 - Properties of `TSAssetsPickerController` have been moved to data source.
