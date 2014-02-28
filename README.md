@@ -149,7 +149,7 @@ Optional methods of data source.
 `TSAssetsPickerController` needs ARC and works only on iOS6 and iOS7.
 <br><br>
 # Instalation
-To install and use `TSAssetsPickerController` you have to add `Classes` directory to your project. If it's not from [CocoaPods](http://cocoapods.org) there should be three folder inside `Controllers`, `Customizable Classes` and `API Classes`. After that you need import `TSAssetsPickerController`. It import all needed to work classes.
+To install and use `TSAssetsPickerController` you have to add `Classes` directory to your project. If it's not from [CocoaPods](http://cocoapods.org) there should be three folders inside: `Controllers`, `Customizable Classes` and `API Classes`. After that you need import `TSAssetsPickerController`. It imports all needed to work classes.
 
     #import "TSAssetsPickerController.h"
     
