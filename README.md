@@ -57,7 +57,7 @@ Following table describes clases which you can subclass.
 | `AssetsCollectionView` | Base class of `UICollectionView` used in `TSAssetsViewController`. |
 
 
-### TSFilter and TSSizePredicate
+### `TSFilter` and `TSSizePredicate`
 `TSFilter` is used by `TSAssetsPickerControllerDataSource` in method `- (TSFilter *)filterOfAssetsPickerController:(TSAssetsPickerController *)picker`. Instance of this class determines what sort of assets and whith which options assets should be filtered. It's very simple to use. 
 
 Instance may be created with filter (`Photo`, `Video`, `All`) and (optional) with one or more predicates.
