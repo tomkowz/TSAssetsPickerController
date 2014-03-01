@@ -15,6 +15,10 @@
     TSAssetsLoader *_assetsLoader;
     TSAssetsContainer *_selectedAssetsContainer;
     TSAssetsContainer *_selectedAssetsAfterUpdateContainer;
+    
+    BOOL _canUseCachedFetchedAssets;
+    NSArray *_cachedFetchedAssets;
+    NSArray *_cachedReversedFetchedAssets;
 }
 
 
@@ -30,12 +34,19 @@
     if (self) {
         _assetsLoader = loader;
         _selectedAssetsContainer = [TSAssetsContainer new];
+        _canUseCachedFetchedAssets = NO;
     }
     return self;
 }
 
+- (void)cleanupBeforeFetch {
+    _canUseCachedFetchedAssets = NO;
+    _cachedFetchedAssets = nil;
+    _cachedReversedFetchedAssets = nil;
+}
 
 - (void)fetchAssetsWithAlbumName:(NSString *)albumName block:(void (^)(NSUInteger, NSError *))block {
+    [self cleanupBeforeFetch];
     [_assetsLoader fetchAssetsFromAlbum:albumName block:^(NSArray *loadedAssets, NSError *error) {
         if (!error) {
             _selectedAssetsAfterUpdateContainer = [TSAssetsContainer new];
@@ -47,6 +58,7 @@
             }
             
             [_selectedAssetsContainer setAssets:_selectedAssetsAfterUpdateContainer.assets];
+            _canUseCachedFetchedAssets = YES;
             block(loadedAssets.count, nil);
         } else {
             block(0, error);
@@ -81,11 +93,27 @@
 }
 
 - (NSArray *)fetchedAssets {
-    NSArray *array = [NSArray arrayWithArray:_assetsLoader.fetchedAssets];
-    if (_assetsLoader.shouldReverseOrder) {
-        array = array.reverseObjectEnumerator.allObjects;
+    NSArray *array = [NSArray array];
+    
+    if (_canUseCachedFetchedAssets) {
+        if (!_cachedFetchedAssets) {
+            _cachedFetchedAssets = [NSArray arrayWithArray:_assetsLoader.fetchedAssets];
+        }
+        
+        if (_assetsLoader.shouldReverseOrder && !_cachedReversedFetchedAssets) {
+            _cachedReversedFetchedAssets = [NSArray arrayWithArray:_cachedFetchedAssets.reverseObjectEnumerator.allObjects];
+        }
+        
+        array = _assetsLoader.shouldReverseOrder ? _cachedReversedFetchedAssets : _cachedFetchedAssets;
+    } else {
+        array = [NSArray arrayWithArray:_assetsLoader.fetchedAssets];
+        if (_assetsLoader.shouldReverseOrder) {
+            array = array.reverseObjectEnumerator.allObjects;
+        }
     }
+    
     return array;
 }
+
 
 @end
