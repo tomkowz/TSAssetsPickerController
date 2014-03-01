@@ -101,9 +101,6 @@ static NSString *cellIdentifier = nil;
     cellIdentifier = NSStringFromClass(subclassOfAssetCellClass);
 
     CGRect frame = self.view.bounds;
-    if (SYSTEM_VERSION_LESS_THAN(@"7.0")) {
-        frame.size.height -= CGRectGetHeight(self.navigationController.navigationBar.frame);
-    }
     
     Class collectionViewClass = [_picker subclassForClass:[AssetsCollectionView class]];
     
