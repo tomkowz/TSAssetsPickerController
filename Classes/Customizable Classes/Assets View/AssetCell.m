@@ -33,6 +33,7 @@
 -(UIImageView *)thumbnailImageView {
     if (!_thumbnailImageView) {
         _thumbnailImageView = [[UIImageView alloc] initWithFrame:[[self class] preferedThumbnailRect]];
+        [_thumbnailImageView setAutoresizingMask:(UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight)];
     }
     return _thumbnailImageView;
 }
@@ -41,6 +42,7 @@
     if (!_movieMarkImageView) {
         _movieMarkImageView = [[UIImageView alloc] initWithFrame:[[self class] preferedMovieMarkRect]];
         [_movieMarkImageView setImage:[[self class] preferedMovieMarkImage]];
+        [_movieMarkImageView setAutoresizingMask:(UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight)];
     }
     return _movieMarkImageView;
 }
