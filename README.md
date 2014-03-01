@@ -36,11 +36,7 @@ Method which is called when user finished picking assets returns ALAssets object
 <br><br>
 
 ### TSAssetsPickerControllerDataSource
-Data source has plenty of methods that are used to configure TAssetsPickerController. With data source you can set **number of items to select** and **filter** (`TSFilter` described later) which are required method of data source which your class have to implements.
-
-Optional methods allow to set **title for albums view**, **title of cancel button**, **title of select button** and **text for cell which is visible when no albums is available**.
-
-Other optional methods allows to **reverse order** of **albums** and/or **assets**, determine if **empty albums should be visible or not**, and if yes, if **should dimm title of empty albums**.
+Data source has plenty of methods that are used to configure TAssetsPickerController. Things which you can configure with data source are: **number of items to select**, **filter** (`TSFilter` described later), **layout for assets view in selected orientation**, **title of albums view**, **title of cancel button**, **title of select button**, **text of cell's label which is visible when no albums is available**, **reversed or normal order of albums/assets**, **determine if empty albums should be showed**, and if should be, **if picker should dimm title of cell which point on empty album**.
 
 Last but not least is method you should use to **set subclasses for classes which you can customize**.
 <br><br>
@@ -53,7 +49,7 @@ Following table describes clases which you can subclass.
 | :---------- | :----------- |
 | `AlbumCell` | Base class of cel which is displayed of `TSAlbumsViewController` - cell with album name. |
 | `NoAlbumsCell` | Base class of cell which is displayed on `TSAlbumsViewController` when there is no albums to display. |
-| `AssetsFlowLayout` | Base class of flow layout used in `TSAssetsViewController`. Remember to not override `-itemSize` method. Size of item is read from `[AssetCell preferedCellSize]` automatically. |
+| `AssetsCollectionViewLayout` | Base class of collection layout view used in `TSAssetsViewController` |
 | `AssetsCollectionView` | Base class of `UICollectionView` used in `TSAssetsViewController`. |
 
 
@@ -81,28 +77,30 @@ The most extensive designed initializer has ability to set logic gate. It is use
 
 # Examples
 Creating `TSAssetsPickerControllerInstnce`.
+
 ```objective-c
     _picker = [TSAssetsPickerController new];
     _picker.delegate = self;
     _picker.dataSource = self;
 ```
 To responds to actions performed by picker class must implements few picker delegate's methods.
+
 ```objective-c
-    #pragma mark - TSAssetsPickerControllerDelegate
-    - (void)assetsPickerControllerDidCancel:(TSAssetsPickerController *)picker {
-        [_picker dismissViewControllerAnimated:YES completion:nil];
-    }
-
-    - (void)assetsPickerController:(TSAssetsPickerController *)picker didFinishPickingAssets:(NSArray *)assets {
-        [_picker dismissViewControllerAnimated:YES completion:nil];
-        [DummyAssetsImporter importAssets:assets]; // Here is some class which gets data from ALAssets objects pass into.
-    }
-
-    - (void)assetsPickerController:(TSAssetsPickerController *)picker failedWithError:(NSError *)error {
-        if (error) {
-            NSLog(@"Error occurs. Show dialog or something. Probably because user blocked access to Camera Roll.");
-        }
-    }
+	   #pragma mark - TSAssetsPickerControllerDelegate
+	   - (void)assetsPickerControllerDidCancel:(TSAssetsPickerController *)picker {
+	       [_picker dismissViewControllerAnimated:YES completion:nil];
+	   }
+	
+	   - (void)assetsPickerController:(TSAssetsPickerController *)picker didFinishPickingAssets:(NSArray *)assets {
+	       [_picker dismissViewControllerAnimated:YES completion:nil];
+	       [DummyAssetsImporter importAssets:assets]; // Here is some class which gets data from ALAssets objects pass into.
+	   }
+	
+	   - (void)assetsPickerController:(TSAssetsPickerController *)picker failedWithError:(NSError *)error {
+	       if (error) {
+	           NSLog(@"Error occurs. Show dialog or something. Probably because user blocked access to Camera Roll.");
+	       }
+	   }
 ```
 Two methods of picker's data source have to be also implemented.
 ```objective-c
@@ -115,7 +113,47 @@ Two methods of picker's data source have to be also implemented.
         return [TSFilter filterWithType:FilterTypePhoto predicate:predicate];
     }
 ```
-Optional methods of data source.
+Setting layout for appropriate orientations:
+```objective-c
+	- (UICollectioftnViewLayout *)assetsPickerController:(TSAssetsPickerController *)picker needsLayoutForOrientation:(UIInterfaceOrientation)orientation {
+	    AssetsCollectionViewLayout *layout = [AssetsCollectionViewLayout new];
+	    if (UIInterfaceOrientationIsPortrait(orientation)) {
+	        if (IS_IPHONE) {
+	            [layout setItemSize:CGSizeMake(47, 47)];
+	            [layout setItemInsets:UIEdgeInsetsMake(5.0f, 5.0f, 5.0f, 5.0f)];
+	            [layout setInternItemSpacingY:4.0f];
+	            [layout setNumberOfColumns:6];
+	        } else {
+	            [layout setItemSize:CGSizeMake(115, 115)];
+	            [layout setItemInsets:UIEdgeInsetsMake(10.0f, 10.0f, 10.0f, 10.0f)];
+	            [layout setInternItemSpacingY:10.0f];
+	            [layout setNumberOfColumns:6];
+	        }
+	    } else {
+	        if (IS_IPHONE) {
+	            CGSize itemSize = CGSizeMake(48, 48);
+	            if (IS_IPHONE_5) {
+	                itemSize = CGSizeMake(45, 45);
+	            }
+	            [layout setItemSize:itemSize];
+	            [layout setItemInsets:UIEdgeInsetsMake(5.0f, 5.0f, 5.0f, 5.0f)];
+	            [layout setInternItemSpacingY:4.0f];
+	            
+	            NSUInteger columns = IS_IPHONE_5 ? 11 : 9;
+	            [layout setNumberOfColumns:columns];
+	        } else {
+	            [layout setItemSize:CGSizeMake(115, 115)];
+	            [layout setItemInsets:UIEdgeInsetsMake(10.0f, 10.0f, 10.0f, 10.0f)];
+	            [layout setInternItemSpacingY:10.0f];
+	            [layout setNumberOfColumns:8];
+	        }
+	    }
+	    
+	    return layout;
+	}
+```
+
+Other optional methods of data source.
 ```objective-c
     - (NSString *)assetsPickerControllerTitleForAlbumsView:(TSAssetsPickerController *)picker {
 	    return @"Albums";
@@ -145,6 +183,7 @@ Optional methods of data source.
 	    return YES;
     }
 ```
+
 # Requirements
 `TSAssetsPickerController` needs ARC and works only on iOS6 and iOS7.
 <br><br>
@@ -166,13 +205,19 @@ If you like the project, you can donate it  :)
 <br><br>
 
 # Changelog
+
+##### 1.2 (02.03.2014)
+- `UICollectionFlowLayout` replaced with `UICollectionViewLayout`. Now setting layout is available via data source of `TSAssetsPickerController`.
+- Fixed wrong height of `UICollectionView` in `TSAssetsViewController` on iOS 6.
+- AssetCell's `thumbnailImageView` and `movieMarkImageView` now are updating layout correctly.
+
 ##### 1.1 (27.02.2014)
 - Added `TSFilter` to filter assets before showing it to the user.
 - Properties of `TSAssetsPickerController` have been moved to data source.
 - Fixed reversing albums list.
 
 ##### 1.0.2 (23.02.2014)
-- Added Podspec of TSAssetsPickerController. Now available on [CocoaPods](http://cocoapods.org)
+- Added Podspec of `TSAssetsPickerController`. Now available on [CocoaPods](http://cocoapods.org)
 
 ##### 1.0.1 (23.02.2014)
 - Added rotation support
