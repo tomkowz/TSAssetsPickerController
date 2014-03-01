@@ -58,8 +58,8 @@
 }
 
 - (TSFilter *)filterOfAssetsPickerController:(TSAssetsPickerController *)picker {
-    TSSizePredicate *predicate = [TSSizePredicate matchSize:CGSizeMake(320, 480)];
-    return [TSFilter filterWithType:FilterTypePhoto predicate:predicate];
+//    TSSizePredicate *predicate = [TSSizePredicate matchSize:CGSizeMake(320, 480)];
+    return [TSFilter filterWithType:FilterTypePhoto /*predicate:predicate*/];
 }
 
 /*
