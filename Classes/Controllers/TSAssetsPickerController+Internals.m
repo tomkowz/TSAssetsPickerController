@@ -46,38 +46,39 @@
 }
 
 - (UICollectionViewLayout *)assetsCollectionViewLayoutForOrientation:(UIInterfaceOrientation)orientation {
-    
-    AssetsCollectionViewLayout *layout = [AssetsCollectionViewLayout new];
-    if (UIInterfaceOrientationIsPortrait(orientation)) {
-        if (IS_IPHONE) {
-            [layout setItemSize:CGSizeMake(74, 74)];
-            [layout setItemInsets:UIEdgeInsetsMake(5.0f, 5.0f, 5.0f, 5.0f)];
-            [layout setInternItemSpacingY:4.0f];
-            [layout setNumberOfColumns:4];
-        } else {
-            [layout setItemSize:CGSizeMake(115, 115)];
-            [layout setItemInsets:UIEdgeInsetsMake(10.0f, 10.0f, 10.0f, 10.0f)];
-            [layout setInternItemSpacingY:10.0f];
-            [layout setNumberOfColumns:6];
-        }
-    } else {
-        if (IS_IPHONE) {
-            [layout setItemSize:CGSizeMake(74, 74)];
-            [layout setItemInsets:UIEdgeInsetsMake(5.0f, 5.0f, 5.0f, 5.0f)];
-            [layout setInternItemSpacingY:4.0f];
-            
-            NSUInteger columns = IS_IPHONE_5 ? 7 : 6;
-            [layout setNumberOfColumns:columns];
-        } else {
-            [layout setItemSize:CGSizeMake(115, 115)];
-            [layout setItemInsets:UIEdgeInsetsMake(10.0f, 10.0f, 10.0f, 10.0f)];
-            [layout setInternItemSpacingY:10.0f];
-            [layout setNumberOfColumns:8];
-        }
-    }
-    
+    AssetsCollectionViewLayout *layout = nil;
     if ([self.dataSource respondsToSelector:@selector(assetsPickerController:needsLayoutForOrientation:)]) {
         layout = (AssetsCollectionViewLayout *)[self.dataSource assetsPickerController:self needsLayoutForOrientation:orientation];
+    } else {
+        /// Set template layout
+        layout = [AssetsCollectionViewLayout new];
+        if (UIInterfaceOrientationIsPortrait(orientation)) {
+            if (IS_IPHONE) {
+                [layout setItemSize:CGSizeMake(74, 74)];
+                [layout setItemInsets:UIEdgeInsetsMake(5.0f, 5.0f, 5.0f, 5.0f)];
+                [layout setInternItemSpacingY:4.0f];
+                [layout setNumberOfColumns:4];
+            } else {
+                [layout setItemSize:CGSizeMake(115, 115)];
+                [layout setItemInsets:UIEdgeInsetsMake(10.0f, 10.0f, 10.0f, 10.0f)];
+                [layout setInternItemSpacingY:10.0f];
+                [layout setNumberOfColumns:6];
+            }
+        } else {
+            if (IS_IPHONE) {
+                [layout setItemSize:CGSizeMake(74, 74)];
+                [layout setItemInsets:UIEdgeInsetsMake(5.0f, 5.0f, 5.0f, 5.0f)];
+                [layout setInternItemSpacingY:4.0f];
+                
+                NSUInteger columns = IS_IPHONE_5 ? 7 : 6;
+                [layout setNumberOfColumns:columns];
+            } else {
+                [layout setItemSize:CGSizeMake(115, 115)];
+                [layout setItemInsets:UIEdgeInsetsMake(10.0f, 10.0f, 10.0f, 10.0f)];
+                [layout setInternItemSpacingY:10.0f];
+                [layout setNumberOfColumns:8];
+            }
+        }
     }
     return layout;
 }
