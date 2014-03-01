@@ -17,6 +17,7 @@
 #import "DummyAssetCell.h"
 #import "DummyAssetsCollectionView.h"
 #import "AssetsCollectionViewLayout.h"
+#import "DeviceTypesMacros.h"
 
 @interface TSViewController () <TSAssetsPickerControllerDelegate, TSAssetsPickerControllerDataSource, UINavigationControllerDelegate> {
     TSAssetsPickerController *_picker;
@@ -58,9 +59,47 @@
 }
 
 - (TSFilter *)filterOfAssetsPickerController:(TSAssetsPickerController *)picker {
-//    TSSizePredicate *predicate = [TSSizePredicate matchSize:CGSizeMake(320, 480)];
-    return [TSFilter filterWithType:FilterTypePhoto /*predicate:predicate*/];
+    return [TSFilter filterWithType:FilterTypeAll];
 }
+
+/*
+- (UICollectionViewLayout *)assetsPickerController:(TSAssetsPickerController *)picker needsLayoutForOrientation:(UIInterfaceOrientation)orientation {
+    AssetsCollectionViewLayout *layout = [AssetsCollectionViewLayout new];
+    if (UIInterfaceOrientationIsPortrait(orientation)) {
+        if (IS_IPHONE) {
+            [layout setItemSize:CGSizeMake(47, 47)];
+            [layout setItemInsets:UIEdgeInsetsMake(5.0f, 5.0f, 5.0f, 5.0f)];
+            [layout setInternItemSpacingY:4.0f];
+            [layout setNumberOfColumns:6];
+        } else {
+            [layout setItemSize:CGSizeMake(115, 115)];
+            [layout setItemInsets:UIEdgeInsetsMake(10.0f, 10.0f, 10.0f, 10.0f)];
+            [layout setInternItemSpacingY:10.0f];
+            [layout setNumberOfColumns:6];
+        }
+    } else {
+        if (IS_IPHONE) {
+            CGSize itemSize = CGSizeMake(48, 48);
+            if (IS_IPHONE_5) {
+                itemSize = CGSizeMake(45, 45);
+            }
+            [layout setItemSize:itemSize];
+            [layout setItemInsets:UIEdgeInsetsMake(5.0f, 5.0f, 5.0f, 5.0f)];
+            [layout setInternItemSpacingY:4.0f];
+            
+            NSUInteger columns = IS_IPHONE_5 ? 11 : 9;
+            [layout setNumberOfColumns:columns];
+        } else {
+            [layout setItemSize:CGSizeMake(115, 115)];
+            [layout setItemInsets:UIEdgeInsetsMake(10.0f, 10.0f, 10.0f, 10.0f)];
+            [layout setInternItemSpacingY:10.0f];
+            [layout setNumberOfColumns:8];
+        }
+    }
+    
+    return layout;
+}
+ */
 
 /*
 - (NSString *)assetsPickerControllerTitleForAlbumsView:(TSAssetsPickerController *)picker {
