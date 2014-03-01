@@ -8,7 +8,8 @@
 
 #import "TSAssetsPickerController+Internals.h"
 #import "TSAssetsPickerController.h"
-
+#import "AssetsCollectionViewLayout.h"
+#import "DeviceTypesMacros.h"
 
 @implementation TSAssetsPickerController (Internals)
 
@@ -42,6 +43,43 @@
         text = [self.dataSource assetsPickerControllerTextForCellWhenNoAlbumsAvailable:self];
     }
     return text;
+}
+
+- (UICollectionViewLayout *)assetsCollectionViewLayoutForOrientation:(UIInterfaceOrientation)orientation {
+    
+    AssetsCollectionViewLayout *layout = [AssetsCollectionViewLayout new];
+    if (UIInterfaceOrientationIsPortrait(orientation)) {
+        if (IS_IPHONE) {
+            [layout setItemSize:CGSizeMake(74, 74)];
+            [layout setItemInsets:UIEdgeInsetsMake(5.0f, 5.0f, 5.0f, 5.0f)];
+            [layout setInternItemSpacingY:4.0f];
+            [layout setNumberOfColumns:4];
+        } else {
+            [layout setItemSize:CGSizeMake(115, 115)];
+            [layout setItemInsets:UIEdgeInsetsMake(10.0f, 10.0f, 10.0f, 10.0f)];
+            [layout setInternItemSpacingY:10.0f];
+            [layout setNumberOfColumns:6];
+        }
+    } else {
+        if (IS_IPHONE) {
+            [layout setItemSize:CGSizeMake(74, 74)];
+            [layout setItemInsets:UIEdgeInsetsMake(5.0f, 5.0f, 5.0f, 5.0f)];
+            [layout setInternItemSpacingY:4.0f];
+            
+            NSUInteger columns = IS_IPHONE_5 ? 7 : 6;
+            [layout setNumberOfColumns:columns];
+        } else {
+            [layout setItemSize:CGSizeMake(115, 115)];
+            [layout setItemInsets:UIEdgeInsetsMake(10.0f, 10.0f, 10.0f, 10.0f)];
+            [layout setInternItemSpacingY:10.0f];
+            [layout setNumberOfColumns:8];
+        }
+    }
+    
+    if ([self.dataSource respondsToSelector:@selector(assetsPickerController:needsLayoutForOrientation:)]) {
+        layout = (AssetsCollectionViewLayout *)[self.dataSource assetsPickerController:self needsLayoutForOrientation:orientation];
+    }
+    return layout;
 }
 
 - (BOOL)shouldShowEmptyAlbums {

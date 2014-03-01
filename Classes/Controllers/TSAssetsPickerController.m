@@ -13,7 +13,6 @@
 #import "AssetCell.h"
 #import "TSAlbumsViewController.h"
 #import "NoAlbumsCell.h"
-#import "AssetsFlowLayout.h"
 #import "AssetsCollectionView.h"
 #import "AlbumsTableView.h"
 

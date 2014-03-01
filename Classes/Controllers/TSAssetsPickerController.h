@@ -20,7 +20,6 @@
 #import "NoAlbumsCell.h"
 #import "AlbumsTableView.h"
 #import "AssetCell.h"
-#import "AssetsFlowLayout.h"
 #import "AssetsCollectionView.h"
 
 @class TSFilter;
@@ -42,6 +41,9 @@
 - (TSFilter *)filterOfAssetsPickerController:(TSAssetsPickerController *)picker;
 
 @optional
+/// Method called when assets collection view needs layout (e.g. when change orientation)
+- (UICollectionViewLayout *)assetsPickerController:(TSAssetsPickerController *)picker needsLayoutForOrientation:(UIInterfaceOrientation)orientation;
+
 /// Title of TSAlbumsViewController
 - (NSString *)assetsPickerControllerTitleForAlbumsView:(TSAssetsPickerController *)picker;
 

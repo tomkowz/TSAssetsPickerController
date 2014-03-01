@@ -10,14 +10,13 @@
 
 #import "AssetCell.h"
 #import "AlbumCell.h"
-#import "AssetsFlowLayout.h"
 #import "AssetsCollectionView.h"
 #import "SystemVersionMacros.h"
 #import "TSAssetsLoader.h"
 #import "TSAssetsManager.h"
 #import "TSAssetsPickerController.h"
 #import "TSAssetsPickerController+Internals.h"
-
+#import "AssetsCollectionViewLayout.h"
 
 @interface TSAssetsViewController () <UICollectionViewDelegate, UICollectionViewDataSource> {
     TSAssetsManager *_assetsManager;
@@ -105,27 +104,20 @@ static NSString *cellIdentifier = nil;
     if (SYSTEM_VERSION_LESS_THAN(@"7.0")) {
         frame.size.height -= CGRectGetHeight(self.navigationController.navigationBar.frame);
     }
-
-    Class subclassOfAssetsFlowLayoutClass = [_picker subclassForClass:[AssetsFlowLayout class]];
-    
-    CGSize cellSize = [subclassOfAssetCellClass preferedCellSize];
-    UICollectionViewFlowLayout *layout = [[subclassOfAssetsFlowLayoutClass alloc] initWithItemSize:cellSize];
-    // workaround, I don't know why collection view not call this properties itself.
-    layout.sectionInset = layout.sectionInset;
-    layout.scrollDirection = layout.scrollDirection;
-    layout.minimumLineSpacing = layout.minimumLineSpacing;
-    layout.minimumInteritemSpacing = layout.minimumInteritemSpacing;
     
     Class collectionViewClass = [_picker subclassForClass:[AssetsCollectionView class]];
-    UICollectionView *collectionView = [[collectionViewClass alloc] initWithFrame:frame collectionViewLayout:layout];
-    [collectionView setAutoresizingMask:(UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight)];
+    
+    UICollectionViewLayout *layout = [_picker assetsCollectionViewLayoutForOrientation:[UIApplication sharedApplication].statusBarOrientation];
+    UICollectionView *collectionView =
+    [[collectionViewClass alloc] initWithFrame:frame
+                          collectionViewLayout:layout];
+    
+    [collectionView setAutoresizingMask:(UIViewAutoresizingFlexibleWidth |
+                                         UIViewAutoresizingFlexibleHeight)];
 
-    [collectionView registerClass:subclassOfAssetCellClass forCellWithReuseIdentifier:cellIdentifier];
-    
-    BOOL scrollVertical = (layout.scrollDirection == UICollectionViewScrollDirectionVertical);
-    [collectionView setAlwaysBounceVertical:scrollVertical];
-    [collectionView setAlwaysBounceHorizontal:!scrollVertical];
-    
+    [collectionView registerClass:subclassOfAssetCellClass
+       forCellWithReuseIdentifier:cellIdentifier];
+
     [collectionView setDelegate:self];
     [collectionView setDataSource:self];
     
@@ -140,6 +132,10 @@ static NSString *cellIdentifier = nil;
 
 
 #pragma mark - UICollectionViewDataSource
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    return 1;
+}
+
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return _assetsManager.fetchedAssets.count;
 }
@@ -183,5 +179,10 @@ static NSString *cellIdentifier = nil;
     return shouldSelect;
 }
 
+#pragma mark - View Rotation
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+    _collectionView.collectionViewLayout = [_picker assetsCollectionViewLayoutForOrientation:toInterfaceOrientation];
+    [_collectionView.collectionViewLayout performSelector:@selector(invalidateLayout) withObject:nil afterDelay:duration];
+}
 
 @end

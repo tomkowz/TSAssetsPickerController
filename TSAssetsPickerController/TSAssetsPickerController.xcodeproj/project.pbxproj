@@ -17,7 +17,6 @@
 		6D0788AE18BA0C0D0073E253 /* NoAlbumsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D0788A118BA0C0D0073E253 /* NoAlbumsCell.m */; };
 		6D0788AF18BA0C0D0073E253 /* AssetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D0788A418BA0C0D0073E253 /* AssetCell.m */; };
 		6D0788B018BA0C0D0073E253 /* AssetsCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D0788A618BA0C0D0073E253 /* AssetsCollectionView.m */; };
-		6D0788B118BA0C0D0073E253 /* AssetsFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D0788A818BA0C0D0073E253 /* AssetsFlowLayout.m */; };
 		6D099B8418BE904F00205C4F /* TSSizeComparator.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D099B8318BE904F00205C4F /* TSSizeComparator.m */; };
 		6D3148C618BD51B5001EA9F1 /* TSFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D3148C518BD51B5001EA9F1 /* TSFilter.m */; };
 		6D3148C918BD5299001EA9F1 /* TSSizePredicate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D3148C818BD5299001EA9F1 /* TSSizePredicate.m */; };
@@ -45,8 +44,9 @@
 		6D970A8B18B94B5400D1D34B /* DummyNoAlbumsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D970A8A18B94B5400D1D34B /* DummyNoAlbumsCell.m */; };
 		6D970A8E18B95C7400D1D34B /* DummyAlbumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D970A8D18B95C7400D1D34B /* DummyAlbumCell.m */; };
 		6D970A9118B9628500D1D34B /* DummyAssetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D970A9018B9628500D1D34B /* DummyAssetCell.m */; };
-		6D970A9A18B970BD00D1D34B /* DummyAssetsFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D970A9918B970BD00D1D34B /* DummyAssetsFlowLayout.m */; };
 		6DCB37AF18BD148400BB323D /* TSAssetsPickerController+Internals.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DCB37AE18BD148400BB323D /* TSAssetsPickerController+Internals.m */; };
+		6DF7FE6418C1FF55001589C7 /* AssetsCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DF7FE6318C1FF55001589C7 /* AssetsCollectionViewLayout.m */; };
+		6DF7FE6918C27DB1001589C7 /* Main~iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6DF7FE6818C27DB1001589C7 /* Main~iPad.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,8 +80,6 @@
 		6D0788A418BA0C0D0073E253 /* AssetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetCell.m; sourceTree = "<group>"; };
 		6D0788A518BA0C0D0073E253 /* AssetsCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssetsCollectionView.h; sourceTree = "<group>"; };
 		6D0788A618BA0C0D0073E253 /* AssetsCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetsCollectionView.m; sourceTree = "<group>"; };
-		6D0788A718BA0C0D0073E253 /* AssetsFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssetsFlowLayout.h; sourceTree = "<group>"; };
-		6D0788A818BA0C0D0073E253 /* AssetsFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetsFlowLayout.m; sourceTree = "<group>"; };
 		6D0788B218BA0C1D0073E253 /* SystemVersionMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SystemVersionMacros.h; path = "../API Classes/SystemVersionMacros.h"; sourceTree = "<group>"; };
 		6D099B8218BE904F00205C4F /* TSSizeComparator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSSizeComparator.h; sourceTree = "<group>"; };
 		6D099B8318BE904F00205C4F /* TSSizeComparator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSSizeComparator.m; sourceTree = "<group>"; };
@@ -128,10 +126,12 @@
 		6D970A8D18B95C7400D1D34B /* DummyAlbumCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DummyAlbumCell.m; sourceTree = "<group>"; };
 		6D970A8F18B9628500D1D34B /* DummyAssetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DummyAssetCell.h; sourceTree = "<group>"; };
 		6D970A9018B9628500D1D34B /* DummyAssetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DummyAssetCell.m; sourceTree = "<group>"; };
-		6D970A9818B970BD00D1D34B /* DummyAssetsFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DummyAssetsFlowLayout.h; sourceTree = "<group>"; };
-		6D970A9918B970BD00D1D34B /* DummyAssetsFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DummyAssetsFlowLayout.m; sourceTree = "<group>"; };
 		6DCB37AD18BD148400BB323D /* TSAssetsPickerController+Internals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TSAssetsPickerController+Internals.h"; sourceTree = "<group>"; };
 		6DCB37AE18BD148400BB323D /* TSAssetsPickerController+Internals.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TSAssetsPickerController+Internals.m"; sourceTree = "<group>"; };
+		6DF7FE6218C1FF55001589C7 /* AssetsCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssetsCollectionViewLayout.h; sourceTree = "<group>"; };
+		6DF7FE6318C1FF55001589C7 /* AssetsCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetsCollectionViewLayout.m; sourceTree = "<group>"; };
+		6DF7FE6818C27DB1001589C7 /* Main~iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = "Main~iPad.storyboard"; path = "../Main~iPad.storyboard"; sourceTree = "<group>"; };
+		6DF7FE6A18C27E8D001589C7 /* DeviceTypesMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeviceTypesMacros.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				6D0788B218BA0C1D0073E253 /* SystemVersionMacros.h */,
+				6DF7FE6A18C27E8D001589C7 /* DeviceTypesMacros.h */,
 				6D07889618BA0C0D0073E253 /* TSAssetsPickerController.h */,
 				6D07889718BA0C0D0073E253 /* TSAssetsPickerController.m */,
 				6D07889418BA0C0D0073E253 /* TSAlbumsViewController.h */,
@@ -203,8 +204,6 @@
 				6D0788A418BA0C0D0073E253 /* AssetCell.m */,
 				6D0788A518BA0C0D0073E253 /* AssetsCollectionView.h */,
 				6D0788A618BA0C0D0073E253 /* AssetsCollectionView.m */,
-				6D0788A718BA0C0D0073E253 /* AssetsFlowLayout.h */,
-				6D0788A818BA0C0D0073E253 /* AssetsFlowLayout.m */,
 			);
 			path = "Assets View";
 			sourceTree = "<group>";
@@ -262,6 +261,7 @@
 				6D9709FC18B7F41E00D1D34B /* TSAppDelegate.h */,
 				6D9709FD18B7F41E00D1D34B /* TSAppDelegate.m */,
 				6D9709FF18B7F41E00D1D34B /* Main.storyboard */,
+				6DF7FE6818C27DB1001589C7 /* Main~iPad.storyboard */,
 				6D970A0518B7F41E00D1D34B /* Images.xcassets */,
 				6D9709F418B7F41E00D1D34B /* Supporting Files */,
 			);
@@ -303,6 +303,8 @@
 				6D07889318BA0C0D0073E253 /* Controllers */,
 				6D07889A18BA0C0D0073E253 /* Customizable Classes */,
 				6D970A4918B7F8BE00D1D34B /* API Classes */,
+				6DF7FE6218C1FF55001589C7 /* AssetsCollectionViewLayout.h */,
+				6DF7FE6318C1FF55001589C7 /* AssetsCollectionViewLayout.m */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -339,8 +341,6 @@
 				6D970A8D18B95C7400D1D34B /* DummyAlbumCell.m */,
 				6D970A8F18B9628500D1D34B /* DummyAssetCell.h */,
 				6D970A9018B9628500D1D34B /* DummyAssetCell.m */,
-				6D970A9818B970BD00D1D34B /* DummyAssetsFlowLayout.h */,
-				6D970A9918B970BD00D1D34B /* DummyAssetsFlowLayout.m */,
 				6D07880518B97CC30073E253 /* DummyAssetsCollectionView.h */,
 				6D07880618B97CC30073E253 /* DummyAssetsCollectionView.m */,
 				6D07880B18B980D30073E253 /* DummyAlbumsTableView.h */,
@@ -426,6 +426,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6DF7FE6918C27DB1001589C7 /* Main~iPad.storyboard in Resources */,
 				6D970A0618B7F41E00D1D34B /* Images.xcassets in Resources */,
 				6D9709F818B7F41E00D1D34B /* InfoPlist.strings in Resources */,
 				6D970A0118B7F41E00D1D34B /* Main.storyboard in Resources */,
@@ -453,7 +454,6 @@
 				6D970A6218B7F8BE00D1D34B /* TSAlbumsLoader.m in Sources */,
 				6D07880D18B980D30073E253 /* DummyAlbumsTableView.m in Sources */,
 				6D970A7D18B8F58200D1D34B /* AlbumRepresentation.m in Sources */,
-				6D0788B118BA0C0D0073E253 /* AssetsFlowLayout.m in Sources */,
 				6DCB37AF18BD148400BB323D /* TSAssetsPickerController+Internals.m in Sources */,
 				6D970A9118B9628500D1D34B /* DummyAssetCell.m in Sources */,
 				6D0788A918BA0C0D0073E253 /* TSAlbumsViewController.m in Sources */,
@@ -468,10 +468,10 @@
 				6D970A0418B7F41E00D1D34B /* TSViewController.m in Sources */,
 				6D099B8418BE904F00205C4F /* TSSizeComparator.m in Sources */,
 				6D0788AD18BA0C0D0073E253 /* AlbumsTableView.m in Sources */,
-				6D970A9A18B970BD00D1D34B /* DummyAssetsFlowLayout.m in Sources */,
 				6D970A6418B7F8BE00D1D34B /* TSAssetsLoader.m in Sources */,
 				6D0788AE18BA0C0D0073E253 /* NoAlbumsCell.m in Sources */,
 				6D0788B018BA0C0D0073E253 /* AssetsCollectionView.m in Sources */,
+				6DF7FE6418C1FF55001589C7 /* AssetsCollectionViewLayout.m in Sources */,
 				6D07880718B97CC30073E253 /* DummyAssetsCollectionView.m in Sources */,
 				6D970A6318B7F8BE00D1D34B /* TSAssetsContainer.m in Sources */,
 				6D0788AA18BA0C0D0073E253 /* TSAssetsPickerController.m in Sources */,
@@ -607,6 +607,7 @@
 				INFOPLIST_FILE = "TSAssetsPickerController/TSAssetsPickerController-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -621,6 +622,7 @@
 				INFOPLIST_FILE = "TSAssetsPickerController/TSAssetsPickerController-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

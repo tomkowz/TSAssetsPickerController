@@ -15,8 +15,8 @@
 #import "DummyNoAlbumsCell.h"
 #import "DummyAlbumsTableView.h"
 #import "DummyAssetCell.h"
-#import "DummyAssetsFlowLayout.h"
 #import "DummyAssetsCollectionView.h"
+#import "AssetsCollectionViewLayout.h"
 
 @interface TSViewController () <TSAssetsPickerControllerDelegate, TSAssetsPickerControllerDataSource, UINavigationControllerDelegate> {
     TSAssetsPickerController *_picker;

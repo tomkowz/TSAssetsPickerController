@@ -14,6 +14,8 @@
 - (NSString *)cancelButtonTitle;
 - (NSString *)selectButtonTitle;
 - (NSString *)noAlbumsForSelectedFilter;
+- (UICollectionViewLayout *)assetsCollectionViewLayoutForOrientation:(UIInterfaceOrientation)orientation;
+
 - (BOOL)shouldShowEmptyAlbums;
 - (BOOL)shouldDimmEmptyAlbums;
 - (BOOL)shouldReverseAlbumsOrder;
