@@ -30,6 +30,13 @@
     return self;
 }
 
+- (void)prepareForReuse {
+    [super prepareForReuse];
+    [_thumbnailImageView setImage:nil];
+    [_movieMarkImageView setHidden:YES];
+    _cellSelected = NO;
+}
+
 -(UIImageView *)thumbnailImageView {
     if (!_thumbnailImageView) {
         _thumbnailImageView = [[UIImageView alloc] initWithFrame:[[self class] preferedThumbnailRect]];
