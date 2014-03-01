@@ -179,7 +179,7 @@ static NSString *cellIdentifier = nil;
 #pragma mark - View Rotation
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
     _collectionView.collectionViewLayout = [_picker assetsCollectionViewLayoutForOrientation:toInterfaceOrientation];
-    [_collectionView.collectionViewLayout performSelector:@selector(invalidateLayout) withObject:nil afterDelay:duration];
+    [_collectionView reloadData];
 }
 
 @end
