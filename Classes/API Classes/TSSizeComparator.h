@@ -18,6 +18,5 @@ typedef enum {
 } EqualityType;
 
 @interface TSSizeComparator : NSObject
-#warning Write tests before release
 + (BOOL)compareSize:(CGSize)size1 toSize:(CGSize)size2 withEquality:(EqualityType)equalityType;
 @end
