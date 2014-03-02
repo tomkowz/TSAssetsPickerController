@@ -26,6 +26,7 @@
     NSOperationQueue *_thumbnailQueue;
     
     UIActivityIndicatorView *_indicatorView;
+    UIBarButtonItem *_selectBarButtonItem;
 }
 
 @end
@@ -40,19 +41,11 @@
     _thumbnailQueue.maxConcurrentOperationCount = 3;
     
     [self _setupViews];
-    [self _configureAndStartIndicatorView];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(_fetchAssets)
                                                  name:UIApplicationDidBecomeActiveNotification
                                                object:nil];
-}
-
-- (void)_configureAndStartIndicatorView {
-    _indicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    _indicatorView.center = self.view.center;
-    [_indicatorView setHidesWhenStopped:YES];
-    [self.view addSubview:_indicatorView];
 }
 
 - (void)_setupViews {
@@ -89,15 +82,37 @@
 
 #pragma mark - Actions
 - (void)onSelectPressed {
+    [self.navigationItem setHidesBackButton:YES];
+    [self.navigationItem.rightBarButtonItem setEnabled:NO];
+    self.collectionView.userInteractionEnabled = NO;
+    
+    [self _addActivityIndicatorToNavigationBar];
+    
     [_delegate assetsViewController:self didFinishPickingAssets:_assetsManager.selectedAssets];
+}
+
+- (void)_addActivityIndicatorToNavigationBar {
+    if (!_indicatorView) {
+        _indicatorView = [_picker activityIndicatorViewForPlaceIn:AssetsView];
+    }
+    
+    _selectBarButtonItem = self.navigationItem.rightBarButtonItem;
+    UIBarButtonItem *itemIndicator = [[UIBarButtonItem alloc] initWithCustomView:_indicatorView];
+    [self.navigationItem setRightBarButtonItem:itemIndicator];
+    [_indicatorView startAnimating];
+}
+
+- (void)_removeActivityIndicatorFromNavigationBar {
+    [_indicatorView stopAnimating];
+    [self.navigationItem setRightBarButtonItem:_selectBarButtonItem];
 }
 
 
 #pragma mark - Fetch
 - (void)_fetchAssets {
-    [_indicatorView startAnimating];
+    [self _addActivityIndicatorToNavigationBar];
     [_assetsManager fetchAssetsWithAlbumName:_albumName block:^(NSUInteger numberOfAssets, NSError *error) {
-        [_indicatorView stopAnimating];
+        [self _removeActivityIndicatorFromNavigationBar];
         if (!error) {
             if (numberOfAssets > 0 || _picker.shouldShowEmptyAlbums)
                 [_collectionView reloadData];

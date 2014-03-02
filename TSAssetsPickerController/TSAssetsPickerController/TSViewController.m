@@ -63,6 +63,13 @@
 }
 
 /*
+- (UIActivityIndicatorView *)assetsPickerController:(TSAssetsPickerController *)picker activityIndicatorViewForPlaceIn:(ViewPlace)place {
+    UIActivityIndicatorView *indicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    [indicatorView setColor:[UIColor redColor]];
+    [indicatorView setHidesWhenStopped:YES];
+    return indicatorView;
+}
+
 - (UICollectionViewLayout *)assetsPickerController:(TSAssetsPickerController *)picker needsLayoutForOrientation:(UIInterfaceOrientation)orientation {
     AssetsCollectionViewLayout *layout = [AssetsCollectionViewLayout new];
     if (UIInterfaceOrientationIsPortrait(orientation)) {
@@ -99,9 +106,7 @@
     
     return layout;
 }
- */
 
-/*
 - (NSString *)assetsPickerControllerTitleForAlbumsView:(TSAssetsPickerController *)picker {
     return @"Albums1";
 }
@@ -128,7 +133,8 @@
 
 - (BOOL)assetsPickerControllerShouldReverseAlbumsOrder:(TSAssetsPickerController *)picker {
     return YES;
-}*/
+}
+*/
 
 #pragma mark - TSAssetsPickerControllerDelegate
 - (void)assetsPickerControllerDidCancel:(TSAssetsPickerController *)picker {
@@ -136,8 +142,8 @@
 }
 
 - (void)assetsPickerController:(TSAssetsPickerController *)picker didFinishPickingAssets:(NSArray *)assets {
-    [_picker dismissViewControllerAnimated:YES completion:nil];
-    [DummyAssetsImporter importAssets:assets];
+//    [_picker dismissViewControllerAnimated:YES completion:nil];
+//    [DummyAssetsImporter importAssets:assets];
 }
 
 - (void)assetsPickerController:(TSAssetsPickerController *)picker failedWithError:(NSError *)error {

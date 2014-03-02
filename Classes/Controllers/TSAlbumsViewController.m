@@ -35,14 +35,15 @@
     self.title = _picker.albumsViewControllerTitle;
     [self _configureNavigationBarButtons];
     [self _setupViews];
-    [self _configureAndStartIndicatorView];
+    [self _addActivityIndicatorToNavigationBar];
 }
 
-- (void)_configureAndStartIndicatorView {
-    _indicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    _indicatorView.center = self.view.center;
-    [_indicatorView setHidesWhenStopped:YES];
-    [self.view addSubview:_indicatorView];
+- (void)_addActivityIndicatorToNavigationBar {
+    if (!_indicatorView) {
+        _indicatorView = [_picker activityIndicatorViewForPlaceIn:AlbumsView];
+        UIBarButtonItem *itemIndicator = [[UIBarButtonItem alloc] initWithCustomView:_indicatorView];
+        [self.navigationItem setRightBarButtonItem:itemIndicator];
+    }
 }
 
 #pragma mark - Configuration

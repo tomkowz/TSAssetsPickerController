@@ -26,6 +26,11 @@
 @protocol TSAssetsPickerControllerDelegate;
 @protocol TSAssetsPickerControllerDataSource;
 
+typedef enum {
+    AlbumsView,
+    AssetsView
+} ViewPlace;
+
 @interface TSAssetsPickerController : UINavigationController
 @property (nonatomic, weak) id <TSAssetsPickerControllerDelegate, UINavigationControllerDelegate> delegate;
 @property (nonatomic, weak) id <TSAssetsPickerControllerDataSource> dataSource;
@@ -43,6 +48,8 @@
 @optional
 /// Method called when assets collection view needs layout (e.g. when change orientation)
 - (UICollectionViewLayout *)assetsPickerController:(TSAssetsPickerController *)picker needsLayoutForOrientation:(UIInterfaceOrientation)orientation;
+
+- (UIActivityIndicatorView *)assetsPickerController:(TSAssetsPickerController *)picker activityIndicatorViewForPlaceIn:(ViewPlace)place;
 
 /// Title of TSAlbumsViewController
 - (NSString *)assetsPickerControllerTitleForAlbumsView:(TSAssetsPickerController *)picker;

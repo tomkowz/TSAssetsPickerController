@@ -83,6 +83,15 @@
     return layout;
 }
 
+- (UIActivityIndicatorView *)activityIndicatorViewForPlaceIn:(ViewPlace)place {
+    UIActivityIndicatorView *indicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    [indicatorView setHidesWhenStopped:YES];
+    if ([self.dataSource respondsToSelector:@selector(assetsPickerController:activityIndicatorViewForPlaceIn:)]) {
+        indicatorView = [self.dataSource assetsPickerController:self activityIndicatorViewForPlaceIn:place];
+    }
+    return indicatorView;
+}
+
 - (BOOL)shouldShowEmptyAlbums {
     BOOL should = NO;
     if ([self.dataSource respondsToSelector:@selector(assetsPickerControllerShouldShowEmptyAlbums:)]) {

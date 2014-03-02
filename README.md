@@ -36,7 +36,7 @@ Method which is called when user finished picking assets returns ALAssets object
 <br><br>
 
 ### TSAssetsPickerControllerDataSource
-Data source has plenty of methods that are used to configure TAssetsPickerController. Things which you can configure with data source are: **number of items to select**, **filter** (`TSFilter` described later), **layout for assets view in selected orientation**, **title of albums view**, **title of cancel button**, **title of select button**, **text of cell's label which is visible when no albums is available**, **reversed or normal order of albums/assets**, **determine if empty albums should be showed**, and if should be, **if picker should dimm title of cell which point on empty album**.
+Data source has plenty of methods that are used to configure TAssetsPickerController. Things which you can configure with data source are: **number of items to select**, **filter** (`TSFilter` described later), **layout for assets view in selected orientation**, **look of activity indicators** when fetching and finish picking assets, **title of albums view**, **title of cancel button**, **title of select button**, **text of cell's label which is visible when no albums is available**, **reversed or normal order of albums/assets**, **determine if empty albums should be showed**, and if should be, **if picker should dimm title of cell which point on empty album**.
 
 Last but not least is method you should use to **set subclasses for classes which you can customize**.
 <br><br>
@@ -152,6 +152,15 @@ Setting layout for appropriate orientations:
 	    return layout;
 	}
 ```
+`UIActivityIndicatorView` for both albums and assets views which is visible when picker is fetching data and when is finish picking. 
+```objective-c
+	- (UIActivityIndicatorView *)assetsPickerController:(TSAssetsPickerController *)picker activityIndicatorViewForPlaceIn:(ViewPlace)place {
+	    UIActivityIndicatorView *indicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+	    [indicatorView setColor:[UIColor redColor]];
+	    [indicatorView setHidesWhenStopped:YES];
+	    return indicatorView;
+	}
+```
 
 Other optional methods of data source.
 ```objective-c
@@ -207,7 +216,7 @@ If you like the project, you can donate it  :)
 # Changelog
 ##### 1.2 (02.03.2014)
 - `UICollectionFlowLayout` replaced with `UICollectionViewLayout`. Now setting layout is available via data source of `TSAssetsPickerController`.
-- Added activity indicators during fetching albums and assets.
+- Added customizable activity indicators during fetching albums and assets and when picker is finish picking.
 - Fixed wrong height of `UICollectionView` in `TSAssetsViewController` on iOS 6.
 - AssetCell's `thumbnailImageView` and `movieMarkImageView` now are updating layout correctly.
 - Improved performance during scrolling and loading 1000+ assets.
