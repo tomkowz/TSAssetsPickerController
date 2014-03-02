@@ -93,7 +93,7 @@
 
 - (void)_addActivityIndicatorToNavigationBar {
     if (!_indicatorView) {
-        _indicatorView = [_picker activityIndicatorViewForPlaceIn:AssetsView];
+        _indicatorView = [_picker activityIndicatorViewForPlace:AssetsView];
     }
     
     _selectBarButtonItem = self.navigationItem.rightBarButtonItem;

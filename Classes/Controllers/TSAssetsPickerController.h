@@ -49,7 +49,7 @@ typedef enum {
 /// Method called when assets collection view needs layout (e.g. when change orientation)
 - (UICollectionViewLayout *)assetsPickerController:(TSAssetsPickerController *)picker needsLayoutForOrientation:(UIInterfaceOrientation)orientation;
 
-- (UIActivityIndicatorView *)assetsPickerController:(TSAssetsPickerController *)picker activityIndicatorViewForPlaceIn:(ViewPlace)place;
+- (UIActivityIndicatorView *)assetsPickerController:(TSAssetsPickerController *)picker activityIndicatorViewForPlace:(ViewPlace)place;
 
 /// Title of TSAlbumsViewController
 - (NSString *)assetsPickerControllerTitleForAlbumsView:(TSAssetsPickerController *)picker;

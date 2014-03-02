@@ -83,11 +83,11 @@
     return layout;
 }
 
-- (UIActivityIndicatorView *)activityIndicatorViewForPlaceIn:(ViewPlace)place {
+- (UIActivityIndicatorView *)activityIndicatorViewForPlace:(ViewPlace)place {
     UIActivityIndicatorView *indicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     [indicatorView setHidesWhenStopped:YES];
-    if ([self.dataSource respondsToSelector:@selector(assetsPickerController:activityIndicatorViewForPlaceIn:)]) {
-        indicatorView = [self.dataSource assetsPickerController:self activityIndicatorViewForPlaceIn:place];
+    if ([self.dataSource respondsToSelector:@selector(assetsPickerController:activityIndicatorViewForPlace:)]) {
+        indicatorView = [self.dataSource assetsPickerController:self activityIndicatorViewForPlace:place];
     }
     return indicatorView;
 }

@@ -63,7 +63,7 @@
 }
 
 /*
-- (UIActivityIndicatorView *)assetsPickerController:(TSAssetsPickerController *)picker activityIndicatorViewForPlaceIn:(ViewPlace)place {
+- (UIActivityIndicatorView *)assetsPickerController:(TSAssetsPickerController *)picker activityIndicatorViewForPlace:(ViewPlace)place {
     UIActivityIndicatorView *indicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     [indicatorView setColor:[UIColor redColor]];
     [indicatorView setHidesWhenStopped:YES];

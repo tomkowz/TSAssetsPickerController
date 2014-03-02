@@ -154,7 +154,7 @@ Setting layout for appropriate orientations:
 ```
 `UIActivityIndicatorView` for both albums and assets views which is visible when picker is fetching data and when is finish picking. 
 ```objective-c
-	- (UIActivityIndicatorView *)assetsPickerController:(TSAssetsPickerController *)picker activityIndicatorViewForPlaceIn:(ViewPlace)place {
+	- (UIActivityIndicatorView *)assetsPickerController:(TSAssetsPickerController *)picker activityIndicatorViewForPlace:(ViewPlace)place {
 	    UIActivityIndicatorView *indicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
 	    [indicatorView setColor:[UIColor redColor]];
 	    [indicatorView setHidesWhenStopped:YES];

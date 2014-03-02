@@ -15,7 +15,7 @@
 - (NSString *)selectButtonTitle;
 - (NSString *)noAlbumsForSelectedFilter;
 - (UICollectionViewLayout *)assetsCollectionViewLayoutForOrientation:(UIInterfaceOrientation)orientation;
-- (UIActivityIndicatorView *)activityIndicatorViewForPlaceIn:(ViewPlace)place;
+- (UIActivityIndicatorView *)activityIndicatorViewForPlace:(ViewPlace)place;
 
 - (BOOL)shouldShowEmptyAlbums;
 - (BOOL)shouldDimmEmptyAlbums;

@@ -40,7 +40,7 @@
 
 - (void)_addActivityIndicatorToNavigationBar {
     if (!_indicatorView) {
-        _indicatorView = [_picker activityIndicatorViewForPlaceIn:AlbumsView];
+        _indicatorView = [_picker activityIndicatorViewForPlace:AlbumsView];
         UIBarButtonItem *itemIndicator = [[UIBarButtonItem alloc] initWithCustomView:_indicatorView];
         [self.navigationItem setRightBarButtonItem:itemIndicator];
     }
