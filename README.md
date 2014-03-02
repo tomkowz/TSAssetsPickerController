@@ -207,6 +207,7 @@ If you like the project, you can donate it  :)
 # Changelog
 ##### 1.2 (02.03.2014)
 - `UICollectionFlowLayout` replaced with `UICollectionViewLayout`. Now setting layout is available via data source of `TSAssetsPickerController`.
+- Added activity indicators during fetching albums and assets.
 - Fixed wrong height of `UICollectionView` in `TSAssetsViewController` on iOS 6.
 - AssetCell's `thumbnailImageView` and `movieMarkImageView` now are updating layout correctly.
 - Improved performance during scrolling and loading 1000+ assets.
