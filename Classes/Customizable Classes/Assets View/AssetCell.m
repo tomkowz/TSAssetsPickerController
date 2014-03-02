@@ -69,12 +69,6 @@
 
 #pragma mark - Configuration
 - (void)configure:(ALAsset *)asset {
-    CGImageRef thumbnailRef = [asset thumbnail];
-    UIImage *thumbnail = [UIImage imageWithCGImage:thumbnailRef];
-    [_thumbnailImageView setImage:thumbnail];
-    
-    NSString *type = [asset valueForProperty:ALAssetPropertyType];
-    [_movieMarkImageView setHidden:(![type isEqualToString:ALAssetTypeVideo])];
 }
 
 

@@ -22,6 +22,8 @@
     TSAssetsManager *_assetsManager;
     NSIndexPath *_selectedIndexPath;
     NSString *_albumName;
+
+    NSOperationQueue *_thumbnailQueue;
 }
 
 @end
@@ -31,7 +33,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self _setupAssetsManager];
-
+    
+    _thumbnailQueue = [NSOperationQueue new];
+    _thumbnailQueue.maxConcurrentOperationCount = 3;
+    
     [self _setupViews];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -145,10 +150,29 @@ static NSString *cellIdentifier = nil;
     }
 
     ALAsset *asset = _assetsManager.fetchedAssets[indexPath.row];
-    BOOL isSelected = [_assetsManager isAssetSelected:asset];
     
     [cell configure:asset];
+
+    BOOL isSelected = [_assetsManager isAssetSelected:asset];
     [cell markAsSelected:isSelected];
+
+    __weak TSAssetsViewController *weakSelf = self;
+    NSBlockOperation *operation = [NSBlockOperation blockOperationWithBlock:^{
+        CGImageRef thumbnailRef = [asset thumbnail];
+        UIImage *thumbnail = [UIImage imageWithCGImage:thumbnailRef];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if ([weakSelf.collectionView.indexPathsForVisibleItems containsObject:indexPath]) {
+                id aCell = [weakSelf.collectionView cellForItemAtIndexPath:indexPath];
+                [[(AssetCell *)aCell thumbnailImageView] setImage:thumbnail];
+                NSString *type = [asset valueForProperty:ALAssetPropertyType];
+                [[(AssetCell *)aCell movieMarkImageView] setHidden:(![type isEqualToString:ALAssetTypeVideo])];
+            }
+        });
+    }];
+    
+    [_thumbnailQueue addOperation:operation];
+    
     return cell;
 }
 
