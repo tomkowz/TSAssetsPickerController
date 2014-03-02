@@ -44,11 +44,10 @@ static NSString *const kCell = @"AssetCell";
     NSMutableDictionary *newLayoutInfo = [NSMutableDictionary dictionary];
     NSMutableDictionary *cellLayoutInfo = [NSMutableDictionary dictionary];
     
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     NSUInteger itemCount = [self.collectionView numberOfItemsInSection:0];
     
     for (NSUInteger item = 0; item < itemCount; item++) {
-        indexPath = [NSIndexPath indexPathForItem:item inSection:0];
+        NSIndexPath *indexPath = [NSIndexPath indexPathForItem:item inSection:0];
         
         UICollectionViewLayoutAttributes *itemAttributes =
         [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];

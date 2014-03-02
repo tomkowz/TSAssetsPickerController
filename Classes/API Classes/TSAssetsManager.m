@@ -93,8 +93,7 @@
 }
 
 - (NSArray *)fetchedAssets {
-    NSArray *array = [NSArray array];
-    
+    NSArray *array = nil;
     if (_canUseCachedFetchedAssets) {
         if (!_cachedFetchedAssets) {
             _cachedFetchedAssets = [NSArray arrayWithArray:_assetsLoader.fetchedAssets];
