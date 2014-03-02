@@ -22,6 +22,7 @@
 @interface TSAlbumsViewController ()  <UITableViewDelegate, UITableViewDataSource, TSAssetsViewControllerDelegate> {
     TSAlbumsLoader *_albumsLoader;
     BOOL _fetchedFirstTime;
+    UIActivityIndicatorView *_indicatorView;
 }
 
 @end
@@ -34,8 +35,15 @@
     self.title = _picker.albumsViewControllerTitle;
     [self _configureNavigationBarButtons];
     [self _setupViews];
+    [self _configureAndStartIndicatorView];
 }
 
+- (void)_configureAndStartIndicatorView {
+    _indicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    _indicatorView.center = self.view.center;
+    [_indicatorView setHidesWhenStopped:YES];
+    [self.view addSubview:_indicatorView];
+}
 
 #pragma mark - Configuration
 - (void)_configureAlbumsLoader {
@@ -86,10 +94,12 @@
 #pragma mark - Fetch
 - (void)_fetchAlbums {
     _fetchedFirstTime = NO;
+
+    [_indicatorView startAnimating];
     
     [_albumsLoader fetchAlbumNames:^(NSArray *albumNames, NSError *error) {
         _fetchedFirstTime = YES;
-        
+        [_indicatorView stopAnimating];
         if (!error) {
             [_tableView reloadData];
         } else {

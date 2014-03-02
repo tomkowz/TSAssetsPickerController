@@ -24,6 +24,8 @@
     NSString *_albumName;
 
     NSOperationQueue *_thumbnailQueue;
+    
+    UIActivityIndicatorView *_indicatorView;
 }
 
 @end
@@ -38,11 +40,19 @@
     _thumbnailQueue.maxConcurrentOperationCount = 3;
     
     [self _setupViews];
+    [self _configureAndStartIndicatorView];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(_fetchAssets)
                                                  name:UIApplicationDidBecomeActiveNotification
                                                object:nil];
+}
+
+- (void)_configureAndStartIndicatorView {
+    _indicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    _indicatorView.center = self.view.center;
+    [_indicatorView setHidesWhenStopped:YES];
+    [self.view addSubview:_indicatorView];
 }
 
 - (void)_setupViews {
@@ -85,7 +95,9 @@
 
 #pragma mark - Fetch
 - (void)_fetchAssets {
+    [_indicatorView startAnimating];
     [_assetsManager fetchAssetsWithAlbumName:_albumName block:^(NSUInteger numberOfAssets, NSError *error) {
+        [_indicatorView stopAnimating];
         if (!error) {
             if (numberOfAssets > 0 || _picker.shouldShowEmptyAlbums)
                 [_collectionView reloadData];
