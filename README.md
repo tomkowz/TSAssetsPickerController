@@ -2,7 +2,10 @@
 <p>&nbsp;</p>
 <p><p align="center"><img src="https://raw.github.com/tomkowz/TSAssetsPickerController/master/docs/demo.gif"/></p></p>
 
-TSAssetsPickerController is a control for iOS which works very similar to `UIImagePickerController`. It has an elegant and carefully designed classes.
+Highly customizable control used to select multiple assets (saved photos and videos) for use in your app. 
+
+It works similar to *UIImagePickerController* but allows to select multiple assets and this control is highly customizable. The control returns ALAsset objects which are easy to deal with. It also can filter assets by type and sizes.
+
 
 # Overview
 TSAssetsPickerController is a controller you can use to select multiple assets (ALAsset objects).
