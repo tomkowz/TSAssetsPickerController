@@ -6,6 +6,11 @@ Highly customizable control used to select multiple assets (saved photos and vid
 
 It works similar to *UIImagePickerController* but allows to select multiple assets and this control is highly customizable. The control returns ALAsset objects which are easy to deal with. It also can filter assets by type and sizes.
 
+# Donate
+If you like it... :)
+
+<a href="https://flattr.com/submit/auto?user_id=tomkowz&url=http%3A%2F%2Fgithub.com%2Ftomkowz%2FTSAssetsPickerController" target="_blank"><img src="http://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0"></a>
+
 
 # Overview
 TSAssetsPickerController is a controller you can use to select multiple assets (ALAsset objects).
@@ -210,11 +215,6 @@ To install and use `TSAssetsPickerController` you have to add `Classes` director
 
     pod 'TSAssetsPickerController'
 
-
-# Donate [![image](https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=szulc%2etomasz%40o2%2epl&lc=US&item_name=Donate%20for%20TSAssetsPickerController&item_number=TSAssetsPickerController&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted)
-
-If you like the project, you can donate it  :)
-<br><br>
 
 # Changelog
 ##### 1.2 (02.03.2014)
