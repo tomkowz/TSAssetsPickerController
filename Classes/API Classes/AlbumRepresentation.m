@@ -10,14 +10,15 @@
 
 @implementation AlbumRepresentation
 
-+ (instancetype)albumRepresentationWithName:(NSString *)name isEmpty:(BOOL)empty {
-    return [[AlbumRepresentation alloc] initWithAlbumName:name isEmpty:empty];
++ (instancetype)albumRepresentationWithName:(NSString *)name thumbnail:(UIImage *)thumbnail isEmpty:(BOOL)empty {
+    return [[AlbumRepresentation alloc] initWithAlbumName:name thumbnail:(UIImage *)thumbnail isEmpty:empty];
 }
 
-- (instancetype)initWithAlbumName:(NSString *)name isEmpty:(BOOL)empty {
+- (instancetype)initWithAlbumName:(NSString *)name thumbnail:(UIImage *)thumbnail isEmpty:(BOOL)empty {
     self = [super init];
     if (self) {
         _name = name;
+        _thumbnail = thumbnail;
         _empty = empty;
     }
     return self;

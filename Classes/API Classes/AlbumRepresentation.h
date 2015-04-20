@@ -11,8 +11,9 @@
 @interface AlbumRepresentation : NSObject
 
 @property (nonatomic, readonly) NSString *name;
+@property (nonatomic, readonly) UIImage *thumbnail;
 @property (nonatomic, readonly, getter = isEmpty) BOOL empty;
 
-+ (instancetype)albumRepresentationWithName:(NSString *)name isEmpty:(BOOL)empty;
++ (instancetype)albumRepresentationWithName:(NSString *)name thumbnail:(UIImage *)thumbnail isEmpty:(BOOL)empty;
 
 @end
