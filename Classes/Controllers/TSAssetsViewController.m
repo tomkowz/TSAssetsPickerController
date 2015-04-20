@@ -18,6 +18,13 @@
 #import "TSAssetsPickerController+Internals.h"
 #import "AssetsCollectionViewLayout.h"
 
+typedef NS_ENUM(NSInteger, TSAssetsViewControllerUIState){
+    TSAssetsViewControlleUIStaterNone,
+    TSAssetsViewControllerUIStateIdle,
+    TSAssetsViewControllerUIStateBusy
+};
+
+
 @interface TSAssetsViewController () <UICollectionViewDelegate, UICollectionViewDataSource> {
     TSAssetsManager *_assetsManager;
     NSIndexPath *_selectedIndexPath;
@@ -28,6 +35,8 @@
     UIActivityIndicatorView *_indicatorView;
     UIBarButtonItem *_selectBarButtonItem;
 }
+
+@property (nonatomic, assign) TSAssetsViewControllerUIState vcState;
 
 @end
 
@@ -79,15 +88,26 @@
     [self _fetchAssets];
 }
 
+- (void)setVcState:(TSAssetsViewControllerUIState)vcState {
+    if (vcState == TSAssetsViewControllerUIStateIdle) {
+        if (_vcState == TSAssetsViewControllerUIStateBusy) {
+            [self.navigationItem setHidesBackButton:NO];
+            [self.navigationItem.rightBarButtonItem setEnabled:YES];
+            self.collectionView.userInteractionEnabled = YES;
+            [self _removeActivityIndicatorFromNavigationBar];
+        }
+    } else if (vcState == TSAssetsViewControllerUIStateBusy) {
+        [self.navigationItem setHidesBackButton:YES];
+        [self.navigationItem.rightBarButtonItem setEnabled:NO];
+        self.collectionView.userInteractionEnabled = NO;
+        [self _addActivityIndicatorToNavigationBar];
+    }
+    _vcState = vcState;
+}
 
 #pragma mark - Actions
 - (void)onSelectPressed {
-    [self.navigationItem setHidesBackButton:YES];
-    [self.navigationItem.rightBarButtonItem setEnabled:NO];
-    self.collectionView.userInteractionEnabled = NO;
-    
-    [self _addActivityIndicatorToNavigationBar];
-    
+    self.vcState = TSAssetsViewControllerUIStateBusy;
     [_delegate assetsViewController:self didFinishPickingAssets:_assetsManager.selectedAssets];
 }
 
@@ -110,17 +130,18 @@
 
 #pragma mark - Fetch
 - (void)_fetchAssets {
-    [self _addActivityIndicatorToNavigationBar];
+    self.vcState = TSAssetsViewControllerUIStateBusy;
+    __weak typeof(self) weakSelf = self;
     [_assetsManager fetchAssetsWithAlbumName:_albumName block:^(NSUInteger numberOfAssets, NSError *error) {
-        [self _removeActivityIndicatorFromNavigationBar];
+        weakSelf.vcState = TSAssetsViewControllerUIStateIdle;
         if (!error) {
             if (numberOfAssets > 0 || _picker.shouldShowEmptyAlbums)
                 [_collectionView reloadData];
             else {
-                [self.navigationController popViewControllerAnimated:YES];
+                [weakSelf.navigationController popViewControllerAnimated:YES];
             }
         } else {
-            [_delegate assetsViewController:self failedWithError:error];
+            [_delegate assetsViewController:weakSelf failedWithError:error];
         }
     }];
 }
