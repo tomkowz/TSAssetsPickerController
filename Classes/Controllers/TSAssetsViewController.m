@@ -24,16 +24,13 @@ typedef NS_ENUM(NSInteger, TSAssetsViewControllerUIState){
     TSAssetsViewControllerUIStateBusy
 };
 
-
 @interface TSAssetsViewController () <UICollectionViewDelegate, UICollectionViewDataSource> {
     TSAssetsManager *_assetsManager;
     NSIndexPath *_selectedIndexPath;
     NSString *_albumName;
 
     NSOperationQueue *_thumbnailQueue;
-    
     UIActivityIndicatorView *_indicatorView;
-    UIBarButtonItem *_selectBarButtonItem;
 }
 
 @property (nonatomic, assign) TSAssetsViewControllerUIState vcState;
@@ -116,7 +113,6 @@ typedef NS_ENUM(NSInteger, TSAssetsViewControllerUIState){
         _indicatorView = [_picker activityIndicatorViewForPlace:AssetsView];
     }
     
-    _selectBarButtonItem = self.navigationItem.rightBarButtonItem;
     UIBarButtonItem *itemIndicator = [[UIBarButtonItem alloc] initWithCustomView:_indicatorView];
     [self.navigationItem setRightBarButtonItem:itemIndicator];
     [_indicatorView startAnimating];
@@ -124,9 +120,9 @@ typedef NS_ENUM(NSInteger, TSAssetsViewControllerUIState){
 
 - (void)_removeActivityIndicatorFromNavigationBar {
     [_indicatorView stopAnimating];
-    [self.navigationItem setRightBarButtonItem:_selectBarButtonItem];
+    _selectButton = [self newSelectButton];
+    [self.navigationItem setRightBarButtonItem:_selectButton];
 }
-
 
 #pragma mark - Fetch
 - (void)_fetchAssets {
