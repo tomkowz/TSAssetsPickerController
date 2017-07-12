@@ -153,9 +153,10 @@ static NSString *const toAssetSegue = @"ToAssets";
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
-    AlbumRepresentation *album = _albumsLoader.fetchedAlbumRepresentations[indexPath.row];
-    [self _showAssetsViewControllerWithAlbumName:album.name];
+    if (_albumsLoader.fetchedAlbumRepresentations.count > 0) {
+        AlbumRepresentation *album = _albumsLoader.fetchedAlbumRepresentations[indexPath.row];
+        [self _showAssetsViewControllerWithAlbumName:album.name];
+    }
 }
 
 - (void)_showAssetsViewControllerWithAlbumName:(NSString *)name {
