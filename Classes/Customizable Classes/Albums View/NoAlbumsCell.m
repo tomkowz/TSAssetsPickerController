@@ -22,6 +22,7 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
     CGFloat margin = [self margin];
     CGRect frame = _label.frame;
     frame.size.width = CGRectGetWidth(self.frame) - (2 * margin);
