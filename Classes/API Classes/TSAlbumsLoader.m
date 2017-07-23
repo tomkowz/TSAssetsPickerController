@@ -36,11 +36,14 @@
                                     [group setAssetsFilter:self.filter.assetsFilter];
                                     
                                     __block BOOL matchToFilter = NO;
-                                    [group enumerateAssetsUsingBlock:^(ALAsset *result, NSUInteger index, BOOL *stop) {
+                                    __block UIImage *thumbnail = nil;
+                                    
+                                    [group enumerateAssetsWithOptions:NSEnumerationReverse usingBlock:^(ALAsset *result, NSUInteger index, BOOL *stop) {
                                         if (!representation && result) {
                                             CGSize assetSize = [result.defaultRepresentation dimensions];
                                             matchToFilter = [self.filter isSizeMatch:assetSize];
                                             if (matchToFilter) {
+                                                thumbnail = [UIImage imageWithCGImage:[result thumbnail]];
                                                 *stop = YES;
                                             }
                                         }
@@ -48,9 +51,8 @@
                                     
                                     if (matchToFilter || _shouldReturnEmptyAlbums) {
                                         NSString *groupName = [group valueForProperty:ALAssetsGroupPropertyName];
-                                        representation = [AlbumRepresentation albumRepresentationWithName:groupName isEmpty:!matchToFilter];
+                                        representation = [AlbumRepresentation albumRepresentationWithName:groupName thumbnail:thumbnail isEmpty:!matchToFilter];
                                     }
-                                    
                                     
                                     if (representation) {
                                         [albumRepresentations addObject:representation];

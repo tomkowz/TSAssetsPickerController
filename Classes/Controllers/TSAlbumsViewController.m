@@ -130,6 +130,7 @@ static NSString *const toAssetSegue = @"ToAssets";
         
         AlbumRepresentation *albumRepresentation = _albumsLoader.fetchedAlbumRepresentations[indexPath.row];
         [(UILabel *)[cell valueForKey:@"textLabel"] setText:albumRepresentation.name];
+        [(UIImageView *)[cell valueForKey:@"imageView"] setImage:albumRepresentation.thumbnail];
 
         if (_picker.shouldDimmEmptyAlbums)
             [cell dimm:albumRepresentation.isEmpty];
@@ -151,6 +152,11 @@ static NSString *const toAssetSegue = @"ToAssets";
 
 
 #pragma mark - UITableViewDelegate
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 80;
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (_albumsLoader.fetchedAlbumRepresentations.count > 0) {
